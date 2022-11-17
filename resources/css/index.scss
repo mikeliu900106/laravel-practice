@@ -1,0 +1,142 @@
+$black_white: #e9e9e9 ;
+@mixin size($w,$h:$w){
+    width: $w;
+    height: $h;
+}
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*{
+  //border: black solid 1px;
+}
+html,body{
+  //position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -999;
+  margin: 0px;
+  @include size(100%,100%);
+}
+
+nav{
+  @include size(100%,10%);
+  position: relative;
+  display: flex;
+  margin: 0px; 
+  .logo{
+    @include flexCenter;
+    @include size(200px,100%);
+    position: relative;
+    font-size: 60px;
+    left: 0px;
+  }
+  .UserBox{
+    @include size(100px,100%);
+    @include flexCenter;
+    margin-left:70px;
+    margin-right:70px;
+    position: relative;
+    font-size: 25px;
+    color: qray;
+  }
+  .UserBox_s{
+    @extend .UserBox;
+    left: 32%;
+  }
+  .UserBox_c{
+    @extend .UserBox;
+    left: 32%;
+  }
+  .UserBox_t{
+    @extend .UserBox;
+    left: 32%;
+  }
+  .user_img{
+    @include size(100px,100%);
+    @include flexCenter;
+    margin-left:70px;
+    margin-right:70px;
+    position: absolute;
+    font-size: 25px;
+    color: qray;
+    left: 82%;
+  } 
+  .user_img2{
+    @include size(100px,100%);
+    @include flexCenter;
+    margin-left:70px;
+    margin-right:70px;
+    position: absolute;
+    font-size: 25px;
+    color: qray;
+    left: 87%;
+  }
+  .hr{
+    position: absolute;
+    @include size(100%,3px);
+    background-color: black;
+    top: 100%;
+    left: 0px; 
+    z-index: 9;
+  }
+  .jump1{
+    position: absolute;
+    @include size(200px,330px);
+    
+    left: 43%;
+    top: 100%;
+    border-radius: 15px;
+    background: #FAF8F8;
+    box-shadow: 0px 0px 10px 0px rgb(35 31 32 / 10%);
+    z-index: 30;
+    a{
+        @include flexCenter;
+        position: relative;
+        font-size: 24px;
+        margin-top: 15px;
+        letter-spacing: 4px;
+        top: 7%;
+    }
+  }
+  .jump2{
+    @extend .jump1;
+    left: 55%;
+    
+  }
+  .jump3{
+    @extend .jump1;
+    left: 67%;
+  }
+}
+
+.main{
+  @include size(100%,90%);
+  position: relative;
+  background: #e9e9e9;
+  left: 0px;
+  margin: 0px;  
+  
+  .word{
+    @include flexCenter;
+    position: absolute;
+    font-size: 70px;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .word_main{
+    
+    @extend .word;
+    font-size: 90px;
+    bottom: 40%;
+    left: 50%;
+    
+  }
+
+}
+
