@@ -26,7 +26,6 @@
                 <th>科系要求</th>
                 <th>其他事項</th>
                 <th>工作保險</th>
-                <th>工作保險</th>
                 <th>更新</th>
                 <th>刪除ㄒ</th>
             <tr>
@@ -41,8 +40,6 @@
                 <td>{{$Vacancie->company_Education }}</td>
                 <td>{{$Vacancie->company_department }}</td>
                 <td>{{$Vacancie->company_other}}</td>
-                <td>{{$Vacancie->company_company_safe}}</td>
-                <td>{{$Vacancie->company_company_safe}}</td>
                 <td>{{$Vacancie->company_company_safe}}</td>
                 <form action = "{{route('Vacancies.destroy',$Vacancie->vacancies_id) }}" method = "post">
                     @method('DELETE')

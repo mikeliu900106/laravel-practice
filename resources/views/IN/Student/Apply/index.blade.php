@@ -20,25 +20,29 @@
             <div id="content">
                 
                 <div id="applyBox">
-                    
+                    <form action="{{route("Apply.index")}}" method = "GET">
+                        <input type="search" id="site-search" name="search">
+                        <button>查詢</button>
+                    </form>
                     <?echo $user_id?>
                     @foreach ($Vacancies as $Vacancie)
                         <?php 
-                            $vacancies_id= $Vacancie->teacher_watch;
-                            echo $vacancies_id;
-                            $company_id = $Vacancie->company_id;
-                            echo $company_id;
+                            $vacancies_id= $Vacancie->vacancies_id;
                         ?>
                         <div class="jobscont">
                             <div class="job_img">
                                 <img src="../../image/content2.jpg"></img>
                             </div>
                             <div class="job_t">
-                                <p><?php echo $Vacancie->vacancies_name ?></p>
+                                <p>職位名稱:{{$Vacancie->vacancies_name}}</p>
                             </div>
-                            <a href="{{route('Apply.show',$vacancies_id
-                            //問學長
-                            )}}"><img src="../../image/info-circle.svg">ssss</a>
+                            <div class="job_t">
+                                <p>公司名稱:{{$Vacancie->company_name}}</p>
+                            </div>
+                            <a href="{{route('Apply.show',$vacancies_id)}}">
+                                <img src="../../image/info-circle.svg">
+                                詳細資訊
+                            </a>
                             <!-- <img src="image/info-circle.svg" class="moreInfobtn"> -->
                         </div>
                     @endforeach

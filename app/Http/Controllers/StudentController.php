@@ -54,21 +54,21 @@ class StudentController extends Controller
             'email' => 'required|email',
             
         ]);
-        echo  $studentdata['username'];
-        echo  $studentdata['password'];
-        echo  $studentdata['email'];
-        $Student_username_isUse = Student::where('user_name',  $studentdata['username'])->count();
+        echo  $student_data['username'];
+        echo  $student_data['password'];
+        echo  $student_data['email'];
+        $Student_username_isUse = Student::where('user_name',  $student_data['username'])->count();
         if($Student_username_isUse == 0){
-            // $Student_insert = Student::create(
-            //     [
-            //         'user_id'       =>  $student_id,
-            //         'user_real_name'     =>  $studentdata['real_name'],
-            //         'user_name'     =>  $studentdata['username'],
-            //         'user_password' =>  $studentdata['password'],
-            //         'user_email'    =>  $studentdata['email'],
-            //         'user_level'         =>  "1",
-            //     ]
-            // );
+            $Student_insert = Student::create(
+                [
+                    'user_id'       =>  $student_id,
+                    'user_real_name'     =>  $studentdata['real_name'],
+                    'user_name'     =>  $student_data['username'],
+                    'user_password' =>  $student_data['password'],
+                    'user_email'    =>  $student_data['email'],
+                    'user_level'         =>  "1",
+                ]
+            );
             $random = codestr();
             //echo $random;
             $student_data["random"] = $random;

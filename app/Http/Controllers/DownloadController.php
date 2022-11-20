@@ -44,19 +44,17 @@ class DownloadController extends Controller
         $zip_file = 'invoices.zip';
         $zip = new \ZipArchive();
         $resume_data = Resume::select("file_path","file_name")->where('user_id',$user_id)->get();
+        
+        $zip->open($zip_file, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
         foreach($resume_data as $value){
             $resume_path = $value -> file_path;
-            $resume_file_name = $value -> file_name;
+            $resume_file_name = $value -> file_name;       
+            $zip->addFile(storage_path($resume_path), $resume_path);
             echo $resume_path;
             //echo $resume_file_name;
         }
-
-        $file= $resume_path.$resume_file_name;
-
-        $headers = [
-            'Content-Type: application/pdf',
-        ];
-        return response()->download($file, '成績單.pdf', $headers);
+        $zip->close();
+        return response()->download($zip_file);
     }
 
     /**

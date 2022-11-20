@@ -1,0 +1,135 @@
+html, body {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -999;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  margin: 0px;
+}
+nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100%;
+  position: relative;
+  font-size: 60px;
+  left: 0px;
+}
+nav .UserBox, nav .UserBox_t, nav .UserBox_c, nav .UserBox_s {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
+  margin-right: 70px;
+  position: relative;
+  font-size: 25px;
+  color: qray;
+}
+nav .UserBox_s {
+  left: 32%;
+}
+nav .UserBox_c {
+  left: 32%;
+}
+nav .UserBox_t {
+  left: 32%;
+}
+nav .user_img {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
+  margin-right: 70px;
+  position: absolute;
+  font-size: 25px;
+  color: qray;
+  left: 82%;
+}
+nav .user_img2 {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
+  margin-right: 70px;
+  position: absolute;
+  font-size: 25px;
+  color: qray;
+  left: 87%;
+}
+nav .hr {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  top: 100%;
+  left: 0px;
+  z-index: 9;
+}
+nav .jump1, nav .jump3, nav .jump2 {
+  position: absolute;
+  width: 200px;
+  height: 330px;
+  left: 43%;
+  top: 100%;
+  border-radius: 15px;
+  background: #FAF8F8;
+  box-shadow: 0px 0px 10px 0px rgba(35, 31, 32, 0.1);
+  z-index: 30;
+}
+nav .jump1 a, nav .jump3 a, nav .jump2 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 24px;
+  margin-top: 15px;
+  letter-spacing: 4px;
+  top: 7%;
+}
+nav .jump2 {
+  left: 55%;
+}
+nav .jump3 {
+  left: 67%;
+}
+
+.main {
+  width: 100%;
+  height: 90%;
+  position: relative;
+  background: #e9e9e9;
+  left: 0px;
+  margin: 0px;
+}
+.main .word, .main .word_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 70px;
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .word_main {
+  font-size: 90px;
+  bottom: 40%;
+  left: 50%;
+}/*# sourceMappingURL=app.css.map */

@@ -72,6 +72,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
+        
         function  getResumeName(){
             $today = date("Ynj");
             $nums = Resume::count();
