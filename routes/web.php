@@ -20,6 +20,7 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CompanyPairController;
 use App\Http\Controllers\CompanyChatController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,3 +67,4 @@ Route::resource('Mail',MailController::class);
 Route::resource('Check',CheckController::class);
 Route::resource('CompanyPair',CompanyPairController::class);
 Route::resource('CompanyChat',CompanyChatController::class);
+

@@ -16,7 +16,7 @@
     </head>
     <body>
         @section('nav')
-        <nav class="navbar navbar-expand navbar-light bg-light">
+        {{-- <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="container-fluid">
               <a class="navbar-brand fs-2" href="#">pccu</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,8 +68,8 @@
                 </ul>
               </div>
             </div>
-        </nav>
-            {{-- <nav>
+        </nav> --}}
+            <nav>
                 <div class="logo">pccu</div>
                     <a class="UserBox_s">學生</a>
                     <a class="UserBox_c">廠商</a>
@@ -98,7 +98,7 @@
                     <a href= "{{route('Check.index')}}">職位審查</a>
     <!--之後要改-->  <a href= "{{route('CompanyPair.index')}}">實習配對</a>
                 </div>
-            </nav>  --}}
+            </nav> 
         @show    
         <div class = "main" >
             @section('content')

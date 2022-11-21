@@ -1,16 +1,53 @@
 html, body {
-  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   z-index: -999;
-  margin: 0;
+  margin: 0px;
   width: 100%;
   height: 100%;
 }
 
-.user_img {
+nav {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  margin: 0px;
+}
+nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100%;
+  position: relative;
+  font-size: 60px;
+  left: 0px;
+}
+nav .UserBox, nav .UserBox_t, nav .UserBox_c, nav .UserBox_s {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
+  margin-right: 70px;
+  position: relative;
+  font-size: 25px;
+  color: qray;
+}
+nav .UserBox_s {
+  left: 32%;
+}
+nav .UserBox_c {
+  left: 32%;
+}
+nav .UserBox_t {
+  left: 32%;
+}
+nav .user_img {
   width: 100px;
   height: 100%;
   display: flex;
@@ -23,8 +60,7 @@ html, body {
   color: qray;
   left: 82%;
 }
-
-.user_img2 {
+nav .user_img2 {
   width: 100px;
   height: 100%;
   display: flex;
@@ -37,8 +73,7 @@ html, body {
   color: qray;
   left: 87%;
 }
-
-.hr {
+nav .hr {
   position: absolute;
   width: 100%;
   height: 3px;
@@ -47,8 +82,7 @@ html, body {
   left: 0px;
   z-index: 9;
 }
-
-.jump1, .jump3, .jump2 {
+nav .jump1, nav .jump3, nav .jump2 {
   position: absolute;
   width: 200px;
   height: 330px;
@@ -59,7 +93,7 @@ html, body {
   box-shadow: 0px 0px 10px 0px rgba(35, 31, 32, 0.1);
   z-index: 30;
 }
-.jump1 a, .jump3 a, .jump2 a {
+nav .jump1 a, nav .jump3 a, nav .jump2 a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,12 +103,10 @@ html, body {
   letter-spacing: 4px;
   top: 7%;
 }
-
-.jump2 {
+nav .jump2 {
   left: 55%;
 }
-
-.jump3 {
+nav .jump3 {
   left: 67%;
 }
 

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pair;
 
-class CompanyPairController extends Controller
+class ErrorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,34 +13,7 @@ class CompanyPairController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '2') {
-                $user_id = session()->get('user_id');
-
-                $Pair_data = 
-                Pair::join('user', 'Pair.user_id', '=', 'user.user_id')
-                    ->select('Pair.*', 'user.user_real_name')
-                    ->get();
-                ;
-                echo $Pair_data;
-                return view('IN.Teacher.Pair.show',[
-                        'Pairs' => $Pair_data,
-                        
-                ]);
-
-
-            }
-            else{
-                echo "你不是教師";
-                return redirect()->
-                //1. 顯示錯誤2.錯誤controller
-                
-
-            }
-        }
-        else{
-            echo "你沒登入";
-        }
+        $request->errMsg;
     }
 
     /**
@@ -107,6 +79,6 @@ class CompanyPairController extends Controller
      */
     public function destroy($id)
     {
-        $delete_pair = Pair::where('user_id', '=', $id)->delete();
+        //
     }
 }
