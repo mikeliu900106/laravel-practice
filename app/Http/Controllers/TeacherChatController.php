@@ -4,27 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Chat;
-
-class ChatController extends Controller
+class TeacherChatController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '1') {
+            if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
                 $Chat = Chat::get();
-                return view('IN.student.TeacherChat.index',[
+                return view('IN.student.Chat.index',[
                     'Chats'=> $Chat,
                 ]);
             }
             else{
-                echo "你不是學生";
+                echo "你不是老師";
                 //1. 顯示錯誤2.錯誤controller
                 
 
@@ -33,7 +31,6 @@ class ChatController extends Controller
         else{
             echo "你沒登入";
         }
-        
     }
 
     /**
@@ -41,10 +38,9 @@ class ChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         
-
     }
 
     /**
@@ -62,7 +58,7 @@ class ChatController extends Controller
         ]);
         $user_id = session()->get('user_id');
         $today = date("Ynj");
-        $Chat_insert = Chat::create(
+        $Chat_insert = Student::create(
             [
                 'chat_id'        =>  $user_id,
                 'chat_maker'     =>  $validate['maker'],

@@ -20,6 +20,8 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CompanyPairController;
 use App\Http\Controllers\CompanyChatController;
+use App\Http\Controllers\TeacherChatController;
+use App\Http\Controllers\ScoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,4 +69,6 @@ Route::resource('Mail',MailController::class);
 Route::resource('Check',CheckController::class);
 Route::resource('CompanyPair',CompanyPairController::class);
 Route::resource('CompanyChat',CompanyChatController::class);
-
+Route::resource('TeacherChat',TeacherChatController::class);
+Route::resource('TeacherChat',TeacherChatController::class);
+Route::resource('Score',ScoreController::class);

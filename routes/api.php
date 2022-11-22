@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Vacancies;
+use App\Models\Company;
+use App\Models\Resume;
+use App\Models\Student;
 
 /*
 |--------------------------------------------------------------------------

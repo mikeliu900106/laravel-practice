@@ -1,36 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Resume;
-use Mail;
-class MailController extends Controller
+use Illuminate\Http\Request;
+
+class MailChatController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {    
+    public function index()
+    {
         if ($request->session()->has('user_id')) {
-        if ($request->session()->get('level') == '1') {
-            $user_id = session()->get('user_id');
-            return view("Mail.index");
-
+            if ($request->session()->get('level') == '1') {
+                $user_id = session()->get('user_id');
+                return view("Mail.index");
+    
+            }
+            else{
+                echo "你不是學生";
+                //1. 顯示錯誤2.錯誤controller
+                
+    
+            }
         }
         else{
-            echo "你不是學生";
-            //1. 顯示錯誤2.錯誤controller
-            
-
+            echo "你沒登入";
         }
-    }
-    else{
-        echo "你沒登入";
-    }
-        
+
     }
 
     /**
@@ -51,7 +50,6 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-        
         $data= $request->all();
         $user_id = session()->get('user_id');
         if( Resume::where("user_id",$user_id)->count()>0){
@@ -106,8 +104,6 @@ class MailController extends Controller
         else{
             echo "請先上傳履歷";
         }
-        
- 
     }
 
     /**

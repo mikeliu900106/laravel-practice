@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Response;
 use App\Models\Resume;
+use App\Models\Score;
 
 class DownloadController extends Controller
 {
@@ -76,7 +77,16 @@ class DownloadController extends Controller
      */
     public function show($id)
     {
-        //
+        $resume_data = Resume::where('user_id',$id)->get();
+        foreach($resume_data as $value){
+            $file_name = $value["file_name"];
+            
+            $real_file_path = public_path()."/storage/upload/".$file_name;
+        }
+        $headers = array(
+            'Content-Type: application/pdf',
+          );
+        return Response::download($real_file_path);
     }
 
     /**
@@ -87,7 +97,17 @@ class DownloadController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $Score_data = Score::where('user_id',$id)->get();
+        foreach($Score_data as $value){
+            $file_name = $value["file_name"];
+            
+            $real_file_path = public_path()."/storage/upload/".$file_name;
+        }
+        $headers = array(
+            'Content-Type: application/pdf',
+          );
+        return Response::download($real_file_path);
     }
 
     /**

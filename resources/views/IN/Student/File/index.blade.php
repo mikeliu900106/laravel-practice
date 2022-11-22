@@ -12,19 +12,8 @@
     @endsection
 
     @section('content')
-    
-            @foreach($upload as $value)
-            <a>sv</a>
-                <div>
-                    履歷
-                </div>
-                <div>
-                    歷年成績單
-                </div>
-                    <a href = "{{route('File.create')}}">更改</a>
-                    <a href = "{{route('Download.create')}}">下載</a>
-            @endforeach
- 
+        <td><a href = "{{route('Score.index')}}">歷年成績單</a></td>
+        <td> <a href = "{{route('Resume.index')}}">履歷</a></td>
     @endsection
 
 

@@ -33,9 +33,7 @@ class CompanyPairController extends Controller
             }
             else{
                 echo "你不是教師";
-                return redirect()->
                 //1. 顯示錯誤2.錯誤controller
-                
 
             }
         }

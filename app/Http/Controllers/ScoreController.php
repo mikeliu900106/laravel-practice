@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
+use App\Models\Score;
 use App\Models\Resume;
 
-class ResumeController extends Controller
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +19,13 @@ class ResumeController extends Controller
     public function index()
     {
         $user_id = session()->get('user_id');
-        if(Resume::where('user_id',$user_id)->count()==0){
-            return view('IN.Student.Resume.store');
+        if(Score::where('user_id',$user_id)->count()==0){
+            return view('IN.Student.Score.store');
         }else{
-            $Resumes = Resume::where('user_id',$user_id)->get();
-            return view('IN.Student.Resume.show',
+            $Scores = Score::where('user_id',$user_id)->get();
+            return view('IN.Student.Score.show',
             [
-                "Resumes"  => $Resumes,
+                "Scores"  => $Scores,
                 "user_id" => $user_id,
             ]);
         }
@@ -39,7 +40,7 @@ class ResumeController extends Controller
     {
         $user_id = $request -> user_id;
         echo  $user_id;
-        return view('IN.Student.Resume.update',
+        return view('IN.Student.Score.update',
             [
                 "user_id" => $user_id,
             ]);
@@ -55,30 +56,25 @@ class ResumeController extends Controller
     {
         $file_floder = 'public\upload\\';
         $user_id = session()->get('user_id');
-        function  getResumeName(){
+        function  getScoreName(){
             $today = date("Ynj");
-            $nums = Resume::count();
-            $name = "R" . (($today * 1000000) + ($nums + 1)).".pdf";
+            $nums = Score::count();
+            $name = "SC" . (($today * 1000000) + ($nums + 1)).".pdf";
             return $name;
         }
         if($request->hasFile('files')){
             $files = $request->file('files');
-            $file_name =  getResumeName();
+            $file_name =  getScoreName();
             $file_path = public_path()."\upload\\".$file_name;
             $files->storeAs($file_floder,$file_name) ;
-            $Resumes = Resume::where('user_id',$user_id)->get();
-            $Resume = [
+            $Scores = Score::where('user_id',$user_id)->get();
+            $Score = [
                 'user_id'    => $user_id,
                 'file_path'  => $file_path,
                 'file_name'  => $file_name,
             ];
-            Resume::create($Resume);
-            return redirect()->route("Resume.index");
-            // return view("IN.Student.Resume.show",
-            // [
-            //     "Resumes"  => $Resumes,
-            //     "user_id" => $user_id,
-            // ]);
+            Score::create($Score);
+            return redirect()->route("Score.index");
         }
         else{
             echo "沒上傳檔案";
@@ -117,10 +113,10 @@ class ResumeController extends Controller
     public function update(Request $request, $id)
     {
         $file_floder = 'public\upload\\';
-        function  getResumeName(){
+        function  getScoreName(){
             $today = date("Ynj");
-            $nums = Resume::count();
-            $name = "R" . (($today * 1000000) + ($nums + 1)).".pdf";
+            $nums = Score::count();
+            $name = "SC" . (($today * 1000000) + ($nums + 1)).".pdf";
             return $name;
         }
 
@@ -146,22 +142,23 @@ class ResumeController extends Controller
                 Resume::where("user_id",$id)->delete();
             }
         }
+
         if($request->hasFile('files')){
-            delete_file($id,$database = "Resume",$file_floder = 'public\upload\\');
-            Resume::where('user_id',$id)->delete();
+            delete_file($id,$database = "Score",$file_floder = 'public\upload\\');
+            Score::where('user_id',$id)->delete();
             $files = $request->file('files');
-            $file_name =  getResumeName();
+            $file_name =  getScoreName();
             $file_path = public_path()."\upload\\".$file_name;
             $files->storeAs($file_floder,$file_name) ;
-            $Resumes = Resume::where('user_id',$id)->get();
-            $Resume = [
+            $Scores = Score::where('user_id',$id)->get();
+            $Score = [
                 'user_id'    => $id,
                 'file_path'  => $file_path,
                 'file_name'  => $file_name,
             ];
-            Resume::create($Resume);
+            Score::create($Score);
             
-            return redirect()->route("Resume.index");
+            return redirect()->route("Score.index");
         }
         else{
             echo "沒上傳檔案";
@@ -198,9 +195,8 @@ class ResumeController extends Controller
                 Resume::where("user_id",$id)->delete();
             }
         }
-        $Resumes = Resume::where("user_id",$id)->get();
-        delete_file($id,$database = "Resume",$file_floder = 'public\upload\\');
-        Resume::where('user_id',$id)->delete();
-        return redirect()->route("Resume.index");
+        delete_file($id,$database = "Score",$file_floder = 'public\upload\\');
+        Score::where('user_id',$id)->delete();
+        return redirect()->route("Score.index");
     }
 }

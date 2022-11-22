@@ -13,11 +13,9 @@ use App\Models\Resume;
 
 class FileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    
+
     public function index(Request $request)
     {
         if ($request->session()->has('user_id')) {
@@ -27,15 +25,8 @@ class FileController extends Controller
                 $upload = Resume::where('user_id',$user_id)->get();
                 echo $isUpload;
                 echo $upload;
-                if($isUpload == 0){
-                    return view('IN.Student.File.store');       
-                }
-                else{
-                    return view('IN.Student.File.index',
-                    [
-                        'upload' => $upload,
-                    ]);
-                }
+                    return view('IN.Student.File.index');
+
 
                //之後下面要改
 
@@ -72,7 +63,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         function  getResumeName(){
             $today = date("Ynj");
             $nums = Resume::count();
@@ -80,27 +71,81 @@ class FileController extends Controller
             return $name;
         }
 
-        // $name = getResumeName();
-        // echo $name ;
-        if($request->hasFile('files'))
-        {
-            $files = $request->file('files');
+        function delete_resume( ){
+            
             $user_id = session()->get('user_id');
             $dlete_datas = Resume::where("user_id",$user_id)->get();
-            echo $dlete_datas ;
-            // echo$dlete_datas;
+            $id = "";
+            $delete_name ="";
+            $real_delete_data ="";
             if(Resume::where("user_id",$user_id)->count()>0){
                 foreach ($dlete_datas as $dlete_data) {
                     $id = $dlete_data->user_id;
-                    $delete_path = $dlete_data->file_path;
                     $delete_name = $dlete_data->file_name;
-                    $delete_name = "public\upload\\".$delete_name ;
+                    $real_delete_data = $file_floder.$delete_name ;
                     //上一行特別重要delete規律
-                    echo  $delete_name ;
+                    echo  $real_delete_data ;
                     Storage::delete($delete_name);
                     Resume::where("user_id",$user_id)->delete();
                 }
             }
+        }
+
+
+        function insert_resume($file_floder = 'public\upload\\',$files){
+            if(!empty($twice_file_name)){
+                foreach ($files as $key => $value) {
+                    //包裝
+                    //echo $file_name;
+                    if($key == 0){
+                        $file_name = getResumeName();
+                        $file->storeAs($file_floder,$file_name) ;
+                        $file_path  =public_path()."\upload\\".$file_name;
+                        echo $file_path;
+                        $Resume = [
+                            'user_id'    => $user_id,
+                            'file_path'  => $file_path,
+                            'file_name'  => $file_name,
+                        ];
+                        $Resume = Resume::create($Resume);
+                    }elseif($key == 1){
+                        $file_name = getResumeName();
+                        $file->storeAs($file_floder,$file_name) ;
+                        $file_path  =public_path()."\upload\\".$file_name;
+                        echo $file_path;
+                        $Resume = [
+                            'user_id'    => $user_id,
+                            'file_path'  => $file_path,
+                            'file_name'  => $file_name,
+                            'type'       => '1',
+                        ];
+                        $Resume = Resume::create($Resume);
+                    }
+                }
+            }else{
+                    $file_name = getResumeName();
+                    $file->storeAs('public\upload\\',$file_name) ;
+                    $file_path  =public_path()."\upload\\".$file_name;
+                    echo $file_path;
+                    $Resume = [
+                        'user_id'    => $user_id,
+                        'file_path'  => $file_path,
+                        'file_name'  => $file_name,
+                        'type'       => '0',
+                    ];
+                    $Resume = Resume::create($Resume);
+            }
+        }
+
+
+        // $name = getResumeName();
+        // echo $na
+        if($request->hasFile('files'))
+        {
+            $files = $request->file('files');
+            $file_floder = "public\upload\\";
+            delete_resume($file_floder,$files);//;路徑重要
+            insert_resume($file_floder,$files);
             foreach ($files as $file) {
                 //包裝
                 $file_name = getResumeName();
