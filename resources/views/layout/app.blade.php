@@ -95,9 +95,9 @@
                     <a href= "{{route('CompanyChat.index')}}">意見反映</a>
                 </div>
                 <div id ="company_change" class = "jump3" style = "display:none">
-                    <a href= "{{route('Check.index')}}">職位審查</a>
-    <!--之後要改-->  <a href= "{{route('CompanyPair.index')}}">實習配對</a>
+                    <a href= "{{route('VacanciesCheck.index')}}">職位審查</a>
                     <a href= "{{route('TeacherChat.index')}}">意見反映</a>
+                    <a href= "{{route('UserCheck.index')}}">學生檢查</a>
                 </div>
             </nav>  
         @show   

@@ -69,8 +69,8 @@ class ResumeController extends Controller
             $Resumes = Resume::where('user_id',$user_id)->get();
             $Resume = [
                 'user_id'    => $user_id,
-                'file_path'  => $file_path,
-                'file_name'  => $file_name,
+                'resume_file_path'  => $file_path,
+                'resume_file_name'  => $file_name,
             ];
             Resume::create($Resume);
             return redirect()->route("Resume.index");
@@ -124,23 +124,23 @@ class ResumeController extends Controller
             return $name;
         }
 
-        function get_delete_path($delete_datas ){
+        function get_delete_path($delete_datas , $databaseColume){
             foreach ($delete_datas as $dlete_data) {
-                $delete_name = $dlete_data->file_name;
+                $delete_name = $dlete_data[$databaseColume];
                 return   $delete_name ;
             }
         }
         function delete_file($id = "",$database = "",$file_floder = 'public\upload\\'){
             if($database == "Score"){
                 $delete_datas = Score::where("user_id",$id)->get();
-                $delete_name = get_delete_path($delete_datas );
+                $delete_name = get_delete_path($delete_datas,"score_file_name" );
                 $real_file_path = 'public\upload\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Score::where("user_id",$id)->delete();
             }
             elseif($database == "Resume"){
                 $delete_datas = Resume::where("user_id",$id)->get();
-                $delete_name = get_delete_path($delete_datas);
+                $delete_name = get_delete_path($delete_datas,"resume_file_name");
                 $real_file_path = 'public\upload\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Resume::where("user_id",$id)->delete();
@@ -156,8 +156,8 @@ class ResumeController extends Controller
             $Resumes = Resume::where('user_id',$id)->get();
             $Resume = [
                 'user_id'    => $id,
-                'file_path'  => $file_path,
-                'file_name'  => $file_name,
+                'resume_file_path'  => $file_path,
+                'resume_file_name'  => $file_name,
             ];
             Resume::create($Resume);
             
@@ -176,23 +176,23 @@ class ResumeController extends Controller
      */
     public function destroy($id)
     {
-        function get_delete_path($delete_datas ){
+        function get_delete_path($delete_datas , $databaseColume){
             foreach ($delete_datas as $dlete_data) {
-                $delete_name = $dlete_data->file_name;
+                $delete_name = $dlete_data[$databaseColume];
                 return   $delete_name ;
             }
         }
         function delete_file($id = "",$database = "",$file_floder = 'public\upload\\'){
             if($database == "Score"){
                 $delete_datas = Score::where("user_id",$id)->get();
-                $delete_name = get_delete_path($delete_datas );
+                $delete_name = get_delete_path($delete_datas,"score_file_name" );
                 $real_file_path = 'public\upload\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Score::where("user_id",$id)->delete();
             }
             elseif($database == "Resume"){
                 $delete_datas = Resume::where("user_id",$id)->get();
-                $delete_name = get_delete_path($delete_datas);
+                $delete_name = get_delete_path($delete_datas,"resume_file_name");
                 $real_file_path = 'public\upload\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Resume::where("user_id",$id)->delete();

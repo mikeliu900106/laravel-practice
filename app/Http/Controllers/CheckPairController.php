@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Chat;
-class TeacherChatController extends Controller
+use App\Models\Pair;
+
+class CheckPairController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +17,23 @@ class TeacherChatController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
-                $Chat = Chat::get();
-                return view('IN.student.Chat.index',[
-                    'Chats'=> $Chat,
+
+                $Pair_data = 
+                Pair::join('user', 'Pair.user_id', '=', 'user.user_id')
+                    ->select('Pair.*', 'user.user_real_name')
+                    ->get();
+                ;
+                echo $Pair_data;
+                return view('IN.Teacher.Pair.show',[
+                        'Pairs' => $Pair_data,
+                        
                 ]);
+
+
             }
             else{
-                echo "你不是老師";
+                echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
-                
 
             }
         }
@@ -51,22 +60,7 @@ class TeacherChatController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request -> validate([
-            'maker' => 'required|string',
-            'subject' => 'required|string',
-            'content' => 'required|string',
-        ]);
-        $user_id = session()->get('user_id');
-        $today = date("Ynj");
-        $Chat_insert = Student::create(
-            [
-                'chat_id'        =>  $user_id,
-                'chat_maker'     =>  $validate['maker'],
-                'chat_subject'   =>  $validate['subject'],
-                'chat_content'   =>  $validate['content'],
-                'chat_date'      =>  $today,
-            ]
-        );
+        //
     }
 
     /**
@@ -77,7 +71,12 @@ class TeacherChatController extends Controller
      */
     public function show($id)
     {
-        //
+        $pairDatas = Pair::where('user_id',$id)->get();
+        return view("IN.Teacher.CheckPair.show",
+        [
+            'pairDatas' => $pairDatas,
+        ]
+        );
     }
 
     /**
@@ -111,6 +110,6 @@ class TeacherChatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete_pair = Pair::where('user_id', '=', $id)->delete();
     }
 }

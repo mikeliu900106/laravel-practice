@@ -31,7 +31,7 @@
                         ?>
                         <div class="jobscont">
                             <div class="job_img">
-                                <img src="../../image/content2.jpg"></img>
+                                <img src="../../image/contenzt2.jpg"></img>
                             </div>
                             <div class="job_t">
                                 <p>職位名稱:{{$Vacancie->vacancies_name}}</p>

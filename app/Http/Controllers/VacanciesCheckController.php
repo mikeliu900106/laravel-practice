@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vacancies;
 use App\Models\Teacher;
+use Mail;
 
-class CheckController extends Controller
+class VacanciesCheckController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +23,7 @@ class CheckController extends Controller
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
                 $Vacancies = Vacancies::get()->where('teacher_watch','!=','通過');//之後要改
-                return view('IN.Teacher.Check.index',[
+                return view('IN.Teacher.VacanciesCheck.index',[
                     'user_id'  => $user_id,
                     'Vacancies'=> $Vacancies,
                 ]);
@@ -79,14 +80,20 @@ class CheckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id)
+    public function edit($id,Request $request)
     {
         $user_id = session()->get('user_id');
         echo  $user_id; 
-        $teacher_name = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
-        foreach($teacher_name as $value){
+        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
+        $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
+        foreach($teacherData as $value){
             $teacher_real_name = $value['teacher_real_name'];
         }
+        foreach($VacanciesData as $value){
+            $vacancies_name = $value['vacancies_name'];
+        }
+        $data['vacancies_name'] = $vacancies_name;
+        $data['isPass'] = "通過";
         echo $teacher_real_name;
         Vacancies::where('vacancies_id', $id)
             ->update(
@@ -95,6 +102,11 @@ class CheckController extends Controller
                     'teacher_name'              =>  $teacher_real_name,
                 ]   
             );
+            Mail::send('VacanciesCheck.sendMail',$data, function ($message) use ($data) {
+                $message->from('mikeliu20010106@gmail.com');    
+                $message->to('mikeliu20010106@gmail.com')->subject('職位審查:通過');
+            });
+
     }
 
     /**
@@ -108,10 +120,16 @@ class CheckController extends Controller
     {
         $user_id = session()->get('user_id');
         echo  $user_id; 
-        $teacher_name = Teacher::select('teacher_real_name')->where("teacher_id",$user_id)->get();
-        foreach($teacher_name as $value){
+        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
+        $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
+        foreach($teacherData as $value){
             $teacher_real_name = $value['teacher_real_name'];
         }
+        foreach($VacanciesData as $value){
+            $vacancies_name = $value['vacancies_name'];
+        }
+        $data['vacancies_name'] = $vacancies_name;
+        $data['isPass'] = "不通過";
         echo $teacher_real_name;
         Vacancies::where('vacancies_id', $id)
             ->update(

@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Models\Vacancies;
+use App\Models\Company;
+use App\Models\Resume;
+use App\Models\Student;
+use App\Models\Score;
 use App\Models\Pair;
 
-class CompanyPairController extends Controller
+
+class UserCheckController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,24 +23,33 @@ class CompanyPairController extends Controller
     {
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
-                $user_id = session()->get('user_id');
+                $user_id = session()->get(' user_id');
+                //$Vacancies = Vacancies::get();
 
-                $Pair_data = 
-                Pair::join('user', 'Pair.user_id', '=', 'user.user_id')
-                    ->select('Pair.*', 'user.user_real_name')
+                if ($request->has('search')) {
+
+                    $search = $request->search;
+                    $userData = Student::
+                    orWhere('user_real_name', 'LIKE', "%{$search}%")
+                    ->orWhere('user_name', 'LIKE', "%{$search}%")
                     ->get();
-                ;
-                echo $Pair_data;
-                return view('IN.Teacher.Pair.show',[
-                        'Pairs' => $Pair_data,
-                        
+                    //1.取user配對情況
+                    //2.取user履歷
+                    //3.取usert成績單    
+
+                }else{
+                    $userData = Student::get();
+                    echo $userData;
+                }
+
+                return view('IN.Teacher.UserCheck.index',[
+                    'userDatas'=> $userData,
                 ]);
-
-
             }
             else{
                 echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
+                
 
             }
         }
@@ -105,6 +121,7 @@ class CompanyPairController extends Controller
      */
     public function destroy($id)
     {
-        $delete_pair = Pair::where('user_id', '=', $id)->delete();
+        $delete = Student::where('user_id', '=', $id)->delete();
+        return redirect()->route('UserCheck.index');
     }
 }

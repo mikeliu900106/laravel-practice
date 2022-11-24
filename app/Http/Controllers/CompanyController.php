@@ -68,18 +68,18 @@ class CompanyController extends Controller
         $Company_username_isUse = Company::where('company_username', $company_data['company_username'])->count();
         echo $Company_username_isUse;
         if($Company_username_isUse == 0){
-            // $Company_insert = Company::create(
-            //     [
-            //         'company_id'            =>  $Company_id,
-            //         'company_name'          =>  $companydata['company_name'],
-            //         'company_title'         =>  $companydata['company_title'],
-            //         'company_username'      =>  $companydata['company_username'],
-            //         'company_password'      =>  $companydata['company_password'],
-            //         'company_number'        =>  $companydata['company_number'],
-            //         'company_email'         =>  $companydata['company_email'],
-            //         'level'                 =>  "3",
-            //     ]
-            // );
+            $Company_insert = Company::create(
+                [
+                    'company_id'            =>  $Company_id,
+                    'company_name'          =>  $companydata['company_name'],
+                    'company_title'         =>  $companydata['company_title'],
+                    'company_username'      =>  $companydata['company_username'],
+                    'company_password'      =>  $companydata['company_password'],
+                    'company_number'        =>  $companydata['company_number'],
+                    'company_email'         =>  $companydata['company_email'],
+                    'level'                 =>  "3",
+                ]
+            );
             $random = codestr();
             //echo $random;
             $company_data["random"] = $random;

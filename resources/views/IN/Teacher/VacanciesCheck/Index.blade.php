@@ -33,6 +33,7 @@
             <tr>
             @foreach($Vacancies as $Vacancie)
             <tr>
+                {{$Vacancie->vacancies_id}}
                 <td>{{$Vacancie->vacancies_name}}</td>
                 <td>{{$Vacancie->company_money }}</td>
                 <td>{{$Vacancie->company_time }}</td>
@@ -45,11 +46,11 @@
                 <td>{{$Vacancie->company_company_safe}}</td>
                 <td>{{$Vacancie->teacher_watch}}</td>
                 <td>{{$Vacancie->teacher_name}}</td>
-                <form action = "{{route('Check.destroy',$Vacancie->vacancies_id) }}" method = "post">
+                <form action = "{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method = "post">
                     @method('DELETE')
                     @csrf    
-                    <td><a href = "{{route("Check.edit",$Vacancie->vacancies_id)}}">通過</a></td>
-                    <td><a href = "{{route("Check.update",$Vacancie->vacancies_id)}}">不通過</a></td>
+                    <td><a href = "{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a></td>
+                    <td><a href = "{{route("VacanciesCheck.update",$Vacancie->vacancies_id)}}">不通過</a></td>
                     <td><button class="btn btn-danger" type="submit">Delete</button></td>
                 </form>
             <tr>

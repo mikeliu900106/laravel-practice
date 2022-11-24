@@ -77,16 +77,21 @@ class DownloadController extends Controller
      */
     public function show($id)
     {
-        $resume_data = Resume::where('user_id',$id)->get();
-        foreach($resume_data as $value){
-            $file_name = $value["file_name"];
-            
-            $real_file_path = public_path()."/storage/upload/".$file_name;
+        if(Resume::where('user_id',$id)->count() != 0){
+            $resume_data = Resume::where('user_id',$id)->get();
+            foreach($resume_data as $value){
+                $file_name = $value["resume_file_name"];
+                
+                $real_file_path = public_path()."/storage/upload/".$file_name;
+            }
+            $headers = array(
+                'Content-Type: application/pdf',
+            );
+            return Response::download($real_file_path);
         }
-        $headers = array(
-            'Content-Type: application/pdf',
-          );
-        return Response::download($real_file_path);
+        else{
+            echo "沒有上傳履歷";
+        }
     }
 
     /**
@@ -97,17 +102,21 @@ class DownloadController extends Controller
      */
     public function edit($id)
     {
-
-        $Score_data = Score::where('user_id',$id)->get();
-        foreach($Score_data as $value){
-            $file_name = $value["file_name"];
-            
-            $real_file_path = public_path()."/storage/upload/".$file_name;
+        if(Score::where('user_id',$id)->count() != 0){
+            $Score_data = Score::where('user_id',$id)->get();
+            foreach($Score_data as $value){
+                $file_name = $value["score_file_name"];
+                
+                $real_file_path = public_path()."/storage/upload/".$file_name;
+            }
+            $headers = array(
+                'Content-Type: application/pdf',
+            );
+            return Response::download($real_file_path);
         }
-        $headers = array(
-            'Content-Type: application/pdf',
-          );
-        return Response::download($real_file_path);
+        else{
+            echo "沒有上傳成績單";
+        }
     }
 
     /**

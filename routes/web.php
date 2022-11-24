@@ -8,7 +8,7 @@ use App\Http\Controllers\EnterController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\ApplyController;
-use App\Http\Controllers\CheckController;
+use App\Http\Controllers\VacanciesCheckController;
 use App\Http\Controllers\PairController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LoginController;
@@ -18,11 +18,11 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\CompanyPairController;
+use App\Http\Controllers\CheckPairController;
 use App\Http\Controllers\CompanyChatController;
 use App\Http\Controllers\TeacherChatController;
 use App\Http\Controllers\ScoreController;
-
+use App\Http\Controllers\UserCheckController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,9 +66,10 @@ Route::resource('Login',LoginController::class);
 Route::resource('File',FileController::class);
 Route::resource('Download',DownloadController::class);
 Route::resource('Mail',MailController::class);
-Route::resource('Check',CheckController::class);
-Route::resource('CompanyPair',CompanyPairController::class);
+Route::resource('VacanciesCheck',VacanciesCheckController::class);
+Route::resource('CheckPair',CheckPairController::class);
 Route::resource('CompanyChat',CompanyChatController::class);
 Route::resource('TeacherChat',TeacherChatController::class);
 Route::resource('TeacherChat',TeacherChatController::class);
 Route::resource('Score',ScoreController::class);
+Route::resource('UserCheck',UserCheckController::class);
