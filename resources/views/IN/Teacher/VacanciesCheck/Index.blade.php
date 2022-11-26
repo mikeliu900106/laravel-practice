@@ -56,6 +56,7 @@
             <tr>
             @endforeach
         </table>   
+        {{$Vacancies->links()}}
     @endsection
 
 

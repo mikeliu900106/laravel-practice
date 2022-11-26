@@ -24,7 +24,7 @@
                     <th>刪除</th>
                 </tr>
                 <tr>
-                    <?$user_id = {{$Pair->user_id}}?>
+                    {{$user_id = $Pair->user_id}}
                     <td>{{ $Pair->teacher_name }}</td>
                     <td>{{ $Pair->company_name }}</td>
                     <td>{{ $Pair->start_time }}</td>

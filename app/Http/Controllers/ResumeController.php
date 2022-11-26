@@ -93,7 +93,7 @@ class ResumeController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

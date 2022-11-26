@@ -22,7 +22,11 @@ use App\Http\Controllers\CheckPairController;
 use App\Http\Controllers\CompanyChatController;
 use App\Http\Controllers\TeacherChatController;
 use App\Http\Controllers\ScoreController;
-use App\Http\Controllers\UserCheckController;
+use App\Http\Controllers\CheckUserController;
+use App\Http\Controllers\CheckChatController;
+use App\Http\Controllers\CheckResumeController;
+use App\Http\Controllers\CheckScoreController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,4 +76,7 @@ Route::resource('CompanyChat',CompanyChatController::class);
 Route::resource('TeacherChat',TeacherChatController::class);
 Route::resource('TeacherChat',TeacherChatController::class);
 Route::resource('Score',ScoreController::class);
-Route::resource('UserCheck',UserCheckController::class);
+Route::resource('CheckUser',CheckUserController::class);
+Route::resource('CheckChat',CheckChatController::class);
+Route::resource('CheckResume',CheckResumeController::class);
+Route::resource('CheckScore',CheckScoreController::class);

@@ -16,9 +16,11 @@ class TeacherChatController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
-                $Chat = Chat::get();
-                return view('IN.student.Chat.index',[
+                $Chat = Chat::paginate(10);
+                $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
+                return view('IN.teacher.Chat.index',[
                     'Chats'=> $Chat,
+                    'Chat_level' =>$Chat_level,
                 ]);
             }
             else{
@@ -65,6 +67,7 @@ class TeacherChatController extends Controller
                 'chat_subject'   =>  $validate['subject'],
                 'chat_content'   =>  $validate['content'],
                 'chat_date'      =>  $today,
+                'chat_level'      =>  "2",
             ]
         );
     }

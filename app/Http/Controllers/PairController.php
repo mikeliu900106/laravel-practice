@@ -115,8 +115,9 @@ class PairController extends Controller
      */
     public function edit($id)
     {
-        $Teacher_name =Teacher::pluck('teacher_real_name');
-        $Company_name =Company::pluck('company_name');
+        $Teacher_name =Teacher::select('teacher_real_name')->get();
+        $Company_name =Company::select('company_name')->get();
+        echo   $Company_name;
         return view('IN.Student.Pair.edit',
                     [
                         'id'=>$id,

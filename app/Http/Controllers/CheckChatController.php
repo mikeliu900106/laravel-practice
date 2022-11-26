@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Chat;
-use Illuminate\Http\Request;
 
-class CompanyChatController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Chat;
+class CheckChatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,28 +13,18 @@ class CompanyChatController extends Controller
      */
     public function index(Request $request)
     {
-        
-        if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '3') {
-                $user_id = session()->get('user_id');
-                $Chat = Chat::paginate(10);
-                $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
-                return view('IN.company.Chat.index',[
-                    'Chats'=> $Chat,
-                    'Chat_level' =>$Chat_level,
-                ]);
-            }
-            else{
-                echo "你不是廠商";
-                //1. 顯示錯誤2.錯誤controller
-                
-
-            }
+        $user_id = $request ->user_id;
+        $Chats = Chat::where('chat_id',$user_id)->get();
+        echo $Chats;
+        $is_use_chat = Chat::where('chat_id',$user_id)->count();
+        if($is_use_chat ==0){
+            echo "此學生沒有言論";
+        }else{
+            return view("IN.Teacher.CheckChat.index",[
+                "Chats" => $Chats, 
+                "user_id" =>$user_id,
+            ]);
         }
-        else{
-            echo "你沒登入";
-        }
- 
     }
 
     /**
@@ -55,23 +45,7 @@ class CompanyChatController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request -> validate([
-            'maker' => 'required|string',
-            'subject' => 'required|string',
-            'content' => 'required|string',
-        ]);
-        $user_id = session()->get('user_id');
-        $today = date("Ynj");
-        $Chat_insert = Chat::create(
-            [
-                'chat_id'        =>  $user_id,
-                'chat_maker'     =>  $validate['maker'],
-                'chat_subject'   =>  $validate['subject'],
-                'chat_content'   =>  $validate['content'],
-                'chat_date'      =>  $today,
-                'chat_level'     =>  '2',
-            ]
-        );
+        //
     }
 
     /**

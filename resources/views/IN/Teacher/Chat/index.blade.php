@@ -26,21 +26,29 @@
 
         </ul>
 
-        <form class="leavecomment" action="{{route("TeacherChat.store")}}" method="post">
-            @csrf
-            <div class="author">
-                <p>作者</p><input name="maker" type="text">
-            </div>
-            <div class="gist">
-                <p>主旨</p><input name="subject" type="text">
-                <br>
-            </div>
-            <div class="content">
-                <p>內容</p><textarea name="content" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="送出">
-            </div>
-        </form>
+        <?php if($Chat_level =='2'){?>
+    
+            <form class="leavecomment" action="{{route("TeacherChat.store")}}" method="post">
+                @csrf
+                <div class="author">
+                    <p>作者</p><input name="maker" type="text">
+                </div>
+                <div class="gist">
+                    <p>主旨</p><input name="subject" type="text">
+                    <br>
+                </div>
+                <div class="content">
+                    <p>內容</p><textarea name="content" id="" cols="30" rows="10"></textarea>
+                    <input type="submit" value="送出">
+                </div>
+            </form>
+        <?php 
+        }else{
+            echo "<div>你不能發言</div>";
+        }    ?>
     </div>
+    {{ $Chats->links() }}
+
     @endsection
 
 

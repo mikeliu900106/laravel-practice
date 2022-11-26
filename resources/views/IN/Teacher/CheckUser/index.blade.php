@@ -20,7 +20,7 @@
             <div id="content">
                 
                 <div id="applyBox">
-                    <form action="{{route("UserCheck.index")}}" method = "GET">
+                    <form action="{{route("CheckUser.index")}}" method = "GET">
                         <input type="search" id="site-search" name="search">
                         <button>查詢</button>
                     </form>
@@ -30,9 +30,11 @@
                             <th>學生帳號名稱</th>
                             <th>學生信箱</th>
                             <th>學生配對情況</th>
-                            <th>學生履歷下載</th>
-                            <th>學生成績單下載</th>
+                            <th>學生履歷檢查</th>
+                            <th>學生成績單檢查</th>
                             <th>刪除學生</th>
+                            <th>查看言論</th>
+
                         </tr>
                         @foreach ($userDatas as $userData)
                             {{$user_id = $userData->user_id}}
@@ -41,20 +43,22 @@
                                 <td>{{$userData->user_name}}</td>
                                 <td>{{$userData->user_email}}</td>
                                 <td><a href = "{{route("CheckPair.show",$user_id)}}">查看配對</a></td>
-                                <td><a href = "{{route("Download.show",$user_id)}}">履歷下載</a></td>
-                                <td><a href = "{{route("Download.edit",$user_id)}}">成績單下載</a></td>
-                                <form action="{{route('UserCheck.destroy',$user_id)}}" method="POST">
+                                <td><a href = "{{route("CheckResume.index",['user_id' => $user_id])}}">履歷檢查</a></td>
+                                <td><a href = "{{route("CheckScore.index",['user_id' => $user_id])}}">成績單檢查</a></td>
+                                <form action="{{route('CheckUser.destroy',$user_id)}}" method="POST">
                                     @csrf
                                     @method("delete")
                                     <th><button type = "submit">刪除學生</button></th>
                                 </form>
+                                <td><a href = "{{route("CheckChat.index",['user_id' => $user_id])}}">查看言論</a></td>
                             </tr>
                         @endforeach
                     </table>
+                    
                 </div>
             </div> <!-- content -->
         </div> 
-        
+        {{$userDatas->links()}}
         
             
        

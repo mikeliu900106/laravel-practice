@@ -49,7 +49,7 @@
                 </div>
             </div> <!-- content -->
         </div> 
-        
+        {{$Vacancies->links()}}
         
             
        

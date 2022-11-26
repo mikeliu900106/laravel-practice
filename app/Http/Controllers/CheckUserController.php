@@ -1,10 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Chat;
+
 use Illuminate\Http\Request;
 
-class CompanyChatController extends Controller
+use App\Models\Vacancies;
+use App\Models\Company;
+use App\Models\Resume;
+use App\Models\Student;
+use App\Models\Score;
+use App\Models\Pair;
+
+
+class CheckUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,19 +21,33 @@ class CompanyChatController extends Controller
      */
     public function index(Request $request)
     {
-        
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '3') {
-                $user_id = session()->get('user_id');
-                $Chat = Chat::paginate(10);
-                $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
-                return view('IN.company.Chat.index',[
-                    'Chats'=> $Chat,
-                    'Chat_level' =>$Chat_level,
+            if ($request->session()->get('level') == '2') {
+                $user_id = session()->get(' user_id');
+                //$Vacancies = Vacancies::get();
+
+                if ($request->has('search')) {
+
+                    $search = $request->search;
+                    $userDatas = Student::
+                    orWhere('user_real_name', 'LIKE', "%{$search}%")
+                    ->orWhere('user_name', 'LIKE', "%{$search}%")
+                    ->paginate(10);
+                    //1.取user配對情況
+                    //2.取user履歷
+                    //3.取usert成績單    
+
+                }else{
+                    $userDatas = Student::paginate(10);
+                    echo $userDatas;
+                }
+
+                return view('IN.Teacher.CheckUser.index',[
+                    'userDatas'=> $userDatas,
                 ]);
             }
             else{
-                echo "你不是廠商";
+                echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
                 
 
@@ -34,7 +56,6 @@ class CompanyChatController extends Controller
         else{
             echo "你沒登入";
         }
- 
     }
 
     /**
@@ -55,23 +76,7 @@ class CompanyChatController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request -> validate([
-            'maker' => 'required|string',
-            'subject' => 'required|string',
-            'content' => 'required|string',
-        ]);
-        $user_id = session()->get('user_id');
-        $today = date("Ynj");
-        $Chat_insert = Chat::create(
-            [
-                'chat_id'        =>  $user_id,
-                'chat_maker'     =>  $validate['maker'],
-                'chat_subject'   =>  $validate['subject'],
-                'chat_content'   =>  $validate['content'],
-                'chat_date'      =>  $today,
-                'chat_level'     =>  '2',
-            ]
-        );
+        //
     }
 
     /**
@@ -116,6 +121,7 @@ class CompanyChatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Student::where('user_id', '=', $id)->delete();
+        return redirect()->route('CheckUser.index');
     }
 }

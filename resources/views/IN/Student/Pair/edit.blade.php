@@ -28,7 +28,7 @@
                                     <option disabled>請選擇配對成功的廠商</option>
                                     
                                     @foreach($Company_names as $Company_name)
-                                            <?php echo $Company_name->Company_name?>
+                                            {{$Company_name->company_name}}
                                             <option value="{{$Company_name->company_name}}">{{$Company_name->company_name}}</option>
                                     @endforeach
                                 </select>

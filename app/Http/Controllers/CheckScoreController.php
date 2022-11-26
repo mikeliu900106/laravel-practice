@@ -1,18 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Score;
 use Illuminate\Http\Request;
 
-use App\Models\Vacancies;
-use App\Models\Company;
-use App\Models\Resume;
-use App\Models\Student;
-use App\Models\Score;
-use App\Models\Pair;
-
-
-class UserCheckController extends Controller
+class CheckScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,40 +13,14 @@ class UserCheckController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '2') {
-                $user_id = session()->get(' user_id');
-                //$Vacancies = Vacancies::get();
-
-                if ($request->has('search')) {
-
-                    $search = $request->search;
-                    $userData = Student::
-                    orWhere('user_real_name', 'LIKE', "%{$search}%")
-                    ->orWhere('user_name', 'LIKE', "%{$search}%")
-                    ->get();
-                    //1.取user配對情況
-                    //2.取user履歷
-                    //3.取usert成績單    
-
-                }else{
-                    $userData = Student::get();
-                    echo $userData;
-                }
-
-                return view('IN.Teacher.UserCheck.index',[
-                    'userDatas'=> $userData,
-                ]);
-            }
-            else{
-                echo "你不是教師";
-                //1. 顯示錯誤2.錯誤controller
-                
-
-            }
+        $user_id = $request->user_id;
+        
+        if(Score::where('user_id',$user_id)->count() == 0){
+            echo "此學生沒上傳成績單";
+      
         }
         else{
-            echo "你沒登入";
+            return view("IN.Teacher.CheckScore.index",["user_id"=>$user_id]);
         }
     }
 
@@ -87,7 +53,14 @@ class UserCheckController extends Controller
      */
     public function show($id)
     {
-        //
+        $Resume_datas = score::where('user_id',$id)->get();
+        foreach($Resume_datas as $Resume_data ){
+            $score_name = $Resume_data["score_file_name"];
+            echo $score_name;
+        }
+        $real_path = public_path()."\storage\upload\\".$score_name;
+        echo $real_path;
+        return response()->file($real_path);
     }
 
     /**
@@ -121,7 +94,6 @@ class UserCheckController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Student::where('user_id', '=', $id)->delete();
-        return redirect()->route('UserCheck.index');
+        //
     }
 }

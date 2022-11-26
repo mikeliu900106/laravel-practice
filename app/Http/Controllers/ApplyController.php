@@ -36,13 +36,13 @@ class ApplyController extends Controller
                     ->orWhere('company_content', 'LIKE', "%{$search}%")
                     ->orWhere('company_name', 'LIKE', "%{$search}%")
                     ->where('teacher_watch','通過')
-                    ->get();
+                    ->paginate(10);
                     echo $Vacancies;
                 }else{
                     $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                     ->select('vacancies.*', 'company.*')
                     ->where('teacher_watch','通過')
-                    ->get();
+                    ->paginate(10);
                     echo $Vacancies;
                 }
 

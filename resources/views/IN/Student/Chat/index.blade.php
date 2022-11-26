@@ -28,7 +28,7 @@
                         @endforeach
 
                     </ul>
-    
+                <?php if($Chat_level =='2') {?>
                     <form class="leavecomment" action="{{route("Chat.store")}}" method="post">
                         @csrf
                         <div class="author">
@@ -43,10 +43,14 @@
                             <input type="submit" value="送出">
                         </div>
                     </form>
+                    <?php
+                    }else{
+                        echo"<div>你已被封禁沒資格發言</div>";    
+                    }?>
                 </div>
-             content -->
+                
         </div> 
-
+        {{ $Chats->links() }}
     @endsection
 
 
