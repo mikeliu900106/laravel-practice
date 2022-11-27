@@ -41,15 +41,16 @@ class ApplyController extends Controller
                 }else{
                     $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                     ->select('vacancies.*', 'company.*')
-                    ->where('teacher_watch','通過')
-                    ->paginate(10);
-                    echo $Vacancies;
+                    ->where('teacher_watch','通過') 
+                    ->get();
+                    // ->paginate(10);
+                    
                 }
-
-                return view('IN.student.Apply.index',[
-                    'Vacancies'=> $Vacancies,
-                    'user_id'  => $user_id,
-                ]);
+                echo $Vacancies;
+                // return view('IN.student.Apply.index',[
+                //     'Vacancies'=> $Vacancies,
+                //     'user_id'  => $user_id,
+                // ]);
             }
             else{
                 echo "你不是學生";
@@ -133,7 +134,7 @@ class ApplyController extends Controller
         $isUseResume = Resume::where("user_id",$user_id)->count();
         $isUseScore = Score::where("user_id",$user_id)->count();
         $ResumeData = Resume::where("user_id",$user_id)->get();
-        
+
         $user_real_name = Student::select("user_real_name")->where("user_id",$user_id)->get();
         //$data = $request -> all();
         if($isUseResume != 0){

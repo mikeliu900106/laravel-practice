@@ -25,7 +25,8 @@ class FileController extends Controller
                 $upload = Resume::where('user_id',$user_id)->get();
                 echo $isUpload;
                 echo $upload;
-                    return view('IN.Student.File.index');
+                    return view('IN.Student.File.index'
+                );
 
 
                //之後下面要改
