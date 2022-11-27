@@ -10,13 +10,13 @@
     @section('nav') 
         @parent
     @endsection
+
     @section('content')
-    {{$vacancies_id }}
-    <form method="post" action="{{route("Vacancies.update", $vacancies_id)}}">
-       
+    <form method="post" action="{{route("CompanyVacancies.update",$user_id)}}">
+        @method("patch")
         @csrf
         <div class="AccountBox CPN_RegisterBox">
-            <h1>廠商註冊</h1>
+            <h1>職位更新</h1>
             <!-- 註冊資料輸入欄 -->
             <!-- 基本資料 -->
             <ul class="Section">
@@ -57,6 +57,7 @@
                 </li>
                 <li>
                     <label for="company_other">其他補充事項</label>
+                    <input type="hidden" name="sql_type" value = "insert">
                     <textarea type="text" name="company_other" class="Account_text" placeholder="其他補充事項"></textarea>
                 </li>
                 <li class="li-inline">

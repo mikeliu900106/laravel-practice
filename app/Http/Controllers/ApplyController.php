@@ -46,9 +46,7 @@ class ApplyController extends Controller
                     $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                     ->select('vacancies.*', 'company.*')
                     ->where('teacher_watch','通過') 
-                    ->get();
-                    // ->paginate(10);
-                    
+                    ->paginate(10);
                 }
                 echo $Vacancies;
                 return view('IN.student.Apply.index',[
@@ -138,14 +136,15 @@ class ApplyController extends Controller
         $isUseResume = Resume::where("user_id",$user_id)->count();
         $isUseScore = Score::where("user_id",$user_id)->count();
         $ResumeData = Resume::where("user_id",$user_id)->get();
-
-        $user_real_name = Student::select("user_real_name")->where("user_id",$user_id)->get();
+        $ScoreData = Score::where("user_id",$user_id)->get();
+        $userData = Student::where("user_id",$user_id)->get();
         //$data = $request -> all();
         if($isUseResume != 0){
             if($isUseScore!=0){
                 
-                foreach($user_real_name as $value){
+                foreach($userData as $value){
                     $real_name = $value["user_real_name"];
+                    $user_email = $value["user_email"];
                 }
                 foreach($ResumeData as $ResumeValue){
                     $ResumeName = $ResumeValue["resume_file_name"];
@@ -158,10 +157,11 @@ class ApplyController extends Controller
                 $data['ResumePath'] =$ResumePath;
                 $data['ScorePath'] = $ScorePath;
                 $data['company_email'] =$company_email;
-                $data['real_name'] =$real_name;          
+                $data['real_name'] =$real_name; 
+                $data["user_email"] =$user_email;         
                 Mail::send('Mail.sendMail',$data, function ($message) use ($data) {
                     $message->from('mikeliu20010106@gmail.com', $data['real_name']);    
-                    $message->to('mikeliu20010106@gmail.com')->subject('工作應徵');
+                    $message->to($data['company_email'])->subject('工作應徵');
                     $message->attach($data['ResumePath']);
                     $message->attach($data['ScorePath']);
 
