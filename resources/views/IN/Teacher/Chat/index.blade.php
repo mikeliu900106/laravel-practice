@@ -26,7 +26,7 @@
 
         </ul>
 
-        <?php if($Chat_level =='2'){?>
+        <?php if($Chat_level !='2'){?>
     
             <form class="leavecomment" action="{{route("TeacherChat.store")}}" method="post">
                 @csrf

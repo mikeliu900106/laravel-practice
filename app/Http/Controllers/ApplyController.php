@@ -133,6 +133,7 @@ class ApplyController extends Controller
         $isUseResume = Resume::where("user_id",$user_id)->count();
         $isUseScore = Score::where("user_id",$user_id)->count();
         $ResumeData = Resume::where("user_id",$user_id)->get();
+        
         $user_real_name = Student::select("user_real_name")->where("user_id",$user_id)->get();
         //$data = $request -> all();
         if($isUseResume != 0){

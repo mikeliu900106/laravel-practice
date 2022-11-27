@@ -69,7 +69,7 @@ class CompanyChatController extends Controller
                 'chat_subject'   =>  $validate['subject'],
                 'chat_content'   =>  $validate['content'],
                 'chat_date'      =>  $today,
-                'chat_level'     =>  '2',
+                'chat_level'     =>  '1',
             ]
         );
     }

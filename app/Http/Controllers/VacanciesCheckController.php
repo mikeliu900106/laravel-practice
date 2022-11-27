@@ -102,10 +102,10 @@ class VacanciesCheckController extends Controller
                     'teacher_name'              =>  $teacher_real_name,
                 ]   
             );
-            Mail::send('VacanciesCheck.sendMail',$data, function ($message) use ($data) {
-                $message->from('mikeliu20010106@gmail.com');    
-                $message->to('mikeliu20010106@gmail.com')->subject('職位審查:通過');
-            });
+            // Mail::send('IN.Teacher.VacanciesCheck.sendMail',$data, function ($message) use ($data) {
+            //     $message->from('mikeliu20010106@gmail.com');    
+            //     $message->to('mikeliu20010106@gmail.com')->subject('職位審查:通過');
+            // });
 
     }
 

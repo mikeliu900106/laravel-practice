@@ -29,7 +29,7 @@
 
                     </ul>
     
-                    <?php if($Chat_level =='2') {?>
+                    <?php if($Chat_level !=2) {?>
                         <form class="leavecomment" action="{{route("CompanyChat.store")}}" method="post">
                             @csrf
                             <div class="author">
