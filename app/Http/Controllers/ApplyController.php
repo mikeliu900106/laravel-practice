@@ -24,7 +24,7 @@ class ApplyController extends Controller
     {   
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '1') {
-                $user_id = session()->get(' user_id');
+                $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
                 echo $user_id;
                 if ($request->has('search')) {
@@ -38,6 +38,10 @@ class ApplyController extends Controller
                     ->where('teacher_watch','通過')
                     ->paginate(10);
                     echo $Vacancies;
+                    return view('IN.student.Apply.index',[
+                        'Vacancies'=> $Vacancies,
+                        'user_id'  => $user_id,
+                    ]);
                 }else{
                     $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                     ->select('vacancies.*', 'company.*')
@@ -47,10 +51,10 @@ class ApplyController extends Controller
                     
                 }
                 echo $Vacancies;
-                // return view('IN.student.Apply.index',[
-                //     'Vacancies'=> $Vacancies,
-                //     'user_id'  => $user_id,
-                // ]);
+                return view('IN.student.Apply.index',[
+                    'Vacancies'=> $Vacancies,
+                    'user_id'  => $user_id,
+                ]);
             }
             else{
                 echo "你不是學生";

@@ -2,54 +2,42 @@
 <html>
 @extends('layout.app')
 @section('head')
-    @parent
-    
+@parent
+
 @endsection
 
 <body>
-    @section('nav') 
-        @parent
+    @section('nav')
+    @parent
     @endsection
 
     @section('content')
     <form method="post" action="{{route('Student.store')}}">
         @csrf
-        <div class="AccountBox">
-                    <h1>學生註冊</h1>
-                    <!-- 註冊資料輸入欄 -->
-                    <div class="Section">
-                        <div>
-                            <input class="Account_text" type="text" placeholder="Username" name="username" /> <span>請輸入帳號</span>
-                        </div>
-                        <div>    
-                            <input class="Account_text" type="text" placeholder="real_name" name="real_name" /> <span>請輸入真名</span> <br>
-                        </div>
-                        <div>
-                            <input class="Account_text" type="password" placeholder="Password" name="password" /> <span>請輸入密碼</span>
-                        </div>
-                        <div>    
-                            <input class="Account_text" type="text" placeholder="Email" name="email" /> <span>請輸入信箱</span> <br>
-                        </div>
-                        
-                    </div>
-                    <!-- 登入 提交 -->
-        
-                    <div class="bottom_row">
-                        <input class="submit_button" type="submit" value="提交" />
-                    </div>
-        
-                    <!-- 回登入 回首頁 -->
-                    <a href="../../register_select.php"><img src="../../image/return.png" style="position: absolute; top: 5px; left: 5px;" width="30px"></a>
-                    <a href="../../index.php"><img src="../../image/homeLogo.png" style="position: absolute; top: 5px; right: 5px;" width="30px"></a>
-                
-        </div>
+        <div class="Account-Box STU-Register">
+            <!-- 回登入 回首頁 -->
+            <a href="{{route('Signup.index')}}"><img src="/img/return.png" class="ReturnLogo"></a>
+            <a href="{{url('/')}}"><img src="/img/home.png" class="HomeLogo"></a>
+            <div class="Title">
+                <h1>學生註冊</h1>
+            </div>
+            <!-- 註冊資料輸入欄 -->
+            <div class="Input-Section">
+                <input class="Account-Text" type="text" placeholder="請輸入帳號" name="username" />
+                <input class="Account-Text" type="text" placeholder="請輸入姓名" name="real_name" />
+                <input class="Account-Text" type="password" placeholder="請輸入密碼" name="password" />
+                <input class="Account-Text" type="text" placeholder="請輸入信箱" name="email" />
+            </div>
+            <!-- 提交 -->
+            <div class="Submit-Section">
+                <input class="Submit-Button" type="submit" value="提交" />
+            </div>
     </form>
     @endsection
 
 
     @section('footer')
-        @parent
-    @endsection 
-  
+    @parent
+    @endsection
+
 </body>
-    

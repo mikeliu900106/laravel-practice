@@ -9,6 +9,7 @@
 <body>
     @section('nav') 
         @parent
+        
     @endsection
 
     @section('content')
@@ -65,14 +66,7 @@
         @endforeach
     </table>
         
-            
-       
-
-
-        
     @endsection
-
-
     @section('footer')
         @parent
     

@@ -1,115 +1,3 @@
-* {
-  font-family: "Open Sans", "Noto Sans TC", serif;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-}
-
-nav {
-  border-bottom: solid black 2px;
-  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
-  width: 100%;
-}
-nav .logo {
-  font-size: calc(40px + 1.5vw);
-  cursor: pointer;
-  margin-right: 0.5em;
-}
-nav .account .bi,
-nav .account .bi-person {
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-}
-nav .account .Login {
-  padding: 0.5em;
-}
-nav .account .SignUp {
-  padding: 0.5em;
-}
-@media screen and (max-width: 976px) {
-  nav .account .col-6 {
-    width: 0px;
-  }
-  nav .account .Login {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-  nav .account .SignUp {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-}
-nav a {
-  font-size: 25px;
-  color: black;
-  font-weight: 700;
-}
-
-.navbar-toggler {
-  margin-right: 5px;
-}
-
-.navbar-nav li {
-  margin: 5px;
-}
-.navbar-nav li:hover ul.dropdown-menu {
-  display: block;
-}
-.navbar-nav li ul {
-  width: 100%;
-}
-.navbar-nav li a.nav-link {
-  padding: 0px;
-}
-.navbar-nav li a.dropdown-item {
-  margin: 0;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
-@media screen and (max-width: 976px) {
-  .navbar-nav li {
-    text-align: left;
-    width: 100%;
-  }
-  .navbar-nav li a {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-.main {
-  background: #e9e9e9;
-  flex-grow: 1;
-  position: relative;
-}
-.main .word, .main .word_main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.main .word_main {
-  font-size: calc(50px + 1.5vw);
-  left: 50%;
-}
-.main .container {
-  position: relative;
-  top: 100px;
-}
-
-.footer {
-  position: relative;
-  flex-grow: 2;
-  background-color: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
-  border-top: black 1px;
-}
-
 .Account-Box {
   position: absolute;
   left: 50%;
@@ -122,12 +10,12 @@ nav a {
   max-width: 830px;
   height: auto;
   min-height: 30em;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .Account-Box a {
   font-size: 18px;
   color: #888;
@@ -136,6 +24,7 @@ nav a {
 .Title {
   margin: 1.2em;
 }
+
 .Title h1 {
   font-weight: bold;
   font-size: calc(36px + 1vw);
@@ -150,6 +39,7 @@ nav a {
   align-items: center;
   justify-content: center;
 }
+
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
@@ -165,11 +55,13 @@ nav a {
   letter-spacing: 0.5px;
   font-size: 16px;
 }
+
 .Input-Section a {
   align-self: flex-end;
   margin-right: 5px;
   display: inline-block;
 }
+
 @media screen and (max-width: 768px) {
   .Input-Section {
     width: 90%;
@@ -189,6 +81,7 @@ nav a {
   border: solid 1px #dde0e7;
   background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
 }
+
 .Submit-Section .Submit-Button {
   position: absolute;
   left: 50%;
@@ -202,9 +95,11 @@ nav a {
   height: 40px;
   cursor: pointer;
 }
+
 .Submit-Section .Submit-Button:hover {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
+
 .HomeLogo {
   position: absolute;
   top: 5px;
@@ -226,6 +121,7 @@ nav a {
   flex-wrap: wrap;
   padding: 15px;
 }
+
 .Register-Select .Select-Box {
   background-color: #f6f6f6;
   height: 10em;
@@ -237,6 +133,7 @@ nav a {
   box-sizing: border-box;
   border: solid 3px #888888;
 }
+
 .Register-Select .Select-Box:hover {
   width: 11em;
   height: 11em;
@@ -244,15 +141,18 @@ nav a {
   margin: 6px;
   cursor: pointer;
 }
+
 .Register-Select a {
   border-radius: 8px;
   text-decoration: none;
 }
+
 .Register-Select a img {
   margin-top: 10px;
   width: 100px;
   height: 100px;
 }
+
 .Register-Select a p {
   margin-top: 0.7em;
   margin-bottom: 0;
@@ -273,6 +173,7 @@ nav a {
   cursor: pointer;
   background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
 }
+
 .verification_button:hover {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
@@ -280,9 +181,11 @@ nav a {
 .CPN-Register .col {
   min-width: 300px;
 }
+
 .CPN-Register ul {
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
 }
+/*# sourceMappingURL=account.css.map */
