@@ -43,7 +43,7 @@
                 <td>{{$Vacancie->company_Education }}</td>
                 <td>{{$Vacancie->company_department }}</td>
                 <td>{{$Vacancie->company_other}}</td>
-                <td>{{$Vacancie->company_company_safe}}</td>
+                <td>{{$Vacancie->company_safe}}</td>
                 <td>{{$Vacancie->teacher_watch}}</td>
                 <td>{{$Vacancie->teacher_name}}</td>
                 <form action = "{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method = "post">

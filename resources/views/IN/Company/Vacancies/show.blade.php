@@ -40,7 +40,7 @@
                 <td>{{$Vacancie->company_Education }}</td>
                 <td>{{$Vacancie->company_department }}</td>
                 <td>{{$Vacancie->company_other}}</td>
-                <td>{{$Vacancie->company_company_safe}}</td>
+                <td>{{$Vacancie->company_safe}}</td>
                 <form action = "{{route('Vacancies.destroy',$Vacancie->vacancies_id) }}" method = "post">
                     @method('DELETE')
                     @csrf    

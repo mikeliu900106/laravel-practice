@@ -24,13 +24,13 @@
                 <p>薪水待遇:{{$Vacancie->company_money}}<p>
             </div>
             <div>
-                <p>公司名稱:{{$Vacancie->vacancies_name}}<p>
+                <p>公司名稱:{{$Vacancie->company_name}}<p>
             </div>
             <div>
-                <p>公司電話:{{$Vacancie->vacancies_name}}<p>
+                <p>公司電話:{{$Vacancie->company_number}}<p>
             </div>
             <div>
-                <p>公司email:{{$Vacancie->vacancies_name}}<p>
+                <p>公司email:{{$Vacancie->company_email}}<p>
             </div>
             <div>
                 <p>工作時間:{{$Vacancie->company_time}}<p>
