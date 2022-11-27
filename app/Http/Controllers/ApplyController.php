@@ -45,10 +45,11 @@ class ApplyController extends Controller
                 }else{
                     $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                     ->select('vacancies.*', 'company.*')
-                    ->where('teacher_watch','通過') 
+                    ->where('teacher_watch','通過')
                     ->paginate(10);
+                    echo $Vacancies;
                 }
-                echo $Vacancies;
+
                 return view('IN.student.Apply.index',[
                     'Vacancies'=> $Vacancies,
                     'user_id'  => $user_id,

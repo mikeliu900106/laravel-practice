@@ -12,13 +12,13 @@
     @endsection
 
     @section('content')
-    @parent
-
-    <div class="main">
-        <h1 class="word_main">practice</h1>
-        <h1 class="word">change your life!</h1>
-    </div>
-    <div class="user_news"></div>
+        @parent
+        
+        <div class="main">
+            <h1 class="word_main">practice</h1>
+            <h1 class="word">change your life!</h1>
+        </div>
+        <div class="user_news"></div>
 
 
     @endsection
