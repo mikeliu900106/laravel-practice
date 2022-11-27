@@ -48,11 +48,12 @@ class ApplyController extends Controller
                     ->where('teacher_watch','通過')
                     ->paginate(10);
                     echo $Vacancies;
-                    return view('IN.student.Apply.index',[
-                        'Vacancies'=> $Vacancies,
-                        'user_id'  => $user_id,
-                    ]);
                 }
+
+                return view('IN.student.Apply.index',[
+                    'Vacancies'=> $Vacancies,
+                    'user_id'  => $user_id,
+                ]);
             }
             else{
                 echo "你不是學生";
@@ -136,7 +137,7 @@ class ApplyController extends Controller
         $isUseResume = Resume::where("user_id",$user_id)->count();
         $isUseScore = Score::where("user_id",$user_id)->count();
         $ResumeData = Resume::where("user_id",$user_id)->get();
-        
+
         $user_real_name = Student::select("user_real_name")->where("user_id",$user_id)->get();
         //$data = $request -> all();
         if($isUseResume != 0){

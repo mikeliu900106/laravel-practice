@@ -47,15 +47,9 @@
             </div>
         </div> <!-- content -->
     </div>
-    {{$Vacancies->links()}}
-
-
-
-
-
+    {{-- {{$Vacancies->links()}} --}}
 
     @endsection
-
 
     @section('footer')
     @parent

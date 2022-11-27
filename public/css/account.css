@@ -1,0 +1,176 @@
+.Account-Box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: white;
+  border: solid 1px #cdd8dc;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 830px;
+  height: auto;
+  min-height: 30em;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Account-Box a {
+  font-size: 18px;
+  color: #888;
+}
+
+.Title {
+  margin: 1.2em;
+}
+.Title h1 {
+  font-weight: bold;
+  font-size: calc(36px + 1vw);
+  margin: 0;
+}
+
+.Input-Section {
+  min-width: 60%;
+  flex-grow: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Input-Section .Account-Text {
+  display: inline-block;
+  width: 100%;
+  min-width: 100px;
+  height: 40px;
+  border: solid 1px #d4d8db;
+  /* #b5d4e9 #f3f7f7*/
+  background-color: #ffffff;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 5px;
+  color: #333;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+.Input-Section a {
+  align-self: flex-end;
+  margin-right: 5px;
+  display: inline-block;
+}
+@media screen and (max-width: 768px) {
+  .Input-Section {
+    width: 90%;
+  }
+}
+
+.Help-Section {
+  width: 100%;
+  display: flex;
+}
+
+.Submit-Section {
+  position: relative;
+  bottom: 0px;
+  min-height: 100px;
+  width: 100%;
+  border: solid 1px #dde0e7;
+  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
+}
+.Submit-Section .Submit-Button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 35px;
+  min-width: 150px;
+  width: 30%;
+  height: 40px;
+  cursor: pointer;
+}
+.Submit-Section .Submit-Button:hover {
+  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+}
+.HomeLogo {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+}
+
+.ReturnLogo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+}
+
+.Register-Select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+.Register-Select .Select-Box {
+  background-color: #f6f6f6;
+  height: 10em;
+  width: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  box-sizing: border-box;
+  border: solid 3px #888888;
+}
+.Register-Select .Select-Box:hover {
+  width: 11em;
+  height: 11em;
+  border-color: #59d3eb;
+  margin: 6px;
+  cursor: pointer;
+}
+.Register-Select a {
+  border-radius: 8px;
+  text-decoration: none;
+}
+.Register-Select a img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+.Register-Select a p {
+  margin-top: 0.7em;
+  margin-bottom: 0;
+  font-size: 30px;
+  color: black;
+}
+
+.verification {
+  margin-left: 10px;
+}
+
+.verification_button {
+  border: solid 2px black;
+  padding: 5px;
+  border-radius: 25px;
+  width: 90px;
+  height: 40px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
+}
+.verification_button:hover {
+  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+}
+
+.CPN-Register .col {
+  min-width: 300px;
+}
+.CPN-Register ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}

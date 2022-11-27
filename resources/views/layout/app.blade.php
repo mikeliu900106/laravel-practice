@@ -9,9 +9,11 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Posts</title>
-        <link rel="stylesheet" type="text/css" href="/css/app.css">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <script src="{{asset("js/jquery-3.6.0.min.js")}}"></script>
+        <script src="{{asset("js/index.js")}}"></script>
+        <link rel="stylesheet" type="text/css" href="{{asset("/css/app.css")}}">
+        <link rel="stylesheet" href="{{asset("bootstrap/css/bootstrap.min.css")}}" />
+        <link rel="stylesheet" href="{{asset("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css")}}">
     </head>
     @show
 </head>
@@ -65,9 +67,8 @@
 
     </div class="footer">
     @section('footer')
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{{asset("bootstrap/js/bootstrap.min.js")}}"></script>
     @show
     </div>
 </body>
