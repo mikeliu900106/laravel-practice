@@ -3,7 +3,6 @@
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  background: white;
   border: solid 1px #cdd8dc;
   border-radius: 6px;
   width: 90%;

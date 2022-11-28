@@ -1,5 +1,6 @@
 $navbar_color: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
 $light_blue: #59d3eb;
+$blue: #6096ba;
 $phone_max_width: 768px;
 @mixin indep {
     position: absolute;
@@ -34,9 +35,7 @@ $phone_max_width: 768px;
 
 .Account-Box {
     @include center();
-    // background: $navbar_color;
-    // margin-top: 10px;
-    background: white;
+    // background: $blue;
     border: solid 1px #cdd8dc;
     border-radius: 6px;
     width: 90%;
