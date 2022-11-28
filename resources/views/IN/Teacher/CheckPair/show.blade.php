@@ -23,7 +23,7 @@
                 </tr>
                 @foreach($pairDatas as $pairData) 
                     <tr>
-                        <?$user_id = {{$pairData->user_id}}?>
+                        {{$user_id = $pairData->user_id}}
                         <td>{{ $pairData->teacher_name }}</td>
                         <td>{{ $pairData->company_name }}</td>
                         <td>{{ $pairData->start_time }}</td>

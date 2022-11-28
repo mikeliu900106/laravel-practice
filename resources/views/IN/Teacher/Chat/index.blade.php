@@ -14,6 +14,7 @@
     @section('content')
     <div id="responseBox">
         <ul>
+            <a>
             @foreach($Chats as $Chat)
                 <li>
                     <div class="author">作者：{{$Chat->chat_maker}}</div>
@@ -57,4 +58,4 @@
     @endsection 
   
 </body>
-    
+    `
