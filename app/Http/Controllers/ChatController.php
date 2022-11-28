@@ -24,6 +24,7 @@ class ChatController extends Controller
                 return view('IN.student.Chat.index',[
                     'Chats'=> $Chat,
                     'Chat_level' =>$Chat_level,
+                    'Chat_id' => $user_id,
                 ]);
             }
             else{
@@ -46,8 +47,9 @@ class ChatController extends Controller
      */
     public function create(Request $request)
     {
-        
-
+        $user_id = session()->get('user_id');
+        $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
+        return view("IN.Student.Chat.store",['Chat_level' => $Chat_level]);
     }
 
     /**
@@ -75,6 +77,7 @@ class ChatController extends Controller
                 'chat_level'     =>  '1',
             ]
         );
+        return redirect()->route('Chat.index');
     }
 
     /**

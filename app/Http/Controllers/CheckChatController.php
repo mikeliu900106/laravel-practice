@@ -45,7 +45,7 @@ class CheckChatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -54,9 +54,9 @@ class CheckChatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
-        //
+       
     }
 
     /**
@@ -65,9 +65,14 @@ class CheckChatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
-        //
+        Chat::where('chat_id',$id)
+        ->update(
+            [
+                'chat_level' => "2",
+            ]);
+        return redirect()->route('CheckUser.index');
     }
 
     /**
@@ -79,7 +84,12 @@ class CheckChatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Chat::where('chat_id',$id)
+        ->update(
+            [
+                'chat_level' => "1",
+            ]);
+            return redirect()->route('CheckUser.index');
     }
 
     /**
