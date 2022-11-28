@@ -78,25 +78,31 @@ nav {
         margin: 5px;
         &:hover {
             ul.dropdown-menu {
-                // position: absolute;
                 display: block;
-                // left: 0.5em;
-                // width: 5em;
             }
         }
         ul {
             width: 100%;
         }
         a.nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
             padding: 0px;
+            @media (max-width: 976px) {
+                justify-content: flex-start;
+                ul.dropdown-menu {
+                    transition: 1s;
+                }
+            }
         }
         a.dropdown-item {
             margin: 0;
             padding-left: 0.5em;
             padding-right: 0.5em;
         }
-        @media screen and (max-width: 976px) {
-            text-align: left;
+        @media (max-width: 976px) {
             width: 100%;
             a {
                 margin-left: 10px;
@@ -107,12 +113,12 @@ nav {
 }
 
 .main {
-    background: #e9e9e9;
+    // background: #e9e9e9;
+    // background-image: url("/img/01.jpg");
     flex-grow: 1;
-    // height: 1000px;
     position: relative;
     // display: flex;
-    // min-height: 800px;
+    min-height: 800px;
     // overflow: hidden;
     .word {
         @include flexCenter;
@@ -145,3 +151,7 @@ nav {
     background-color: $navbar_color;
     border-top: black 1px;
 }
+
+// .title {
+//     margin: 40px;
+// }

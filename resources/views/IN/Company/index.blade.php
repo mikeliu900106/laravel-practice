@@ -25,7 +25,7 @@
             <div class="Input-Section CPN-Register">
                 <ul>
                     <li class="row">
-                        <div class="col" style="flex-grow: 2;">
+                        <div class="col" style="flex-grow: 2">
                             <label for="compamny_name">公司名稱</label>
                             <input type="text" name="company_name" class="Account-Text" placeholder="請輸入您的公司名稱">
                         </div>

@@ -28,7 +28,7 @@
                     <p>我是廠商</p>
                 </a>
                 <a href="{{ route('Teacher.index')}}" class="Select-Box">
-                    <img src="/img/TCH.jpg" alt="">
+                    <img src="/img/TCH.png" alt="">
                     <p>我是教師</p>
                 </a>
             </div>

@@ -75,7 +75,20 @@ nav a {
 }
 
 .navbar-nav li a.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   padding: 0px;
+}
+
+@media (max-width: 976px) {
+  .navbar-nav li a.nav-link {
+    justify-content: flex-start;
+  }
+  .navbar-nav li a.nav-link ul.dropdown-menu {
+    transition: 1s;
+  }
 }
 
 .navbar-nav li a.dropdown-item {
@@ -84,9 +97,8 @@ nav a {
   padding-right: 0.5em;
 }
 
-@media screen and (max-width: 976px) {
+@media (max-width: 976px) {
   .navbar-nav li {
-    text-align: left;
     width: 100%;
   }
   .navbar-nav li a {
@@ -96,9 +108,9 @@ nav a {
 }
 
 .main {
-  background: #e9e9e9;
   flex-grow: 1;
   position: relative;
+  min-height: 800px;
 }
 
 .main .word, .main .word_main {
