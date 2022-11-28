@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "../../resources/css/student.scss"
+    ],
+    "names": [],
+    "file": "student.css"
+}

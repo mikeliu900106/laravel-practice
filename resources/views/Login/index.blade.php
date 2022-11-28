@@ -15,7 +15,7 @@
     <form action="{{ route('Login.store')}}" method="POST">
         @csrf
         <div class="Account-Box">
-            <div class=" Title">
+            <div class="Title">
                 <h1>登入</h1>
             </div>
             <div class="Input-Section">

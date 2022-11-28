@@ -75,7 +75,20 @@ nav a {
 }
 
 .navbar-nav li a.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   padding: 0px;
+}
+
+@media (max-width: 976px) {
+  .navbar-nav li a.nav-link {
+    justify-content: flex-start;
+  }
+  .navbar-nav li a.nav-link ul.dropdown-menu {
+    transition: 1s;
+  }
 }
 
 .navbar-nav li a.dropdown-item {
@@ -84,9 +97,8 @@ nav a {
   padding-right: 0.5em;
 }
 
-@media screen and (max-width: 976px) {
+@media (max-width: 976px) {
   .navbar-nav li {
-    text-align: left;
     width: 100%;
   }
   .navbar-nav li a {
@@ -96,11 +108,9 @@ nav a {
 }
 
 .main {
-  background: #e9e9e9;
   flex-grow: 1;
   position: relative;
   min-height: 800px;
-  overflow: hidden;
 }
 
 .main .word, .main .word_main {
@@ -131,7 +141,6 @@ nav a {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  background: white;
   border: solid 1px #cdd8dc;
   border-radius: 6px;
   width: 90%;
@@ -202,6 +211,7 @@ nav a {
 }
 
 .Submit-Section {
+  box-sizing: content-box;
   position: relative;
   bottom: 0px;
   min-height: 100px;
@@ -265,7 +275,7 @@ nav a {
 .Register-Select .Select-Box:hover {
   width: 11em;
   height: 11em;
-  border-color: #faa;
+  border-color: #59d3eb;
   margin: 6px;
   cursor: pointer;
 }
@@ -315,5 +325,9 @@ nav a {
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+
+.Response-Box {
+  height: 20px;
 }
 /*# sourceMappingURL=app.css.map */

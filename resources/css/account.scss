@@ -2,31 +2,24 @@ $navbar_color: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
 $light_blue: #59d3eb;
 $blue: #6096ba;
 $phone_max_width: 768px;
+
 @mixin indep {
     position: absolute;
 }
-
 @mixin center {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
-
-@mixin trans($s) {
-    transition: $s;
-}
-
 @mixin size($w, $h) {
     width: $w;
     height: $h;
 }
-
 @mixin fill {
     width: 100%;
     height: 100%;
 }
-
 @mixin text($size, $spacing, $color) {
     font-size: $size;
     letter-spacing: $spacing;
@@ -98,6 +91,7 @@ $phone_max_width: 768px;
     display: flex;
 }
 .Submit-Section {
+    box-sizing: content-box;
     position: relative;
     bottom: 0px;
     min-height: 100px;

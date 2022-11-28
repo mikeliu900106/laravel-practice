@@ -13,3 +13,7 @@ $(".UserBox_t").click(function(e){
     $(".jump3").slideToggle();
 });
 
+var oNavbarToggler = document.getElementsByClassName('navbar-toggler');
+var aNavLink = document.getElementsByClassName('nav-item')
+console.log(aNavLink)
+
