@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vacancies;
-
-class VacanciesController extends Controller
+class CompanyVacanciesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +20,7 @@ class VacanciesController extends Controller
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
                 $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);//之後要改
-                return view('IN.company.Vacancies.show',[
+                return view('IN.Company.CompanyVacancies.index',[
                     'user_id'  => $user_id,
                     'Vacancies'=> $Vacancies,
                 ]);
@@ -43,10 +42,9 @@ class VacanciesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $vacancies_id =$request->vacancies_id;
-        return view("IN.Company.Vacancies.update",["vacancies_id" => $vacancies_id]);
+        return view('IN.Company.CompanyVacancies.store');
     }
 
     /**
@@ -57,7 +55,7 @@ class VacanciesController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $user_id = session()->get('user_id');
         $type = $request ->input('sql_type');
 
@@ -101,12 +99,8 @@ class VacanciesController extends Controller
                 ]
             );
             $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);
-            return view('IN.company.Vacancies.show',[
-                'user_id'  => $user_id,
-                'Vacancies'=> $Vacancies,
-            ]);
+            return redirect()->route("CompanyVacancies.index");
         
-
     }
 
     /**
@@ -117,7 +111,7 @@ class VacanciesController extends Controller
      */
     public function show($id)
     {
-        return view("IN.Company.Vacancies.index");
+        //
     }
 
     /**
@@ -128,16 +122,7 @@ class VacanciesController extends Controller
      */
     public function edit($id)
     {
-        Vacancies::where('vacancies_id', $id)
-        ->update(
-        [
-            'teacher_watch' => '通過',
-        ]);
-        return view('IN.company.Vacancies.show',[
-            'user_id'  => $id,
-            'Vacancies'=> $Vacancies,
-        ]);
-
+        return view("IN.Company.CompanyVacancies.update",["user_id" => $id]);
     }
 
     /**
@@ -180,10 +165,7 @@ class VacanciesController extends Controller
             $user_id = session()->get('user_id');
             echo $user_id;
             $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);//之後要改
-            return view('IN.company.Vacancies.show',[
-                'user_id'  => $user_id,
-                'Vacancies'=> $Vacancies,
-            ]);
+            return redirect()->route("CompanyVacancies.index");
     }
 
     /**
@@ -194,13 +176,9 @@ class VacanciesController extends Controller
      */
     public function destroy($id)
     {
-        
         $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
         $user_id = session()->get('user_id');
         $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);
-            return view('IN.company.Vacancies.show',[
-                'user_id'  => $user_id,
-                'Vacancies'=> $Vacancies,
-            ]);
+        return redirect()->route("CompanyVacancies.index");
     }
 }

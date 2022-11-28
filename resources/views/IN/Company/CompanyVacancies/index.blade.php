@@ -13,7 +13,7 @@
 
     @section('content')
         @parent
-        <a href = "{{route("Vacancies.show",$user_id)}}">新增職位</a>
+        <a href = "{{route("CompanyVacancies.create")}}">新增職位</a>
         <table>
             <tr>
                 <th>職位名稱</th>
@@ -41,10 +41,10 @@
                 <td>{{$Vacancie->company_department }}</td>
                 <td>{{$Vacancie->company_other}}</td>
                 <td>{{$Vacancie->company_safe}}</td>
-                <form action = "{{route('Vacancies.destroy',$Vacancie->vacancies_id) }}" method = "post">
+                <form action = "{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method = "post">
                     @method('DELETE')
                     @csrf    
-                    <td><a href = "{{route("Vacancies.create",['vacancies_id' => $Vacancie->vacancies_id])}}">更新</a></td>
+                    <td><a href = "{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
                     <td><button class="btn btn-danger" type="submit">Delete</button></td>
                 </form>
             <tr>

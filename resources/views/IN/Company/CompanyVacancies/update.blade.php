@@ -12,10 +12,11 @@
     @endsection
 
     @section('content')
-    <form method="post" action="{{route("Vacancies.store")}}">
+    <form method="post" action="{{route("CompanyVacancies.update",$user_id)}}">
+        @method("patch")
         @csrf
         <div class="AccountBox CPN_RegisterBox">
-            <h1>廠商註冊</h1>
+            <h1>職位更新</h1>
             <!-- 註冊資料輸入欄 -->
             <!-- 基本資料 -->
             <ul class="Section">

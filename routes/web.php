@@ -26,6 +26,7 @@ use App\Http\Controllers\CheckUserController;
 use App\Http\Controllers\CheckChatController;
 use App\Http\Controllers\CheckResumeController;
 use App\Http\Controllers\CheckScoreController;
+use App\Http\Controllers\CompanyVacanciesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +81,4 @@ Route::resource('CheckUser',CheckUserController::class);
 Route::resource('CheckChat',CheckChatController::class);
 Route::resource('CheckResume',CheckResumeController::class);
 Route::resource('CheckScore',CheckScoreController::class);
+Route::resource('CompanyVacancies',CompanyVacanciesController::class);

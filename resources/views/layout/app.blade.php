@@ -46,7 +46,7 @@
                 <li class="nav-item dropdown col-2">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">廠商</a>
                     <ul class="dropdown-menu text-center">
-                        <li><a class="dropdown-item" href="{{route('Vacancies.index')}}">職缺查看</a></li>
+                        <li><a class="dropdown-item" href="{{route('CompanyVacancies.index')}}">職缺查看</a></li>
                         <li><a class="dropdown-item" href="{{route('CompanyChat.index')}}">意見反映</a></li>
                     </ul>
                 </li>
