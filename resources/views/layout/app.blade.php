@@ -20,18 +20,17 @@
 
 <body>
     @section('nav')
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-md">
         <a class="navbar-brand logo col-2 text-center" href="{{url('/')}}">PCCU</a>
         <!-- RWD -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDropdown">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDropdown" style="color: white">
+            <span class="navbar-toggler-icon toggler"></span>
         </button>
         <div class="collapse navbar-collapse" id="navDropdown">
             <ul class="navbar-nav col text-center">
                 <li class="nav-item dropdown col-1">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">學生</a>
                     <ul class="dropdown-menu text-center">
-                        <li><a class="dropdown-item" href="">申請辦法</a></li>
                         <li><a class="dropdown-item" href="{{route('Apply.index')}}">實習應徵</a></li>
                         <li><a class="dropdown-item" href="{{route('Pair.index')}}">配對上傳</a></li>
                         <li><a class="dropdown-item" href="{{route('Chat.index')}}">意見反映</a></li>

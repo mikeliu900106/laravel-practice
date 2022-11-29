@@ -18,27 +18,23 @@
         <h1 class="word">change your life!</h1>
     </div> -->
 
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="/img/01.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="/img/02.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="/img/03.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="/img/04.jpg" alt=""></div>
-            </div>
-            <div class=" swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+    <!-- Additional required wrapper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="/img/01.jpg"></div>
+            <div class="swiper-slide"><img src="/img/02.jpg"></div>
+            <div class="swiper-slide"><img src="/img/03.jpg"></div>
+            <div class="swiper-slide"><img src="/img/04.jpg"></div>
         </div>
-        <!-- pagination -->
-        <div class="swiper-pagination"></div>
-
         <!-- navigation buttons -->
-        <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
     </div>
+    <!-- pagination -->
+    <div class="swiper-pagination"></div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
