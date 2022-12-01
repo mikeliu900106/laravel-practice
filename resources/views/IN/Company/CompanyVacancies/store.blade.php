@@ -12,7 +12,7 @@
     @endsection
 
     @section('content')
-    <form method="post" action="{{route("Vacancies.store")}}">
+    <form method="post" action="{{route("CompanyVacancies.store")}}">
         @csrf
         <div class="AccountBox CPN_RegisterBox">
             <h1>職位填寫</h1>

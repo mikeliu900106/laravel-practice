@@ -17,5 +17,9 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.55.0",
         "sass-loader": "^12.1.0"
+    },
+    "dependencies": {
+        "sweetalert": "^2.1.2",
+        "sweetalert2": "^11.6.15"
     }
 }

@@ -71,12 +71,12 @@ class CompanyController extends Controller
             $Company_insert = Company::create(
                 [
                     'company_id'            =>  $Company_id,
-                    'company_name'          =>  $companydata['company_name'],
-                    'company_title'         =>  $companydata['company_title'],
-                    'company_username'      =>  $companydata['company_username'],
-                    'company_password'      =>  $companydata['company_password'],
-                    'company_number'        =>  $companydata['company_number'],
-                    'company_email'         =>  $companydata['company_email'],
+                    'company_name'          =>  $company_data['company_name'],
+                    'company_title'         =>  $company_data['company_title'],
+                    'company_username'      =>  $company_data['company_username'],
+                    'company_password'      =>  $company_data['company_password'],
+                    'company_number'        =>  $company_data['company_number'],
+                    'company_email'         =>  $company_data['company_email'],
                     'level'                 =>  "3",
                 ]
             );

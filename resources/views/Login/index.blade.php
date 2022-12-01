@@ -28,7 +28,7 @@
                 <div style="height: 5em"></div>
             </div>
             <div class="Submit-Section">
-                <input class="Submit-Button" type="submit" value="提交" />
+                <button class="Submit-Button" type="submit" value="提交" id = 'login-submit' >提交</button>
             </div>
             <a href="{{url('/')}}"><img src="/img/home.png" class="HomeLogo"></a>
         </div>
