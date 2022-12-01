@@ -1,8 +1,11 @@
-$navbar_color: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
+$navbar_color: #1c1c1c;
+$navbar_font_color: white;
+$navbar_font_color_hover: #1e90ff;
+// linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
 $black_white: #e9e9e9;
 $light_blue: #59d3eb;
-$phone-max-width: 768px;
-$tablet-max-width: 992px;
+$phone-max-width: 576px; //768
+$tablet-max-width: 768px; //992
 
 @mixin size($w, $h: $w) {
     width: $w;
@@ -25,9 +28,9 @@ body {
     flex-direction: column;
     overflow: auto;
 }
-
 nav {
-    //border-bottom: solid black 2px;
+    // border: solid yellow 2px;
+    margin-bottom: 30px;
     background: $navbar_color;
     width: 100%;
     // flex-grow: 1;
@@ -36,6 +39,10 @@ nav {
         cursor: pointer;
         margin-right: 0.5em;
         min-width: 150px;
+        color: $navbar_font_color;
+        &:hover {
+            color: $navbar_font_color_hover;
+        }
     }
     .account {
         .bi,
@@ -66,24 +73,22 @@ nav {
     }
     a {
         font-size: 25px;
-        color: black;
         font-weight: 700;
     }
 }
 
 .navbar-toggler {
     margin-right: 5px;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
 }
 
 .navbar-nav {
     li {
-        min-width: 100px;
+        min-width: 130px;
         padding: 5px;
-        // &:hover {
-        //     ul.dropdown-menu {
-        //         display: block;
-        //     }
-        // }
         ul {
             width: 100%;
         }
@@ -93,8 +98,18 @@ nav {
             justify-content: center;
             height: 100%;
             padding: 0px;
+            color: $navbar_font_color;
+            &:hover {
+                color: $navbar_font_color_hover;
+            }
+            i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 5px;
+            }
             @media (max-width: $tablet-max-width) {
-                justify-content: flex-start;
+                // justify-content: flex-start;
                 ul.dropdown-menu {
                     transition: 1s;
                 }
@@ -105,11 +120,11 @@ nav {
             padding-left: 0.5em;
             padding-right: 0.5em;
         }
-        @media screen and (max-width: $tablet-max-width) {
+        @media screen and (max-width: 767px) {
             width: 100%;
-            padding-left: 10px;
+            // padding-left: 30px;
         }
-        @media screen and (min-width: 576px) {
+        @media screen and (min-width: $phone-max-width) {
             &:hover {
                 ul.dropdown-menu {
                     display: block;
@@ -120,7 +135,6 @@ nav {
 }
 
 .main {
-    // background: #e9e9e9;
     flex-grow: 1;
     position: relative;
     // display: flex;
