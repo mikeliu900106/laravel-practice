@@ -38,7 +38,7 @@
                 </div>
                 <div class="content">
                     <p>內容</p><textarea name="content" id="" cols="30" rows="10"></textarea>
-                    <input type="submit" value="送出">
+                    <button type="submit" id = "teacher_chat" value="送出">送出</button>
                 </div>
             </form>
         <?php

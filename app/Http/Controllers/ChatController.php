@@ -19,7 +19,7 @@ class ChatController extends Controller
             if ($request->session()->get('level') == '1') {
                 $user_id = session()->get('user_id');
                 echo $user_id;
-                $Chat = Chat::paginate(10);
+                $Chat = Chat::paginate(9);
                 $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
                 return view('IN.student.Chat.index',[
                     'Chats'=> $Chat,

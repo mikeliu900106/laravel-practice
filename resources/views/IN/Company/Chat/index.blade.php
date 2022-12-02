@@ -49,9 +49,10 @@
                             echo"<div>你已被封禁沒資格發言</div>";    
                         }?>
                     </div>
-                    
+                    {{ $Chats->links() }}
             </div> 
-            {{ $Chats->links() }}
+           
+            
 
     @endsection
 

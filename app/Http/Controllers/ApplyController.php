@@ -187,6 +187,7 @@ class ApplyController extends Controller
                     $message->attach($data['ResumePath']);
                 });
                 echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
+                return redirect()-> route('Apply.index');
             }
         }
         else

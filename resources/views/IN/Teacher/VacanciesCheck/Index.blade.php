@@ -48,10 +48,10 @@
                 <td>{{$Vacancie->teacher_name}}</td>
                 <form action = "{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method = "post">
                     @method('DELETE')
-                    @csrf    
-                    <td><a href = "{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a></td>
-                    <td><a href = "{{route("VacanciesCheck.update",$Vacancie->vacancies_id)}}">不通過</a></td>
-                    <td><button class="btn btn-danger" type="submit">Delete</button></td>
+                    @csrf   
+                    <td><div class = "check_wrap_green"><a class  = "confirm" href = "{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a></div></td>
+                    <td><div class ="check_wrap_red" ><a class = "cancel"href = "{{route("VacanciesCheck.update",$Vacancie->vacancies_id)}}">不通過</a></div></td> 
+                    <td><button class="btn btn-danger" type="submit" id = "VacanciesCheck_delete_button">Delete</button></td>
                 </form>
             <tr>
             @endforeach

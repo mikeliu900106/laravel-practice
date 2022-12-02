@@ -60,7 +60,7 @@ class TeacherChatController extends Controller
         ]);
         $user_id = session()->get('user_id');
         $today = date("Ynj");
-        $Chat_insert = Student::create(
+        $Chat_insert = Chat::create(
             [
                 'chat_id'        =>  $user_id,
                 'chat_maker'     =>  $validate['maker'],
