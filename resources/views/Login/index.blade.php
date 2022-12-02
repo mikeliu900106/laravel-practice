@@ -11,7 +11,9 @@
     @parent
     @endsection
 
+
     @section('content')
+
     <form action="{{ route('Login.store')}}" method="POST">
         @csrf
         <div class="Account-Box">
@@ -32,7 +34,6 @@
             </div>
             <a href="{{url('/')}}"><img src="/img/home.png" class="HomeLogo"></a>
         </div>
-
     </form>
 
     @endsection

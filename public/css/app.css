@@ -32,25 +32,6 @@ nav .account .bi-person {
   height: 50px;
   font-size: 30px;
 }
-nav .account .Login {
-  padding: 0.5em;
-}
-nav .account .SignUp {
-  padding: 0.5em;
-}
-@media screen and (max-width: 768px) {
-  nav .account .col-6 {
-    width: 0px;
-  }
-  nav .account .Login {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-  nav .account .SignUp {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-}
 nav a {
   font-size: 25px;
   font-weight: 700;
@@ -137,6 +118,27 @@ nav a {
   height: 100%;
 }
 
+#container {
+  margin: 30px auto;
+  border-radius: 20px;
+  border-top: 20px;
+}
+@media (min-width: 768px) {
+  #container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #container {
+    width: 92%;
+  }
+}
+@media (min-width: 1200px) {
+  #container {
+    width: 1200px;
+  }
+}
+
 .Account-Box {
   position: absolute;
   left: 50%;
@@ -179,7 +181,7 @@ nav a {
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
-  min-width: 100px;
+  min-width: 10em;
   height: 40px;
   border: solid 1px #d4d8db;
   /* #b5d4e9 #f3f7f7*/
@@ -191,6 +193,11 @@ nav a {
   letter-spacing: 0.5px;
   font-size: 16px;
 }
+@media (min-width: 576px) {
+  .Input-Section .Account-Text {
+    min-width: none;
+  }
+}
 .Input-Section a {
   align-self: flex-end;
   margin-right: 5px;
@@ -199,6 +206,12 @@ nav a {
 @media screen and (max-width: 768px) {
   .Input-Section {
     width: 90%;
+  }
+}
+@media (max-width: 576px) {
+  .Input-Section {
+    width: 100%;
+    padding: 5px;
   }
 }
 
@@ -236,14 +249,18 @@ nav a {
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 40px;
+  width: 10vw;
+  max-width: 40px;
+  min-width: 20px;
 }
 
 .ReturnLogo {
   position: absolute;
   top: 5px;
   left: 5px;
-  width: 40px;
+  width: 10vw;
+  max-width: 40px;
+  min-width: 20px;
 }
 
 .Register-Select {
@@ -304,8 +321,9 @@ nav a {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
 
-.CPN-Register .col {
-  min-width: 300px;
+.CPN-Register input[type=text],
+.CPN-Register input[type=password] {
+  margin-left: 0;
 }
 .CPN-Register ul {
   padding: 0;

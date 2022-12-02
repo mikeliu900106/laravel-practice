@@ -36,28 +36,6 @@ nav .account .bi-person {
   font-size: 30px;
 }
 
-nav .account .Login {
-  padding: 0.5em;
-}
-
-nav .account .SignUp {
-  padding: 0.5em;
-}
-
-@media screen and (max-width: 768px) {
-  nav .account .col-6 {
-    width: 0px;
-  }
-  nav .account .Login {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-  nav .account .SignUp {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-}
-
 nav a {
   font-size: 25px;
   font-weight: 700;
@@ -153,5 +131,29 @@ nav a {
 .swiper .swiper-wrapper .swiper-slide img {
   width: 100%;
   height: 100%;
+}
+
+#container {
+  margin: 30px auto;
+  border-radius: 20px;
+  border-top: 20px;
+}
+
+@media (min-width: 768px) {
+  #container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  #container {
+    width: 92%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #container {
+    width: 1200px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

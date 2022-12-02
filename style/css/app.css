@@ -12,7 +12,6 @@ body {
 }
 
 nav {
-  border: solid yellow 2px;
   margin-bottom: 30px;
   background: #1c1c1c;
   width: 100%;
@@ -26,8 +25,8 @@ nav .logo {
   color: white;
 }
 
-nav .logo :hover {
-  color: green;
+nav .logo:hover {
+  color: #1e90ff;
 }
 
 nav .account .bi,
@@ -37,28 +36,6 @@ nav .account .bi-person {
   font-size: 30px;
 }
 
-nav .account .Login {
-  padding: 0.5em;
-}
-
-nav .account .SignUp {
-  padding: 0.5em;
-}
-
-@media screen and (max-width: 992px) {
-  nav .account .col-6 {
-    width: 0px;
-  }
-  nav .account .Login {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-  nav .account .SignUp {
-    border: solid 1px;
-    border-radius: 5px;
-  }
-}
-
 nav a {
   font-size: 25px;
   font-weight: 700;
@@ -66,10 +43,15 @@ nav a {
 
 .navbar-toggler {
   margin-right: 5px;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-nav li {
-  min-width: 100px;
+  min-width: 130px;
   padding: 5px;
 }
 
@@ -87,7 +69,7 @@ nav a {
 }
 
 .navbar-nav li a.nav-link:hover {
-  color: green;
+  color: #1e90ff;
 }
 
 .navbar-nav li a.nav-link i {
@@ -97,10 +79,7 @@ nav a {
   padding-bottom: 5px;
 }
 
-@media (max-width: 992px) {
-  .navbar-nav li a.nav-link {
-    justify-content: flex-start;
-  }
+@media (max-width: 768px) {
   .navbar-nav li a.nav-link ul.dropdown-menu {
     transition: 1s;
   }
@@ -112,10 +91,9 @@ nav a {
   padding-right: 0.5em;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 767px) {
   .navbar-nav li {
     width: 100%;
-    padding-left: 10px;
   }
 }
 
@@ -153,6 +131,30 @@ nav a {
 .swiper .swiper-wrapper .swiper-slide img {
   width: 100%;
   height: 100%;
+}
+
+#container {
+  margin: 30px auto;
+  border-radius: 20px;
+  border-top: 20px;
+}
+
+@media (min-width: 768px) {
+  #container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  #container {
+    width: 92%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #container {
+    width: 1200px;
+  }
 }
 
 .Account-Box {
@@ -199,7 +201,7 @@ nav a {
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
-  min-width: 100px;
+  min-width: 10em;
   height: 40px;
   border: solid 1px #d4d8db;
   /* #b5d4e9 #f3f7f7*/
@@ -212,6 +214,12 @@ nav a {
   font-size: 16px;
 }
 
+@media (min-width: 576px) {
+  .Input-Section .Account-Text {
+    min-width: none;
+  }
+}
+
 .Input-Section a {
   align-self: flex-end;
   margin-right: 5px;
@@ -221,6 +229,13 @@ nav a {
 @media screen and (max-width: 768px) {
   .Input-Section {
     width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .Input-Section {
+    width: 100%;
+    padding: 5px;
   }
 }
 
@@ -261,14 +276,18 @@ nav a {
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 40px;
+  width: 10vw;
+  max-width: 40px;
+  min-width: 20px;
 }
 
 .ReturnLogo {
   position: absolute;
   top: 5px;
   left: 5px;
-  width: 40px;
+  width: 10vw;
+  max-width: 40px;
+  min-width: 20px;
 }
 
 .Register-Select {
@@ -335,8 +354,9 @@ nav a {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
 
-.CPN-Register .col {
-  min-width: 300px;
+.CPN-Register input[type="text"],
+.CPN-Register input[type="password"] {
+  margin-left: 0;
 }
 
 .CPN-Register ul {

@@ -13,7 +13,7 @@
 
     @section('content')
     @parent
-    <div id="wrap">
+    <div id="container">
         <div id="Response-Box">
             <a href="{{route("Chat.create")}}">新增評論</a>
             <ul>
