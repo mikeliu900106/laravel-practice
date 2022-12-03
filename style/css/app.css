@@ -367,6 +367,6 @@ nav a {
 }
 
 .Response-Box {
-  height: 20px;
+  border: solid 1px black;
 }
 /*# sourceMappingURL=app.css.map */
