@@ -4,8 +4,16 @@
   border-radius: 1rem;
 }
 
+#CPN-Verify {
+  width: 100% !important;
+}
+
 .dataTables_wrapper .col-sm-12 {
   margin-bottom: 5px;
+}
+
+table thead {
+  width: 100% !important;
 }
 
 table li {
@@ -13,7 +21,11 @@ table li {
 }
 
 table span {
-  vertical-align: bottom;
+  text-align: center;
   margin: auto 5px auto 0;
+}
+
+table .btn {
+  width: 75px;
 }
 /*# sourceMappingURL=table.css.map */

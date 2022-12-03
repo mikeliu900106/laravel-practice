@@ -3,7 +3,9 @@
     border: solid 5px #1e90ff;
     border-radius: 1rem;
 }
-
+#CPN-Verify {
+    width: 100% !important;
+}
 .dataTables_wrapper {
     .col-sm-12 {
         margin-bottom: 5px;
@@ -11,22 +13,16 @@
 }
 table {
     thead {
-        tr {
-            th {
-                // text-align: center;
-                // display: inline-flex;
-                // flex-direction: row;
-            }
-        }
-
-        // height: 50px;
+        width: 100% !important;
     }
     li {
         display: flex;
     }
     span {
-        // text-align: center;
-        vertical-align: bottom;
+        text-align: center;
         margin: auto 5px auto 0;
+    }
+    .btn {
+        width: 75px;
     }
 }

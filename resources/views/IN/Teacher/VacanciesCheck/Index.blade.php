@@ -16,9 +16,10 @@
         $('#CPN-Verify').DataTable({
             // "searching": false,
             // "paging": false,
+            "scrollX": true,
             "columnDefs": [{
                     targets: [0], // 第一欄 0開始, -1倒數
-                    width: "20%",
+                    // width: "100px",
                     createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
                         // $(td).css('width', '30%') //可寫其他設定
                     },
@@ -45,7 +46,7 @@
     @parent
     <div id="container">
         <div class="VacanciesCheck-Box">
-            <table id="CPN-Verify" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+            <table id="CPN-Verify" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                     <tr>
                         <th>職位名稱</th>
@@ -87,15 +88,11 @@
                                 <div class="btn btn-success btn"><a class="text-white text-decoration-none" href="{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a></div>
                                 <div class="btn btn-warning btn"><a class="text-white text-decoration-none" href="{{route("VacanciesCheck.update",$Vacancie->vacancies_id)}}">不通過</a></div>
                             </td>
-                            <!-- <td>
-                        <div class="check_wrap_red "><a class="cancel" href="{{route("VacanciesCheck.update",$Vacancie->vacancies_id)}}">不通過</a></div>
-                        </td> -->
                             <td><button class="btn btn-danger" type="submit" id="VacanciesCheck_delete_button">Delete</button></td>
                         </form>
                     </tr>
                     @endforeach
                 </tbody>
-
             </table>
             {{$Vacancies->links()}}
         </div>
