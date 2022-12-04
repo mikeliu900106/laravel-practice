@@ -19,7 +19,7 @@ class VacanciesCheckController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
-                echo $user_id;
+                //echo $user_id;
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
                 $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
@@ -82,9 +82,9 @@ class VacanciesCheckController extends Controller
         foreach($teacherData as $value){
             $teacher_real_name = $value['teacher_real_name'];
             if(empty($teacher_real_name)){
-                echo  "SV";
+            
             }
-            echo $teacher_real_name;
+            //echo $teacher_real_name;
         }
         foreach($VacanciesData as $value){
             $vacancies_name = $value['vacancies_name'];
@@ -122,7 +122,7 @@ class VacanciesCheckController extends Controller
         }
         $data['vacancies_name'] = $vacancies_name;
         $data['isPass'] = "通過";
-        echo $teacher_real_name;
+        //echo $teacher_real_name;
         Vacancies::where('vacancies_id', $id)
             ->update(
                 [
