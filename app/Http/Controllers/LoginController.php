@@ -63,7 +63,12 @@ class LoginController extends Controller
                     Session::put('user_id', $logindata["id"]);
                     Session::put('level', $logindata["level"]);
                     return view('index');
-                }   
+                } 
+                elseif($logindata["level"] == 4){
+                    Session::put('user_id', $logindata["id"]);
+                    Session::put('level', $logindata["level"]);
+                    return view('index');
+                }    
             }
             else{
                 echo "密碼錯誤";

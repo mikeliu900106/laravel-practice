@@ -28,7 +28,7 @@
                     },
                 },
                 {
-                    targets: [8],
+                    targets: [9],
                     responsivePriority: 2,
                 },
                 {
@@ -57,6 +57,7 @@
                 <thead>
                     <tr>
                         <th>職位名稱</th>
+                        <th>公司名稱</th>
                         <th>工作待遇</th>
                         <th>工作時間</th>
                         <th>工作地點</th>
@@ -77,6 +78,7 @@
                     <tr>
                         {{$Vacancie->vacancies_id}}
                         <td>{{$Vacancie->vacancies_name}}</td>
+                        <td>{{$Vacancie->company_name }}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
                         <td>{{$Vacancie->company_place }}</td>

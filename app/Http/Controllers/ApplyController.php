@@ -23,7 +23,7 @@ class ApplyController extends Controller
     public function index(Request $request)
     {   
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '1') {
+            if ($request->session()->get('level') == '4') {
                 $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
                 echo $user_id;
@@ -54,6 +54,9 @@ class ApplyController extends Controller
                     'Vacancies'=> $Vacancies,
                     'user_id'  => $user_id,
                 ]);
+            }
+            elseif($request->session()->get('level') == '1'){
+                echo "請等老師認證為本人,此功能開放";
             }
             else{
                 echo "你不是學生";
