@@ -64,3 +64,128 @@ $tablet-max-width: 768px;
         }
     }
 }
+
+.Apply-Box {
+    padding: 10px;
+    border: solid 5px #1e90ff;
+    border-radius: 1rem;
+    table {
+        width: 100% !important;
+    }
+    // #
+    // form {
+    //     align-self: flex-start;
+    //     display: flex;
+    //     margin: 0;
+    //     width: 100%;
+    //     padding: 10px;
+    //     .Vacancy-Search {
+    //         margin-right: 5px;
+    //         @media (max-width: $phone_max_width) {
+    //             margin-bottom: 5px;
+    //             margin-right: 0;
+    //         }
+    //         // margin-bottom: 5px;
+    //     }
+    //     @media (max-width: $phone_max_width) {
+    //         flex-direction: column;
+    //     }
+    // }
+    // padding: 10px;
+    // border: solid 5px #1e90ff;
+    // border-radius: 1rem;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-flow: column wrap;
+    // h1 {
+    //     margin: 5px;
+    // }
+    // .Vacancies {
+    //     display: flex;
+    //     flex-direction: column;
+    //     width: 100%;
+    //     box-sizing: border-box;
+    //     .Vacancy-Card {
+    //         display: flex;
+    //         // justify-content: space-between;
+    //         font-size: 24px;
+    //         margin: 10px;
+    //         border: 1px solid #1e90ff;
+    //         .Vacancy-Info {
+    //             flex-grow: 1;
+    //             text-decoration: none;
+    //         }
+    //     }
+    // }
+}
+
+.Apply-Info-Box {
+    padding: 10px;
+    border: solid 5px #1e90ff;
+    border-radius: 1rem;
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    .Vacancies-Cotent {
+        display: flex;
+        @media (max-width: $tablet-max-width) {
+            flex-direction: column;
+        }
+        .Tabs-List {
+            nav {
+                display: inline-flex;
+                background: none;
+                .nav-link {
+                    font-size: 20px;
+                    border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
+                    text-align: center;
+                    &:hover {
+                        border-bottom-color: rgb(24, 149, 221);
+                    }
+                }
+            }
+            @media (max-width: $tablet-max-width) {
+                .nav {
+                    // max-height: 48px;
+                    overflow: auto;
+                    flex-wrap: nowrap;
+                }
+                .nav-link {
+                    min-width: 120px;
+                    min-height: 48px;
+                    flex-grow: 1;
+                }
+                width: 100%;
+                border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
+            }
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                font-size: 24px;
+                display: flex;
+                margin: 10px;
+                i {
+                }
+                p {
+                    margin: 0;
+                }
+                span {
+                }
+            }
+        }
+    }
+    button[type="submit"] {
+        // margin: 5px auto;
+    }
+}
+
+.Pair-Box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

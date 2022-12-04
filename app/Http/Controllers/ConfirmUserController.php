@@ -20,21 +20,19 @@ class ConfirmUserController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
-                $Student_datas = Student::where("user_level","1")->paginate(10);
-                return view("IN.Teacher.ConfirmUser.index",
-                [
-                    'Student_datas' =>  $Student_datas,
-                ]
+                $Student_datas = Student::where("user_level", "1")->paginate(10);
+                return view(
+                    "IN.Teacher.ConfirmUser.index",
+                    [
+                        'Student_datas' =>  $Student_datas,
+                    ]
                 );
-
-            }
-            else{
+            } else {
                 echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
 
             }
-        }
-        else{
+        } else {
             echo "你沒登入";
         }
     }
@@ -79,8 +77,8 @@ class ConfirmUserController extends Controller
      */
     public function edit($id)
     {
-        $Student_datas = Student::where("user_id",$id)->get();
-        foreach($Student_datas as $value){
+        $Student_datas = Student::where("user_id", $id)->get();
+        foreach ($Student_datas as $value) {
             $real_name = $value["user_real_name"];
             $user_email = $value["user_email"];
         }
@@ -95,15 +93,15 @@ class ConfirmUserController extends Controller
         Student::where('user_id', $id)
             ->update(
                 [
-                    'user_level'=>  "4",
-                ]   
-        );
+                    'user_level' =>  "4",
+                ]
+            );
         Login::where('id', $id)
-        ->update(
-            [
-                'level'=>  "4",
-            ]   
-    );
+            ->update(
+                [
+                    'level' =>  "4",
+                ]
+            );
         return redirect()->route("ConfirmUser.index");
     }
 
@@ -116,7 +114,6 @@ class ConfirmUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     /**
