@@ -2,19 +2,18 @@
 <html>
 @extends('layout.app')
 @section('head')
-    @parent
-    
+@parent
+
 @endsection
 
 <body>
-    @section('nav') 
-        @parent
+    @section('nav')
+    @parent
     @endsection
 
     @section('content')
-        @parent
-        {{-- @foreach ($user_id as $id)
-           
+    @parent
+    {{-- @foreach ($user_id as $id)
         @endforeach --}}
         <div id="wrap">
             <div id="content">
@@ -50,14 +49,12 @@
                                     <td><a href = "{{route("CheckPair.show",$user_id)}}">查看配對</a></td>
                                     <td><a href = "{{route("CheckResume.index",['user_id' => $user_id])}}">履歷檢查</a></td>
                                     <td><a href = "{{route("CheckScore.index",['user_id' => $user_id])}}">成績單檢查</a></td>
-                                    <td><a href = "{{route("CheckChat.index",['user_id' => $user_id])}}">查看言論</a></td>
-                                    <td><a href = "{{route("CheckExperience.",['user_id' => $user_id])}}">查看心得</a></td>
                                     <form action="{{route('CheckUser.destroy',$user_id)}}" method="POST">
                                         @csrf
                                         @method("delete")
                                         <th><button type = "submit">刪除學生</button></th>
                                     </form>
-                                    
+                                    <td><a href = "{{route("CheckChat.index",['user_id' => $user_id])}}">查看言論</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -74,11 +71,9 @@
 
         
     @endsection
-
-
     @section('footer')
-        @parent
-    
+    @parent
+
     @endsection
 </body>
 
