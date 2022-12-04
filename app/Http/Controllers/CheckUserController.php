@@ -29,31 +29,28 @@ class CheckUserController extends Controller
                 if ($request->has('search')) {
 
                     $search = $request->search;
-                    $userDatas = Student::
-                    orWhere('user_real_name', 'LIKE', "%{$search}%")
-                    ->orWhere('user_name', 'LIKE', "%{$search}%")
-                    ->paginate(10);
+                    $userDatas = Student::orWhere('user_real_name', 'LIKE', "%{$search}%")
+                        ->orWhere('user_name', 'LIKE', "%{$search}%")
+                        ->paginate(10);
                     //1.取user配對情況
                     //2.取user履歷
                     //3.取usert成績單    
 
-                }else{
+                } else {
                     $userDatas = Student::paginate(10);
-                    echo $userDatas;
+                    // echo $userDatas;
                 }
 
-                return view('IN.Teacher.CheckUser.index',[
-                    'userDatas'=> $userDatas,
+                return view('IN.Teacher.CheckUser.index', [
+                    'userDatas' => $userDatas,
                 ]);
-            }
-            else{
+            } else {
                 echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
-                
+
 
             }
-        }
-        else{
+        } else {
             echo "你沒登入";
         }
     }
