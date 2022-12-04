@@ -19,7 +19,7 @@ class VacanciesCheckController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
-                echo $user_id;
+                //echo $user_id;
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
                 $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
@@ -74,7 +74,32 @@ class VacanciesCheckController extends Controller
      */
     public function show(Request $request,$id)
     {
-        //
+        $user_id = session()->get('user_id');
+        echo  $user_id; 
+        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id","T2022530000")->get();
+        $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
+        //echo$VacanciesData;
+        foreach($teacherData as $value){
+            $teacher_real_name = $value['teacher_real_name'];
+            if(empty($teacher_real_name)){
+            
+            }
+            //echo $teacher_real_name;
+        }
+        foreach($VacanciesData as $value){
+            $vacancies_name = $value['vacancies_name'];
+        }
+        $data['vacancies_name'] = $vacancies_name;
+        $data['isPass'] = "不通過";
+        // echo $teacher_real_name;
+        Vacancies::where('vacancies_id', $id)
+            ->update(
+                [
+                    'teacher_name'              =>   $teacher_real_name,
+                    'teacher_watch'             =>  "不通過",         
+                ]   
+            );
+        return redirect()->route("VacanciesCheck.index");
     }
 
     /**
@@ -84,45 +109,7 @@ class VacanciesCheckController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id,Request $request)
-    {
-        $user_id = session()->get('user_id');
-        echo  $user_id; 
-        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
-        $VacanciesData = Vacancies::
-        
-        where('vacancies_id', $id)->get();
-        foreach($teacherData as $value){
-            $teacher_real_name = $value['teacher_real_name'];
-        }
-        foreach($VacanciesData as $value){
-            $vacancies_name = $value['vacancies_name'];
-        }
-        $data['vacancies_name'] = $vacancies_name;
-        $data['isPass'] = "通過";
-        echo $teacher_real_name;
-        Vacancies::where('vacancies_id', $id)
-            ->update(
-                [
-                    'teacher_watch'             =>  "通過",
-                    'teacher_name'              =>  $teacher_real_name,
-                ]   
-            );
-            // Mail::send('IN.Teacher.VacanciesCheck.sendMail',$data, function ($message) use ($data) {
-            //     $message->from('mikeliu20010106@gmail.com');    
-            //     $message->to('mikeliu20010106@gmail.com')->subject('職位審查:通過');
-            // });
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    {  
         $user_id = session()->get('user_id');
         echo  $user_id; 
         $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
@@ -134,15 +121,32 @@ class VacanciesCheckController extends Controller
             $vacancies_name = $value['vacancies_name'];
         }
         $data['vacancies_name'] = $vacancies_name;
-        $data['isPass'] = "不通過";
-        echo $teacher_real_name;
+        $data['isPass'] = "通過";
+        //echo $teacher_real_name;
         Vacancies::where('vacancies_id', $id)
             ->update(
                 [
-                    'teacher_watch'             =>  "不通過",
+                    'teacher_watch'             =>  "通過",
                     'teacher_name'              =>  $teacher_real_name,
                 ]   
             );
+            // Mail::send('IN.Teacher.VacanciesCheck.sendMail',$data, function ($message) use ($data) {
+            //     $message->from('mikeliu20010106@gmail.com');    
+            //     $message->to('mikeliu20010106@gmail.com')->subject('職位審查:通過');
+            // });
+        return redirect()->route("VacanciesCheck.index");
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        
     }
 
     /**
@@ -156,9 +160,7 @@ class VacanciesCheckController extends Controller
         $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
         $user_id = session()->get('user_id');
         $Vacancies = Vacancies::get()->where('teacher_watch','!=','通過');
-            return view('IN.company.Vacancies.show',[
-                'user_id'  => $user_id,
-                'Vacancies'=> $Vacancies,
-            ]);
+        return redirect()->route("VacanciesCheck.index");
+
     }
 }

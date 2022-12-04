@@ -117,21 +117,21 @@ class DownloadController extends Controller
      */
     public function edit($id)
     {
-        if(Score::where('user_id',$id)->count() != 0){
-            $Score_data = Score::where('user_id',$id)->get();
-            foreach($Score_data as $value){
-                $file_name = $value["score_file_name"];
-                
-                $real_file_path = public_path()."/storage/upload/".$file_name;
+            if(Score::where('user_id',$id)->count() != 0){
+                $Score_data = Score::where('user_id',$id)->get();
+                foreach($Score_data as $value){
+                    $file_name = $value["score_file_name"];
+                    
+                    $real_file_path = public_path()."/storage/upload/".$file_name;
+                }
+                $headers = array(
+                    'Content-Type: application/pdf',
+                );
+                return Response::download($real_file_path);
             }
-            $headers = array(
-                'Content-Type: application/pdf',
-            );
-            return Response::download($real_file_path);
-        }
-        else{
-            echo "沒有上傳成績單";
-        }
+            else{
+                echo "沒有上傳成績單";
+            }
     }
 
     /**

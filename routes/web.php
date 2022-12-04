@@ -30,6 +30,8 @@ use App\Http\Controllers\CompanyVacanciesController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ConfirmUserController;
 use App\Http\Controllers\DownloadExperienceController;
+use App\Http\Controllers\CheckExperienceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,4 +89,4 @@ Route::resource('CompanyVacancies',CompanyVacanciesController::class);
 Route::resource('Experience',ExperienceController::class);
 Route::resource('ConfirmUser',ConfirmUserController::class);
 Route::resource('DownloadExperience',DownloadExperienceController::class);
-
+Route::resource('CheckExperience',CheckExperienceController::class);

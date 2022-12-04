@@ -96,6 +96,7 @@ class PairController extends Controller
                 'end_time'      => $validata['end_tme'],
             ]
         );
+        return redirect()->route("Pair.index");
 
     }
 
@@ -154,9 +155,7 @@ class PairController extends Controller
             
         ]);
         $Pair_data = Pair::where('user_id',$id)->get();
-        return view('IN.Student.Pair.show',[
-            'Pairs' =>  $Pair_data ,
-        ]);
+        return redirect()->route("Pair.index");
 
         
     }
@@ -171,9 +170,7 @@ class PairController extends Controller
     {
         
         $delete_pair = Pair::where('user_id', '=', $id)->delete();
+        return redirect()->route("Pair.index");
     }
-    public function show_all()
-    {
-        
-    }
+
 }
