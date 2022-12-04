@@ -46,8 +46,7 @@
                             <span>實習結束日期：</span>
                             <input type="date" name="end_tme">
                         </div>
-                        <!-- <button type="button" class="btn btn-primary"><input type="submit"></button> -->
-                    </div>
+                        <input type="submit" class="btn btn-primary">
                 </div>
             </div>
         </div>

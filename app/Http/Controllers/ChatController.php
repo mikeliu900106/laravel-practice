@@ -66,7 +66,7 @@ class ChatController extends Controller
             'content' => 'required|string',
         ]);
         $user_id = session()->get('user_id');
-        $today = date("Ynj");
+        $today = date("Ymd");
         $Chat_insert = Chat::create(
             [
                 'chat_id'        =>  $user_id,

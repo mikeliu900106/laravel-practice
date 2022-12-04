@@ -49,7 +49,7 @@
                         <span>實習結束日期：</span>
                         <input type="date" name="end_tme">
                     </div>
-                    <input type="image" src="../../image/check2.svg">
+                    <input type="submit" class="btn btn-primary">
                 </div>
             </div>
         </div>
