@@ -16,13 +16,20 @@
         $('#CPN-Verify').DataTable({
             // "searching": false,
             // "paging": false,
+            "responsive": true,
             "scrollX": true,
             "columnDefs": [{
                     targets: [0], // 第一欄 0開始, -1倒數
                     // width: "100px",
+                    responsivePriority: 1,
                     createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
                         // $(td).css('width', '30%') //可寫其他設定
+
                     },
+                },
+                {
+                    targets: [8],
+                    responsivePriority: 2,
                 },
                 {
                     targets: "_all", // 全部欄
@@ -57,11 +64,11 @@
                         <th>工作經驗</th>
                         <th>學歷要求</th>
                         <th>科系要求</th>
+                        <th>是否通過</th>
                         <th>其他事項</th>
                         <th>工作保險</th>
-                        <th>是否通過</th>
                         <th>是誰批准</th>
-                        <th>是否通過</th>
+                        <th>編輯</th>
                         <th>刪除</th>
                     </tr>
                 </thead>
@@ -77,9 +84,9 @@
                         <td>{{$Vacancie->company_work_experience }}</td>
                         <td>{{$Vacancie->company_Education }}</td>
                         <td>{{$Vacancie->company_department }}</td>
+                        <td>{{$Vacancie->teacher_watch}}</td>
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
-                        <td>{{$Vacancie->teacher_watch}}</td>
                         <td>{{$Vacancie->teacher_name}}</td>
                         <form action="{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method="post">
                             @method('DELETE')
