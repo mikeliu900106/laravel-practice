@@ -21,7 +21,7 @@
                 @method("patch")
                 @csrf
 
-                <div class="Vacancies-Cotent">
+                <div class="Vacancy-Content">
                     <div class="Tabs-List col-md-2 col">
                         <nav class="nav">
                             <a class="nav-link active" id="jobs_content" href="#jobs_content">工作內容</a>
@@ -31,7 +31,7 @@
                             <a class="nav-link" id="jobs_other" href="#jobs_other">其他事項</a>
                         </nav>
                     </div>
-                    <ul class="col">
+                    <ul class="Vacancy-Info">
                         <li>
                             <p>公司名稱：</p>
                             <span>{{$Vacancie->company_name}}</span>
