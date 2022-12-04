@@ -1,7 +1,6 @@
-$navbar_color: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
 $light_blue: #59d3eb;
-$blue: #6096ba;
-$phone_max_width: 768px;
+$phone-max-width: 576px;
+$tablet-max-width: 768px;
 
 @mixin indep {
     position: absolute;
@@ -64,7 +63,7 @@ $phone_max_width: 768px;
         display: inline-block;
         // max-width: 600px;
         width: 100%;
-        min-width: 100px;
+        min-width: 10em;
         height: 40px;
         border: solid 1px #d4d8db;
         /* #b5d4e9 #f3f7f7*/
@@ -75,15 +74,21 @@ $phone_max_width: 768px;
         color: #333;
         letter-spacing: 0.5px;
         font-size: 16px;
+        @media (min-width: $phone_max_width) {
+            min-width: none;
+        }
     }
     a {
         align-self: flex-end;
         margin-right: 5px;
         display: inline-block;
     }
-    @media screen and (max-width: $phone_max_width) {
-        // max-width: 485px;
+    @media screen and (max-width: $tablet_max_width) {
         width: 90%;
+    }
+    @media (max-width: $phone-max-width) {
+        width: 100%;
+        padding: 5px;
     }
 }
 .Help-Section {
@@ -120,13 +125,17 @@ $phone_max_width: 768px;
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 40px;
+    width: 10vw;
+    max-width: 40px;
+    min-width: 20px;
 }
 .ReturnLogo {
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 40px;
+    width: 10vw;
+    max-width: 40px;
+    min-width: 20px;
 }
 
 // register_select.php
@@ -190,8 +199,11 @@ $phone_max_width: 768px;
 }
 
 .CPN-Register {
-    .col {
-        min-width: 300px;
+    // margin-left: 5px;
+    // margin-right: 5px;
+    input[type="text"],
+    input[type="password"] {
+        margin-left: 0;
     }
     ul {
         padding: 0;

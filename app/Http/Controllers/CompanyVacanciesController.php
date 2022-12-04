@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vacancies;
+
 class CompanyVacanciesController extends Controller
 {
     /**
@@ -19,20 +20,18 @@ class CompanyVacanciesController extends Controller
                 echo $user_id;
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
-                $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);//之後要改
-                return view('IN.Company.CompanyVacancies.index',[
+                $Vacancies = Vacancies::get()->where('company_id', '=', $user_id); //之後要改
+                return view('IN.Company.CompanyVacancies.index', [
                     'user_id'  => $user_id,
-                    'Vacancies'=> $Vacancies,
+                    'Vacancies' => $Vacancies,
                 ]);
-            }
-            else{
+            } else {
                 echo "你不是公司";
                 //1. 顯示錯誤2.錯誤controller
-                
+
 
             }
-        }
-        else{
+        } else {
             echo "你沒登入";
         }
     }
@@ -55,12 +54,13 @@ class CompanyVacanciesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $user_id = session()->get('user_id');
-        $type = $request ->input('sql_type');
 
-        echo$type;
-        function get_Vacancies_id(){
+        $user_id = session()->get('user_id');
+        $type = $request->input('sql_type');
+
+        echo $type;
+        function get_Vacancies_id()
+        {
             $today = date("Ynj");
             $nums = Vacancies::count();
             echo $nums;
@@ -68,7 +68,7 @@ class CompanyVacanciesController extends Controller
             return $id;
         }
         $Vacancies_id = get_Vacancies_id();
-        $request_value = $request -> validate([
+        $request_value = $request->validate([
             'vacancies_name'            => 'required|string',
             'company_money'             => 'required|string',
             'company_time'              => 'required|string',
@@ -80,27 +80,26 @@ class CompanyVacanciesController extends Controller
             'company_other'             => 'required|string',
             'company_safe'              => 'required|string',
         ]);
-            Vacancies::create(
-                [
-                    'company_id'                =>  $user_id,
-                    'vacancies_id'              =>  $Vacancies_id,
-                    'vacancies_name'            =>  $request_value['vacancies_name'],
-                    'company_money'             =>  $request_value['company_money'],
-                    'company_time'              =>  $request_value['company_time'],
-                    'company_place'             =>  $request_value['company_place' ],
-                    'company_content'           =>  $request_value['company_content'],
-                    'company_work_experience'   =>  $request_value['company_work_experience'],
-                    'company_Education'         =>  $request_value['company_Education'],
-                    'company_department'        =>  $request_value['company_department'],
-                    'company_other'             =>  $request_value['company_other'],
-                    'company_safe'              =>  $request_value['company_safe'],
-                    'teacher_watch'             =>  "待檢查",
-                    'teacher_name'              =>  "無人檢查",
-                ]
-            );
-            $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);
-            return redirect()->route("CompanyVacancies.index");
-        
+        Vacancies::create(
+            [
+                'company_id'                =>  $user_id,
+                'vacancies_id'              =>  $Vacancies_id,
+                'vacancies_name'            =>  $request_value['vacancies_name'],
+                'company_money'             =>  $request_value['company_money'],
+                'company_time'              =>  $request_value['company_time'],
+                'company_place'             =>  $request_value['company_place'],
+                'company_content'           =>  $request_value['company_content'],
+                'company_work_experience'   =>  $request_value['company_work_experience'],
+                'company_Education'         =>  $request_value['company_Education'],
+                'company_department'        =>  $request_value['company_department'],
+                'company_other'             =>  $request_value['company_other'],
+                'company_safe'              =>  $request_value['company_safe'],
+                'teacher_watch'             =>  "待檢查",
+                'teacher_name'              =>  "無人檢查",
+            ]
+        );
+        $Vacancies = Vacancies::get()->where('company_id', '=', $user_id);
+        return redirect()->route("CompanyVacancies.index");
     }
 
     /**
@@ -122,7 +121,7 @@ class CompanyVacanciesController extends Controller
      */
     public function edit($id)
     {
-        return view("IN.Company.CompanyVacancies.update",["user_id" => $id]);
+        return view("IN.Company.CompanyVacancies.update", ["user_id" => $id]);
     }
 
     /**
@@ -134,7 +133,7 @@ class CompanyVacanciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request_value = $request -> validate([
+        $request_value = $request->validate([
             'vacancies_name'            => 'required|string',
             'company_money'             => 'required|string',
             'company_time'              => 'required|string',
@@ -152,20 +151,21 @@ class CompanyVacanciesController extends Controller
                     'vacancies_name'            =>  $request_value['vacancies_name'],
                     'company_money'             =>  $request_value['company_money'],
                     'company_time'              =>  $request_value['company_time'],
-                    'company_place'             =>  $request_value['company_place' ],
+                    'company_place'             =>  $request_value['company_place'],
                     'company_content'           =>  $request_value['company_content'],
                     'company_work_experience'   =>  $request_value['company_work_experience'],
                     'company_Education'         =>  $request_value['company_Education'],
                     'company_department'        =>  $request_value['company_department'],
+                    'company_other'             =>  $request_value['company_other'],
                     'company_safe'              =>  $request_value['company_safe'],
                     'teacher_watch'             =>  "待檢查",
                     'teacher_name'              =>  "無人檢查",
                 ]
             );
-            $user_id = session()->get('user_id');
-            echo $user_id;
-            $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);//之後要改
-            return redirect()->route("CompanyVacancies.index");
+        $user_id = session()->get('user_id');
+        echo $user_id;
+        $Vacancies = Vacancies::get()->where('company_id', '=', $user_id); //之後要改
+        return redirect()->route("CompanyVacancies.index");
     }
 
     /**
@@ -178,7 +178,7 @@ class CompanyVacanciesController extends Controller
     {
         $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
         $user_id = session()->get('user_id');
-        $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);
+        $Vacancies = Vacancies::get()->where('company_id', '=', $user_id);
         return redirect()->route("CompanyVacancies.index");
     }
 }

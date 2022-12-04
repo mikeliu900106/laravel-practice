@@ -2,24 +2,26 @@
 <html>
 @extends('layout.app')
 @section('head')
-    @parent
-    
+@parent
+
 @endsection
 
 <body>
-    @section('nav') 
-        @parent
+    @section('nav')
+    @parent
     @endsection
 
     @section('content')
-        <td><a href = "{{route('Score.index')}}">歷年成績單</a></td>
-        <td> <a href = "{{route('Resume.index')}}">履歷</a></td>
+    <div id="container">
+        <td><a href="{{route('Score.index')}}">歷年成績單</a></td>
+        <td> <a href="{{route('Resume.index')}}">履歷</a></td>
+    </div>
     @endsection
 
 
     @section('footer')
-        @parent
+    @parent
 
-    @endsection 
-  
+    @endsection
+
 </body>

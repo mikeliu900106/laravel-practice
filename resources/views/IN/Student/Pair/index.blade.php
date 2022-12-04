@@ -49,8 +49,10 @@
                         </div>
                         <input type="image" src="../../image/check2.svg">
                     </div>
+                    <input type="image" src="../../image/check2.svg">
                 </div>
-            </div> <!-- content -->
+            </div>
+        </div> <!-- content -->
     </form>
 
     @endsection

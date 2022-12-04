@@ -14,7 +14,7 @@
     @section('content')
     <form method="post" action="{{route('Student.store')}}">
         @csrf
-        <div class="Account-Box STU-Register">
+        <div class="Account-Box">
             <!-- 回登入 回首頁 -->
             <a href="{{route('Signup.index')}}"><img src="/img/return.png" class="ReturnLogo"></a>
             <a href="{{url('/')}}"><img src="/img/home.png" class="HomeLogo"></a>
@@ -32,6 +32,7 @@
             <div class="Submit-Section">
                 <input class="Submit-Button" type="submit" value="提交" />
             </div>
+        </div>
     </form>
     @endsection
 

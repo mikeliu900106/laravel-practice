@@ -1,72 +1,29 @@
-@mixin check_button {
-    border: 2px #333 solid;
-    border-radius: 5px;
-  }
-.wrap{
-  overflow:hidden;
-  border-radius:10px 10px 0px 0px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+.VacanciesCheck-Box {
+    padding: 10px;
+    border: solid 5px #1e90ff;
+    border-radius: 1rem;
 }
+#CPN-Verify {
+    width: 100% !important;
+}
+.dataTables_wrapper {
+    .col-sm-12 {
+        margin-bottom: 5px;
+    }
+}
+table {
+    thead {
+        width: 100% !important;
 
-table{
-  font-family: 'Oswald', sans-serif;
-  border-collapse:collapse;
-  table-layout: fixed;
-}
-
-th{
-  //background-color:#009879;
-  //background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
-  background: linear-gradient(to bottom,#c0c2c4 , #b3b5ba, #cdcfd1);
-  color:black;
-  width:25vw;
-  height:75px;
-  text-align:center;
-}
-
-td{
-  background-color:#ffffff;
-  width:25vw;
-  height:50px;
-  text-align:center;
-  // border: 1px solid;
-  // vertical-align: middle;
-  // text-align: center;
-
-}
-
-tr{
-  border-bottom: 1px solid #dddddd;
-}
-
-tr:last-of-type{
-  border-bottom: 2px solid #009879;
-}
-
-tr:nth-of-type(even) td{
-  background-color:#f3f3f3;
-}
-
-.confirm{
-
-  text-decoration: none;
-  color: #075e1f;
-}
-.cancel{
-  text-decoration: none;
-  color: #f70505;
-}
-.check_wrap_green{
-  width: 40%;
-  display: inline-block;
-  border-radius: 6px;
-  // background: linear-gradient(to bottom,#c0c2c4 , #b3b5ba, #cdcfd1);
-  background: #daf5e1;
-}
-.check_wrap_red{
-  width: 50%;
-  display: inline-block;
-  border-radius: 6px;
-  // background: linear-gradient(to bottom,#c0c2c4 , #b3b5ba, #cdcfd1);
-  background: #fcd7d7;
+    }
+    li {
+        display: flex;
+    }
+    span {
+        text-align: center;
+        margin: auto 5px auto 0;
+    }
+    .btn {
+        width: 75px;
+    }
 }

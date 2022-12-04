@@ -1,3 +1,57 @@
 .Response-Box {
-  height: 20px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+.Response-Box h1 {
+  margin: 5px;
+}
+.Response-Box .Responses {
+  padding: 10px;
+}
+.Response-Box .Response-Card {
+  margin: 5px;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+  padding: 10px;
+}
+.Response-Box .Response-Card .Message-Detail {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.Response-Box .Response-Card .Message-Detail .article {
+  flex-grow: 1;
+}
+.Response-Box .Response-Card .Message-Detail .author {
+  margin-right: 10px;
+}
+@media (max-width: 576px) {
+  .Response-Box .Response-Card .Message-Detail {
+    flex-direction: column;
+  }
+}
+.Response-Box ul {
+  list-style: none;
+}
+.Response-Box button {
+  margin-bottom: 5px;
+}
+.Response-Box nav {
+  background-color: white;
+  margin: 0;
+  border-radius: 1rem;
+}
+.Response-Box .pagination {
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+.Response-Box .pagination .page-item .page-link {
+  line-height: 37.5px;
+  font-size: 25px;
+  font-weight: 700;
+  height: 50px;
 }

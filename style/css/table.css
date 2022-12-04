@@ -15,13 +15,17 @@
 table thead {
   width: 100% !important;
 }
+
 table li {
   display: flex;
 }
+
 table span {
   text-align: center;
   margin: auto 5px auto 0;
 }
+
 table .btn {
   width: 75px;
 }
+/*# sourceMappingURL=table.css.map */

@@ -17,5 +17,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/css/account.scss', 'public/css')
     .sass('resources/css/student.scss', 'public/css')
     .sass('resources/css/app.scss', 'public/css', [
-        //
     ]);
