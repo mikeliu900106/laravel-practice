@@ -27,7 +27,9 @@ use App\Http\Controllers\CheckChatController;
 use App\Http\Controllers\CheckResumeController;
 use App\Http\Controllers\CheckScoreController;
 use App\Http\Controllers\CompanyVacanciesController;
-
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\ConfirmUserController;
+use App\Http\Controllers\DownloadExperienceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,3 +84,7 @@ Route::resource('CheckChat',CheckChatController::class);
 Route::resource('CheckResume',CheckResumeController::class);
 Route::resource('CheckScore',CheckScoreController::class);
 Route::resource('CompanyVacancies',CompanyVacanciesController::class);
+Route::resource('Experience',ExperienceController::class);
+Route::resource('ConfirmUser',ConfirmUserController::class);
+Route::resource('DownloadExperience',DownloadExperienceController::class);
+

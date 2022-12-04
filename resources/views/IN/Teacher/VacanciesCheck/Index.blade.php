@@ -50,6 +50,7 @@
                 <thead>
                     <tr>
                         <th>職位名稱</th>
+                        <th>公司名稱</th>
                         <th>工作待遇</th>
                         <th>工作時間</th>
                         <th>工作地點</th>
@@ -61,8 +62,8 @@
                         <th>工作保險</th>
                         <th>是否通過</th>
                         <th>是誰批准</th>
-                        <th>是否通過</th>
-                        <th>刪除</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,6 +71,7 @@
                     <tr>
                         {{$Vacancie->vacancies_id}}
                         <td>{{$Vacancie->vacancies_name}}</td>
+                        <td>{{$Vacancie->company_name }}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
                         <td>{{$Vacancie->company_place }}</td>
