@@ -22,7 +22,10 @@ class VacanciesCheckController extends Controller
                 echo $user_id;
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
-                $Vacancies = Vacancies::where('teacher_watch','!=','通過') ->paginate(10);;//之後要改
+                $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
+                ->where('teacher_watch','!=','通過') 
+                ->select('vacancies.*', 'company.*')
+                ->paginate(10);;//之後要改
                 return view('IN.Teacher.VacanciesCheck.index',[
                     'user_id'  => $user_id,
                     'Vacancies'=> $Vacancies,
@@ -85,7 +88,9 @@ class VacanciesCheckController extends Controller
         $user_id = session()->get('user_id');
         echo  $user_id; 
         $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
-        $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
+        $VacanciesData = Vacancies::
+        
+        where('vacancies_id', $id)->get();
         foreach($teacherData as $value){
             $teacher_real_name = $value['teacher_real_name'];
         }
