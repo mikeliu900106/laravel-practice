@@ -19,13 +19,13 @@ class PairController extends Controller
     public function index(Request $request)
     {
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '1') {
+            if ($request->session()->get('level') == '4') {
                 $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
                 //echo $user_id;
                 $pair = Pair::where('user_id',"$user_id")->count();
-                $Teacher_name =Teacher::pluck('teacher_real_name');
-                $Company_name =Company::pluck('company_name');
+                $Teacher_name =Teacher::select('teacher_real_name')->get();
+                $Company_name =Company::select('company_name')->get();
                 //echo$Teacher_name;
                 //echo$Company_name;
                 $Pair_data = Pair::where('user_id',"$user_id")->get();
@@ -43,6 +43,9 @@ class PairController extends Controller
 
                //之後下面要改
 
+            }
+            elseif($request->session()->get('level') == '1'){
+                echo "請等老師認證為本人,此功能開放";
             }
             else{
                 echo "你不是學生";

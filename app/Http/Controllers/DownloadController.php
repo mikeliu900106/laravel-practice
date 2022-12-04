@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Response;
 use App\Models\Resume;
 use App\Models\Score;
+use App\Models\Experience;
+
 
 class DownloadController extends Controller
 {
@@ -66,7 +68,20 @@ class DownloadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo "sb";
+        // $id = $request->user_id;
+        // if(Experience::where('user_id',$id)->count() != 0){
+        //     $Experience_data = Experience::where('user_id',$id)->get();
+        //     foreach($Experience_data as $value){
+        //         $file_name = $value["Experience_file_name"];
+                
+        //         $real_file_path = public_path()."/storage/Experience/".$file_name;
+        //     }
+        //     return Response::download($real_file_path);
+        // }
+        // else{
+        //     echo "沒有上傳心得";
+        // }
     }
 
     /**
@@ -126,9 +141,21 @@ class DownloadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        echo "sv";
+        // if(Experience::where('user_id',$id)->count() != 0){
+        //     $Experience_data = Experience::where('user_id',$id)->get();
+        //     foreach($Experience_data as $value){
+        //         $file_name = $value["Experience_file_name"];
+                
+        //         $real_file_path = public_path()."/storage/Experience/".$file_name;
+        //     }
+        //     return Response::download($real_file_path);
+        // }
+        // else{
+        //     echo "沒有上傳心得";
+        // }
     }
 
     /**
