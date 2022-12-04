@@ -15,8 +15,8 @@
     @parent
     <form action="{{route('Pair.store')}}" method="Post">
         @csrf
-        <div id="wrap">
-            <div id="content">
+        <div class="container">
+            <div class="Pair-Box">
                 <h1>實習配對填寫</h1>
                 <div id="pairBox">
                     <div class="pair-fill-in">
@@ -25,7 +25,6 @@
                             <select name="choose_company">
                                 <option disabled>請選擇配對成功的廠商</option>
                                 @foreach($Company_names as $Company_name)
-
                                 <option value="{{$Company_name->company_name}}">{{$Company_name->company_name}}</option>
                                 @endforeach
                             </select>
@@ -47,12 +46,11 @@
                             <span>實習結束日期：</span>
                             <input type="date" name="end_tme">
                         </div>
-                        <input type="image" src="../../image/check2.svg">
+                        <!-- <button type="button" class="btn btn-primary"><input type="submit"></button> -->
                     </div>
-                    <input type="image" src="../../image/check2.svg">
                 </div>
             </div>
-        </div> <!-- content -->
+        </div>
     </form>
 
     @endsection

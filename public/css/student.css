@@ -55,3 +55,75 @@
   font-weight: 700;
   height: 50px;
 }
+
+.Apply-Box {
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+}
+.Apply-Box table {
+  width: 100% !important;
+}
+
+.Apply-Info-Box {
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+}
+.Apply-Info-Box form {
+  display: flex;
+  flex-direction: column;
+}
+.Apply-Info-Box .Vacancies-Cotent {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .Apply-Info-Box .Vacancies-Cotent {
+    flex-direction: column;
+  }
+}
+.Apply-Info-Box .Vacancies-Cotent .Tabs-List nav {
+  display: inline-flex;
+  background: none;
+}
+.Apply-Info-Box .Vacancies-Cotent .Tabs-List nav .nav-link {
+  font-size: 20px;
+  border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
+  text-align: center;
+}
+.Apply-Info-Box .Vacancies-Cotent .Tabs-List nav .nav-link:hover {
+  border-bottom-color: rgb(24, 149, 221);
+}
+@media (max-width: 768px) {
+  .Apply-Info-Box .Vacancies-Cotent .Tabs-List {
+    width: 100%;
+    border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
+  }
+  .Apply-Info-Box .Vacancies-Cotent .Tabs-List .nav {
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+  .Apply-Info-Box .Vacancies-Cotent .Tabs-List .nav-link {
+    min-width: 120px;
+    min-height: 48px;
+    flex-grow: 1;
+  }
+}
+.Apply-Info-Box .Vacancies-Cotent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Apply-Info-Box .Vacancies-Cotent ul li {
+  font-size: 24px;
+  display: flex;
+  margin: 10px;
+}
+.Apply-Info-Box .Vacancies-Cotent ul li p {
+  margin: 0;
+}
+.Pair-Box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

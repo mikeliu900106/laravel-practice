@@ -435,4 +435,9 @@ nav a {
   font-weight: 700;
   height: 50px;
 }
+
+.Apply-Box {
+  display: flex;
+  justify-content: center;
+}
 /*# sourceMappingURL=app.css.map */

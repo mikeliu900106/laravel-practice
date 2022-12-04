@@ -53,6 +53,7 @@
     @parent
     <div id="container">
         <div class="VacanciesCheck-Box">
+            <h1 class="text-center">職缺審查</h1>
             <table id="CPN-Verify" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                     <tr>
