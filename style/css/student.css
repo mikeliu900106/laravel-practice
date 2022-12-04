@@ -1,9 +1,9 @@
 .Response-Box {
   border: solid 5px #1e90ff;
   border-radius: 1rem;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
 }
 
 .Response-Box h1 {
@@ -15,6 +15,7 @@
 }
 
 .Response-Box .Response-Card {
+  background-color: #f5f5f5;
   margin: 5px;
   border: 1px rgba(0, 0, 0, 0.1) solid;
   padding: 10px;
@@ -41,6 +42,53 @@
   }
 }
 
+.Response-Box .Leave-Comment {
+  width: 100%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.Response-Box .Leave-Comment .author,
+.Response-Box .Leave-Comment .gist,
+.Response-Box .Leave-Comment .content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.Response-Box .Leave-Comment .author span,
+.Response-Box .Leave-Comment .gist span,
+.Response-Box .Leave-Comment .content span {
+  margin-right: 5px;
+}
+
+.Response-Box .Leave-Comment .author input,
+.Response-Box .Leave-Comment .gist input,
+.Response-Box .Leave-Comment .content input {
+  flex-grow: 1;
+  min-width: 50px !important;
+}
+
+.Response-Box .Leave-Comment .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.Response-Box .Leave-Comment .content span {
+  align-self: flex-start;
+}
+
+.Response-Box .Leave-Comment .content textarea {
+  align-self: stretch;
+}
+
+.Response-Box .Leave-Comment input {
+  font-size: 20px;
+}
+
 .Response-Box ul {
   list-style: none;
 }
@@ -52,7 +100,6 @@
 .Response-Box nav {
   background-color: white;
   margin: 0;
-  border-radius: 1rem;
 }
 
 .Response-Box .pagination {
@@ -89,66 +136,166 @@
   flex-direction: column;
 }
 
-.Apply-Info-Box .Vacancies-Cotent {
+.Apply-Info-Box .Vacancy-Content {
   display: flex;
 }
 
 @media (max-width: 768px) {
-  .Apply-Info-Box .Vacancies-Cotent {
+  .Apply-Info-Box .Vacancy-Content {
     flex-direction: column;
   }
 }
 
-.Apply-Info-Box .Vacancies-Cotent .Tabs-List nav {
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav {
   display: inline-flex;
   background: none;
 }
 
-.Apply-Info-Box .Vacancies-Cotent .Tabs-List nav .nav-link {
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav .nav-link {
   font-size: 20px;
   border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
   text-align: center;
 }
 
-.Apply-Info-Box .Vacancies-Cotent .Tabs-List nav .nav-link:hover {
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav .nav-link:hover {
   border-bottom-color: #1895dd;
 }
 
 @media (max-width: 768px) {
-  .Apply-Info-Box .Vacancies-Cotent .Tabs-List {
+  .Apply-Info-Box .Vacancy-Content .Tabs-List {
     width: 100%;
     border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
   }
-  .Apply-Info-Box .Vacancies-Cotent .Tabs-List .nav {
+  .Apply-Info-Box .Vacancy-Content .Tabs-List .nav {
     overflow: auto;
     flex-wrap: nowrap;
   }
-  .Apply-Info-Box .Vacancies-Cotent .Tabs-List .nav-link {
+  .Apply-Info-Box .Vacancy-Content .Tabs-List .nav-link {
     min-width: 120px;
     min-height: 48px;
     flex-grow: 1;
   }
 }
 
-.Apply-Info-Box .Vacancies-Cotent ul {
+.Apply-Info-Box .Vacancy-Content ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.Apply-Info-Box .Vacancies-Cotent ul li {
+.Apply-Info-Box .Vacancy-Content ul li {
   font-size: 24px;
   display: flex;
   margin: 10px;
+  flex-wrap: wrap;
 }
 
-.Apply-Info-Box .Vacancies-Cotent ul li p {
+.Apply-Info-Box .Vacancy-Content ul li i {
+  margin-right: 5px;
+}
+
+.Apply-Info-Box .Vacancy-Content ul li p {
   margin: 0;
+  min-width: 120px;
 }
 
 .Pair-Box {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+  overflow: auto;
+}
+
+.Pair-Box .Pair-Fill-In {
+  width: 100%;
+  margin: 10px;
+}
+
+.Pair-Box .Pair-Fill-In .Pair-Row {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.Pair-Box .Pair-Fill-In .Pair-Row span {
+  min-width: 220px;
+  text-align: right;
+}
+
+@media (max-width: 576px) {
+  .Pair-Box .Pair-Fill-In .Pair-Row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row select,
+  .Pair-Box .Pair-Fill-In .Pair-Row input[type="date"] {
+    width: 100%;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row span {
+    min-width: 1px;
+    align-self: flex-start;
+    text-align: left;
+  }
+}
+
+.Pair-Box .Pair-Fill-In select,
+.Pair-Box .Pair-Fill-In input[type="date"] {
+  width: 250px;
+  height: 30px;
+}
+
+.Pair-Box input[type="submit"] {
+  width: 100%;
+}
+
+.Pair-Box table {
+  width: 100%;
+  font-size: 20px;
+}
+
+.Pair-Box table thead tr th {
+  margin: 10px;
+  min-width: 140px;
+}
+
+@media (max-width: 576px) {
+  .Pair-Box table {
+    display: flex;
+  }
+  .Pair-Box table thead {
+    width: 100px !important;
+  }
+  .Pair-Box table thead tr {
+    display: flex;
+    flex-direction: column;
+  }
+  .Pair-Box table thead tr th {
+    margin: 0;
+    width: 100px;
+  }
+  .Pair-Box table tbody {
+    width: 100%;
+  }
+  .Pair-Box table tbody tr {
+    display: flex;
+    flex-direction: column;
+  }
+  .Pair-Box table tbody td {
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-color: black;
+    width: 100%;
+    height: 47px;
+    position: relative;
+  }
 }
 /*# sourceMappingURL=student.css.map */

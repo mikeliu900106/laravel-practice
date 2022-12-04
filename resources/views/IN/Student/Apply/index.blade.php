@@ -56,6 +56,7 @@
     @parent
     <div id="container">
         <div class="Apply-Box">
+            <h1 class="text-center">職缺列表</h1>
             <table id="Vacancies" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                     <tr>
