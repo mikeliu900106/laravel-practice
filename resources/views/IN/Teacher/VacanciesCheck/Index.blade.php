@@ -62,8 +62,8 @@
                         <th>工作保險</th>
                         <th>是否通過</th>
                         <th>是誰批准</th>
-                        <th>是否通過</th>
-                        <th>刪除</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

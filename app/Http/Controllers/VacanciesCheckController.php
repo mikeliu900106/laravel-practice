@@ -23,7 +23,7 @@ class VacanciesCheckController extends Controller
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
                 $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
-                ->where('teacher_watch','!=','通過') 
+                // ->where('teacher_watch','!=','通過') 
                 ->select('vacancies.*', 'company.*')
                 ->paginate(10);;//之後要改
                 return view('IN.Teacher.VacanciesCheck.index',[
