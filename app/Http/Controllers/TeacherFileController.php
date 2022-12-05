@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Chat;
-class TeacherChatController extends Controller
+
+use App\Models\Teacherfile;
+
+class TeacherFileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,22 +19,16 @@ class TeacherChatController extends Controller
     {
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
-                $user_id = session()->get('user_id');
-                $Chat = Chat::paginate(10);
-                $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
-                return view('IN.teacher.Chat.index',[
-                    'Chats'=> $Chat,
-                    'Chat_level' =>$Chat_level,
-                ]);
-            }
-            else{
-                echo "你不是老師";
+                $user_id = session()->get(' user_id');
+                //$Vacancies = Vacancies::get();
+                $teacher_datas =Teacherfile::where("teacher_id",$user_id)->get();
+            } else {
+                echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
-                
+
 
             }
-        }
-        else{
+        } else {
             echo "你沒登入";
         }
     }
@@ -42,9 +40,7 @@ class TeacherChatController extends Controller
      */
     public function create()
     {
-        $user_id = session()->get('user_id');
-        $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
-        return view("IN.Teacher.Chat.store",['Chat_level' => $Chat_level]);
+        //
     }
 
     /**
@@ -55,24 +51,7 @@ class TeacherChatController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request -> validate([
-            'maker' => 'required|string',
-            'subject' => 'required|string',
-            'content' => 'required|string',
-        ]);
-        $user_id = session()->get('user_id');
-        $today = date("Ymd");
-        $Chat_insert = Chat::create(
-            [
-                'chat_id'        =>  $user_id,
-                'chat_maker'     =>  $validate['maker'],
-                'chat_subject'   =>  $validate['subject'],
-                'chat_content'   =>  $validate['content'],
-                'chat_date'      =>  $today,
-                'chat_level'      =>  "1",
-            ]
-        );
-        return redirect()->route('TeacherChat.index');
+        //
     }
 
     /**

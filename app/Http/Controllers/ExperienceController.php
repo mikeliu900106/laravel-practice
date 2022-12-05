@@ -199,17 +199,18 @@ class ExperienceController extends Controller
         function get_delete_path($delete_datas , $databaseColume){
             foreach ($delete_datas as $dlete_data) {
                 $delete_name = $dlete_data[$databaseColume];
-                return   $delete_name ;
             }
+            return  $delete_name;
         }
-        function delete_file($id = "",$file_floder = 'public\Experience\\'){
+        // function delete_file($id = "",$file_floder = 'public\Experience\\'){
                 $delete_datas = Experience::where("user_id",$id)->get();
-                $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
-                echo $delete_name;
-                $real_file_path = 'public\Experience\\' . $delete_name;
-                Storage::delete($real_file_path);
-                Experience::where("user_id",$id)->delete();
-        }
-        delete_file($id,$file_floder = 'public\Experience\\');
+                echo $delete_datas;
+                // $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
+                // echo $delete_name;
+                // $real_file_path = 'public\Experience\\' . $delete_name;
+                // Storage::delete($real_file_path);
+                // Experience::where("user_id",$id)->delete();
+        // }
+        // delete_file($id,$file_floder = 'public\Experience\\');
     }
 }

@@ -19,7 +19,7 @@
                 <a href = "{{route("CheckExperience.show",$user_id)}}">提醒使用者交心得</a>
             </form>
         @else
-        {{-- <a href = "{{route("DownloadExperience.show",$user_id)}}">心得查看</a> --}}
+        <a href = "{{route("DownloadExperience.show",$user_id)}}">心得查看</a>
         <a href = "{{route("DownloadExperience.edit",$user_id)}}">心得下載</a> 
         <form action = "{{route("CheckExperience.store")}}" method = "POST">
             {{$user_id}}

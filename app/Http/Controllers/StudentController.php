@@ -62,7 +62,7 @@ class StudentController extends Controller
             $Student_insert = Student::create(
                 [
                     'user_id'       =>  $student_id,
-                    'user_real_name'     =>  $studentdata['real_name'],
+                    'user_real_name'     =>  $student_data['real_name'],
                     'user_name'     =>  $student_data['username'],
                     'user_password' =>  $student_data['password'],
                     'user_email'    =>  $student_data['email'],
