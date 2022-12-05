@@ -12,7 +12,6 @@ body {
 }
 
 nav {
-  margin-bottom: 30px;
   background: #1c1c1c;
   width: 100%;
 }
@@ -20,7 +19,7 @@ nav {
 nav .logo {
   font-size: 50px;
   cursor: pointer;
-  margin-right: 0.5em;
+  margin: 0;
   min-width: 150px;
   color: white;
 }
@@ -39,6 +38,16 @@ nav .account .bi-person {
 nav a {
   font-size: 25px;
   font-weight: 700;
+}
+
+@media screen and (max-width: 244px) {
+  nav {
+    justify-content: center !important;
+  }
+  nav .navbar-toggler {
+    width: 80%;
+    margin-bottom: 5px;
+  }
 }
 
 .navbar-toggler {
@@ -153,8 +162,12 @@ nav a {
 
 @media (min-width: 1200px) {
   #container {
-    width: 1200px;
+    width: 1180px;
   }
+}
+
+#container h1 {
+  font-weight: bold;
 }
 
 .Account-Box {
@@ -196,6 +209,36 @@ nav a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.Input-Section .form-group label {
+  font-size: 20px;
+}
+
+.Input-Section .form-group .Input-group {
+  position: relative;
+}
+
+.Input-Section .form-group .Input-group .bi-person,
+.Input-Section .form-group .Input-group .bi-lock {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Input-Section .form-group .Input-group .Account-Test {
+  width: 100%;
+  height: 40px;
+  border: solid 1px darkgray;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.Input-Section .form-group .text-muted {
+  font-size: 14px;
 }
 
 .Input-Section .Account-Text {
@@ -242,6 +285,7 @@ nav a {
 .Help-Section {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .Submit-Section {
@@ -369,9 +413,9 @@ nav a {
 .Response-Box {
   border: solid 5px #1e90ff;
   border-radius: 1rem;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
 }
 
 .Response-Box h1 {
@@ -383,6 +427,7 @@ nav a {
 }
 
 .Response-Box .Response-Card {
+  background-color: #f5f5f5;
   margin: 5px;
   border: 1px rgba(0, 0, 0, 0.1) solid;
   padding: 10px;
@@ -409,6 +454,53 @@ nav a {
   }
 }
 
+.Response-Box .Leave-Comment {
+  width: 100%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.Response-Box .Leave-Comment .author,
+.Response-Box .Leave-Comment .gist,
+.Response-Box .Leave-Comment .content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.Response-Box .Leave-Comment .author span,
+.Response-Box .Leave-Comment .gist span,
+.Response-Box .Leave-Comment .content span {
+  margin-right: 5px;
+}
+
+.Response-Box .Leave-Comment .author input,
+.Response-Box .Leave-Comment .gist input,
+.Response-Box .Leave-Comment .content input {
+  flex-grow: 1;
+  min-width: 50px !important;
+}
+
+.Response-Box .Leave-Comment .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.Response-Box .Leave-Comment .content span {
+  align-self: flex-start;
+}
+
+.Response-Box .Leave-Comment .content textarea {
+  align-self: stretch;
+}
+
+.Response-Box .Leave-Comment input {
+  font-size: 20px;
+}
+
 .Response-Box ul {
   list-style: none;
 }
@@ -420,7 +512,6 @@ nav a {
 .Response-Box nav {
   background-color: white;
   margin: 0;
-  border-radius: 1rem;
 }
 
 .Response-Box .pagination {
@@ -437,7 +528,310 @@ nav a {
 }
 
 .Apply-Box {
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+}
+
+.Apply-Box table {
+  width: 100% !important;
+}
+
+.Apply-Info-Box {
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+}
+
+.Apply-Info-Box .Vacancy-Content {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .Apply-Info-Box .Vacancy-Content {
+    flex-direction: column;
+  }
+}
+
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav {
+  flex-direction: column;
+  position: fixed;
+  top: 240px;
+  width: 100px;
+  background: none;
+}
+
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav .nav-link {
+  flex-grow: 1;
+  font-size: 16px;
+  border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
+  text-align: center;
+}
+
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav .nav-link:hover {
+  border-bottom-color: rgba(24, 149, 221, 0.3);
+}
+
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav .active {
+  border-bottom-color: #1895dd;
+}
+
+@media (max-width: 1200px) {
+  .Apply-Info-Box .Vacancy-Content .Tabs-List {
+    width: 100%;
+    border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
+  }
+  .Apply-Info-Box .Vacancy-Content .Tabs-List .nav {
+    position: relative;
+    top: 0px;
+    flex-direction: row;
+    width: 100%;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+  .Apply-Info-Box .Vacancy-Content .Tabs-List .nav-link {
+    word-break: keep-all;
+    min-width: 110px;
+    min-height: 48px;
+    flex-grow: 1;
+  }
+}
+
+.Apply-Info-Box .Vacancy-Content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.Apply-Info-Box .Vacancy-Content ul li {
+  font-size: 24px;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.Apply-Info-Box .Vacancy-Content ul li i {
+  margin-right: 5px;
+}
+
+.Apply-Info-Box .Vacancy-Content ul li p {
+  margin: 0;
+  min-width: 120px;
+}
+
+.Apply-Info-Box .Vacancy-Content ul li span {
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.Apply-Info-Box button[type="submit"] {
+  width: 100%;
+}
+
+.Pair-Box {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+  overflow: auto;
+}
+
+.Pair-Box .Pair-Fill-In {
+  width: 100%;
+  margin: 10px;
+}
+
+.Pair-Box .Pair-Fill-In .Pair-Row {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.Pair-Box .Pair-Fill-In .Pair-Row span {
+  min-width: 220px;
+  text-align: right;
+}
+
+@media (max-width: 576px) {
+  .Pair-Box .Pair-Fill-In .Pair-Row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row select,
+  .Pair-Box .Pair-Fill-In .Pair-Row input[type="date"] {
+    width: 100%;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row span {
+    min-width: 1px;
+    align-self: flex-start;
+    text-align: left;
+  }
+}
+
+.Pair-Box .Pair-Fill-In select,
+.Pair-Box .Pair-Fill-In input[type="date"] {
+  width: 250px;
+  height: 30px;
+}
+
+.Pair-Box input[type="submit"] {
+  width: 100%;
+}
+
+.Pair-Box table {
+  width: 100%;
+  font-size: 20px;
+}
+
+.Pair-Box table thead tr th {
+  margin: 10px;
+  min-width: 140px;
+}
+
+@media (max-width: 576px) {
+  .Pair-Box table {
+    display: flex;
+  }
+  .Pair-Box table thead {
+    width: 100px !important;
+  }
+  .Pair-Box table thead tr {
+    display: flex;
+    flex-direction: column;
+  }
+  .Pair-Box table thead tr th {
+    margin: 0;
+    width: 100px;
+  }
+  .Pair-Box table tbody {
+    width: 100%;
+  }
+  .Pair-Box table tbody tr {
+    display: flex;
+    flex-direction: column;
+  }
+  .Pair-Box table tbody td {
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-color: black;
+    width: 100%;
+    height: 47px;
+    position: relative;
+  }
+}
+
+.File-Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+}
+
+.File-Box a {
+  margin: 10px;
+  width: 10rem;
+}
+
+.File-Box .File-Upload {
+  margin-top: 20px;
+  width: 75%;
+  max-width: 500px;
+}
+
+.File-Box .File-Upload button[type="submit"] {
+  width: 100%;
+  color: #fff;
+  background-color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  .File-Box .File-Upload {
+    width: 100% !important;
+  }
+}
+
+.File-Update-Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 1rem;
+  border: solid 5px #1e90ff;
+}
+
+.File-Update-Box .Edit {
+  width: 75%;
+  text-align: center;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.File-Update-Box .Edit .File-Download {
+  width: 100%;
+  color: #fff;
+  background-color: #198754;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.File-Update-Box .Edit .File-Update {
+  width: 100%;
+  color: #fff;
+  background-color: #0d6efd;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.File-Update-Box .Edit .File-Delete {
+  width: 100%;
+  color: #fff;
+  background-color: #dc3545;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.File-Update-Box .Edit a,
+.File-Update-Box .Edit button[type="submit"] {
+  width: 10rem;
 }
 /*# sourceMappingURL=app.css.map */

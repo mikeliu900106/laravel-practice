@@ -38,8 +38,9 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        
-        function get_student_id(){
+
+        function get_student_id()
+        {
             $today = date("Ynj");
             $nums = Student::count();
             echo $nums;
@@ -47,18 +48,18 @@ class StudentController extends Controller
             return $id;
         }
         $student_id = get_student_id();
-        $student_data = $request -> validate([
+        $student_data = $request->validate([
             'username' => 'required|string',
             'real_name' => 'required|string',
             'password' => 'required|string',
             'email' => 'required|email',
-            
+
         ]);
         echo  $student_data['username'];
         echo  $student_data['password'];
         echo  $student_data['email'];
         $Student_username_isUse = Student::where('user_name',  $student_data['username'])->count();
-        if($Student_username_isUse == 0){
+        if ($Student_username_isUse == 0) {
             $Student_insert = Student::create(
                 [
                     'user_id'       =>  $student_id,
@@ -75,21 +76,21 @@ class StudentController extends Controller
             //echo $Company_data["random"] = $random;
 
             //學長解釋trycatch 使用
-            Mail::send('IN.Student.sendMail',$student_data, function ($message) use ($student_data) {
-                $message->from('mikeliu20010106@gmail.com');    
+            Mail::send('IN.Student.sendMail', $student_data, function ($message) use ($student_data) {
+                $message->from('mikeliu20010106@gmail.com');
                 $message->to($student_data['email'])->subject('email認證');
             });
 
-            return view("IN.Student.register",
-            [
-                "random" =>$random,
-                "student_id"=>$student_id,
-            ]);
-        }
-        else{
+            return view(
+                "IN.Student.register",
+                [
+                    "random" => $random,
+                    "student_id" => $student_id,
+                ]
+            );
+        } else {
             //error
         }
-        
     }
 
     /**
@@ -132,20 +133,19 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
         $value = $request->all();
         echo $value["random"];
         echo $value["input_random"];
-        if($value["random"] === $value["input_random"]){
+        if ($value["random"] === $value["input_random"]) {
             echo '登入成功';
             return view("index")->with([
                 //跳轉信息正確controller
-            //'message'=>'你已經成功註冊！',
-            'jumpTime'=>5,
-        ]);
-        }
-        else{
+                //'message'=>'你已經成功註冊！',
+                'jumpTime' => 5,
+            ]);
+        } else {
             $delete = Student::where('user_id', '=', $id)->delete();
         }
     }
