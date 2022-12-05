@@ -202,15 +202,16 @@ class ExperienceController extends Controller
             }
             return  $delete_name;
         }
-        // function delete_file($id = "",$file_floder = 'public\Experience\\'){
+        function delete_file($id = "",$file_floder = 'public\Experience\\'){
                 $delete_datas = Experience::where("user_id",$id)->get();
                 echo $delete_datas;
-                // $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
-                // echo $delete_name;
-                // $real_file_path = 'public\Experience\\' . $delete_name;
-                // Storage::delete($real_file_path);
-                // Experience::where("user_id",$id)->delete();
-        // }
-        // delete_file($id,$file_floder = 'public\Experience\\');
+                $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
+                echo $delete_name;
+                $real_file_path = 'public\Experience\\' . $delete_name;
+                Storage::delete($real_file_path);
+                Experience::where("user_id",$id)->delete();
+        }
+        delete_file($id,$file_floder = 'public\Experience\\');
+        return redirect()->route("Experience.index");
     }
 }
