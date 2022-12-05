@@ -81,10 +81,12 @@
                         <td><a class="Vacancy-Info text-decoration-none" href="{{route('Apply.show',$vacancies_id)}}">
                                 <!-- <img src="../../image/info-circle.svg"> -->
                                 詳細資訊
-                            </a></td>
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
+            </table>
         </div>
     </div>
     {{-- {{$Vacancies->links()}} --}}

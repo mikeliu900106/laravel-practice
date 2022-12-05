@@ -24,61 +24,6 @@ $btn-danger: #dc3545;
     // &:
 }
 
-.Apply-Box {
-    padding: 10px;
-    border: solid 5px #1e90ff;
-    border-radius: 1rem;
-    table {
-        width: 100% !important;
-    }
-    // #
-    // form {
-    //     align-self: flex-start;
-    //     display: flex;
-    //     margin: 0;
-    //     width: 100%;
-    //     padding: 10px;
-    //     .Vacancy-Search {
-    //         margin-right: 5px;
-    //         @media (max-width: $phone_max_width) {
-    //             margin-bottom: 5px;
-    //             margin-right: 0;
-    //         }
-    //         // margin-bottom: 5px;
-    //     }
-    //     @media (max-width: $phone_max_width) {
-    //         flex-direction: column;
-    //     }
-    // }
-    // padding: 10px;
-    // border: solid 5px #1e90ff;
-    // border-radius: 1rem;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-flow: column wrap;
-    // h1 {
-    //     margin: 5px;
-    // }
-    // .Vacancies {
-    //     display: flex;
-    //     flex-direction: column;
-    //     width: 100%;
-    //     box-sizing: border-box;
-    //     .Vacancy-Card {
-    //         display: flex;
-    //         // justify-content: space-between;
-    //         font-size: 24px;
-    //         margin: 10px;
-    //         border: 1px solid #1e90ff;
-    //         .Vacancy-Info {
-    //             flex-grow: 1;
-    //             text-decoration: none;
-    //         }
-    //     }
-    // }
-}
-
 .Apply-Info-Box {
     padding: 10px;
     border: solid 5px #1e90ff;

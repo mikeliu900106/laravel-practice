@@ -1,9 +1,11 @@
-.VacanciesCheck-Box {
+.VacanciesCheck-Box,
+.Vacancies-Box,
+.Apply-Box {
     padding: 10px;
     border: solid 5px #1e90ff;
     border-radius: 1rem;
 }
-#CPN-Verify {
+#Vacancies {
     width: 100% !important;
 }
 .dataTables_wrapper {
@@ -14,7 +16,6 @@
 table {
     thead {
         width: 100% !important;
-
     }
     li {
         display: flex;
