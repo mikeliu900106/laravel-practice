@@ -273,6 +273,44 @@ nav {
     }
 }
 
-.Vacancies-Box{
-    
+.CheckUser-Box {
+    border: solid 5px #1e90ff;
+    border-radius: 1rem;
+    padding: 10px;
+    overflow: auto;
+    table {
+        th {
+            // min-width: 100px;
+            word-break: keep-all;
+        }
+        td {
+            word-break: keep-all;
+        }
+        @media screen and (max-width: 992px) {
+            thead {
+                display: none;
+            }
+            tbody,
+            tr,
+            td {
+                text-align: right !important;
+                display: block;
+                min-height: 40px;
+                &:before {
+                    content: attr(data-label);
+                    position: absolute;
+                    left: 0;
+                    width: 50%;
+                    text-align: left;
+                    padding-left: 15px;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+            tr {
+                position: relative;
+                margin-bottom: 10px;
+            }
+        }
+    }
 }

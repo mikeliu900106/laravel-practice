@@ -15,63 +15,56 @@
     @parent
     {{-- @foreach ($user_id as $id)
         @endforeach --}}
-        <div id="wrap">
-            <div id="content">
-                
-                <div id="applyBox">
-                    <form action="{{route("CheckUser.index")}}" method = "GET">
-                        <input type="search" id="site-search" name="search">
-                        <button>查詢</button>
-                    </form>
-                    
-                    <table class="table table-striped table-dark">
-                        <thead >
-                            <tr>
-                                <th scope="col">學生真名</th>
-                                <th scope="col">學生帳號名稱</th>
-                                <th scope="col">學生信箱</th>
-                                <th scope="col">學生配對情況</th>
-                                <th scope="col">學生履歷檢查</th>
-                                <th scope="col">學生成績單檢查</th>
-                                <th scope="col">查看言論</th>
-                                <th >查看心得</th>
-                                <th scope="col">刪除學生</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($userDatas as $userData)
-                                {{$user_id = $userData->user_id}}
-                                </tr>
-                                    <td>{{$userData->user_real_name}}</td>
-                                    <td>{{$userData->user_name}}</td>
-                                    <td>{{$userData->user_email}}</td>
-                                    <td><a href = "{{route("CheckPair.show",$user_id)}}">查看配對</a></td>
-                                    <td><a href = "{{route("CheckResume.index",['user_id' => $user_id])}}">履歷檢查</a></td>
-                                    <td><a href = "{{route("CheckScore.index",['user_id' => $user_id])}}">成績單檢查</a></td>
-                                    <td><a href = "{{route("CheckChat.index",['user_id' => $user_id])}}">查看言論</a></td>
-                                    <td><a href = "{{route("CheckExperience.index",['user_id' => $user_id])}}">查看心得</a></td>
-                                    <form action="{{route('CheckUser.destroy',$user_id)}}" method="POST">
-                                        @csrf
-                                        @method("delete")
-                                        <th><button type = "submit">刪除學生</button></th>
-                                    </form>
-
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    
-                </div>
-            </div> <!-- content -->
-        </div> 
-        {{$userDatas->links()}}
-        
-            
-       
+    <div id="container">
+        <div class="CheckUser-Box">
+            <form action="{{route("CheckUser.index")}}" method="GET" class="d-flex" style="height: 40px;">
+                <input class="form-control" type="search" id="site-search" name="search" style="flex-grow: 1;">
+                <button class="btn btn-primary" style="margin-left: 5px; word-break: keep-all;">查詢</button>
+            </form>
+            <table class="table table-light table-striped table-responsive-xl">
+                <thead>
+                    <tr class="text-center">
+                        <th>學生姓名</th>
+                        <th style="text-align: left;">學生帳號名稱</th>
+                        <th style="text-align: left;">學生信箱</th>
+                        <th>配對情況</th>
+                        <th>履歷檢查</th>
+                        <th>成績單檢查</th>
+                        <th>查看言論</th>
+                        <th>查看心得</th>
+                        <th>刪除學生</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($userDatas as $userData)
+                    {{$user_id = $userData->user_id}}
+                    <tr class="text-center">
+                        <td data-label="學生姓名">{{$userData->user_real_name}}</td>
+                        <td data-label="學生帳號名稱" style="text-align: left;">{{$userData->user_name}}</td>
+                        <td data-label="學生信箱" style="text-align: left;">{{$userData->user_email}}</td>
+                        <td data-label="學生配對情況"><a href="{{route("CheckPair.show",$user_id)}}">查看配對</a></td>
+                        <td data-label="學生履歷檢查"><a href="{{route("CheckResume.index",['user_id' => $user_id])}}">履歷檢查</a></td>
+                        <td data-label="學生成績單檢查"><a href="{{route("CheckScore.index",['user_id' => $user_id])}}">成績單檢查</a></td>
+                        <td data-label="查看言論"><a href="{{route("CheckChat.index",['user_id' => $user_id])}}">查看言論</a></td>
+                        <td data-label="查看心得"><a href="{{route("CheckExperience.index",['user_id' => $user_id])}}">查看心得</a></td>
+                        <form action="{{route('CheckUser.destroy',$user_id)}}" method="POST">
+                            @csrf
+                            @method("delete")
+                            <td data-label="刪除學生"><button type="submit" class="btn btn-danger" style="min-width:90px">刪除學生</button></td>
+                        </form>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {{$userDatas->links()}}
 
 
-        
+
+
+
+
     @endsection
     @section('footer')
     @parent

@@ -286,4 +286,48 @@ nav a {
   font-weight: 700;
   height: 50px;
 }
+
+.CheckUser-Box {
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+  padding: 10px;
+  overflow: auto;
+}
+
+.CheckUser-Box table th {
+  word-break: keep-all;
+}
+
+.CheckUser-Box table td {
+  word-break: keep-all;
+}
+
+@media screen and (max-width: 992px) {
+  .CheckUser-Box table thead {
+    display: none;
+  }
+  .CheckUser-Box table tbody,
+  .CheckUser-Box table tr,
+  .CheckUser-Box table td {
+    text-align: right !important;
+    display: block;
+    min-height: 40px;
+  }
+  .CheckUser-Box table tbody:before,
+  .CheckUser-Box table tr:before,
+  .CheckUser-Box table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    text-align: left;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .CheckUser-Box table tr {
+    position: relative;
+    margin-bottom: 10px;
+  }
+}
 /*# sourceMappingURL=index.css.map */
