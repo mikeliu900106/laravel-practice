@@ -39,6 +39,36 @@
   justify-content: center;
 }
 
+.Input-Section .form-group label {
+  font-size: 20px;
+}
+
+.Input-Section .form-group .Input-group {
+  position: relative;
+}
+
+.Input-Section .form-group .Input-group .bi-person,
+.Input-Section .form-group .Input-group .bi-lock {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Input-Section .form-group .Input-group .Account-Test {
+  width: 100%;
+  height: 40px;
+  border: solid 1px darkgray;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.Input-Section .form-group .text-muted {
+  font-size: 14px;
+}
+
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
@@ -83,6 +113,7 @@
 .Help-Section {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .Submit-Section {

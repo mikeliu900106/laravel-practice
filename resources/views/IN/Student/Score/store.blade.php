@@ -2,31 +2,35 @@
 <html>
 @extends('layout.app')
 @section('head')
-    @parent
-    
+@parent
+
 @endsection
 
 <body>
-    @section('nav') 
-        @parent
+    @section('nav')
+    @parent
     @endsection
 
     @section('content')
-        <form action="{{route('Score.store')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            批量上傳
-            <br>
-            <span>歷年成績單</span>
-            <input type="file" class="form-control" name="files"  />
-            <br>
-            <button type="submit" class="btn btn-dark">提交</button>
-        </form>
+    <div id="container">
+        <div class="File-Box">
+            <h1>歷年成績單</h1>
+            <div class="File-Upload">
+                <form action="{{route('Score.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <!-- 批量上傳? -->
+                    <input type="file" class="form-control" name="files" />
+                    <button type="submit">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
     @endsection
 
 
     @section('footer')
-        @parent
+    @parent
 
-    @endsection 
-  
+    @endsection
+
 </body>

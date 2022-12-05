@@ -12,14 +12,13 @@ body {
 }
 
 nav {
-  margin-bottom: 30px;
   background: #1c1c1c;
   width: 100%;
 }
 nav .logo {
   font-size: 50px;
   cursor: pointer;
-  margin-right: 0.5em;
+  margin: 0;
   min-width: 150px;
   color: white;
 }
@@ -35,6 +34,15 @@ nav .account .bi-person {
 nav a {
   font-size: 25px;
   font-weight: 700;
+}
+@media screen and (max-width: 244px) {
+  nav {
+    justify-content: center !important;
+  }
+  nav .navbar-toggler {
+    width: 80%;
+    margin-bottom: 5px;
+  }
 }
 
 .navbar-toggler {
@@ -135,7 +143,7 @@ nav a {
 }
 @media (min-width: 1200px) {
   #container {
-    width: 1200px;
+    width: 1180px;
   }
 }
 #container h1 {
@@ -181,6 +189,31 @@ nav a {
   align-items: center;
   justify-content: center;
 }
+.Input-Section .form-group label {
+  font-size: 20px;
+}
+.Input-Section .form-group .Input-group {
+  position: relative;
+}
+.Input-Section .form-group .Input-group .bi-person,
+.Input-Section .form-group .Input-group .bi-lock {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.Input-Section .form-group .Input-group .Account-Test {
+  width: 100%;
+  height: 40px;
+  border: solid 1px darkgray;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+.Input-Section .form-group .text-muted {
+  font-size: 14px;
+}
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
@@ -221,6 +254,7 @@ nav a {
 .Help-Section {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .Submit-Section {
@@ -446,41 +480,51 @@ nav a {
   border: solid 5px #1e90ff;
   border-radius: 1rem;
 }
-.Apply-Info-Box form {
-  display: flex;
-  flex-direction: column;
-}
 .Apply-Info-Box .Vacancy-Content {
+  position: relative;
   display: flex;
+  box-sizing: border-box;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .Apply-Info-Box .Vacancy-Content {
     flex-direction: column;
   }
 }
 .Apply-Info-Box .Vacancy-Content .Tabs-List nav {
-  display: inline-flex;
+  flex-direction: column;
+  position: fixed;
+  top: 240px;
+  width: 100px;
   background: none;
 }
 .Apply-Info-Box .Vacancy-Content .Tabs-List nav .nav-link {
-  font-size: 20px;
+  flex-grow: 1;
+  font-size: 16px;
   border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
   text-align: center;
 }
 .Apply-Info-Box .Vacancy-Content .Tabs-List nav .nav-link:hover {
+  border-bottom-color: rgba(24, 149, 221, 0.3);
+}
+.Apply-Info-Box .Vacancy-Content .Tabs-List nav .active {
   border-bottom-color: rgb(24, 149, 221);
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .Apply-Info-Box .Vacancy-Content .Tabs-List {
     width: 100%;
     border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
   }
   .Apply-Info-Box .Vacancy-Content .Tabs-List .nav {
+    position: relative;
+    top: 0px;
+    flex-direction: row;
+    width: 100%;
     overflow: auto;
     flex-wrap: nowrap;
   }
   .Apply-Info-Box .Vacancy-Content .Tabs-List .nav-link {
-    min-width: 120px;
+    word-break: keep-all;
+    min-width: 110px;
     min-height: 48px;
     flex-grow: 1;
   }
@@ -489,12 +533,14 @@ nav a {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 .Apply-Info-Box .Vacancy-Content ul li {
   font-size: 24px;
-  display: flex;
   margin: 10px;
+  display: flex;
   flex-wrap: wrap;
+  word-wrap: break-word;
 }
 .Apply-Info-Box .Vacancy-Content ul li i {
   margin-right: 5px;
@@ -503,6 +549,14 @@ nav a {
   margin: 0;
   min-width: 120px;
 }
+.Apply-Info-Box .Vacancy-Content ul li span {
+  word-wrap: break-word;
+  max-width: 100%;
+}
+.Apply-Info-Box button[type=submit] {
+  width: 100%;
+}
+
 .Pair-Box {
   display: flex;
   justify-content: center;
@@ -560,7 +614,7 @@ nav a {
   margin: 10px;
   min-width: 140px;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .Pair-Box table {
     display: flex;
   }
@@ -592,4 +646,108 @@ nav a {
     height: 47px;
     position: relative;
   }
+  .Pair-Box table tbody td a,
+  .Pair-Box table tbody td form {
+    max-width: 200px;
+  }
+}
+
+.File-Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border: solid 5px #1e90ff;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+}
+.File-Box a {
+  margin: 10px;
+  width: 10rem;
+}
+.File-Box .File-Upload {
+  width: 75%;
+  max-width: 500px;
+}
+.File-Box .File-Upload button[type=submit] {
+  width: 100%;
+  color: #fff;
+  background-color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  margin-top: 5px;
+}
+@media screen and (max-width: 576px) {
+  .File-Box .File-Upload {
+    width: 100% !important;
+  }
+}
+
+.File-Update-Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 1rem;
+  border: solid 5px #1e90ff;
+}
+.File-Update-Box .Edit {
+  width: 75%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.File-Update-Box .Edit .File-Download {
+  width: 100%;
+  color: #fff;
+  background-color: #198754;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+.File-Update-Box .Edit .File-Update {
+  width: 100%;
+  color: #fff;
+  background-color: #0d6efd;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+.File-Update-Box .Edit .File-Delete {
+  width: 100%;
+  color: #fff;
+  background-color: #dc3545;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+.File-Update-Box .Edit a,
+.File-Update-Box .Edit form {
+  flex-basis: 200px;
+  flex-grow: 1;
+  min-width: 100px;
+  margin: 5px;
+}
+.File-Update-Box .Edit button[type=submit] {
+  height: 100%;
+  width: 100%;
 }

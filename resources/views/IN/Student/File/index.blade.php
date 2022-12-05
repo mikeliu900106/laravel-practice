@@ -13,8 +13,15 @@
 
     @section('content')
     <div id="container">
-        <td><a href="{{route('Score.index')}}">歷年成績單</a></td>
-        <td> <a href="{{route('Resume.index')}}">履歷</a></td>
+        <div class="File-Box">
+            <div>
+                <h1>履歷處理</h1>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center w-100">
+                <a class="btn btn-primary" href="{{route('Score.index')}}">歷年成績單</a>
+                <a class="btn btn-success" href="{{route('Resume.index')}}">履歷</a>
+            </div>
+        </div>
     </div>
     @endsection
 

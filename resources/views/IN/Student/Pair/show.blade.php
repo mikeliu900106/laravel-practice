@@ -39,7 +39,7 @@
                                 <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('Pair.edit',['Pair' =>$Pair->user_id,] )}}">Edit</a>
                             </td>
                             <td>
-                                <form style="width: 100%;" action="{{ route('Pair.destroy', ['Pair' => $Pair->user_id] )}}" method="post">
+                                <form class="w-100" action="{{ route('Pair.destroy', ['Pair' => $Pair->user_id] )}}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button class="w-100 btn btn-danger" type="submit">Delete</button>
