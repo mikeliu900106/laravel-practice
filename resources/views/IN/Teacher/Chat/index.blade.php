@@ -12,41 +12,26 @@
     @endsection
 
     @section('content')
-    <div id="responseBox">
-        <ul>
-
-            @foreach($Chats as $Chat)
-            <li>
-                <div class="author">作者：{{$Chat->chat_maker}}</div>
-                <div class="article">主旨：{{$Chat->chat_subject}}</div>
-                <div class="time">時間：{{$Chat->chat_date}}</div>
-                <hr>
-                <div class="message">{{$Chat->chat_content}}</div>
-            </li>
-            @endforeach
-        </ul>
-
-        <?php if ($Chat_level != '2') { ?>
-            <form class="leavecomment" action="{{route("TeacherChat.store")}}" method="post">
-                @csrf
-                <div class="author">
-                    <p>作者</p><input name="maker" type="text">
-                </div>
-                <div class="gist">
-                    <p>主旨</p><input name="subject" type="text">
-                    <br>
-                </div>
-                <div class="content">
-                    <p>內容</p><textarea name="content" id="" cols="30" rows="10"></textarea>
-                    <button type="submit" id = "teacher_chat" value="送出">送出</button>
-                </div>
-            </form>
-        <?php
-        } else {
-            echo "<div>你不能發言</div>";
-        }    ?>
+    <div id="container">
+        <div class="Response-Box">
+            <h1 class="text-center">意見反映</h1>
+            <ul class="Responses">
+                @foreach($Chats as $Chat)
+                <li class="Response-Card">
+                    <div class="Message-Detail">
+                        <div class="article">主旨：{{$Chat->chat_subject}}</div>
+                        <div class="author">作者：{{$Chat->chat_maker}}</div>
+                        <div class="time">時間：{{$Chat->chat_date}}</div>
+                    </div>
+                    <!-- <hr> -->
+                    <div class="Message">{{$Chat->chat_content}}</div>
+                </li>
+                @endforeach
+            </ul>
+            <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="{{route("TeacherChat.create")}}">新增評論</a></button>
+            {{ $Chats->links() }}
+        </div>
     </div>
-    {{ $Chats->links() }}
     @endsection
 
     @section('footer')

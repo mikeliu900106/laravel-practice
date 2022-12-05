@@ -19,7 +19,7 @@
             <div class="Edit">
                 <a class="File-Download" href="{{route("DownloadExperience.edit",$user_id)}}">下載</a>
                 <a class="File-Update" href="{{route("Experience.create")}}">更新</a>
-                <form method="post" action="{{route("DownloadExperience.destroy",$user_id)}}">
+                <form method="post" action="{{route("Experience.destroy",$user_id)}}">
                     @csrf
                     @method("delete")
                     <button class="File-Delete" type="submit">刪除</button>
