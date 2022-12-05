@@ -19342,9 +19342,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************!*\
   !*** ./resources/css/student.scss ***!
   \************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n24 │     &:\r\n   │       ^\n   ╵\n  resources\\css\\student.scss 24:7  root stylesheet\n    at processResult (C:\\staff_mysql\\laravel_test\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\staff_mysql\\laravel_test\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\staff_mysql\\laravel_test\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\staff_mysql\\laravel_test\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\staff_mysql\\laravel_test\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\staff_mysql\\laravel_test\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -19352,9 +19355,12 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!********************************!*\
   !*** ./resources/css/app.scss ***!
   \********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n24 │     &:\r\n   │       ^\n   ╵\n  resources\\css\\student.scss 24:7  @import\n  resources\\css\\app.scss 3:9       root stylesheet\n    at processResult (C:\\staff_mysql\\laravel_test\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\staff_mysql\\laravel_test\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\staff_mysql\\laravel_test\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\staff_mysql\\laravel_test\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\staff_mysql\\laravel_test\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\staff_mysql\\laravel_test\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -19674,6 +19680,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
+/******/ 			"css/app": 0,
+/******/ 			"css/student": 0,
 /******/ 			"css/account": 0,
 /******/ 			"css/table": 0
 /******/ 		};
@@ -19725,11 +19733,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/account","css/table"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/account","css/table"], () => (__webpack_require__("./resources/css/table.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/account","css/table"], () => (__webpack_require__("./resources/css/account.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/account","css/table"], () => (__webpack_require__("./resources/css/student.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/account","css/table"], () => (__webpack_require__("./resources/css/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/student","css/account","css/table"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/student","css/account","css/table"], () => (__webpack_require__("./resources/css/table.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/student","css/account","css/table"], () => (__webpack_require__("./resources/css/account.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/student","css/account","css/table"], () => (__webpack_require__("./resources/css/student.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/student","css/account","css/table"], () => (__webpack_require__("./resources/css/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

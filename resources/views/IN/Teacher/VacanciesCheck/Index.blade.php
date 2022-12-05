@@ -13,7 +13,7 @@
 <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#CPN-Verify').DataTable({
+        $('#Vacancies').DataTable({
             // "searching": false,
             // "paging": false,
             "responsive": true,
@@ -54,7 +54,7 @@
     <div id="container">
         <div class="VacanciesCheck-Box">
             <h1 class="text-center">職缺審查</h1>
-            <table id="CPN-Verify" class="table table-striped table-bordered dt-responsive nowrap">
+            <table id="Vacancies" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                     <tr>
                         <th>職位名稱</th>
@@ -98,7 +98,6 @@
                         <form action="{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method="post">
                             @method('DELETE')
                             @csrf
-                        
                             <td><button class="btn btn-danger" type="submit" id="VacanciesCheck_delete_button">Delete</button></td>
                         </form>
                     </tr>

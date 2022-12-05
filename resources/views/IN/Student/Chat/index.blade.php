@@ -24,7 +24,6 @@
                         <div class="author">作者：{{$Chat->chat_maker}}</div>
                         <div class="time">時間：{{$Chat->chat_date}}</div>
                     </div>
-                    <!-- <hr> -->
                     <div class="Message">{{$Chat->chat_content}}</div>
                 </li>
                 @endforeach
