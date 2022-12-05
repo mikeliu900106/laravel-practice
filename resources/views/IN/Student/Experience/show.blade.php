@@ -2,39 +2,38 @@
 <html>
 @extends('layout.app')
 @section('head')
-    @parent
-    
+@parent
+
 @endsection
 
 <body>
-    @section('nav') 
-        @parent
+    @section('nav')
+    @parent
     @endsection
 
     @section('content')
-        @parent
-    <table>
-        <tr>
-            <th>實習心得</th>
-            <th>更新</th>
-            <th>刪除</th>
-        </tr>
-        <tr>
-            <td><a href = "{{route("Experience.create")}}">更新</a></td>
-            <td><a href = "{{route("DownloadExperience.edit",$user_id)}}">下載</a></td>
-            <form method="post" action="{{route("DownloadExperience.destroy",$user_id)}}">
-                @csrf
-                @method("delete")
-                <td><button type="submit">刪除</button></td>
-            </form>
-        </tr>
-    </table>     
+    @parent
+    <div id="container">
+        <div class="File-Update-Box">
+            <h1>心得</h1>
+            <div class="Edit">
+                <a class="File-Download" href="{{route("DownloadExperience.edit",$user_id)}}">下載</a>
+                <a class="File-Update" href="{{route("Experience.create")}}">更新</a>
+                <form method="post" action="{{route("DownloadExperience.destroy",$user_id)}}">
+                    @csrf
+                    @method("delete")
+                    <button class="File-Delete" type="submit">刪除</button>
+                </form>
+                </table>
+            </div>
+        </div>
+    </div>
     @endsection
 
 
     @section('footer')
-        @parent
-    
+    @parent
+
     @endsection
 </body>
 
