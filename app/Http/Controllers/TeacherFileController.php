@@ -21,7 +21,8 @@ class TeacherFileController extends Controller
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get(' user_id');
                 //$Vacancies = Vacancies::get();
-                $teacher_datas =Teacherfile::where("teacher_id",$user_id)->get();
+                $teacher_datas =Teacherfile::get();
+                return
             } else {
                 echo "你不是教師";
                 //1. 顯示錯誤2.錯誤controller
