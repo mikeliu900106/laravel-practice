@@ -681,7 +681,11 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
   margin-top: 5px;
+}
+.File-Box .File-Upload button[type=submit]:hover {
+  filter: brightness(90%);
 }
 @media screen and (max-width: 576px) {
   .File-Box .File-Upload {
@@ -715,6 +719,10 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
+}
+.File-Update-Box .Edit .File-Download:hover {
+  filter: brightness(90%);
 }
 .File-Update-Box .Edit .File-Update {
   width: 100%;
@@ -727,6 +735,10 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
+}
+.File-Update-Box .Edit .File-Update:hover {
+  filter: brightness(90%);
 }
 .File-Update-Box .Edit .File-Delete {
   width: 100%;
@@ -739,6 +751,10 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
+}
+.File-Update-Box .Edit .File-Delete:hover {
+  filter: brightness(90%);
 }
 .File-Update-Box .Edit a,
 .File-Update-Box .Edit form {
