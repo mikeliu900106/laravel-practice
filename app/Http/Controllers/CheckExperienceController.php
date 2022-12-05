@@ -97,7 +97,7 @@ class CheckExperienceController extends Controller
     public function show(Request $request,$id)
     {
        
-        // return response()->file($real_path);
+        //return response()->file($real_path);
     }
 
     /**
