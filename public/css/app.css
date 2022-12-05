@@ -254,10 +254,16 @@ nav a {
   overflow: auto;
 }
 .CheckUser-Box table th {
+  font-size: 18px;
   word-break: keep-all;
 }
 .CheckUser-Box table td {
+  font-size: 18px;
+  line-height: 36px;
   word-break: keep-all;
+}
+.CheckUser-Box table td a {
+  text-decoration: none;
 }
 @media screen and (max-width: 992px) {
   .CheckUser-Box table thead {
@@ -268,7 +274,7 @@ nav a {
   .CheckUser-Box table td {
     text-align: right !important;
     display: block;
-    min-height: 40px;
+    min-height: 48px;
   }
   .CheckUser-Box table tbody:before,
   .CheckUser-Box table tr:before,
@@ -286,6 +292,12 @@ nav a {
     position: relative;
     margin-bottom: 10px;
   }
+}
+
+.content-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
 }
 
 .Account-Box {

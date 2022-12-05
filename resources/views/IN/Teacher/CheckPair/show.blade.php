@@ -16,6 +16,7 @@
     <div id="container">
         <div class="Pair-Box">
             <div class="table-responsive-md w-100">
+                <h1 class="text-center">學生配對</h1>
                 <table class="table">
                     <thead>
                         <tr class="text-center">

@@ -19,7 +19,7 @@
         <div class="CheckUser-Box">
             <form action="{{route("CheckUser.index")}}" method="GET" class="d-flex" style="height: 40px;">
                 <input class="form-control" type="search" id="site-search" name="search" style="flex-grow: 1;">
-                <button class="btn btn-primary" style="margin-left: 5px; word-break: keep-all;">查詢</button>
+                <button class="btn btn-primary" style="margin-left: 5px; word-break: keep-all;">查詢</button></span>
             </form>
             <table class="table table-light table-striped table-responsive-xl">
                 <thead>

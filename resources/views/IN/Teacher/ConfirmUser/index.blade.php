@@ -41,7 +41,7 @@
                         <td data-label="學生信箱" style="text-align: left;">{{$Student_data->user_email}}</td>
                         <td data-label="學生學號" style="text-align: left;">{{$Student_data->student_id}}</td>
                         <td data-label="學生系別">{{$Student_data->student_department}}</td>
-                        <td data-label="確認為本校學生"><a class="btn btn-primary" style="min-width:90px" href="{{route("ConfirmUser.edit",$user_id)}}">同意</a></td>
+                        <td data-label="確認為本校學生"><a class="btn btn-success" style="min-width:90px" href="{{route("ConfirmUser.edit",$user_id)}}">同意</a></td>
                         <form action="{{route('ConfirmUser.destroy',$user_id)}}" method="POST">
                             @csrf
                             @method("delete")
