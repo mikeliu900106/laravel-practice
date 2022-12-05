@@ -44,7 +44,9 @@ class CompanyChatController extends Controller
      */
     public function create()
     {
-        //
+        $user_id = session()->get('user_id');
+        $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
+        return view("IN.Company.Chat.store",['Chat_level' => $Chat_level]);
     }
 
     /**
@@ -72,6 +74,7 @@ class CompanyChatController extends Controller
                 'chat_level'     =>  '1',
             ]
         );
+        return redirect()->route("CompanyChat.index");
     }
 
     /**

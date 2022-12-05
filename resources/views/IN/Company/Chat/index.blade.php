@@ -12,9 +12,8 @@
     @endsection
 
     @section('content')
-    @parent
     <div id="container">
-        <div id="Response-Box">
+        <div class="Response-Box">
             <h1 class="text-center">意見反映</h1>
             <ul class="Responses">
                 @foreach($Chats as $Chat)
@@ -29,9 +28,9 @@
                 </li>
                 @endforeach
             </ul>
-            <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="{{route("Chat.create")}}">新增評論</a></button>
+            <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="{{route("CompanyChat.create")}}">新增評論</a></button>
+            {{ $Chats->links() }}
         </div>
-        {{ $Chats->links() }}
     </div>
     @endsection
 
