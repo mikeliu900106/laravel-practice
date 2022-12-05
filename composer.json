@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.5",
         "league/flysystem-aws-s3-v2": "~1.0",
         "league/flysystem-rackspace": "~1.0",
-        "phpoffice/phpword": "^1.0",
+        "phpoffice/phpword": "^1.0", 
         "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
