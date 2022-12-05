@@ -25,6 +25,7 @@
             <div class="Input-Section">
                 <input class="Account-Text" type="text" placeholder="請輸入帳號" name="username" />
                 <input class="Account-Text" type="text" placeholder="請輸入姓名" name="real_name" />
+                <input class="Account-Text" type="text" placeholder="請輸入學號" name="student_id" />
                 <input class="Account-Text" type="password" placeholder="請輸入密碼" name="password" />
                 <input class="Account-Text" type="text" placeholder="請輸入信箱" name="email" />
             </div>
