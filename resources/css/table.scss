@@ -1,6 +1,10 @@
+$phone-max-width: 576px;
+$tablet-max-width: 767px;
+
 .VacanciesCheck-Box,
 .Vacancies-Box,
 .Apply-Box {
+    margin: 0 auto !important;
     padding: 10px;
     border: solid 5px #1e90ff;
     border-radius: 1rem;
@@ -12,10 +16,31 @@
     .col-sm-12 {
         margin-bottom: 5px;
     }
+    .dataTables_filter {
+        label {
+            display: flex;
+            justify-content: end;
+            input[type="search"] {
+                flex-grow: 1;
+                min-width: 20px;
+                max-width: 200px;
+            }
+            @media screen and (max-width: $tablet-max-width) {
+                justify-content: center;
+            }
+        }
+    }
 }
 table {
     thead {
         width: 100% !important;
+    }
+    td {
+        // display: inline-flex;
+        vertical-align: middle;
+    }
+    form {
+        margin: 0;
     }
     li {
         display: flex;

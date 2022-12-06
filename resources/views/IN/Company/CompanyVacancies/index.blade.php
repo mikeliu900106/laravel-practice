@@ -24,6 +24,10 @@
                     responsivePriority: 2,
                 },
                 {
+                    targets: [11],
+                    responsivePriority: 3,
+                },
+                {
                     targets: "_all", // 全部欄
                     className: 'text-center' // className: 'text-left text-info'
                 },
@@ -78,13 +82,13 @@
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
                         <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
-                        {{-- <td><a class="btn btn-primary" href="{{route("CompanyVacancies.destroy",$Vacancie->vacancies_id)}}">刪除</a></td> --}}
-                        <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id)}}" method="post">
-                            @csrf
-                            @method("delete")
-                            
-                            <td><button class="btn btn-danger" type ="submit">Delete</button></td>
-                        </form>
+                        <td>
+                            <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -93,8 +97,6 @@
         </div>
     </div>
     @endsection
-
-
     @section('footer')
     @parent
 

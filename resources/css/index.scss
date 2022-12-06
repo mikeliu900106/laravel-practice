@@ -28,8 +28,10 @@ body {
 }
 nav {
     background: $navbar_color;
+    // height: 200px;
+    align-content: stretch;
     width: 100%;
-    // flex-grow: 1;
+    // min-width: 350px;
     .logo {
         font-size: 50px;
         cursor: pointer;
@@ -120,14 +122,15 @@ nav {
 
 .main {
     flex-grow: 1;
+    width: 100%;
     position: relative;
     // display: flex;
     min-height: 800px;
     // overflow: hidden;
-    .container {
-        position: relative;
-        top: 100px;
-    }
+    // .container {
+    //     position: relative;
+    //     top: 100px;
+    // }
 }
 
 .footer {
@@ -155,8 +158,6 @@ nav {
 #container {
     margin: 30px auto;
     // border: solid 10px $light_blue;
-    border-radius: 20px;
-    border-top: 20px;
     @media (min-width: 768px) {
         width: 750px;
     }
@@ -326,4 +327,24 @@ nav {
     border: solid 5px #1e90ff;
     padding: 10px;
     border-radius: 1rem;
+}
+
+.Vacancies-Input-Box {
+    border: solid 5px #1e90ff;
+    padding: 10px;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    h1 {
+        font-weight: bold;
+    }
+    .form-group {
+        padding: 5px;
+    }
+    textarea {
+        overflow: auto;
+        max-height: 300px;
+    }
+    .Vacancies-Submit {
+        margin: 5px;
+    }
 }
