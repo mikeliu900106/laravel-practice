@@ -95,11 +95,13 @@
                             <div class="btn btn-success btn"><a class="text-white text-decoration-none" href="{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a></div>
                             <div class="btn btn-warning btn"><a class="text-white text-decoration-none" href="{{route("VacanciesCheck.show",$Vacancie->vacancies_id)}}">不通過</a></div>
                         </td>
-                        <form action="{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <td><button class="btn btn-danger" type="submit" id="VacanciesCheck_delete_button">Delete</button></td>
-                        </form>
+                        <td>
+                            <form action="{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger" type="submit" id="VacanciesCheck_delete_button">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -24,7 +24,7 @@
 
 <body>
     @section('nav')
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md" id="nav">
         <a class="navbar-brand logo col-2 text-center" href="{{url('/')}}">PCCU</a>
         <!-- RWD -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDropdown" style="color: white">
@@ -67,7 +67,6 @@
             </ul>
         </div>
     </nav>
-
     @show
     <div class="main">
         @section('content')
@@ -77,9 +76,6 @@
     @section('footer')
     @show
     </div>
-    <script>
-
-    </script>
     <script src="{{asset("js/app.js")}}"></script>
     <script src="{{asset("js/index.js")}}"></script>
 

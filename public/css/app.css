@@ -13,6 +13,7 @@ body {
 
 nav {
   background: #1c1c1c;
+  align-content: stretch;
   width: 100%;
 }
 nav .logo {
@@ -100,6 +101,7 @@ nav a {
 
 .main {
   flex-grow: 1;
+  width: 100%;
   position: relative;
   min-height: 800px;
 }

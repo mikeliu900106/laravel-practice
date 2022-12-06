@@ -1,6 +1,7 @@
 .VacanciesCheck-Box,
 .Vacancies-Box,
 .Apply-Box {
+  margin: 0 auto !important;
   padding: 10px;
   border: solid 5px #1e90ff;
   border-radius: 1rem;
@@ -13,9 +14,29 @@
 .dataTables_wrapper .col-sm-12 {
   margin-bottom: 5px;
 }
+.dataTables_wrapper .dataTables_filter label {
+  display: flex;
+  justify-content: end;
+}
+.dataTables_wrapper .dataTables_filter label input[type=search] {
+  flex-grow: 1;
+  min-width: 20px;
+  max-width: 200px;
+}
+@media screen and (max-width: 767px) {
+  .dataTables_wrapper .dataTables_filter label {
+    justify-content: center;
+  }
+}
 
 table thead {
   width: 100% !important;
+}
+table td {
+  vertical-align: middle;
+}
+table form {
+  margin: 0;
 }
 table li {
   display: flex;
