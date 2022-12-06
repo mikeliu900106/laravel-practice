@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Vacancies;
-use App\Models\Company;
-use App\Models\Resume;
-use App\Models\Student;
-use App\Models\Score;
-use App\Models\Pair;
+use Illuminate\Support\Facades\Storage;
 
+use App\Models\Chat;
 
-class CheckUserController extends Controller
+use Response;
+
+use App\Models\Teacherfile;
+
+class StudentFileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,35 +22,22 @@ class CheckUserController extends Controller
     public function index(Request $request)
     {
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '2') {
-                $user_id = session()->get(' user_id');
-                //$Vacancies = Vacancies::get();
-
-                if ($request->has('search')) {
-
-                    $search = $request->search;
-                    $userDatas = Student::orWhere('user_real_name', 'LIKE', "%{$search}%")
-                        ->orWhere('user_name', 'LIKE', "%{$search}%")
-                        ->paginate(10);
-                    //1.取user配對情況
-                    //2.取user履歷
-                    //3.取usert成績單    
-
-                } else {
-                    $userDatas = Student::paginate(10);
-                    // echo $userDatas;
-                }
-
-                return view('IN.Teacher.CheckUser.index', [
-                    'userDatas' => $userDatas,
-                ]);
-            } else {
-                echo "你不是教師";
+            if ($request->session()->get('level') == '4') {
+                $user_id = session()->get('user_id');
+                $teacher_datas =Teacherfile::get();
+                return view("IN.Student.StudentFile.index",["teacher_datas" => $teacher_datas]);
+            } 
+            elseif($request->session()->get('level') == '1'){
+                echo "請等老師認證為本人,此功能開放";
+            }
+            else{
+                echo "你不是學生";
                 //1. 顯示錯誤2.錯誤controller
-
+                
 
             }
-        } else {
+        }
+        else{
             echo "你沒登入";
         }
     }
@@ -118,8 +105,6 @@ class CheckUserController extends Controller
      */
     public function destroy($id)
     {
-        Student::where('user_id', '=', $id)->delete();
-        Login::where('id', '=', $id)->delete();
-        return redirect()->route('CheckUser.index');
+        //
     }
 }

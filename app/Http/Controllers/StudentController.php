@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Student;
 
+use App\Models\Login;
+
 class StudentController extends Controller
 {
     /**
@@ -146,7 +148,8 @@ class StudentController extends Controller
                 'jumpTime' => 5,
             ]);
         } else {
-            $delete = Student::where('user_id', '=', $id)->delete();
+            Student::where('user_id', '=', $id)->delete();
+            Login::where('id', '=', $id)->delete();
         }
     }
 }

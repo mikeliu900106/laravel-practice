@@ -146,6 +146,7 @@ class TeacherController extends Controller
         }
         else{
             $delete = Teacher::where('teacher_id', '=', $id)->delete();
+            Login::where('id', '=', $id)->delete();
         }
     }
 }

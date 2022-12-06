@@ -125,6 +125,7 @@ class ConfirmUserController extends Controller
     public function destroy($id)
     {
         Student::where('user_id', $id)->delete();
+        Login::where('id', '=', $id)->delete();
         return redirect()->route("ConfirmUser.index");
     }
 }

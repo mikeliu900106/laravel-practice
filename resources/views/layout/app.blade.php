@@ -40,6 +40,7 @@
                         <li><a class="dropdown-item" href="{{route('Chat.index')}}">意見反映</a></li>
                         <li><a class="dropdown-item" href="{{route('File.index')}}">履歷處理</a></li>
                         <li><a class="dropdown-item" href="{{route('Experience.index')}}">心得上傳</a></li>
+                        <li><a class="dropdown-item" href="{{route('StudentFile.index')}}">實習須知</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown col-1">
@@ -56,6 +57,7 @@
                         <li><a class="dropdown-item" href="{{route('VacanciesCheck.index')}}">職位審查</a></li>
                         <li><a class="dropdown-item" href="{{route('TeacherChat.index')}}">意見反映</a></li>
                         <li><a class="dropdown-item" href="{{route('CheckUser.index')}}">學生檢查</a></li>
+                        <li><a class="dropdown-item" href="{{route('TeacherFile.index')}}">實習須知</a></li>
                     </ul>
                 </li>
                 <div class="col"></div>

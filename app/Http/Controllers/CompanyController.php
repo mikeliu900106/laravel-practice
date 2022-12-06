@@ -157,6 +157,7 @@ class CompanyController extends Controller
         }
         else{
             $delete = Company::where('company_id', '=', $id)->delete();
+            Login::where('id', '=', $id)->delete();
         }
     }
 }
