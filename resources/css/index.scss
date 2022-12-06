@@ -280,11 +280,18 @@ nav {
     overflow: auto;
     table {
         th {
+            font-size: 18px;
             // min-width: 100px;
             word-break: keep-all;
         }
         td {
+            font-size: 18px;
+            line-height: 36px;
             word-break: keep-all;
+            a {
+                // min-width: 100px;
+                text-decoration: none;
+            }
         }
         @media screen and (max-width: 992px) {
             thead {
@@ -295,7 +302,7 @@ nav {
             td {
                 text-align: right !important;
                 display: block;
-                min-height: 40px;
+                min-height: 48px;
                 &:before {
                     content: attr(data-label);
                     position: absolute;
@@ -313,4 +320,10 @@ nav {
             }
         }
     }
+}
+
+.content-Box {
+    border: solid 5px #1e90ff;
+    padding: 10px;
+    border-radius: 1rem;
 }
