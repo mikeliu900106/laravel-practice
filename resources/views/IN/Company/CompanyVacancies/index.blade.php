@@ -3,13 +3,7 @@
 @extends('layout.app')
 @section('head')
 @parent
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap4.min.css" />
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap4.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#Vacancies').DataTable({
@@ -72,6 +66,7 @@
                 <tbody>
                     @foreach($Vacancies as $Vacancie)
                     <tr>
+                        {{$Vacancie->vacancies_id}}
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
@@ -82,11 +77,13 @@
                         <td>{{$Vacancie->company_department }}</td>
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
-                        <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method="post">
-                            @method('DELETE')
+                        <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
+                        {{-- <td><a class="btn btn-primary" href="{{route("CompanyVacancies.destroy",$Vacancie->vacancies_id)}}">刪除</a></td> --}}
+                        <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id)}}" method="post">
                             @csrf
-                            <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
-                            <td><button class="btn btn-danger" type="submit">Delete</button></td>
+                            @method("delete")
+                            
+                            <td><button class="btn btn-danger" type ="submit">Delete</button></td>
                         </form>
                     </tr>
                     @endforeach

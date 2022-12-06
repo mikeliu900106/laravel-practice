@@ -12,7 +12,7 @@
     @endsection
 
     @section('content')
-        <a href = "{{route("TeacherFile.create")}}">上傳檔案</a>
+    
         <br>
         @foreach($teacher_datas as $teacher_data)
             <span>{{$teacher_data->teacher_real_file_name}}:</span>

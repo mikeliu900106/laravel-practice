@@ -176,9 +176,9 @@ class CompanyVacanciesController extends Controller
      */
     public function destroy($id)
     {
+        echo $id;
         $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
         $user_id = session()->get('user_id');
-        $Vacancies = Vacancies::get()->where('company_id', '=', $user_id);
         return redirect()->route("CompanyVacancies.index");
     }
 }
