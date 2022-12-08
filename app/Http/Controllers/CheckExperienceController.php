@@ -117,6 +117,7 @@ class CheckExperienceController extends Controller
         $real_path = public_path()."\storage\Experience\\".$Experience_name;
         echo $real_path;
         return response()->file($real_path);
+        
     }
 
     /**
@@ -128,7 +129,12 @@ class CheckExperienceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Mail::send('IN.Teacher.CheckExperience.sendMail',$data, function ($message) use ($data) {
+            $message->from('mikeliu20010106@gmail.com', $data['user_real_name']);    
+            $message->to($data['user_email'])->subject('記得回復');
+            $message->attach($data['real_file_path']);
+        });
+        return redirect()->route('CheckUser.index');
     }
 
     /**
