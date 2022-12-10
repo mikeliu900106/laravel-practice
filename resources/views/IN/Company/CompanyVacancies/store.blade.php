@@ -33,12 +33,65 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="company_time">工作地點</label>
-                    <input type="text" name="company_place" class="form-control" placeholder="請輸入工作地點">
+                    <input type="text" name="vacancies_place" class="form-control" placeholder="請輸入工作地點">
                 </div>
                 <div class="form-group col-12">
                     <label for="company_content">工作內容</label>
                     <textarea rows="5" contenteditable="true" type="text" name="company_content" class="form-control" placeholder="請輸入工作內容" style="height: 100px" id="compant_content"></textarea>
                 </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="javascript" id="inlineCheckbox1">
+                    <label class="form-check-label" for="inlineCheckbox1">Javascript</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="react" id="inlineCheckbox2">
+                    <label class="form-check-label" for="inlineCheckbox2">React</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="vue" id="inlineCheckbox3">
+                    <label class="form-check-label" for="inlineCheckbox3">Vue</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="Angular" id="inlineCheckbox4">
+                    <label class="form-check-label" for="inlineCheckbox4">Angular</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="Mysql" id="inlineCheckbox5">
+                    <label class="form-check-label" for="inlineCheckbox6">Mysql</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="SqlServer" id="inlineCheckbox6">
+                    <label class="form-check-label" for="inlineCheckbox6">SqlServer</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="Php" id="inlineCheckbox7">
+                    <label class="form-check-label" for="inlineCheckbox7">Php</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="Laravel" id="inlineCheckbox8">
+                    <label class="form-check-label" for="inlineCheckbox7">Laravel</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="c#" id="inlineCheckbox9">
+                    <label class="form-check-label" for="inlineCheckbox7">c#</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="c++" id="inlineCheckbox10">
+                    <label class="form-check-label" for="inlineCheckbox7">c++</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="java" id="inlineCheckbox11">
+                    <label class="form-check-label" for="inlineCheckbox7">java</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="python" id="inlineCheckbox12">
+                    <label class="form-check-label" for="inlineCheckbox7">python</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="kotlin" id="inlineCheckbox13">
+                    <label class="form-check-label" for="inlineCheckbox7">kotlin</label>
+                </div>
+
                 <div class="form-row d-flex flex-wrap">
                     <div class="form-group col-md-6 col-12">
                         <label for="company_department">科系需求</label>

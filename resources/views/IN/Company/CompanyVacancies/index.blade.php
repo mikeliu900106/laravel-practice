@@ -74,7 +74,7 @@
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
-                        <td>{{$Vacancie->company_place }}</td>
+                        <td>{{$Vacancie->vacancies_place }}</td>
                         <td>{{$Vacancie->company_content }}</td>
                         <td>{{$Vacancie->company_work_experience }}</td>
                         <td>{{$Vacancie->company_Education }}</td>

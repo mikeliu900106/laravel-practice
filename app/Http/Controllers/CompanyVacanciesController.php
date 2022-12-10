@@ -72,14 +72,20 @@ class CompanyVacanciesController extends Controller
             'vacancies_name'            => 'required|string',
             'company_money'             => 'required|string',
             'company_time'              => 'required|string',
-            'company_place'             => 'required|string',
+            'vacancies_place'           => 'required|string',
             'company_content'           => 'required|string',
-            'company_work_experience'   => 'required|string',
-            'company_Education'         => 'required|string',
             'company_department'        => 'required|string',
+            'vacancies_Skill'           => 'required',
+            'company_Education'         => 'required|string',
+            'company_work_experience'   => 'required|string',
             'company_other'             => 'required|string',
             'company_safe'              => 'required|string',
         ]);
+        $vacancies_Skill = $request_value["vacancies_Skill"];
+        $vacancies_Skill =implode(" 、 ",$vacancies_Skill);
+        
+
+      
         Vacancies::create(
             [
                 'company_id'                =>  $user_id,
@@ -87,9 +93,10 @@ class CompanyVacanciesController extends Controller
                 'vacancies_name'            =>  $request_value['vacancies_name'],
                 'company_money'             =>  $request_value['company_money'],
                 'company_time'              =>  $request_value['company_time'],
-                'company_place'             =>  $request_value['company_place'],
+                'vacancies_place'           =>  $request_value['vacancies_place'],
                 'company_content'           =>  $request_value['company_content'],
                 'company_work_experience'   =>  $request_value['company_work_experience'],
+                'vacancies_Skill'           =>  $vacancies_Skill,
                 'company_Education'         =>  $request_value['company_Education'],
                 'company_department'        =>  $request_value['company_department'],
                 'company_other'             =>  $request_value['company_other'],
@@ -137,11 +144,12 @@ class CompanyVacanciesController extends Controller
             'vacancies_name'            => 'required|string',
             'company_money'             => 'required|string',
             'company_time'              => 'required|string',
-            'company_place'             => 'required|string',
+            'vacancies_place'           => 'required|string',
             'company_content'           => 'required|string',
-            'company_work_experience'   => 'required|string',
-            'company_Education'         => 'required|string',
             'company_department'        => 'required|string',
+            'vacancies_Skill'           => 'required',
+            'company_Education'         => 'required|string',
+            'company_work_experience'   => 'required|string',
             'company_other'             => 'required|string',
             'company_safe'              => 'required|string',
         ]);
@@ -151,9 +159,10 @@ class CompanyVacanciesController extends Controller
                     'vacancies_name'            =>  $request_value['vacancies_name'],
                     'company_money'             =>  $request_value['company_money'],
                     'company_time'              =>  $request_value['company_time'],
-                    'company_place'             =>  $request_value['company_place'],
+                    'vacancies_place'           =>  $request_value['vacancies_place'],
                     'company_content'           =>  $request_value['company_content'],
                     'company_work_experience'   =>  $request_value['company_work_experience'],
+                    'vacancies_Skill'           =>  $vacancies_Skill,
                     'company_Education'         =>  $request_value['company_Education'],
                     'company_department'        =>  $request_value['company_department'],
                     'company_other'             =>  $request_value['company_other'],

@@ -66,6 +66,7 @@
                         <th>工作經驗</th>
                         <th>學歷要求</th>
                         <th>科系要求</th>
+                        <th>技能需求</th>
                         <th>是否通過</th>
                         <th>其他事項</th>
                         <th>工作保險</th>
@@ -82,11 +83,12 @@
                         <td>{{$Vacancie->company_name }}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
-                        <td>{{$Vacancie->company_place }}</td>
+                        <td>{{$Vacancie->vacancies_place }}</td>
                         <td>{{$Vacancie->company_content }}</td>
                         <td>{{$Vacancie->company_work_experience }}</td>
                         <td>{{$Vacancie->company_Education }}</td>
                         <td>{{$Vacancie->company_department }}</td>
+                        <td>{{$Vacancie->vacancies_Skill }}</td>
                         <td>{{$Vacancie->teacher_watch}}</td>
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
