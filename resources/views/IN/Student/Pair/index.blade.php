@@ -22,9 +22,9 @@
                     <div class="Pair-Row">
                         <span>請選擇配對成功的廠商：</span>
                         <select name="choose_company">
-                            <option disabled>請選擇配對成功的廠商</option>
+                            <option disabled>請選擇配對成功的職位</option>
                             @foreach($Vacancies_datas as $Vacancies_data)
-                            <option value="{{$Vacancies_data->company_name}}">{{$Company_name->company_name}}</option>
+                            <option value="{{$Vacancies_data->vacancies_name}}">{{$Vacancies_data->vacancies_name}}</option>
                             @endforeach
                         </select>
                     </div>
