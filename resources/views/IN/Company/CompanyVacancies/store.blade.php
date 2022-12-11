@@ -31,9 +31,14 @@
                         <input type="text" name="company_time" class="form-control" placeholder="請輸入工作時間">
                     </div>
                 </div>
-                <div class="form-group col-12">
-                    <label for="company_time">工作地點</label>
-                    <input type="text" name="vacancies_place" class="form-control" placeholder="請輸入工作地點">
+                <div class="form-group" id="twzipcode">
+                    <label class="col-12" for="twzipcode">工作地址</label>
+                    <div class="w-100 d-flex flex-wrap">
+                        <select class="col-md-6 col-12 form-select" name="county" aria-describedby="form-county" required=""></select>
+                        <select class="col form-select" name="district" aria-describedby="form-district" zipcode-align="left" required=""></select>
+                    </div>
+                    <input class=" form-control" id="address" type="text" name="address" aria-describedby="form-address-input" required="" placeholder="路, 巷, 門牌, 樓層">
+                    <input class="d-none" name="zipcode">
                 </div>
                 <div class="form-group col-12">
                     <label for="company_content">工作內容</label>
@@ -120,6 +125,7 @@
             </div>
         </div>
     </form>
+    <script src="/erTWZipcode/er.twzipcode.data.js"></script>
     <script>
         let oCompant_content = document.getElementById('compant_content');
         console.log(oCompant_content)
@@ -137,6 +143,12 @@
 
     @section('footer')
     @parent
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{{asset("erTWZipcode/er.twzipcode.data.js")}}"></script>
+    <script src="{{asset("erTWZipcode/er.twzipcode.min.js")}}"></script>
+    <script type="text/javascript">
+        erTWZipcode();
+    </script>
 
     @endsection
 </body>

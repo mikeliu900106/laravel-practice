@@ -56,11 +56,14 @@
                         <th>職位名稱</th>
                         <th>工作待遇</th>
                         <th>工作時間</th>
-                        <th>工作地點</th>
+                        <th>工作城市</th>
+                        <th>工作區域</th>
+                        <th>工作地址</th>
                         <th>工作內容</th>
                         <th>工作經驗</th>
                         <th>學歷要求</th>
                         <th>科系要求</th>
+                        <th>技能要求</th>
                         <th>其他事項</th>
                         <th>工作保險</th>
                         <th>更新</th>
@@ -74,11 +77,14 @@
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
-                        <td>{{$Vacancie->vacancies_place }}</td>
+                        <td>{{$Vacancie->vacancies_county }}</td>
+                        <td>{{$Vacancie->vacancies_district }}</td>
+                        <td>{{$Vacancie->vacancies_address }}</td>
                         <td>{{$Vacancie->company_content }}</td>
                         <td>{{$Vacancie->company_work_experience }}</td>
                         <td>{{$Vacancie->company_Education }}</td>
                         <td>{{$Vacancie->company_department }}</td>
+                        <td>{{$Vacancie->vacancies_Skill }}</td>
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
                         <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>

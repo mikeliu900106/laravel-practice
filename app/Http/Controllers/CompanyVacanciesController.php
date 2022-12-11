@@ -72,7 +72,9 @@ class CompanyVacanciesController extends Controller
             'vacancies_name'            => 'required|string',
             'company_money'             => 'required|string',
             'company_time'              => 'required|string',
-            'vacancies_place'           => 'required|string',
+            'county'                    => 'required|string',
+            'district'                  => 'required|string',
+            'address'                   => 'required|string',
             'company_content'           => 'required|string',
             'company_department'        => 'required|string',
             'vacancies_Skill'           => 'required',
@@ -93,7 +95,9 @@ class CompanyVacanciesController extends Controller
                 'vacancies_name'            =>  $request_value['vacancies_name'],
                 'company_money'             =>  $request_value['company_money'],
                 'company_time'              =>  $request_value['company_time'],
-                'vacancies_place'           =>  $request_value['vacancies_place'],
+                'vacancies_county'           =>  $request_value['county'],
+                'vacancies_district'           =>  $request_value['district'],
+                'vacancies_address'           =>  $request_value['address'],
                 'company_content'           =>  $request_value['company_content'],
                 'company_work_experience'   =>  $request_value['company_work_experience'],
                 'vacancies_Skill'           =>  $vacancies_Skill,
@@ -105,7 +109,6 @@ class CompanyVacanciesController extends Controller
                 'teacher_name'              =>  "無人檢查",
             ]
         );
-        $Vacancies = Vacancies::get()->where('company_id', '=', $user_id);
         return redirect()->route("CompanyVacancies.index");
     }
 
@@ -144,7 +147,9 @@ class CompanyVacanciesController extends Controller
             'vacancies_name'            => 'required|string',
             'company_money'             => 'required|string',
             'company_time'              => 'required|string',
-            'vacancies_place'           => 'required|string',
+            'county'                    => 'required|string',
+            'district'                  => 'required|string',
+            'address'                   => 'required|string',
             'company_content'           => 'required|string',
             'company_department'        => 'required|string',
             'vacancies_Skill'           => 'required',
@@ -153,13 +158,17 @@ class CompanyVacanciesController extends Controller
             'company_other'             => 'required|string',
             'company_safe'              => 'required|string',
         ]);
+        $vacancies_Skill = $request_value["vacancies_Skill"];
+        $vacancies_Skill =implode(" 、 ",$vacancies_Skill);
         Vacancies::where('vacancies_id', $id)
             ->update(
                 [
                     'vacancies_name'            =>  $request_value['vacancies_name'],
                     'company_money'             =>  $request_value['company_money'],
                     'company_time'              =>  $request_value['company_time'],
-                    'vacancies_place'           =>  $request_value['vacancies_place'],
+                    'vacancies_county'          =>  $request_value['county'],
+                    'vacancies_district'        =>  $request_value['district'],
+                    'vacancies_address'         =>  $request_value['address'],
                     'company_content'           =>  $request_value['company_content'],
                     'company_work_experience'   =>  $request_value['company_work_experience'],
                     'vacancies_Skill'           =>  $vacancies_Skill,
