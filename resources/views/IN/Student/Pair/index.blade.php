@@ -20,11 +20,11 @@
                 <h1>實習配對填寫</h1>
                 <div class="Pair-Fill-In">
                     <div class="Pair-Row">
-                        <span>請選擇配對成功的廠商：</span>
-                        <select name="choose_company">
-                            <option disabled>請選擇配對成功的職位</option>
+                        <span>請選擇配對的職位：</span>
+                        <select name="choose_vacancies_id">
+                            <option disabled>請選擇配對的職位</option>
                             @foreach($Vacancies_datas as $Vacancies_data)
-                            <option value="{{$Vacancies_data->vacancies_name}}">{{$Vacancies_data->vacancies_name}}</option>
+                                <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.$Vacancies_data->vacancies_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -46,6 +46,7 @@
                         <input type="date" name="end_tme">
                     </div>
                 </div>
+
                 <input type="submit" class="btn btn-primary">
             </div>
         </div>

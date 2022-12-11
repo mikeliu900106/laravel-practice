@@ -28,8 +28,6 @@ class PairController extends Controller
                 $Vacancies_datas =$Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                 ->select('vacancies.*', 'company.*')
                 ->get();
-                //echo$Teacher_name;
-                //echo$Company_name;
                 $Pair_data = Pair::where('user_id',"$user_id")->get();
                 if($pair == 0){
                     return view('IN.Student.Pair.index',
@@ -84,7 +82,7 @@ class PairController extends Controller
         $user_id = session()->get('user_id');
         echo $user_id;
         $validata = $request -> validate([
-            'choose_company' => 'required|string',
+            'choose_vacancies_name' => 'required|string',
             'choose_teacher' => 'required|string',
             'start_tme' => 'required',
             'end_tme' => 'required',
