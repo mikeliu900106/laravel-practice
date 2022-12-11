@@ -87,6 +87,7 @@
                         <td>{{$Vacancie->vacancies_Skill }}</td>
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
+                        <td>{{$Vacancie->teacher_watch}}</td>
                         <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
                         <td>
                             <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method="post">

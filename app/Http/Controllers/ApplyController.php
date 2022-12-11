@@ -35,6 +35,10 @@ class ApplyController extends Controller
                     ->orWhere('company_money', 'LIKE', "%{$search}%")
                     ->orWhere('company_content', 'LIKE', "%{$search}%")
                     ->orWhere('company_name', 'LIKE', "%{$search}%")
+                    ->orWhere('vacancies_Skill', 'LIKE', "%{$search}%")
+                    ->orWhere('vacancies_district', 'LIKE', "%{$search}%")
+                    ->orWhere('vacancies_county', 'LIKE', "%{$search}%")
+                    ->orWhere('vacancies_address', 'LIKE', "%{$search}%")
                     ->where('teacher_watch','通過')
                     ->paginate(10);
                     echo $Vacancies;
@@ -174,12 +178,14 @@ class ApplyController extends Controller
             }
             else
             {
+            
                 foreach($ResumeData as $ResumeValue){
                     $ResumeName = $ResumeValue["resume_file_name"];
                 }
                 foreach($user_real_name as $value){
                     $real_name = $value["user_real_name"];
                 }
+
                 $ResumePath = public_path()."/storage/upload/".$ResumeName;
                 $data['ResumePath'] =$ResumePath;
                 $data['company_email'] =$company_email;
@@ -189,6 +195,13 @@ class ApplyController extends Controller
                     $message->to($data['company_email'])->subject('工作應徵');
                     $message->attach($data['ResumePath']);
                 });
+                $apply_number = Vacancies::where("vacancies_id",$id)->select('apply_number')->get();
+                $apply_number ++;
+                Vacancies::where("vacancies_id",$id)->update(
+                    [
+                        'apply_number' => $apply_number,
+                    ]
+                );
                 echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
                 return redirect()-> route('Apply.index');
             }

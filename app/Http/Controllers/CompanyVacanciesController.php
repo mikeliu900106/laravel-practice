@@ -12,6 +12,8 @@ class CompanyVacanciesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private  $top_month = 2;
+    private  $last_month = 9;
     public function index(Request $request)
     {
         if ($request->session()->has('user_id')) {
@@ -107,6 +109,8 @@ class CompanyVacanciesController extends Controller
                 'company_safe'              =>  $request_value['company_safe'],
                 'teacher_watch'             =>  "待檢查",
                 'teacher_name'              =>  "無人檢查",
+                'vacancies_match'           =>  "並無配對",
+                'apply_number'              =>  0,
             ]
         );
         return redirect()->route("CompanyVacancies.index");
@@ -178,6 +182,8 @@ class CompanyVacanciesController extends Controller
                     'company_safe'              =>  $request_value['company_safe'],
                     'teacher_watch'             =>  "待檢查",
                     'teacher_name'              =>  "無人檢查",
+                    'vacancies_match'           =>  "並無配對",
+                    'apply_number'              =>  0,
                 ]
             );
         $user_id = session()->get('user_id');
@@ -194,9 +200,13 @@ class CompanyVacanciesController extends Controller
      */
     public function destroy($id)
     {
-        echo $id;
-        $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
-        $user_id = session()->get('user_id');
-        return redirect()->route("CompanyVacancies.index");
+        // echo $id;
+        // $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
+        // $user_id = session()->get('user_id');
+        // return redirect()->route("CompanyVacancies.index");
+
+        if(Date("m") == $top_month ){
+            
+        }
     }
 }

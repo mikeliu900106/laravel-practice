@@ -25,7 +25,9 @@ class PairController extends Controller
                 //echo $user_id;
                 $pair = Pair::where('user_id',"$user_id")->count();
                 $Teacher_name =Teacher::select('teacher_real_name')->get();
-                $Company_name =Company::select('company_name')->get();
+                $Vacancies_datas =$Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
+                ->select('vacancies.*', 'company.*')
+                ->get();
                 //echo$Teacher_name;
                 //echo$Company_name;
                 $Pair_data = Pair::where('user_id',"$user_id")->get();
@@ -33,7 +35,7 @@ class PairController extends Controller
                     return view('IN.Student.Pair.index',
                     [
                         'Teacher_names' =>$Teacher_name,
-                        'Company_names' =>$Company_name,
+                        'Vacancies_datas' =>$Vacancies_datas,
                     ]);
                 }else{
                     return view('IN.Student.Pair.show',[
