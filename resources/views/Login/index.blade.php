@@ -35,7 +35,7 @@
                         <input class="Account-Test" type="password" placeholder="Password" name="login_password" />
                         <i class="bi bi-lock"></i>
                     </div>
-                    <span class="text-muted">至少8個字元</span>
+                    <!-- <span class="text-muted">至少8個字元</span> -->
                 </div>
                 <div class="Help-Section">
                     <a href="{{route('Signup.index')}}">註冊</a>

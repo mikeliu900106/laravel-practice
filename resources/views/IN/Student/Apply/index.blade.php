@@ -77,7 +77,7 @@
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_name}}</td>
                         <td>{{$Vacancie->company_place}}</td>
-                        <td>{{$Vacancie->company_money}}</td>
+                        <td>{{$Vacancie->vacancies_county .$Vacancie->vacancies_district}}</td>
                         <td><a class="Vacancy-Info text-decoration-none" href="{{route('Apply.show',$vacancies_id)}}">
                                 <!-- <img src="../../image/info-circle.svg"> -->
                                 詳細資訊

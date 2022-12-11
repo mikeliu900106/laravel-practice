@@ -56,8 +56,6 @@
                         <th>職位名稱</th>
                         <th>工作待遇</th>
                         <th>工作時間</th>
-                        <th>工作城市</th>
-                        <th>工作區域</th>
                         <th>工作地址</th>
                         <th>工作內容</th>
                         <th>工作經驗</th>
@@ -78,9 +76,7 @@
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
-                        <td>{{$Vacancie->vacancies_county }}</td>
-                        <td>{{$Vacancie->vacancies_district }}</td>
-                        <td>{{$Vacancie->vacancies_address }}</td>
+                        <td>{{$Vacancie->vacancies_county .$Vacancie->vacancies_district .$Vacancie->vacancies_address}}</td>
                         <td>{{$Vacancie->company_content }}</td>
                         <td>{{$Vacancie->company_work_experience }}</td>
                         <td>{{$Vacancie->company_Education }}</td>

@@ -28,7 +28,7 @@
                     },
                 },
                 {
-                    targets: [9],
+                    targets: [10],
                     responsivePriority: 2,
                 },
                 {

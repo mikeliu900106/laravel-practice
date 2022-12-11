@@ -13,6 +13,7 @@ body {
 
 nav {
   background: #1c1c1c;
+  align-content: stretch;
   width: 100%;
 }
 
@@ -114,13 +115,9 @@ nav a {
 
 .main {
   flex-grow: 1;
+  width: 100%;
   position: relative;
   min-height: 800px;
-}
-
-.main .container {
-  position: relative;
-  top: 100px;
 }
 
 .footer {
@@ -144,8 +141,6 @@ nav a {
 
 #container {
   margin: 30px auto;
-  border-radius: 20px;
-  border-top: 20px;
 }
 
 @media (min-width: 768px) {
@@ -266,7 +261,7 @@ nav a {
 }
 
 .Response-Box button {
-  margin-bottom: 5px;
+  margin: 0 15px 5px 15px;
 }
 
 .Response-Box nav {
@@ -342,5 +337,29 @@ nav a {
   border: solid 5px #1e90ff;
   padding: 10px;
   border-radius: 1rem;
+}
+
+.Vacancies-Input-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+}
+
+.Vacancies-Input-Box h1 {
+  font-weight: bold;
+}
+
+.Vacancies-Input-Box .form-group {
+  padding: 5px;
+}
+
+.Vacancies-Input-Box textarea {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.Vacancies-Input-Box .Vacancies-Submit {
+  margin: 5px;
 }
 /*# sourceMappingURL=index.css.map */

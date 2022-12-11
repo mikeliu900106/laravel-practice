@@ -21,12 +21,18 @@
 }
 
 .Title {
+  text-align: center;
   margin: 1.2em;
 }
 .Title h1 {
   font-weight: bold;
   font-size: calc(36px + 1vw);
   margin: 0;
+}
+@media screen and (max-width: 300px) {
+  .Title {
+    margin-top: 2em;
+  }
 }
 
 .Input-Section {
@@ -65,7 +71,6 @@
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
-  min-width: 10em;
   height: 40px;
   border: solid 1px #d4d8db;
   /* #b5d4e9 #f3f7f7*/
@@ -95,7 +100,7 @@
 @media (max-width: 576px) {
   .Input-Section {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
   }
 }
 
@@ -122,8 +127,9 @@
   font-size: 20px;
   font-weight: 500;
   border-radius: 35px;
-  min-width: 150px;
-  width: 30%;
+  min-width: 80px;
+  max-width: 300px;
+  width: 50%;
   height: 40px;
   cursor: pointer;
 }
@@ -136,7 +142,7 @@
   right: 5px;
   width: 10vw;
   max-width: 40px;
-  min-width: 20px;
+  min-width: 30px;
 }
 
 .ReturnLogo {
@@ -145,7 +151,7 @@
   left: 5px;
   width: 10vw;
   max-width: 40px;
-  min-width: 20px;
+  min-width: 30px;
 }
 
 .Register-Select {
@@ -204,6 +210,17 @@
 }
 .verification_button:hover {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .CPN-Register-Box {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 233px) {
+  .CPN-Register-Box {
+    margin-top: 80px;
+  }
 }
 
 .CPN-Register input[type=text],
