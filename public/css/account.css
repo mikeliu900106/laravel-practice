@@ -87,11 +87,6 @@
     min-width: none;
   }
 }
-.Input-Section a {
-  align-self: flex-end;
-  margin-right: 5px;
-  display: inline-block;
-}
 @media screen and (max-width: 768px) {
   .Input-Section {
     width: 90%;

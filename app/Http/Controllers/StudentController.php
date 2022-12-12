@@ -42,7 +42,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        function codestr(){
+        function codestr()
+        {
             $arr = array_merge(range('a', 'b'), range('A', 'B'), range('0', '9'));
             shuffle($arr);
             $arr = array_flip($arr);
@@ -61,55 +62,52 @@ class StudentController extends Controller
             $id = "U" . (($today * 10000) + ($nums + 1));
             return $id;
         }
-        $student_id = get_student_id();
-        $student_data = $request->validate([
+        $user_id = get_student_id();
+        $student_datas = $request->validate([
             'username' => 'required|string',
             'real_name' => 'required|string',
+            'student_id' => 'required|string',
             'password' => 'required|string',
             'email' => 'required|email',
-
         ]);
-        echo  $student_data['username'];
-        echo  $student_data['password'];
-        echo  $student_data['email'];
-        $Student_username_isUse = Student::where('user_name',  $student_data['username'])->count();
+        echo  $student_datas['username'];
+        echo  $student_datas['password'];
+        echo  $student_datas['email'];
+        $random = codestr();
+        $Student_username_isUse = Student::where('user_name',  $student_datas['username'])->count();
         if ($Student_username_isUse == 0) {
-            $Student_insert = Student::create(
-                [
-                    'user_id'       =>  $student_id,
-                    'user_real_name'     =>  $student_data['real_name'],
-                    'user_name'     =>  $student_data['username'],
-                    'user_password' =>  $student_data['password'],
-                    'user_email'    =>  $student_data['email'],
-                    'user_level'         =>  "1",
-                ]
-            );
-            $random = codestr();
-            //echo $random;
-            $student_data["random"] = $random;
-            //echo $Company_data["random"] = $random;
+
+            $student_datas["random"] = $random;
+            $student_datas["user_id"] = $user_id;
+            foreach ($student_datas as $value) {
+                echo $value;
+            }
+
+            // echo $student_datas;
+
 
             //學長解釋trycatch 使用
-            Mail::send('IN.Student.sendMail', $student_data, function ($message) use ($student_data) {
+            Mail::send('IN.Student.sendMail', $student_datas, function ($message) use ($student_datas) {
                 $message->from('mikeliu20010106@gmail.com');
-                $message->to($student_data['email'])->subject('email認證');
+                $message->to($student_datas['email'])->subject('email認證');
             });
 
-            return view("IN.Student.register",
+            return view(
+                "IN.Student.register",
                 [
                     "random" => $random,
-                    "student_id" => $student_id,
+                    "user_id" => $user_id,
+                    'student_datas' => $student_datas
                 ]
             );
         } else {
             echo "帳號被使用";
-
         }
     }
 
     /**
      * Display the specified resource.
-     *
+     *  
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -152,16 +150,23 @@ class StudentController extends Controller
         $value = $request->all();
         echo $value["random"];
         echo $value["input_random"];
+        echo $value["user_id"];
         if ($value["random"] === $value["input_random"]) {
             echo '登入成功';
-            return view("index")->with([
-                //跳轉信息正確controller
-                //'message'=>'你已經成功註冊！',
-                'jumpTime' => 5,
-            ]);
+            $Student_insert = Student::create(
+                [
+                    'user_id'       =>  $value["user_id"],
+                    'student_id'       =>  $value["student_id"],
+                    'user_name'     =>  $value["username"],
+                    'user_real_name'     =>  $value["real_name"],
+                    'user_password' =>  $value["password"],
+                    'user_email'    =>  $value["email"],
+                    'user_level'         =>  "1",
+                ]
+            );
+            return view("index");
         } else {
-            Student::where('user_id', '=', $id)->delete();
-            Login::where('id', '=', $id)->delete();
+            echo "驗證碼出錯";
         }
     }
 }

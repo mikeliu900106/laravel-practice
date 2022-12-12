@@ -113,11 +113,11 @@ $tablet-max-width: 768px;
             min-width: none;
         }
     }
-    a {
-        align-self: flex-end;
-        margin-right: 5px;
-        display: inline-block;
-    }
+    // a {
+    //     align-self: flex-end;
+    //     margin-right: 5px;
+    //     display: inline-block;
+    // }
     @media screen and (max-width: $tablet_max_width) {
         width: 90%;
     }

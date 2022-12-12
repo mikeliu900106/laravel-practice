@@ -38,7 +38,7 @@
                     <!-- <span class="text-muted">至少8個字元</span> -->
                 </div>
                 <div class="Help-Section">
-                    <a href="{{route('Signup.index')}}">註冊</a>
+                    <a href="{{route('Signup.index')}}" style="margin-right: 5px;">註冊</a>
                     <a href="forgetPW.php">忘記密碼?</a>
                 </div>
                 <div style="height: 5em"></div>
