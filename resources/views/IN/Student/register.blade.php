@@ -13,8 +13,8 @@
 
     @section('content')
     {{$random }}
-    {{$student_id}}
-    <form method="post" action="{{route('Student.destroy',$student_id)}}">
+ 
+    <form method="post" action="{{route('Student.destroy',$user_id)}}">
         @method("delete")
         @csrf
         <div class="AccountBox">
@@ -25,6 +25,12 @@
                 <div>
                     <input type="text" name="input_random" class="Account_text" placeholder="書入字串">
                     <input type="hidden" name="random" value = "{{$random}}">
+                    <input type="hidden" name="user_id" value = "{{$student_datas["user_id"]}}">
+                    <input type="hidden" name='username' value = "{{$student_datas['username']}}">
+                    <input type="hidden" name='real_name' value = "{{$student_datas['real_name']}}">
+                    <input type="hidden" name='student_id' value = "{{$student_datas['student_id']}}">
+                    <input type="hidden" name='password' value = "{{$student_datas['password']}}">
+                    <input type="hidden" name='email' value = "{{$student_datas['email']}}">
                     <label for="teacher_username">請輸入email內的字串</label>
                 </div>
             </div>

@@ -76,9 +76,23 @@ class CompanyPairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
-        Pair::where("vacancies_id")
+        $user_id = session()->get('user_id');
+        $company_name = Company::select("company_name")->where('company_id',$user_id)->get();
+        echo $company_name;
+        foreach($company_name as $value){
+            $company_name = $value['company_name'];
+        }
+        Pair::where("vacancies_id",$id)->update([
+            'teacher_confirm' => '通過',
+            'teacher_name' => $company_name,
+        ]);
+        Vcancies::where("vacancies_id",$id)->update([
+            'vacancies_match' => '通過',
+        ]);
+        Vcancies::where("vacancies_id",$id)->delete();
+        
     }
 
     /**
