@@ -277,6 +277,9 @@ nav {
     padding: 10px;
     overflow: auto;
     table {
+        tr {
+            text-align: center;
+        }
         th {
             font-size: 18px;
             // min-width: 100px;
@@ -311,6 +314,9 @@ nav {
                     font-weight: bold;
                     font-size: 18px;
                 }
+            }
+            td {
+                min-width: 350px;
             }
             tr {
                 position: relative;

@@ -249,6 +249,9 @@ nav a {
   padding: 10px;
   overflow: auto;
 }
+.CheckUser-Box table tr {
+  text-align: center;
+}
 .CheckUser-Box table th {
   font-size: 18px;
   word-break: keep-all;
@@ -283,6 +286,9 @@ nav a {
     padding-left: 15px;
     font-weight: bold;
     font-size: 18px;
+  }
+  .CheckUser-Box table td {
+    min-width: 350px;
   }
   .CheckUser-Box table tr {
     position: relative;
