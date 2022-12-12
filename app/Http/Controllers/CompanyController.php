@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Company;
+use App\Models\Login;
 use Mail;
 class CompanyController extends Controller
 {
@@ -153,6 +154,14 @@ class CompanyController extends Controller
                     'company_district'      =>  $value['district'],
                     'company_address'       =>  $value['address'],
                     'company_email'         =>  $value['company_email'],
+                    'level'                 =>  "3",
+                ]
+            );
+            Login::create(
+                [
+                    'id'            =>  $value["company_id"],
+                    'username'      =>  $value['company_username'],
+                    'password'      =>  $value['company_password'],
                     'level'                 =>  "3",
                 ]
             );
