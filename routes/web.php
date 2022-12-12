@@ -34,6 +34,7 @@ use App\Http\Controllers\CheckExperienceController;
 use App\Http\Controllers\TeacherFileController;
 use App\Http\Controllers\StudentFileController;
 use App\Http\Controllers\phpwordController;
+use App\Http\Controllers\CompanyPairController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,5 @@ Route::resource('CheckExperience',CheckExperienceController::class);
 Route::resource('TeacherFile',TeacherFileController::class);
 Route::resource('StudentFile',StudentFileController::class);
 Route::resource('phpword',phpwordController::class);
-
+Route::resource('CompanyPair',CompanyPairController::class);
 

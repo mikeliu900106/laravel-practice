@@ -24,19 +24,12 @@
                         <select name="choose_vacancies_id">
                             <option disabled>請選擇配對的職位</option>
                             @foreach($Vacancies_datas as $Vacancies_data)
-                                <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.$Vacancies_data->vacancies_name}}</option>
+                                <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.":".$Vacancies_data->vacancies_name."職位"}}</option>
+                
                             @endforeach
                         </select>
                     </div>
-                    <div class="Pair-Row">
-                        <span>請選擇實習的負責老師：</span>
-                        <select name="choose_teacher">
-                            <option disabled>請選擇實習負責老師</option>
-                            @foreach($Teacher_names as $Teacher_name)
-                            <option value="{{$Teacher_name->teacher_real_name}}">{{$Teacher_name->teacher_real_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+
                     <div class="Pair-Row">
                         <span>實習開始日期：</span>
                         <input type="date" name="start_tme">
@@ -45,6 +38,7 @@
                         <span>實習結束日期：</span>
                         <input type="date" name="end_tme">
                     </div>
+
                 </div>
 
                 <input type="submit" class="btn btn-primary">
