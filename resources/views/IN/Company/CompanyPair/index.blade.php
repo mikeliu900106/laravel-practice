@@ -25,8 +25,8 @@
                             <th>開始時間</th>
                             <th>結束時間</th>
                             <th>是否確認</th>
-                            <th>批准老師</th>
-                            <th>修改</th>
+                            <th>批准人員</th>
+                            <th>確認</th>
                             <th>刪除</th>
                         </tr>
                     </thead>
@@ -40,7 +40,7 @@
                             <td>{{ $pair_data->teacher_confirm}}</td>
                             <td>{{ $pair_data->teacher_name }}</td>
                             <td>
-                                <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('Pair.edit',['Pair' =>$pair_data->user_id,] )}}">Edit</a>
+                                <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('CompanyPair.edit',['CompanyPair' =>$pair_data->vacancies_id] )}}">通過</a>
                             </td>
                             <td>
                                 <form class="w-100" action="{{ route('Pair.destroy', ['Pair' => $pair_data->user_id] )}}" method="post">

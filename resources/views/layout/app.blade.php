@@ -54,6 +54,7 @@
                     <ul class="dropdown-menu text-center">
                         <li><a class="dropdown-item" href="{{route('CompanyVacancies.index')}}">職缺管理</a></li>
                         <li><a class="dropdown-item" href="{{route('CompanyChat.index')}}">意見反映</a></li>
+                        <li><a class="dropdown-item" href="{{route('CompanyPair.index')}}">配對確認</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown col-1">
