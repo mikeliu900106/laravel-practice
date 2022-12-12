@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 
 use App\Models\Login;
+use Mail;
 
 class StudentController extends Controller
 {
@@ -41,6 +42,17 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
+        function codestr(){
+            $arr = array_merge(range('a', 'b'), range('A', 'B'), range('0', '9'));
+            shuffle($arr);
+            $arr = array_flip($arr);
+            $arr = array_rand($arr, 6);
+            $res = '';
+            foreach ($arr as $v) {
+                $res .= $v;
+            }
+            return $res;
+        }
         function get_student_id()
         {
             $today = date("Ynj");
@@ -83,15 +95,15 @@ class StudentController extends Controller
                 $message->to($student_data['email'])->subject('email認證');
             });
 
-            return view(
-                "IN.Student.register",
+            return view("IN.Student.register",
                 [
                     "random" => $random,
                     "student_id" => $student_id,
                 ]
             );
         } else {
-            //error
+            echo "帳號被使用";
+
         }
     }
 
