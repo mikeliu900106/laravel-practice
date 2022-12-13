@@ -164,6 +164,14 @@ class StudentController extends Controller
                     'user_level'         =>  "1",
                 ]
             );
+            Login::create(
+                [
+                    'id'            => $value["user_id"],
+                    'username'      =>  $value["username"],
+                    'password'      =>  $value["password"],
+                    'level'                 =>  "1",
+                ]
+            );
             return view("index");
         } else {
             echo "驗證碼出錯";

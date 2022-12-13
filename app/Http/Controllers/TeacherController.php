@@ -54,36 +54,31 @@ class TeacherController extends Controller
                 return $id;
             }
             $teacher_id = get_teacher_id();
-            $teacherdata = $request -> validate([
+            $teacherdatas = $request -> validate([
                 'teacher_username'  => 'required|string',
                 'teacher_password'  => 'required|string',
                 'teacher_real_name' => 'required|string|max:8',
                 'teacher_email'     => 'required|email',
             ]);
-            $teacher_username_isUse = Teacher::where('teacher_username', $teacherdata['teacher_username'])->count();
+            $teacher_username_isUse = Teacher::where('teacher_username', $teacherdatas['teacher_username'])->count();
             if($teacher_username_isUse == 0){
-                $Teacher_insert = Teacher::create([
-                    'teacher_id'        => $teacher_id,
-                    'teacher_username'  => $teacherdata['teacher_username'],
-                    'teacher_password'  => $teacherdata['teacher_password'],
-                    'teacher_real_name' => $teacherdata['teacher_real_name'],
-                    'teacher_email'     => $teacherdata['teacher_email'],
-                    'teacher_level'     => '2',
-                ]);
+              
                 $random = codestr();
                 //echo $random;
-                $teacherdata["random"] = $random;
+                $teacherdatas["random"] = $random;
+                $teacherdatas["teacher_id"] = $teacher_id;
                 //echo $teacherdata["random"] = $random;
 
                 //學長解釋trycatch 使用
-                Mail::send('IN.Teacher.sendMail',$teacherdata, function ($message) use ($teacherdata) {
+                Mail::send('IN.Teacher.sendMail',$teacherdatas, function ($message) use ($teacherdatas) {
                     $message->from('mikeliu20010106@gmail.com');    
-                    $message->to($teacherdata['teacher_email'])->subject('email認證');
+                    $message->to($teacherdatas['teacher_email'])->subject('email認證');
                 });
                 return view("IN.Teacher.register",
                 [
                     "random" =>$random,
                     "teacher_id"=>$teacher_id,
+                    'teacherdatas'=>$teacherdatas,
                 ]);
             }
             else{
@@ -137,16 +132,26 @@ class TeacherController extends Controller
         echo $value["random"];
         echo $value["input_random"];
         if($value["random"] === $value["input_random"]){
-            echo '登入成功';
-            return view("index")->with([
-                //跳轉信息正確controller
-            //'message'=>'你已經成功註冊！',
-            'jumpTime'=>5,
-        ]);
+            $Teacher_insert = Teacher::create([
+                'teacher_id'        => $value["teacher_id"],
+                'teacher_username'  => $value["teacher_username"],
+                'teacher_password'  => $value["teacher_password"],
+                'teacher_real_name' => $value["teacher_real_name"],
+                'teacher_email'     => $value["teacher_email"],
+                'teacher_level'     => '2',
+            ]);
+            Login::create(
+                [
+                    'id'            =>  $value["teacher_id"],
+                    'username'      =>  $value["teacher_username"],
+                    'password'      =>  $value["teacher_password"],
+                    'level'                 =>  "2",
+                ]
+            );
+            return view("index");
         }
         else{
-            $delete = Teacher::where('teacher_id', '=', $id)->delete();
-            Login::where('id', '=', $id)->delete();
+            echo "驗證碼錯誤";
         }
     }
 }
