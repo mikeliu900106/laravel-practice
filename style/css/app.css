@@ -13,6 +13,7 @@ body {
 
 nav {
   background: #1c1c1c;
+  align-content: stretch;
   width: 100%;
 }
 
@@ -114,13 +115,9 @@ nav a {
 
 .main {
   flex-grow: 1;
+  width: 100%;
   position: relative;
   min-height: 800px;
-}
-
-.main .container {
-  position: relative;
-  top: 100px;
 }
 
 .footer {
@@ -144,8 +141,6 @@ nav a {
 
 #container {
   margin: 30px auto;
-  border-radius: 20px;
-  border-top: 20px;
 }
 
 @media (min-width: 768px) {
@@ -168,246 +163,6 @@ nav a {
 
 #container h1 {
   font-weight: bold;
-}
-
-.Account-Box {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border: solid 1px #cdd8dc;
-  border-radius: 6px;
-  width: 90%;
-  max-width: 830px;
-  height: auto;
-  min-height: 30em;
-  object-fit: contain;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.Account-Box a {
-  font-size: 18px;
-  color: #888;
-}
-
-.Title {
-  margin: 1.2em;
-}
-
-.Title h1 {
-  font-weight: bold;
-  font-size: calc(36px + 1vw);
-  margin: 0;
-}
-
-.Input-Section {
-  min-width: 60%;
-  flex-grow: 1;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.Input-Section .form-group label {
-  font-size: 20px;
-}
-
-.Input-Section .form-group .Input-group {
-  position: relative;
-}
-
-.Input-Section .form-group .Input-group .bi-person,
-.Input-Section .form-group .Input-group .bi-lock {
-  font-size: 20px;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.Input-Section .form-group .Input-group .Account-Test {
-  width: 100%;
-  height: 40px;
-  border: solid 1px darkgray;
-  padding: 12px 20px;
-  background-color: #ffffff;
-  border-radius: 6px;
-}
-
-.Input-Section .form-group .text-muted {
-  font-size: 14px;
-}
-
-.Input-Section .Account-Text {
-  display: inline-block;
-  width: 100%;
-  min-width: 10em;
-  height: 40px;
-  border: solid 1px #d4d8db;
-  /* #b5d4e9 #f3f7f7*/
-  background-color: #ffffff;
-  border-radius: 3px;
-  margin: 10px;
-  padding: 5px;
-  color: #333;
-  letter-spacing: 0.5px;
-  font-size: 16px;
-}
-
-@media (min-width: 576px) {
-  .Input-Section .Account-Text {
-    min-width: none;
-  }
-}
-
-.Input-Section a {
-  align-self: flex-end;
-  margin-right: 5px;
-  display: inline-block;
-}
-
-@media screen and (max-width: 768px) {
-  .Input-Section {
-    width: 90%;
-  }
-}
-
-@media (max-width: 576px) {
-  .Input-Section {
-    width: 100%;
-    padding: 5px;
-  }
-}
-
-.Help-Section {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.Submit-Section {
-  box-sizing: content-box;
-  position: relative;
-  bottom: 0px;
-  min-height: 100px;
-  width: 100%;
-  border: solid 1px #dde0e7;
-  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
-}
-
-.Submit-Section .Submit-Button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  font-size: 20px;
-  font-weight: 500;
-  border-radius: 35px;
-  min-width: 150px;
-  width: 30%;
-  height: 40px;
-  cursor: pointer;
-}
-
-.Submit-Section .Submit-Button:hover {
-  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-}
-
-.HomeLogo {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 10vw;
-  max-width: 40px;
-  min-width: 20px;
-}
-
-.ReturnLogo {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 10vw;
-  max-width: 40px;
-  min-width: 20px;
-}
-
-.Register-Select {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 15px;
-}
-
-.Register-Select .Select-Box {
-  background-color: #f6f6f6;
-  height: 10em;
-  width: 10em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px;
-  box-sizing: border-box;
-  border: solid 3px #888888;
-}
-
-.Register-Select .Select-Box:hover {
-  width: 11em;
-  height: 11em;
-  border-color: #59d3eb;
-  margin: 6px;
-  cursor: pointer;
-}
-
-.Register-Select a {
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.Register-Select a img {
-  margin-top: 10px;
-  width: 100px;
-  height: 100px;
-}
-
-.Register-Select a p {
-  margin-top: 0.7em;
-  margin-bottom: 0;
-  font-size: 30px;
-  color: black;
-}
-
-.verification {
-  margin-left: 10px;
-}
-
-.verification_button {
-  border: solid 2px black;
-  padding: 5px;
-  border-radius: 25px;
-  width: 90px;
-  height: 40px;
-  cursor: pointer;
-  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
-}
-
-.verification_button:hover {
-  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-}
-
-.CPN-Register input[type="text"],
-.CPN-Register input[type="password"] {
-  margin-left: 0;
-}
-
-.CPN-Register ul {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .Response-Box {
@@ -506,7 +261,7 @@ nav a {
 }
 
 .Response-Box button {
-  margin-bottom: 5px;
+  margin: 0 15px 5px 15px;
 }
 
 .Response-Box nav {
@@ -527,14 +282,398 @@ nav a {
   height: 50px;
 }
 
-.Apply-Box {
-  padding: 10px;
+.CheckUser-Box {
   border: solid 5px #1e90ff;
+  border-radius: 1rem;
+  padding: 10px;
+  overflow: auto;
+}
+
+.CheckUser-Box table tr {
+  text-align: center;
+}
+
+.CheckUser-Box table th {
+  font-size: 18px;
+  word-break: keep-all;
+}
+
+.CheckUser-Box table td {
+  font-size: 18px;
+  line-height: 36px;
+  word-break: keep-all;
+}
+
+.CheckUser-Box table td a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+  .CheckUser-Box table thead {
+    display: none;
+  }
+  .CheckUser-Box table tbody,
+  .CheckUser-Box table tr,
+  .CheckUser-Box table td {
+    text-align: right !important;
+    display: block;
+    min-height: 48px;
+  }
+  .CheckUser-Box table tbody:before,
+  .CheckUser-Box table tr:before,
+  .CheckUser-Box table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    text-align: left;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .CheckUser-Box table td {
+    min-width: 350px;
+  }
+  .CheckUser-Box table tr {
+    position: relative;
+    margin-bottom: 10px;
+  }
+}
+
+.content-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
   border-radius: 1rem;
 }
 
-.Apply-Box table {
-  width: 100% !important;
+.Vacancies-Input-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+}
+
+.Vacancies-Input-Box h1 {
+  font-weight: bold;
+}
+
+.Vacancies-Input-Box .form-group {
+  padding: 5px;
+}
+
+.Vacancies-Input-Box textarea {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.Vacancies-Input-Box .Vacancies-Submit {
+  margin: 5px;
+}
+
+.Announcement-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  overflow: auto;
+}
+
+.Announcement-Box h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.Announcement-Box table {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: auto;
+}
+
+.Announcement-Box table thead,
+.Announcement-Box table tbody {
+  text-align: center;
+}
+
+.Announcement-Box table th:first-child,
+.Announcement-Box table td:first-child {
+  text-align: left;
+}
+
+.Announcement-Box table th,
+.Announcement-Box table td {
+  min-width: 90px;
+}
+
+.Announcement-Box table td:first-child {
+  min-width: 200px;
+}
+
+.Announcement-Box .btn:nth-child(3) {
+  width: 100%;
+  min-width: 400px;
+}
+
+.Account-Box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: solid 1px #cdd8dc;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 830px;
+  height: auto;
+  min-height: 30em;
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Account-Box a {
+  font-size: 18px;
+  color: #888;
+}
+
+.Title {
+  text-align: center;
+  margin: 1.2em;
+}
+
+.Title h1 {
+  font-weight: bold;
+  font-size: calc(36px + 1vw);
+  margin: 0;
+}
+
+@media screen and (max-width: 300px) {
+  .Title {
+    margin-top: 2em;
+  }
+}
+
+.Input-Section {
+  min-width: 60%;
+  flex-grow: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Input-Section .form-group label {
+  font-size: 20px;
+}
+
+.Input-Section .form-group .Input-group {
+  position: relative;
+}
+
+.Input-Section .form-group .Input-group .bi-person,
+.Input-Section .form-group .Input-group .bi-lock {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Input-Section .form-group .Input-group .Account-Test {
+  width: 100%;
+  height: 40px;
+  border: solid 1px darkgray;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.Input-Section .form-group .text-muted {
+  font-size: 14px;
+}
+
+.Input-Section .Account-Text {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  border: solid 1px #d4d8db;
+  /* #b5d4e9 #f3f7f7*/
+  background-color: #ffffff;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 5px;
+  color: #333;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+@media (min-width: 576px) {
+  .Input-Section .Account-Text {
+    min-width: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Input-Section {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .Input-Section {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.Help-Section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Submit-Section {
+  box-sizing: content-box;
+  position: relative;
+  bottom: 0px;
+  min-height: 100px;
+  width: 100%;
+  border: solid 1px #dde0e7;
+  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
+}
+
+.Submit-Section .Submit-Button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 35px;
+  min-width: 80px;
+  max-width: 300px;
+  width: 50%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.Submit-Section .Submit-Button:hover {
+  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+}
+
+.HomeLogo {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 10vw;
+  max-width: 40px;
+  min-width: 30px;
+}
+
+.ReturnLogo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10vw;
+  max-width: 40px;
+  min-width: 30px;
+}
+
+.Register-Select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+
+.Register-Select .Select-Box {
+  background-color: #f6f6f6;
+  height: 10em;
+  width: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  box-sizing: border-box;
+  border: solid 3px #888888;
+}
+
+.Register-Select .Select-Box:hover {
+  width: 11em;
+  height: 11em;
+  border-color: #59d3eb;
+  margin: 6px;
+  cursor: pointer;
+}
+
+.Register-Select a {
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.Register-Select a img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.Register-Select a p {
+  margin-top: 0.7em;
+  margin-bottom: 0;
+  font-size: 30px;
+  color: black;
+}
+
+.verification {
+  margin-left: 10px;
+}
+
+.verification_button {
+  border: solid 2px black;
+  padding: 5px;
+  border-radius: 25px;
+  width: 90px;
+  height: 40px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
+}
+
+.verification_button:hover {
+  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .CPN-Register-Box {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 233px) {
+  .CPN-Register-Box {
+    margin-top: 80px;
+  }
+}
+
+.CPN-Register input[type="text"],
+.CPN-Register input[type="password"] {
+  margin-left: 0;
+}
+
+.CPN-Register .form-group {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CPN-Register select {
+  width: auto;
+  min-width: 150px !important;
+}
+
+@media screen and (max-width: 576px) {
+  .CPN-Register select {
+    width: 100%;
+  }
 }
 
 .Apply-Info-Box {
@@ -698,7 +837,7 @@ nav a {
   min-width: 140px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .Pair-Box table {
     display: flex;
   }
@@ -730,6 +869,10 @@ nav a {
     height: 47px;
     position: relative;
   }
+  .Pair-Box table tbody td a,
+  .Pair-Box table tbody td form {
+    max-width: 200px;
+  }
 }
 
 .File-Box {
@@ -738,6 +881,7 @@ nav a {
   align-items: center;
   flex-direction: column;
   padding: 10px;
+  border: solid 5px #1e90ff;
   border-radius: 1rem;
   flex-wrap: wrap;
 }
@@ -748,7 +892,6 @@ nav a {
 }
 
 .File-Box .File-Upload {
-  margin-top: 20px;
   width: 75%;
   max-width: 500px;
 }
@@ -764,7 +907,12 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
   margin-top: 5px;
+}
+
+.File-Box .File-Upload button[type="submit"]:hover {
+  filter: brightness(90%);
 }
 
 @media screen and (max-width: 576px) {
@@ -786,9 +934,8 @@ nav a {
 .File-Update-Box .Edit {
   width: 75%;
   text-align: center;
-  font-size: 24px;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .File-Update-Box .Edit .File-Download {
@@ -802,6 +949,11 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
+}
+
+.File-Update-Box .Edit .File-Download:hover {
+  filter: brightness(90%);
 }
 
 .File-Update-Box .Edit .File-Update {
@@ -815,6 +967,11 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
+}
+
+.File-Update-Box .Edit .File-Update:hover {
+  filter: brightness(90%);
 }
 
 .File-Update-Box .Edit .File-Delete {
@@ -828,10 +985,23 @@ nav a {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+  transition: ease-in-out 0.15s;
+}
+
+.File-Update-Box .Edit .File-Delete:hover {
+  filter: brightness(90%);
 }
 
 .File-Update-Box .Edit a,
+.File-Update-Box .Edit form {
+  flex-basis: 200px;
+  flex-grow: 1;
+  min-width: 100px;
+  margin: 5px;
+}
+
 .File-Update-Box .Edit button[type="submit"] {
-  width: 10rem;
+  height: 100%;
+  width: 100%;
 }
 /*# sourceMappingURL=app.css.map */

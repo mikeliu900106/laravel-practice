@@ -20,11 +20,11 @@
                     },
                 },
                 {
-                    targets: [10],
+                    targets: [11],
                     responsivePriority: 2,
                 },
                 {
-                    targets: [11],
+                    targets: [12],
                     responsivePriority: 3,
                 },
                 {

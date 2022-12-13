@@ -1,9 +1,53 @@
 .VacanciesCheck-Box,
 .Vacancies-Box,
 .Apply-Box {
+  margin: 0 auto !important;
   padding: 10px;
   border: solid 5px #1e90ff;
   border-radius: 1rem;
+}
+
+.VacanciesCheck-Box .dataTables_scroll,
+.Vacancies-Box .dataTables_scroll,
+.Apply-Box .dataTables_scroll {
+  border: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+.VacanciesCheck-Box table thead,
+.Vacancies-Box table thead,
+.Apply-Box table thead {
+  width: 100% !important;
+}
+
+.VacanciesCheck-Box table td,
+.Vacancies-Box table td,
+.Apply-Box table td {
+  vertical-align: middle;
+}
+
+.VacanciesCheck-Box table form,
+.Vacancies-Box table form,
+.Apply-Box table form {
+  margin: 0;
+}
+
+.VacanciesCheck-Box table li,
+.Vacancies-Box table li,
+.Apply-Box table li {
+  display: flex;
+}
+
+.VacanciesCheck-Box table span,
+.Vacancies-Box table span,
+.Apply-Box table span {
+  text-align: center;
+  margin: auto 5px auto 0;
+}
+
+.VacanciesCheck-Box table .btn,
+.Vacancies-Box table .btn,
+.Apply-Box table .btn {
+  width: 75px;
 }
 
 #Vacancies {
@@ -14,20 +58,20 @@
   margin-bottom: 5px;
 }
 
-table thead {
-  width: 100% !important;
-}
-
-table li {
+.dataTables_wrapper .dataTables_filter label {
   display: flex;
+  justify-content: end;
 }
 
-table span {
-  text-align: center;
-  margin: auto 5px auto 0;
+.dataTables_wrapper .dataTables_filter label input[type="search"] {
+  flex-grow: 1;
+  min-width: 20px;
+  max-width: 200px;
 }
 
-table .btn {
-  width: 75px;
+@media screen and (max-width: 767px) {
+  .dataTables_wrapper .dataTables_filter label {
+    justify-content: center;
+  }
 }
 /*# sourceMappingURL=table.css.map */

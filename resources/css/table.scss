@@ -8,6 +8,32 @@ $tablet-max-width: 767px;
     padding: 10px;
     border: solid 5px #1e90ff;
     border-radius: 1rem;
+    .dataTables_scroll {
+        border: 1px rgba($color: #000000, $alpha: 0.3) solid;
+    }
+    table {
+        // border: 1px rgba($color: #000000, $alpha: 0.3) solid;
+        thead {
+            width: 100% !important;
+        }
+        td {
+            // display: inline-flex;
+            vertical-align: middle;
+        }
+        form {
+            margin: 0;
+        }
+        li {
+            display: flex;
+        }
+        span {
+            text-align: center;
+            margin: auto 5px auto 0;
+        }
+        .btn {
+            width: 75px;
+        }
+    }
 }
 #Vacancies {
     width: 100% !important;
@@ -29,27 +55,5 @@ $tablet-max-width: 767px;
                 justify-content: center;
             }
         }
-    }
-}
-table {
-    thead {
-        width: 100% !important;
-    }
-    td {
-        // display: inline-flex;
-        vertical-align: middle;
-    }
-    form {
-        margin: 0;
-    }
-    li {
-        display: flex;
-    }
-    span {
-        text-align: center;
-        margin: auto 5px auto 0;
-    }
-    .btn {
-        width: 75px;
     }
 }
