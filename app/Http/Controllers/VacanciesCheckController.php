@@ -3,8 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vacancies;
+use App\Models\Pair;
+
+use App\Models\HistoryPair;
+
 use App\Models\Teacher;
+
+use App\Models\Vacancies;
+
+use App\Models\Company;
+
+use App\Models\HistoryVacancies;
+
 use Mail;
 
 class VacanciesCheckController extends Controller
@@ -157,9 +167,54 @@ class VacanciesCheckController extends Controller
      */
     public function destroy($id)
     {
-        $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
         $user_id = session()->get('user_id');
-        $Vacancies = Vacancies::get()->where('teacher_watch','!=','通過');
+        $vacancies_datas = Vacancies::get()->where('teacher_watch','通過');
+        foreach($vacancies_datas as $vacancies_data){
+            $company_id                =  $vacancies_data["company_id"]                ;
+            $vacancies_id              =  $vacancies_data["vacancies_id"]              ;
+            $vacancies_name            =  $vacancies_data["vacancies_name"]            ;
+            $company_money             =  $vacancies_data["company_money"]             ;
+            $company_time              =  $vacancies_data["company_time"]              ;
+            $vacancies_county          =  $vacancies_data["vacancies_county"]          ;
+            $vacancies_district        =  $vacancies_data["vacancies_district"]        ;
+            $vacancies_address         =  $vacancies_data["vacancies_address"]         ;
+            $company_content           =  $vacancies_data["company_content"]           ;
+            $company_work_experience   =  $vacancies_data["company_work_experience"]   ;
+            $vacancies_Skill           =  $vacancies_data["vacancies_Skill"]           ;
+            $company_Education         =  $vacancies_data["company_Education"]         ;
+            $company_department        =  $vacancies_data["company_department"]        ;
+            $company_other             =  $vacancies_data["company_other"]             ;
+            $company_safe              =  $vacancies_data["company_safe"]              ;
+            $teacher_watch             =  $vacancies_data["teacher_watch"]             ;
+            $teacher_name              =  $vacancies_data["teacher_name"]              ;
+            $vacancies_match           =  $vacancies_data["vacancies_match"]           ;
+            $apply_number              =  $vacancies_data["apply_number"]              ;            
+        }
+        HistoryVacancies::create(
+            [
+                "delete_time"               =>   Date("Ymd")            ,      
+                'company_id'                =>   $company_id               ,
+                'vacancies_id'              =>   $vacancies_id             ,
+                'vacancies_name'            =>   $vacancies_name           ,
+                'company_money'             =>   $company_money            ,
+                'company_time'              =>   $company_time             ,
+                'vacancies_county'          =>   $vacancies_county         ,
+                'vacancies_district'        =>   $vacancies_district       ,
+                'vacancies_address'         =>   $vacancies_address        ,
+                'company_content'           =>   $company_content          ,
+                'company_work_experience'   =>   $company_work_experience  ,
+                'vacancies_Skill'           =>   $vacancies_Skill          ,
+                'company_Education'         =>   $company_Education        ,
+                'company_department'        =>   $company_department       ,
+                'company_other'             =>   $company_other            ,
+                'company_safe'              =>   $company_safe             ,
+                'teacher_watch'             =>   $teacher_watch            ,
+                'teacher_name'              =>   $teacher_name             ,
+                'vacancies_match'           =>   $vacancies_match          ,
+                'apply_number'              =>   $apply_number             ,             
+            ]
+        );
+        $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
         return redirect()->route("VacanciesCheck.index");
 
     }

@@ -43,9 +43,10 @@
                                 <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('CompanyPair.edit',['CompanyPair' =>$pair_data->vacancies_id] )}}">通過</a>
                             </td>
                             <td>
-                                <form class="w-100" action="{{ route('Pair.destroy', ['Pair' => $pair_data->user_id] )}}" method="post">
+                                <form class="w-100" action="{{ route('CompanyPair.destroy',$pair_data->user_id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
+                                    <input type = "hidden" value = "{{$pair_data->vacancies_id}}" name = "vacancies_id">
                                     <button class="w-100 btn btn-danger" type="submit">Delete</button>
                                 </form>
                             </td>

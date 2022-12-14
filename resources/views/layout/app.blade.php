@@ -65,6 +65,7 @@
                         <li><a class="dropdown-item" href="{{route('TeacherChat.index')}}">意見反映</a></li>
                         <li><a class="dropdown-item" href="{{route('CheckUser.index')}}">學生檢查</a></li>
                         <li><a class="dropdown-item" href="{{route('TeacherFile.index')}}">實習須知</a></li>
+                        <li><a class="dropdown-item" href="{{route('PhpExcel.index')}}">資料統計</a></li>
                     </ul>
                 </li>
                 <div class="col"></div>

@@ -42,7 +42,7 @@
                         <td data-label="學生姓名">{{$userData->user_real_name}}</td>
                         <td data-label="學生帳號名稱" style="text-align: left;">{{$userData->user_name}}</td>
                         <td data-label="學生信箱" style="text-align: left;">{{$userData->user_email}}</td>
-                        <td data-label="學生配對情況"><a href="{{route("CheckPair.show",$user_id)}}">查看配對</a></td>
+                        <td data-label="學生配對情況"><a href="{{route("CheckPair.index",['user_id' => $user_id])}}">查看配對</a></td>
                         <td data-label="學生履歷檢查"><a href="{{route("CheckResume.index",['user_id' => $user_id])}}">履歷檢查</a></td>
                         <td data-label="學生成績單檢查"><a href="{{route("CheckScore.index",['user_id' => $user_id])}}">成績單檢查</a></td>
                         <td data-label="查看言論"><a href="{{route("CheckChat.index",['user_id' => $user_id])}}">查看言論</a></td>

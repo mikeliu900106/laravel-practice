@@ -20,8 +20,9 @@ class phpwordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        Experience::where("")
         return view("IN.Student.phpword.index");
     }
 

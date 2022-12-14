@@ -13,8 +13,10 @@
 
     @section('content')
     @parent
+    {{$id}}
     <form action="{{route('Pair.update', $id)}}" method="Post">
         @csrf
+        @method("patch")
         <div id="container">
             <div class="Pair-Box">
                 <h1>實習配對填寫</h1>
@@ -25,7 +27,8 @@
                             <option disabled>請選擇配對的職位</option>
                             @foreach($Vacancies_datas as $Vacancies_data)
                                 <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.$Vacancies_data->vacancies_name}}</option>
-                            @endforeach
+                                <div>{{$Vacancies_data->vacancies_id}}</div>
+                                @endforeach
                         </select>
                     </div>
         

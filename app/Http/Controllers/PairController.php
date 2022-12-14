@@ -28,6 +28,7 @@ class PairController extends Controller
                 $Teacher_name =Teacher::select('teacher_real_name')->get();
                 $Vacancies_datas =$Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
                 ->select('vacancies.*', 'company.*')
+                // ->where("vacancies.teacher_watch","通過")
                 ->get();
                 $Pair_data = Pair::where('user_id',"$user_id")->get();
                 if($pair == 0){
@@ -42,10 +43,11 @@ class PairController extends Controller
                         $Pair_Vacancies_id = $value['vacancies_id'];
                     }
                     echo $Pair_Vacancies_id;
-                    $pair_datas =$Vacancies = Vacancies::leftJoin('company','company.company_id','=','vacancies.company_id')
+                    $pair_datas  = Vacancies::leftJoin('company','company.company_id','=','vacancies.company_id')
                     ->leftJoin('pair','pair.vacancies_id','=','vacancies.vacancies_id')
                     ->select('vacancies.*', 'company.*','pair.*')
                     ->where('vacancies.vacancies_id',$Pair_Vacancies_id)
+                    // ->where("vacancies.teacher_watch","通過")
                     ->get();
                     // echo $Vacancies_datas;
                     return view('IN.Student.Pair.show',[
@@ -129,19 +131,22 @@ class PairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
+        $vacancies_id =$request->vacancies_id;
         $Teacher_name =Teacher::select('teacher_real_name')->get();
-        $Vacancies_datas =$Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
+        $Vacancies_datas =Vacancies::Join('company','company.company_id','=','vacancies.company_id')
         ->select('vacancies.*', 'company.*')
+        // ->where("vacancies.teacher_watch","通過")
         ->get();
-        echo   $Company_name;
+        echo $Vacancies_datas;
+       
         return view('IN.Student.Pair.edit',
                     [
                         'id'=>$id,
-                        'Vacancies_datas' =>$Vacancies_datas,
-                        'Company_names' =>$Company_name,
-                    ]);
+                        'Vacancies_datas' =>$Vacancies_datas
+                    ]
+                );
     }
 
     /**
@@ -154,16 +159,15 @@ class PairController extends Controller
     public function update(Request $request, $id)
     {
         $validata = $request -> validate([
-            'choose_company' => 'required|string',
-         
+            'choose_vacancies_id' => 'required',
             'start_tme' => 'required',
             'end_tme' => 'required',
         ]);
-        Pair::where('user_id', $id)
+        Pair::where('user_id', $id)->where('vacancies_id',$validata['choose_vacancies_id'])
         ->update(
         [
-            'teacher_name'  => $validata['choose_teacher'],
-            'company_name'  => $validata['choose_company'],
+            'user_id'       => $id,
+            'vacancies_id'  => $validata['choose_vacancies_id'],
             'start_time'    => $validata['start_tme'],
             'end_time'      => $validata['end_tme'],
             'teacher_confirm' => '尚未確認',

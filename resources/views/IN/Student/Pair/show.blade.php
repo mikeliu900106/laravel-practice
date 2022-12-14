@@ -40,7 +40,7 @@
                             <td>{{ $pair_data->teacher_confirm}}</td>
                             <td>{{ $pair_data->teacher_name }}</td>
                             <td>
-                                <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('Pair.edit',['Pair' =>$pair_data->user_id,] )}}">Edit</a>
+                                <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('Pair.edit',['Pair' =>$pair_data->user_id,'vacancies_id'=>$pair_data->vacancies_id] )}}">Edit</a>
                             </td>
                             <td>
                                 <form class="w-100" action="{{ route('Pair.destroy', ['Pair' => $pair_data->user_id] )}}" method="post">
