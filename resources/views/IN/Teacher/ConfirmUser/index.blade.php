@@ -16,13 +16,13 @@
 
     <div id="container">
         <div class="CheckUser-Box">
-            <form action="{{route("CheckUser.index")}}" method="GET" class="d-flex" style="height: 40px;">
+            <form action="{{route("CheckUser.index")}}" method="GET">
                 <input type=" search" id="site-search" name="search" style="flex-grow: 1;">
                 <button class="btn btn-primary" style="margin-left: 5px; word-break: keep-all;">查詢</button>
             </form>
-            <table class=" table table-light table-striped table-responsive-xl">
+            <table class="table table-light table-striped table-responsive-xl">
                 <thead>
-                    <tr class="text-center">
+                    <tr>
                         <th>學生姓名</th>
                         <th style="text-align: left;">學生帳號名稱</th>
                         <th style="text-align: left;">學生信箱</th>
@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
+                    <tr>
                         @foreach ($Student_datas as $Student_data)
                         {{$user_id = $Student_data->user_id}}
                         <td data-label="學生姓名">{{$Student_data->user_real_name}}</td>

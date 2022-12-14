@@ -21,6 +21,7 @@
 }
 
 .Title {
+  text-align: center;
   margin: 1.2em;
 }
 
@@ -28,6 +29,12 @@
   font-weight: bold;
   font-size: calc(36px + 1vw);
   margin: 0;
+}
+
+@media screen and (max-width: 300px) {
+  .Title {
+    margin-top: 2em;
+  }
 }
 
 .Input-Section {
@@ -72,7 +79,6 @@
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
-  min-width: 10em;
   height: 40px;
   border: solid 1px #d4d8db;
   /* #b5d4e9 #f3f7f7*/
@@ -91,12 +97,6 @@
   }
 }
 
-.Input-Section a {
-  align-self: flex-end;
-  margin-right: 5px;
-  display: inline-block;
-}
-
 @media screen and (max-width: 768px) {
   .Input-Section {
     width: 90%;
@@ -106,7 +106,7 @@
 @media (max-width: 576px) {
   .Input-Section {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
   }
 }
 
@@ -134,8 +134,9 @@
   font-size: 20px;
   font-weight: 500;
   border-radius: 35px;
-  min-width: 150px;
-  width: 30%;
+  min-width: 80px;
+  max-width: 300px;
+  width: 50%;
   height: 40px;
   cursor: pointer;
 }
@@ -150,7 +151,7 @@
   right: 5px;
   width: 10vw;
   max-width: 40px;
-  min-width: 20px;
+  min-width: 30px;
 }
 
 .ReturnLogo {
@@ -159,7 +160,7 @@
   left: 5px;
   width: 10vw;
   max-width: 40px;
-  min-width: 20px;
+  min-width: 30px;
 }
 
 .Register-Select {
@@ -226,15 +227,37 @@
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
 
+@media screen and (max-width: 768px) {
+  .CPN-Register-Box {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 233px) {
+  .CPN-Register-Box {
+    margin-top: 80px;
+  }
+}
+
 .CPN-Register input[type="text"],
 .CPN-Register input[type="password"] {
   margin-left: 0;
 }
 
-.CPN-Register ul {
-  padding: 0;
-  margin: 0;
+.CPN-Register .form-group {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.CPN-Register select {
+  width: auto;
+  min-width: 150px !important;
+}
+
+@media screen and (max-width: 576px) {
+  .CPN-Register select {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=account.css.map */

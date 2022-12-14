@@ -13,6 +13,7 @@ body {
 
 nav {
   background: #1c1c1c;
+  align-content: stretch;
   width: 100%;
 }
 
@@ -114,13 +115,9 @@ nav a {
 
 .main {
   flex-grow: 1;
+  width: 100%;
   position: relative;
   min-height: 800px;
-}
-
-.main .container {
-  position: relative;
-  top: 100px;
 }
 
 .footer {
@@ -144,8 +141,6 @@ nav a {
 
 #container {
   margin: 30px auto;
-  border-radius: 20px;
-  border-top: 20px;
 }
 
 @media (min-width: 768px) {
@@ -266,7 +261,7 @@ nav a {
 }
 
 .Response-Box button {
-  margin-bottom: 5px;
+  margin: 0 15px 5px 15px;
 }
 
 .Response-Box nav {
@@ -292,6 +287,16 @@ nav a {
   border-radius: 1rem;
   padding: 10px;
   overflow: auto;
+}
+
+.CheckUser-Box form {
+  display: flex;
+  min-width: 350px;
+  height: 40px;
+}
+
+.CheckUser-Box table tr {
+  text-align: center;
 }
 
 .CheckUser-Box table th {
@@ -332,6 +337,9 @@ nav a {
     font-weight: bold;
     font-size: 18px;
   }
+  .CheckUser-Box table td {
+    min-width: 350px;
+  }
   .CheckUser-Box table tr {
     position: relative;
     margin-bottom: 10px;
@@ -342,5 +350,72 @@ nav a {
   border: solid 5px #1e90ff;
   padding: 10px;
   border-radius: 1rem;
+}
+
+.Vacancies-Input-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+}
+
+.Vacancies-Input-Box h1 {
+  font-weight: bold;
+}
+
+.Vacancies-Input-Box .form-group {
+  padding: 5px;
+}
+
+.Vacancies-Input-Box textarea {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.Vacancies-Input-Box .Vacancies-Submit {
+  margin: 5px;
+}
+
+.Announcement-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  overflow: auto;
+}
+
+.Announcement-Box h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.Announcement-Box table {
+  border: 1px rgba(0, 0, 0, 0.3) solid;
+  width: 100%;
+  overflow: auto;
+}
+
+.Announcement-Box table thead,
+.Announcement-Box table tbody {
+  text-align: center;
+}
+
+.Announcement-Box table th:first-child,
+.Announcement-Box table td:first-child {
+  text-align: left;
+}
+
+.Announcement-Box table th,
+.Announcement-Box table td {
+  min-width: 90px;
+}
+
+.Announcement-Box table td:first-child {
+  min-width: 200px;
+}
+
+.Announcement-Box .btn-primary {
+  width: 100%;
+  min-width: 560px;
 }
 /*# sourceMappingURL=index.css.map */

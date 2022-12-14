@@ -249,6 +249,14 @@ nav a {
   padding: 10px;
   overflow: auto;
 }
+.CheckUser-Box form {
+  display: flex;
+  min-width: 350px;
+  height: 40px;
+}
+.CheckUser-Box table tr {
+  text-align: center;
+}
 .CheckUser-Box table th {
   font-size: 18px;
   word-break: keep-all;
@@ -284,6 +292,9 @@ nav a {
     font-weight: bold;
     font-size: 18px;
   }
+  .CheckUser-Box table td {
+    min-width: 350px;
+  }
   .CheckUser-Box table tr {
     position: relative;
     margin-bottom: 10px;
@@ -316,6 +327,42 @@ nav a {
   margin: 5px;
 }
 
+.Announcement-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  overflow: auto;
+}
+.Announcement-Box h1 {
+  text-align: center;
+  font-weight: bold;
+}
+.Announcement-Box table {
+  border: 1px rgba(0, 0, 0, 0.3) solid;
+  width: 100%;
+  overflow: auto;
+}
+.Announcement-Box table thead,
+.Announcement-Box table tbody {
+  text-align: center;
+}
+.Announcement-Box table th:first-child,
+.Announcement-Box table td:first-child {
+  text-align: left;
+}
+.Announcement-Box table th,
+.Announcement-Box table td {
+  min-width: 90px;
+}
+.Announcement-Box table td:first-child {
+  min-width: 200px;
+}
+.Announcement-Box .btn-primary {
+  width: 100%;
+  min-width: 560px;
+}
+
 .Account-Box {
   position: absolute;
   left: 50%;
@@ -339,12 +386,18 @@ nav a {
 }
 
 .Title {
+  text-align: center;
   margin: 1.2em;
 }
 .Title h1 {
   font-weight: bold;
   font-size: calc(36px + 1vw);
   margin: 0;
+}
+@media screen and (max-width: 300px) {
+  .Title {
+    margin-top: 2em;
+  }
 }
 
 .Input-Section {
@@ -383,7 +436,6 @@ nav a {
 .Input-Section .Account-Text {
   display: inline-block;
   width: 100%;
-  min-width: 10em;
   height: 40px;
   border: solid 1px #d4d8db;
   /* #b5d4e9 #f3f7f7*/
@@ -400,11 +452,6 @@ nav a {
     min-width: none;
   }
 }
-.Input-Section a {
-  align-self: flex-end;
-  margin-right: 5px;
-  display: inline-block;
-}
 @media screen and (max-width: 768px) {
   .Input-Section {
     width: 90%;
@@ -413,7 +460,7 @@ nav a {
 @media (max-width: 576px) {
   .Input-Section {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
   }
 }
 
@@ -440,8 +487,9 @@ nav a {
   font-size: 20px;
   font-weight: 500;
   border-radius: 35px;
-  min-width: 150px;
-  width: 30%;
+  min-width: 80px;
+  max-width: 300px;
+  width: 50%;
   height: 40px;
   cursor: pointer;
 }
@@ -454,7 +502,7 @@ nav a {
   right: 5px;
   width: 10vw;
   max-width: 40px;
-  min-width: 20px;
+  min-width: 30px;
 }
 
 .ReturnLogo {
@@ -463,7 +511,7 @@ nav a {
   left: 5px;
   width: 10vw;
   max-width: 40px;
-  min-width: 20px;
+  min-width: 30px;
 }
 
 .Register-Select {
@@ -522,6 +570,17 @@ nav a {
 }
 .verification_button:hover {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .CPN-Register-Box {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 233px) {
+  .CPN-Register-Box {
+    margin-top: 80px;
+  }
 }
 
 .CPN-Register input[type=text],

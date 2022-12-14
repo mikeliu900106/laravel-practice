@@ -18,7 +18,6 @@
             <div class="File-Upload">
                 <form action="{{route('Score.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <!-- 批量上傳? -->
                     <input type="file" class="form-control" name="files" />
                     <button type="submit">提交</button>
                 </form>

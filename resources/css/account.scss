@@ -44,11 +44,16 @@ $tablet-max-width: 768px;
     }
 }
 .Title {
+    text-align: center;
     margin: 1.2em;
     h1 {
         font-weight: bold;
         font-size: calc(36px + 1vw);
         margin: 0;
+        // word-break: keep-all;
+    }
+    @media screen and (max-width: 300px) {
+        margin-top: 2em;
     }
 }
 .Input-Section {
@@ -93,7 +98,7 @@ $tablet-max-width: 768px;
         display: inline-block;
         // max-width: 600px;
         width: 100%;
-        min-width: 10em;
+        // min-width: 10em;
         height: 40px;
         border: solid 1px #d4d8db;
         /* #b5d4e9 #f3f7f7*/
@@ -108,17 +113,17 @@ $tablet-max-width: 768px;
             min-width: none;
         }
     }
-    a {
-        align-self: flex-end;
-        margin-right: 5px;
-        display: inline-block;
-    }
+    // a {
+    //     align-self: flex-end;
+    //     margin-right: 5px;
+    //     display: inline-block;
+    // }
     @media screen and (max-width: $tablet_max_width) {
         width: 90%;
     }
     @media (max-width: $phone-max-width) {
         width: 100%;
-        padding: 5px;
+        padding: 10px;
     }
 }
 .Help-Section {
@@ -140,8 +145,9 @@ $tablet-max-width: 768px;
         font-size: 20px;
         font-weight: 500;
         border-radius: 35px;
-        min-width: 150px;
-        width: 30%;
+        min-width: 80px;
+        max-width: 300px;
+        width: 50%;
         height: 40px;
         cursor: pointer;
         &:hover {
@@ -158,7 +164,7 @@ $tablet-max-width: 768px;
     right: 5px;
     width: 10vw;
     max-width: 40px;
-    min-width: 20px;
+    min-width: 30px;
 }
 .ReturnLogo {
     position: absolute;
@@ -166,7 +172,7 @@ $tablet-max-width: 768px;
     left: 5px;
     width: 10vw;
     max-width: 40px;
-    min-width: 20px;
+    min-width: 30px;
 }
 
 // register_select.php
@@ -229,10 +235,15 @@ $tablet-max-width: 768px;
     }
 }
 
+.CPN-Register-Box {
+    @media screen and (max-width: $tablet-max-width) {
+        margin-top: 50px;
+    }
+    @media screen and (max-width: 233px) {
+        margin-top: 80px;
+    }
+}
 .CPN-Register {
-    // margin-top: 400px;
-    // margin-left: 5px;
-    // margin-right: 5px;
     input[type="text"],
     input[type="password"] {
         margin-left: 0;

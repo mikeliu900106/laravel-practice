@@ -42,7 +42,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        function codestr(){
+        function codestr()
+        {
             $arr = array_merge(range('a', 'b'), range('A', 'B'), range('0', '9'));
             shuffle($arr);
             $arr = array_flip($arr);
@@ -65,7 +66,7 @@ class StudentController extends Controller
         $student_datas = $request->validate([
             'username' => 'required|string',
             'real_name' => 'required|string',
-            'student_id' =>'required|string',
+            'student_id' => 'required|string',
             'password' => 'required|string',
             'email' => 'required|email',
         ]);
@@ -75,15 +76,15 @@ class StudentController extends Controller
         $random = codestr();
         $Student_username_isUse = Student::where('user_name',  $student_datas['username'])->count();
         if ($Student_username_isUse == 0) {
- 
+
             $student_datas["random"] = $random;
             $student_datas["user_id"] = $user_id;
-            foreach( $student_datas as $value){
+            foreach ($student_datas as $value) {
                 echo $value;
             }
-         
+
             // echo $student_datas;
-           
+
 
             //學長解釋trycatch 使用
             Mail::send('IN.Student.sendMail', $student_datas, function ($message) use ($student_datas) {
@@ -91,7 +92,8 @@ class StudentController extends Controller
                 $message->to($student_datas['email'])->subject('email認證');
             });
 
-            return view("IN.Student.register",
+            return view(
+                "IN.Student.register",
                 [
                     "random" => $random,
                     "user_id" => $user_id,
@@ -100,7 +102,6 @@ class StudentController extends Controller
             );
         } else {
             echo "帳號被使用";
-
         }
     }
 
@@ -173,7 +174,7 @@ class StudentController extends Controller
             );
             return view("index");
         } else {
-            echo"驗證碼出錯";
+            echo "驗證碼出錯";
         }
     }
 }

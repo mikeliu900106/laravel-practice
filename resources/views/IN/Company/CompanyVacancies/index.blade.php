@@ -20,11 +20,11 @@
                     },
                 },
                 {
-                    targets: [10],
+                    targets: [11],
                     responsivePriority: 2,
                 },
                 {
-                    targets: [11],
+                    targets: [12],
                     responsivePriority: 3,
                 },
                 {
@@ -76,7 +76,7 @@
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
-                        <td>{{$Vacancie->vacancies_county.$Vacancie->vacancies_district.$Vacancie->vacancies_address}}</td>
+                        <td>{{$Vacancie->vacancies_county .$Vacancie->vacancies_district .$Vacancie->vacancies_address}}</td>
                         <td>{{$Vacancie->company_content }}</td>
                         <td>{{$Vacancie->company_work_experience }}</td>
                         <td>{{$Vacancie->company_Education }}</td>
