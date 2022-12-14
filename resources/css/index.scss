@@ -282,6 +282,7 @@ nav {
         height: 40px;
     }
     table {
+        // border: 1px rgba($color: #000000, $alpha: 0.3) solid;
         tr {
             text-align: center;
         }
@@ -368,9 +369,6 @@ nav {
         text-align: center;
         font-weight: bold;
     }
-    // .tableBox {
-
-    // }
     table {
         border: 1px rgba($color: #000000, $alpha: 0.3) solid;
         width: 100%;
@@ -392,8 +390,9 @@ nav {
             min-width: 200px;
         }
     }
+    h1,
     .btn-primary {
         width: 100%;
-        min-width: 560px;
+        min-width: 565px;
     }
 }

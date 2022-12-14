@@ -28,7 +28,7 @@
                 </li>
                 @endforeach
             </ul>
-            <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="{{route("Chat.create")}}">新增評論</a></button>
+            <a class="btn btn-primary mx-3 mb-2" href="{{route("Chat.create")}}">新增評論</a>
             {{ $Chats->links()}}
         </div>
     </div>
