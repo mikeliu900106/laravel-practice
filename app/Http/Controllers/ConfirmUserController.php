@@ -20,7 +20,7 @@ class ConfirmUserController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = session()->get('user_id');
-                $Student_datas = Student::paginate(10);
+                $Student_datas = Student::where("user_level","1")->paginate(10);
                 return view(
                     "IN.Teacher.ConfirmUser.index",
                     [
