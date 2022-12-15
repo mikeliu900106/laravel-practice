@@ -87,11 +87,7 @@
                         <td>{{$Vacancie->teacher_watch}}</td>
                         <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
                         <td>
-                            <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method="post">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
+                            <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method="post">@method('DELETE')@csrf<button class="btn btn-danger" type="submit">Delete</button></form>
                         </td>
                     </tr>
                     @endforeach

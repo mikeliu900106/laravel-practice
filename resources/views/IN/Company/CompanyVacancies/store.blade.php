@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="company_content">工作內容</label>
-                    <textarea rows="5" contenteditable="true" type="text" name="company_content" class="form-control" placeholder="請輸入工作內容" style="height: 100px" id="compant_content"></textarea>
+                    <textarea rows="5" contenteditable="true" type="text" name="company_content" class="form-control" placeholder="請輸入工作內容" style="height: 100px" id="company_content"></textarea>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="javascript" id="inlineCheckbox1">
@@ -96,7 +96,6 @@
                     <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="kotlin" id="inlineCheckbox13">
                     <label class="form-check-label" for="inlineCheckbox13">kotlin</label>
                 </div>
-
                 <div class="form-row d-flex flex-wrap">
                     <div class="form-group col-md-6 col-12">
                         <label for="company_department">科系需求</label>
@@ -113,11 +112,11 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="company_other">其他補充事項</label>
-                    <textarea type="text" name="company_other" class="form-control" placeholder="其他補充事項" id="compant_other"></textarea>
+                    <textarea type="text" name="company_other" class="form-control" placeholder="其他補充事項" id="company_other"></textarea>
                 </div>
                 <div class="form-group col-12">
                     <label for="company_safe">員工保險</label>
-                    <input type="text" name="company_safe" class="form-control" placeholder="請輸入員工保險">
+                    <textarea type="text" name="company_safe" class="form-control" placeholder="請輸入員工保險" id="company_safe"></textarea>
                 </div>
                 <div class="Vacancies-Submit">
                     <input class="btn btn-dark w-100" type="submit" value="提交" />
@@ -127,15 +126,19 @@
     </form>
     <script src="/erTWZipcode/er.twzipcode.data.js"></script>
     <script>
-        let oCompant_content = document.getElementById('compant_content');
-        console.log(oCompant_content)
-        oCompant_content.addEventListener('input', (e) => {
-            oCompant_content.style.height = '102px';
-            oCompant_content.style.height = e.target.scrollHeight + 'px';
+        // let oCompany_content = document.getElementById('company_content');
+        // console.log(oCompany_content)
+        company_content.addEventListener('input', (e) => {
+            company_content.style.height = '102px';
+            company_content.style.height = e.target.scrollHeight + 'px';
         });
-        compant_other.addEventListener('input', (e) => {
-            compant_other.style.height = '64px';
-            compant_other.style.height = e.target.scrollHeight + 'px';
+        company_other.addEventListener('input', (e) => {
+            company_other.style.height = '64px';
+            company_other.style.height = e.target.scrollHeight + 'px';
+        });
+        company_safe.addEventListener('input', (e) => {
+            company_safe.style.height = '64px';
+            company_safe.style.height = e.target.scrollHeight + 'px';
         });
     </script>
     @endsection
