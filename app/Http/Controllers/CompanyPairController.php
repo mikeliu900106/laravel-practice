@@ -28,10 +28,10 @@ class CompanyPairController extends Controller
     {
         $user_id = session()->get('user_id');
         echo $user_id;
-        $pair_datas =$Vacancies = Vacancies::Join('company','company.company_id','=','vacancies.company_id')
-                    ->Join('pair','pair.vacancies_id','=','vacancies.vacancies_id')
-                    ->select('vacancies.vacancies_id','vacancies.vacancies_name', 'company.company_name','company.company_id','pair.*')
-                    ->where('company.company_id',$user_id)
+        $pair_datas =$Vacancies = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
+                    ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pair.*')
+                    ->where('companybase.company_id',$user_id)
                     ->get();
                     echo  $pair_datas;
         return view("IN.Company.CompanyPair.index",

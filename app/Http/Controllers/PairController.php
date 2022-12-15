@@ -26,9 +26,9 @@ class PairController extends Controller
                 //echo $user_id;
                 $pair = Pair::where('user_id',"$user_id")->count();
                 $Teacher_name =Teacher::select('teacher_real_name')->get();
-                $Vacancies_datas =$Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
-                ->select('vacancies.*', 'company.*')
-                // ->where("vacancies.teacher_watch","通過")
+                $Vacancies_datas =$Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                ->select('vacanciesbase.*', 'companybase.*')
+                ->where("vacanciesbase.teacher_watch","通過")
                 ->get();
                 $Pair_data = Pair::where('user_id',"$user_id")->get();
                 if($pair == 0){
@@ -43,11 +43,11 @@ class PairController extends Controller
                         $Pair_Vacancies_id = $value['vacancies_id'];
                     }
                     echo $Pair_Vacancies_id;
-                    $pair_datas  = Vacancies::leftJoin('company','company.company_id','=','vacancies.company_id')
-                    ->leftJoin('pair','pair.vacancies_id','=','vacancies.vacancies_id')
-                    ->select('vacancies.*', 'company.*','pair.*')
-                    ->where('vacancies.vacancies_id',$Pair_Vacancies_id)
-                    // ->where("vacancies.teacher_watch","通過")
+                    $pair_datas  = Vacancies::leftJoin('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->leftJoin('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
+                    ->select('vacanciesbase.*', 'companybase.*','pairbase.*')
+                    ->where('vacanciesbase.vacancies_id',$Pair_Vacancies_id)
+                    ->where("vacanciesbase.teacher_watch","通過")
                     ->get();
                     // echo $Vacancies_datas;
                     return view('IN.Student.Pair.show',[
@@ -135,8 +135,8 @@ class PairController extends Controller
     {
         $vacancies_id =$request->vacancies_id;
         $Teacher_name =Teacher::select('teacher_real_name')->get();
-        $Vacancies_datas =Vacancies::Join('company','company.company_id','=','vacancies.company_id')
-        ->select('vacancies.*', 'company.*')
+        $Vacancies_datas =Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+        ->select('vacanciesbase.*', 'companybase.*')
         // ->where("vacancies.teacher_watch","通過")
         ->get();
         echo $Vacancies_datas;
