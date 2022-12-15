@@ -189,7 +189,8 @@ class PairController extends Controller
      */
     public function destroy($id)
     {
-        $pair_datas = Pair::where('user_id', '=', $id)->get();
+        $pair_datas = Pair::where('user_id', '=',$id)->get();
+        echo $pair_datas;
         foreach($pair_datas as $pair_data){
             $delete_time = $pair_data["delete_time"];
             $user_id = $pair_data["user_id"];
@@ -200,7 +201,7 @@ class PairController extends Controller
             $teacher_name = $pair_data["teacher_name"];
         }
         echo $pair_datas;
-        if($is_confirm = '通過'){
+        if($is_confirm == '通過'){
             HistoryPair::create([
                 'delete_time'     => Date("Ymd"),
                 'user_id'         => $id,
