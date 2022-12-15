@@ -169,6 +169,7 @@ class CheckPairController extends Controller
                 'apply_number'              =>   $apply_number             ,             
             ]
         );
+        return redirect()->route("CheckPair.index");
     }
 
     /**
