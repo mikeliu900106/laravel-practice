@@ -24,7 +24,7 @@
             <!-- 基本資料 -->
             <div class="Input-Section CPN-Register">
                 <div class="form-group">
-                    <div class="col-md-4 col-12">
+                    <div class="col-md-7 col-12">
                         <label for="compamny_name">公司名稱</label>
                         <input type="text" name="company_name" class="Account-Text" placeholder="請輸入您的公司名稱">
                     </div>

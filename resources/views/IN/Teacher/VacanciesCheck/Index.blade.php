@@ -80,29 +80,24 @@
                     <tr>
                         {{$Vacancie->vacancies_id}}
                         <td>{{$Vacancie->vacancies_name}}</td>
-                        <td>{{$Vacancie->company_name }}</td>
-                        <td>{{$Vacancie->company_money }}</td>
-                        <td>{{$Vacancie->company_time }}</td>
-                        <td>{{$Vacancie->vacancies_place }}</td>
-                        <td>{{$Vacancie->company_content }}</td>
-                        <td>{{$Vacancie->company_work_experience }}</td>
-                        <td>{{$Vacancie->company_Education }}</td>
-                        <td>{{$Vacancie->company_department }}</td>
+                        <td>{{$Vacancie->company_name}}</td>
+                        <td>{{$Vacancie->company_money}}</td>
+                        <td>{{$Vacancie->company_time}}</td>
+                        <td>{{$Vacancie->vacancies_county.$Vacancie->vacancies_district.$Vacancie->vacancies_address}}</td>
+                        <td>{{$Vacancie->company_content}}</td> <!-- {{$Vacancie->company_content}} -->
+                        <td>{{$Vacancie->company_work_experience}}</td>
+                        <td>{{$Vacancie->company_Education}}</td>
+                        <td>{{$Vacancie->company_department}}</td>
                         <td>{{$Vacancie->vacancies_Skill }}</td>
                         <td>{{$Vacancie->teacher_watch}}</td>
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
                         <td>{{$Vacancie->teacher_name}}</td>
                         <td>
-                            <div class="btn btn-success btn"><a class="text-white text-decoration-none" href="{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a></div>
-                            <div class="btn btn-warning btn"><a class="text-white text-decoration-none" href="{{route("VacanciesCheck.show",$Vacancie->vacancies_id)}}">不通過</a></div>
+                            <a class="btn btn-success" href="{{route("VacanciesCheck.edit",$Vacancie->vacancies_id)}}">通過</a> <a class="btn btn-warning" href="{{route("VacanciesCheck.show",$Vacancie->vacancies_id)}}">不通過</a>
                         </td>
                         <td>
-                            <form action="{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method="post">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-danger" type="submit" id="VacanciesCheck_delete_button">Delete</button>
-                            </form>
+                            <form action="{{route('VacanciesCheck.destroy',$Vacancie->vacancies_id) }}" method="post">@method('DELETE')@csrf<button class="btn btn-danger" type="submit" id="VacanciesCheck_delete_button">Delete</button></form>
                         </td>
                     </tr>
                     @endforeach

@@ -24,12 +24,10 @@
                         <select name="choose_vacancies_id">
                             <option disabled>請選擇配對的職位</option>
                             @foreach($Vacancies_datas as $Vacancies_data)
-                                <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.":".$Vacancies_data->vacancies_name."職位"}}</option>
-                
+                            <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.":".$Vacancies_data->vacancies_name."職位"}}</option>
                             @endforeach
                         </select>
                     </div>
-
                     <div class="Pair-Row">
                         <span>實習開始日期：</span>
                         <input type="date" name="start_tme">
@@ -38,9 +36,7 @@
                         <span>實習結束日期：</span>
                         <input type="date" name="end_tme">
                     </div>
-
                 </div>
-
                 <input type="submit" class="btn btn-primary">
             </div>
         </div>

@@ -56,9 +56,10 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$userDatas->links()}}
         </div>
     </div>
-    {{$userDatas->links()}}
+
 
 
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .VacanciesCheck-Box,
 .Vacancies-Box,
 .Apply-Box {
@@ -30,17 +31,22 @@
 .Vacancies-Box table li,
 .Apply-Box table li {
   display: flex;
+  align-items: center;
 }
 .VacanciesCheck-Box table span,
 .Vacancies-Box table span,
 .Apply-Box table span {
-  text-align: center;
-  margin: auto 5px auto 0;
+  white-space: pre-wrap;
 }
 .VacanciesCheck-Box table .btn,
 .Vacancies-Box table .btn,
 .Apply-Box table .btn {
   width: 75px;
+}
+.VacanciesCheck-Box table ul,
+.Vacancies-Box table ul,
+.Apply-Box table ul {
+  width: 100%;
 }
 
 #Vacancies {
@@ -63,4 +69,17 @@
   .dataTables_wrapper .dataTables_filter label {
     justify-content: center;
   }
+}
+
+.dtr-title {
+  width: 80px;
+  word-break: keep-all;
+}
+.dtr-title::after {
+  content: "：";
+}
+
+.dtr-data {
+  flex: 1;
+  text-align: left;
 }
