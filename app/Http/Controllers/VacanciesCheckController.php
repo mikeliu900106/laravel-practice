@@ -86,14 +86,11 @@ class VacanciesCheckController extends Controller
     {
         $user_id = session()->get('user_id');
         echo  $user_id; 
-        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id","T2022530000")->get();
+        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",$user_id)->get();
         $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
         //echo$VacanciesData;
         foreach($teacherData as $value){
             $teacher_real_name = $value['teacher_real_name'];
-            if(empty($teacher_real_name)){
-            
-            }
             //echo $teacher_real_name;
         }
         foreach($VacanciesData as $value){
@@ -122,7 +119,7 @@ class VacanciesCheckController extends Controller
     {  
         $user_id = session()->get('user_id');
         echo  $user_id; 
-        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",'T2022530000')->get();
+        $teacherData = Teacher::select('teacher_real_name')->where("teacher_id",$user_id)->get();
         $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
         foreach($teacherData as $value){
             $teacher_real_name = $value['teacher_real_name'];
@@ -192,7 +189,7 @@ class VacanciesCheckController extends Controller
         }
         HistoryVacancies::create(
             [
-                "delete_time"               =>   Date("Ymd")            ,      
+                'delete_time'               =>   Date("Ymd")            ,      
                 'company_id'                =>   $company_id               ,
                 'vacancies_id'              =>   $vacancies_id             ,
                 'vacancies_name'            =>   $vacancies_name           ,
