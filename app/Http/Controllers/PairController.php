@@ -201,7 +201,6 @@ class PairController extends Controller
             $teacher_name = $pair_data["teacher_name"];
         }
         echo $pair_datas;
-        if($is_confirm == '通過'){
             HistoryPair::create([
                 'delete_time'     => Date("Ymd"),
                 'user_id'         => $id,
@@ -211,7 +210,7 @@ class PairController extends Controller
                 'teacher_confirm' => $is_confirm,
                 'teacher_name'    => $teacher_name,
             ]);
-        }
+
         Pair::where('user_id',$id) ->delete();
         return redirect()->route("Pair.index");
     }

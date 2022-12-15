@@ -32,7 +32,7 @@ class CheckPairController extends Controller
                     ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
                     ->join('userbase','userbase.user_id','=','pairbase.user_id')
                     ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
-                    ->where('pair.user_id',$user_id)
+                    ->where('pairbase.user_id',$user_id)
                     ->get();
                     echo $pair_datas;
                     $student_name = Student::where('user_id',$user_id)->select("user_real_name")->get();
