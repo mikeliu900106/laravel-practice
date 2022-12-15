@@ -30,7 +30,7 @@ class CompanyPairController extends Controller
         echo $user_id;
         $pair_datas =$Vacancies = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
                     ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
-                    ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pair.*')
+                    ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pairbase.*')
                     ->where('companybase.company_id',$user_id)
                     ->get();
                     echo  $pair_datas;
