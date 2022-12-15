@@ -28,10 +28,10 @@ class CheckPairController extends Controller
                     $teacher_id = session()->get("iser_id");
 
                     echo $user_id;
-                    $pair_datas = Vacancies::Join('company','company.company_id','=','vacancies.company_id')
-                    ->Join('pair','pair.vacancies_id','=','vacancies.vacancies_id')
-                    ->join('user','user.user_id','=','pair.user_id')
-                    ->select('vacancies.*', 'company.*','pair.*','user.*')
+                    $pair_datas = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
+                    ->join('userbase','userbase.user_id','=','pairbase.user_id')
+                    ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
                     ->where('pair.user_id',$user_id)
                     ->get();
                     echo $pair_datas;
