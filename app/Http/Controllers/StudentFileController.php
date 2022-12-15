@@ -22,14 +22,11 @@ class StudentFileController extends Controller
     public function index(Request $request)
     {
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '4') {
+            if ($request->session()->get('level') == '1' ||$request->session()->get('level') == '4') {
                 $user_id = session()->get('user_id');
                 $teacher_datas =Teacherfile::get();
                 return view("IN.Student.StudentFile.index",["teacher_datas" => $teacher_datas]);
             } 
-            elseif($request->session()->get('level') == '1'){
-                echo "請等老師認證為本人,此功能開放";
-            }
             else{
                 echo "你不是學生";
                 //1. 顯示錯誤2.錯誤controller

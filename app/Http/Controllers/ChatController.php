@@ -16,7 +16,7 @@ class ChatController extends Controller
     public function index(Request $request)
     {
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '1'||$request->session()->get('level') == '4') {
+            if ($request->session()->get('level') == '4') {
                 $user_id = session()->get('user_id');
                 echo $user_id;
                 $Chat = Chat::paginate(10);
@@ -26,6 +26,9 @@ class ChatController extends Controller
                     'Chat_level' =>$Chat_level,
                     'Chat_id' => $user_id,
                 ]);
+            }
+            elseif($request->session()->get('level') == '1'){
+                echo "請等老師認證";
             }
             else{
                 echo "你不是學生";
