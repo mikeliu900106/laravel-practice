@@ -16,5 +16,5 @@ class Vacancies extends Model
         'teacher_watch' => "還沒審查",
     ];
     protected $guarded = [];
-    
 }
+

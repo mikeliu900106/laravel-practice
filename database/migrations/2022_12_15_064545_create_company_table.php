@@ -19,7 +19,7 @@ class CreateCompanyTable extends Migration
             $table->string('company_title',30);
             $table->string('company_username',30);
             $table->string('company_password',30);
-            $table->integer('company_number');
+            $table->string('company_number',12);
             $table->string('company_county',45);
             $table->string('company_district',45);
             $table->string('company_address',45);

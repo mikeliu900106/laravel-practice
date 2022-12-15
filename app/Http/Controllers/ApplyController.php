@@ -23,14 +23,14 @@ class ApplyController extends Controller
     public function index(Request $request)
     {   
         if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '4') {
+            if ($request->session()->get('level') == '4' ||$request->session()->get('level') == '1') {
                 $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
                 echo $user_id;
                 if ($request->has('search')) {
                     $search = $request->search;
-                    $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
-                    ->select('vacancies.*', 'company.*')
+                    $Vacancies = Vacancies::join('company','company.company_id','vacancies.company_id')
+                    ->select('vacanciesbase.*', 'companybase.*')
                     ->orWhere('vacancies_name', 'LIKE', "%{$search}%")
                     ->orWhere('company_money', 'LIKE', "%{$search}%")
                     ->orWhere('company_content', 'LIKE', "%{$search}%")
@@ -47,8 +47,8 @@ class ApplyController extends Controller
                         'user_id'  => $user_id,
                     ]);
                 }else{
-                    $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
-                    ->select('vacancies.*', 'company.*')
+                    $Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->select('vacanciesbase.*', 'companybase.*')
                     ->where('teacher_watch','通過')
                     ->paginate(10);
                     echo $Vacancies;
@@ -59,9 +59,7 @@ class ApplyController extends Controller
                     'user_id'  => $user_id,
                 ]);
             }
-            elseif($request->session()->get('level') == '1'){
-                echo "請等老師認證為本人,此功能開放";
-            }
+
             else{
                 echo "你不是學生";
                 //1. 顯示錯誤2.錯誤controller
@@ -104,8 +102,8 @@ class ApplyController extends Controller
      */
     public function show(Request $request,$id)
     {
-        $Vacancies = Vacancies::join('company','company.company_id','=','vacancies.company_id')
-                ->select('vacancies.*', 'company.*')
+        $Vacancies = Vacancies::join('companybse','companybase.company_id','=','vacanciesbase.company_id')
+                ->select('vacanciesbase.*', 'companybase.*')
                 ->where('vacancies_id',$id)
                 ->where('teacher_watch','通過')
                 ->get();

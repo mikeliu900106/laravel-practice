@@ -11,6 +11,6 @@ class Teacherfile extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'teacherfilevase';
+    protected $table = 'teacherfilebase';
     protected $guarded = [];
 }
