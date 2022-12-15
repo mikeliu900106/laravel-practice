@@ -165,7 +165,7 @@ class VacanciesCheckController extends Controller
     public function destroy($id)
     {
         $user_id = session()->get('user_id');
-        $vacancies_datas = Vacancies::get()->where('teacher_watch','通過');
+        $vacancies_datas = Vacancies::get();
         foreach($vacancies_datas as $vacancies_data){
             $company_id                =  $vacancies_data["company_id"]                ;
             $vacancies_id              =  $vacancies_data["vacancies_id"]              ;

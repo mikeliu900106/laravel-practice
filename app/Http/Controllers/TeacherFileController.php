@@ -71,7 +71,7 @@ class TeacherFileController extends Controller
             $real_file_name = $files->getClientOriginalName();
             $file_name =  getTeacherfileName();
             $file_name = $file_name.".".$extension;
-            $file_path = public_path()."storage\teacherfile\\".$file_name;
+            $file_path = public_path()."storage\\teacherfile\\".$file_name;
             $files->storeAs($file_floder,$file_name) ;
 
             $Teacherfile = [
@@ -100,10 +100,11 @@ class TeacherFileController extends Controller
         if(Teacherfile::where('teacher_file_id',$id)->count() != 0){
             $Teacherfile_data = Teacherfile::where('teacher_file_id',$id)->get();
             foreach($Teacherfile_data as $value){
-                $file_name = $value["teacher_file_name"];
+                $file_name = $value["teacher_file_id"];
                 
-                $real_file_path = public_path()."/storage/teacherfile/".$file_name;
+                
             }
+            $real_file_path = public_path()."/storage/teacherfile/".$file_name;
 
             return Response::download($real_file_path);
         }
@@ -152,13 +153,13 @@ class TeacherFileController extends Controller
         }
         function delete_file($id = "",$database = "",$file_floder = 'public\teacherfile\\'){
                 $delete_datas = Teacherfile::where("teacher_file_id",$id)->get();
-                $delete_name = get_delete_path($delete_datas,"teacher_file_name" );
+                $delete_name = get_delete_path($delete_datas,"teacher_file_id" );
                 $real_file_path = $file_floder . $delete_name;
                 Storage::delete($real_file_path);
-                Teacherfile::where('teacher_file_id',$id)->delete();
-        
+                
         }
         delete_file($id,$database = "Teacherfile",$file_floder = 'public\teacherfile\\');
+        Teacherfile::where('teacher_file_id',$id)->delete();
         return redirect()->route("TeacherFile.index");
     }
 }

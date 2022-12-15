@@ -24,8 +24,8 @@ class phpwordController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->session()->has('user_id')) {
-            if ($request->session()->get('level') == '4') {
+        // if ($request->session()->has('user_id')) {
+            // if ($request->session()->get('level') == '4') {
                 $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
                 $experience_datas = Experience::where("user_id",$user_id)->get();
@@ -38,20 +38,20 @@ class phpwordController extends Controller
                     ]);
                 }
                 
-            }
-            elseif($request->session()->get('level') == '1'){
-                echo "請等老師認證為本人,此功能開放";
-            }
-            else{
-                echo "你不是學生";
-                //1. 顯示錯誤2.錯誤controller
+            // }
+        //     elseif($request->session()->get('level') == '1'){
+        //         echo "請等老師認證為本人,此功能開放";
+        //     }
+        //     else{
+        //         echo "你不是學生";
+        //         //1. 顯示錯誤2.錯誤controller
                 
 
-            }
-        }
-        else{
-            echo "你沒登入";
-        }
+        //     }
+        // }
+        // else{
+        //     echo "你沒登入";
+        // }
        
     }
 
