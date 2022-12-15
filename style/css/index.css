@@ -414,8 +414,9 @@ nav a {
   min-width: 200px;
 }
 
+.Announcement-Box h1,
 .Announcement-Box .btn-primary {
   width: 100%;
-  min-width: 560px;
+  min-width: 565px;
 }
 /*# sourceMappingURL=index.css.map */
