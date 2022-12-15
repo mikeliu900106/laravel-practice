@@ -102,7 +102,7 @@ class ApplyController extends Controller
      */
     public function show(Request $request,$id)
     {
-        $Vacancies = Vacancies::join('companybse','companybase.company_id','=','vacanciesbase.company_id')
+        $Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
                 ->select('vacanciesbase.*', 'companybase.*')
                 ->where('vacancies_id',$id)
                 ->where('teacher_watch','通過')

@@ -203,7 +203,7 @@ class PairController extends Controller
         if($is_confirm = '通過'){
             HistoryPair::create([
                 'delete_time'     => Date("Ymd"),
-                'user_id'         => $user_id,
+                'user_id'         => $id,
                 'vacancies_id'    => $vacancies_id,
                 'start_time'      => $start_time,
                 'end_time'        => $end_time,
@@ -211,7 +211,7 @@ class PairController extends Controller
                 'teacher_name'    => $teacher_name,
             ]);
         }
-        Pair::where('user_id', '=', $id) ->delete();
+        Pair::where('user_id',$id) ->delete();
         return redirect()->route("Pair.index");
     }
 

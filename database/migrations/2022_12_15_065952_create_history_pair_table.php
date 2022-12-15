@@ -16,6 +16,7 @@ class CreateHistoryPairTable extends Migration
         Schema::create('historyPairBase', function (Blueprint $table) {
 
                 $table->date('delete_time')->comment("刪除時間");
+                $table->string('user_id',25)->comment("使用者id");
                 $table->string('vacancies_id',25)->comment("職缺id");
                 $table->date('start_time')->comment("開始時間");
                 $table->date('end_time')->comment("結束時間");
