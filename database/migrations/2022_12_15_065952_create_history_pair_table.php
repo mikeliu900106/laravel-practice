@@ -14,14 +14,14 @@ class CreateHistoryPairTable extends Migration
     public function up()
     {
         Schema::create('historyPairBase', function (Blueprint $table) {
-            Schema::create('historyPairBase', function (Blueprint $table) {
+
                 $table->date('delete_time')->comment("刪除時間");
                 $table->string('vacancies_id',25)->comment("職缺id");
                 $table->date('start_time')->comment("開始時間");
                 $table->date('end_time')->comment("結束時間");
                 $table->string('teacher_confirm',8)->comment("是否確認");
                 $table->string('teacher_name',5)->comment("同意人");
-            });
+
         });
     }
 

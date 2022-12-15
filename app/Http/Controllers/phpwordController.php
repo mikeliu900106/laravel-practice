@@ -247,8 +247,8 @@ class phpwordController extends Controller
         $fileName = getExperienceName();
         $fileName = $fileName.".docx";
         ob_clean();
-        $writer->save('\Experience\\' . $fileName);
-        $file = public_path('\Experience\\') . $fileName;  
+        $writer->save('/Experience/' . $fileName);
+        $file = public_path('/Experience/') . $fileName;  
         Experience::where("user_id",$user_id)->delete();
         Experience::where("user_id",$user_id)->update(
             [
