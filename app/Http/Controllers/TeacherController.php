@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Login;
 use App\Models\Teacher;
 use Mail;
 class TeacherController extends Controller
@@ -66,7 +66,7 @@ class TeacherController extends Controller
                 $random = codestr();
                 //echo $random;
                 $teacherdatas["random"] = $random;
-                $teacherdatas["teacher_id"] = $teacher_id;
+                $teacherdatas["teacher_id"] = $teacher_id;  
                 //echo $teacherdata["random"] = $random;
 
                 //學長解釋trycatch 使用
