@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVacanciesTable extends Migration
+class CreateHistoryVacanciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class CreateVacanciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vacanciesBase', function (Blueprint $table) {
+        Schema::create('historyVacanciesBase', function (Blueprint $table) {
+            $table->date('delete_time')->comment("刪除時間");
             $table->string('company_id',25);
             $table->string('vacancies_id',30);
             $table->string('vacancies_name',30);
@@ -33,7 +34,6 @@ class CreateVacanciesTable extends Migration
             $table->string('teacher_name',10);
             $table->string('vacancies_match',10);
             $table->string('apply_number',2);
-      
         });
     }
 
@@ -44,6 +44,6 @@ class CreateVacanciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacanciesBase');
+        Schema::dropIfExists('historyVacanciesBase');
     }
 }

@@ -15,11 +15,11 @@ class CreatePairTable extends Migration
     {
         Schema::create('pairBase', function (Blueprint $table) {
             $table->string('user_id',25)->comment("id");
-            $table->string('teacher_name',80)->comment("老師名稱");
-            $table->string('company_name',55)->comment("公司名稱");
-            $table->date('start_time')->comment("開始時間")->nullable();
-            $table->date('end_time')->comment("結束時間")->nullable();
-
+            $table->string('vacancies_id',25)->comment("職缺id");
+            $table->date('start_time')->comment("開始時間");
+            $table->date('end_time')->comment("結束時間");
+            $table->string('teacher_confirm',8)->comment("是否確認");
+            $table->string('teacher_name',5)->comment("同意人");
         });
     }
 

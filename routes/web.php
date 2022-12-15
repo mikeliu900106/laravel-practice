@@ -36,6 +36,7 @@ use App\Http\Controllers\StudentFileController;
 use App\Http\Controllers\phpwordController;
 use App\Http\Controllers\CompanyPairController;
 use App\Http\Controllers\PhpExcelController;
+use App\Http\Controllers\phpwordDownloadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,3 +101,4 @@ Route::resource('StudentFile',StudentFileController::class);
 Route::resource('phpword',phpwordController::class);
 Route::resource('CompanyPair',CompanyPairController::class);
 Route::resource('PhpExcel',PhpExcelController::class);
+Route::resource('phpwordDownload',phpwordDownloadController::class);
