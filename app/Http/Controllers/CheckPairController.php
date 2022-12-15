@@ -21,11 +21,8 @@ class CheckPairController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '2') {
                 $user_id = $request-> user_id;
-                if(Pair::where('user_id',$user_id)->count() != 0){
-
-             
-                   
-                    $teacher_id = session()->get("iser_id");
+                if(Pair::where('user_id',$user_id)->count() >= 0){
+                    $teacher_id = session()->get("user_id");
 
                     echo $user_id;
                     $pair_datas = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
@@ -169,6 +166,7 @@ class CheckPairController extends Controller
                 'apply_number'              =>   $apply_number             ,             
             ]
         );
+        return redirect()->route("CheckPair.index");
     }
 
     /**
@@ -192,8 +190,10 @@ class CheckPairController extends Controller
     public function destroy(Request $request,$id)
     {
         $vacancies_id = $request->vacancies_id;
-        Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
+       echo $vacancies_id;
+       echo $id;
         $pair_datas = Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->get();
+        echo $pair_datas ;
         foreach($pair_datas as $pair_data){
             $start_time = $pair_data["start_time"];
             $end_time = $pair_data["end_time"];
@@ -212,6 +212,7 @@ class CheckPairController extends Controller
             ]
 
         );
+        Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
         return redirect()->route("CheckPair.index");
     }
 }

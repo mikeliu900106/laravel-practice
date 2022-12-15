@@ -30,10 +30,10 @@
                             <th>刪除</th>
                         </tr>
                     </thead>
-                    <tbody class="">
+                    <tbody>
                         <tr class="text-center">
                             {{$user_id = $pair_data->user_id}}
-                            <td>{{ $pair_data->company_name }}</td>
+                            <td data-lebel="">{{ $pair_data->company_name }}</td>
                             <td>{{ $pair_data->vacancies_name }}</td>
                             <td>{{ $pair_data->start_time }}</td>
                             <td>{{ $pair_data->end_time }}</td>

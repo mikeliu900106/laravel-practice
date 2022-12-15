@@ -179,6 +179,9 @@ $btn-danger: #dc3545;
                     margin: 10px;
                     min-width: 140px;
                 }
+                td {
+                    height: 40px;
+                }
             }
         }
         @media (max-width: $tablet_max_width) {
