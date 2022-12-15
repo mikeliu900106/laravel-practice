@@ -22,13 +22,13 @@ class CreateVacanciesTable extends Migration
             $table->string('vacancies_county',25);
             $table->string('vacancies_district',30);
             $table->string('vacancies_address',30);
-            $table->string('company_content',50);
+            $table->string('company_content',150);
             $table->string('vacancies_Skill',50);
             $table->string('company_work_experience',50);
             $table->string('company_Education',50);
             $table->string('company_department',30);
             $table->string('company_other',80);
-            $table->string('company_safe',50);
+            $table->string('company_safe',150);
             $table->string('teacher_watch',8);
             $table->string('teacher_name',10);
             $table->string('vacancies_match',10);
