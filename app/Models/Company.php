@@ -11,6 +11,6 @@ class Company extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'company';
+    protected $table = 'companybase';
     protected $guarded = [];
 }

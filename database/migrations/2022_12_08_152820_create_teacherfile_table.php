@@ -13,7 +13,7 @@ class CreateTeacherfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('teavherfileBase', function (Blueprint $table) {
+        Schema::create('teacherfileBase', function (Blueprint $table) {
             $table->string('teacher_id',25)->comment("id");
             $table->string('teacher_file_id',30)->comment("老師檔案id");
             $table->string('teacher_file_path',85)->comment("檔案路徑");
@@ -29,6 +29,6 @@ class CreateTeacherfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teavherfileBase');
+        Schema::dropIfExists('teacherfileBase');
     }
 }

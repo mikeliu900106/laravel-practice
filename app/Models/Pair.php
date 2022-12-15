@@ -11,7 +11,7 @@ class Pair extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'pair';
+    protected $table = 'pairbase';
     protected $primaryKey = 'user_id';
     protected $guarded = [];
 }

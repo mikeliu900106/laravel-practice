@@ -11,7 +11,7 @@ class Vacancies extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'Vacancies';
+    protected $table = 'vacanciesbase';
     protected $attributes = [
         'teacher_watch' => "還沒審查",
     ];

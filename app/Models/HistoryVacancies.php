@@ -11,6 +11,6 @@ class HistoryVacancies extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'history_vacancies';
+    protected $table = 'historyvacanciesbase';
     protected $guarded = [];
 }

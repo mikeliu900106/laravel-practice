@@ -11,7 +11,7 @@ class Chat extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'chat';
+    protected $table = 'chatbase';
     protected $primaryKey = 'chat_id';
     protected $guarded = [];    
 }

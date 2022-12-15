@@ -12,6 +12,6 @@ class Score extends Model
     protected $keyType = 'string';  
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'score';
+    protected $table = 'scorebase';
     protected $guarded = [];
 }

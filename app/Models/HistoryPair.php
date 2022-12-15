@@ -11,6 +11,6 @@ class HistoryPair extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'history_pair';
+    protected $table = 'historypairbase';
     protected $guarded = [];
 }

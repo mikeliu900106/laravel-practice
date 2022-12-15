@@ -11,6 +11,6 @@ class Teacher extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'teacher';
+    protected $table = 'teacherbase';
     protected $guarded = [];
 }

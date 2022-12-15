@@ -11,7 +11,7 @@ class Login extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'login';
+    protected $table = 'loginbase';
     protected $primaryKey = 'id';
     protected $guarded = [];
 }

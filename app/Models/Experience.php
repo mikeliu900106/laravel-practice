@@ -11,6 +11,6 @@ class Experience extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'experience';
+    protected $table = 'experiencebase';
     protected $guarded = [];
 }

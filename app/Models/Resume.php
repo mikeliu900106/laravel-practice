@@ -11,7 +11,7 @@ class Resume extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'resume';
+    protected $table = 'resumebase';
     protected $primaryKey = 'user_id';
     protected $guarded = [];
 }

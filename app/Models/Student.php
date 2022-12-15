@@ -12,6 +12,6 @@ class Student extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $table = 'user';
+    protected $table = 'userbase';
     protected $guarded = [];
 }
