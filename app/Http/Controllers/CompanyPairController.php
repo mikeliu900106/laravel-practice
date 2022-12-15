@@ -172,7 +172,7 @@ class CompanyPairController extends Controller
     public function destroy(Request $request,$id)
     {
         $vacancies_id = $request->vacancies_id;
-        Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
+        
         $pair_datas = Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->get();
         foreach($pair_datas as $pair_data){
             $start_time = $pair_data["start_time"];
@@ -192,6 +192,7 @@ class CompanyPairController extends Controller
             ]
 
         );
+        Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
         return redirect()->route("CompanyPair.index");
      
 
