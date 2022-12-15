@@ -25,13 +25,18 @@ $tablet-max-width: 767px;
         }
         li {
             display: flex;
+            align-items: center;
         }
         span {
-            text-align: center;
-            margin: auto 5px auto 0;
+            white-space: pre-wrap;
+            // max-width: 1080px;
+            // height: 80px;
         }
         .btn {
             width: 75px;
+        }
+        ul {
+            width: 100%;
         }
     }
 }
@@ -55,5 +60,12 @@ $tablet-max-width: 767px;
                 justify-content: center;
             }
         }
+    }
+}
+.dtr-title {
+    width: 80px;
+    word-break: keep-all;
+    &::after {
+        content: "：";
     }
 }

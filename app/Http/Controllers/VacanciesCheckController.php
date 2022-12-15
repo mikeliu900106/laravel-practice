@@ -159,27 +159,27 @@ class VacanciesCheckController extends Controller
     public function destroy($id)
     {
         $user_id = session()->get('user_id');
-        $vacancies_datas = Vacancies::get()->where('teacher_watch', '通過');
-        foreach ($vacancies_datas as $vacancies_data) {
-            $company_id                =  $vacancies_data["company_id"];
-            $vacancies_id              =  $vacancies_data["vacancies_id"];
-            $vacancies_name            =  $vacancies_data["vacancies_name"];
-            $company_money             =  $vacancies_data["company_money"];
-            $company_time              =  $vacancies_data["company_time"];
-            $vacancies_county          =  $vacancies_data["vacancies_county"];
-            $vacancies_district        =  $vacancies_data["vacancies_district"];
-            $vacancies_address         =  $vacancies_data["vacancies_address"];
-            $company_content           =  $vacancies_data["company_content"];
-            $company_work_experience   =  $vacancies_data["company_work_experience"];
-            $vacancies_Skill           =  $vacancies_data["vacancies_Skill"];
-            $company_Education         =  $vacancies_data["company_Education"];
-            $company_department        =  $vacancies_data["company_department"];
-            $company_other             =  $vacancies_data["company_other"];
-            $company_safe              =  $vacancies_data["company_safe"];
-            $teacher_watch             =  $vacancies_data["teacher_watch"];
-            $teacher_name              =  $vacancies_data["teacher_name"];
-            $vacancies_match           =  $vacancies_data["vacancies_match"];
-            $apply_number              =  $vacancies_data["apply_number"];
+        $vacancies_datas = Vacancies::get();
+        foreach($vacancies_datas as $vacancies_data){
+            $company_id                =  $vacancies_data["company_id"]                ;
+            $vacancies_id              =  $vacancies_data["vacancies_id"]              ;
+            $vacancies_name            =  $vacancies_data["vacancies_name"]            ;
+            $company_money             =  $vacancies_data["company_money"]             ;
+            $company_time              =  $vacancies_data["company_time"]              ;
+            $vacancies_county          =  $vacancies_data["vacancies_county"]          ;
+            $vacancies_district        =  $vacancies_data["vacancies_district"]        ;
+            $vacancies_address         =  $vacancies_data["vacancies_address"]         ;
+            $company_content           =  $vacancies_data["company_content"]           ;
+            $company_work_experience   =  $vacancies_data["company_work_experience"]   ;
+            $vacancies_Skill           =  $vacancies_data["vacancies_Skill"]           ;
+            $company_Education         =  $vacancies_data["company_Education"]         ;
+            $company_department        =  $vacancies_data["company_department"]        ;
+            $company_other             =  $vacancies_data["company_other"]             ;
+            $company_safe              =  $vacancies_data["company_safe"]              ;
+            $teacher_watch             =  $vacancies_data["teacher_watch"]             ;
+            $teacher_name              =  $vacancies_data["teacher_name"]              ;
+            $vacancies_match           =  $vacancies_data["vacancies_match"]           ;
+            $apply_number              =  $vacancies_data["apply_number"]              ;            
         }
         HistoryVacancies::create(
             [
