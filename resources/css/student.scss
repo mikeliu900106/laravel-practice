@@ -28,7 +28,7 @@ $btn-danger: #dc3545;
     padding: 10px;
     border: solid 5px #1e90ff;
     border-radius: 1rem;
-    .Vacancy-Content {
+    .Vacancies-Content {
         position: relative;
         display: flex;
         box-sizing: border-box;
@@ -36,7 +36,7 @@ $btn-danger: #dc3545;
         @media (max-width: 1200px) {
             flex-direction: column;
         }
-        .Tabs-List {
+        .Vacancies-Tabs-List {
             nav {
                 flex-direction: column;
                 position: fixed;
@@ -76,30 +76,41 @@ $btn-danger: #dc3545;
                 border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
             }
         }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            li {
-                font-size: 24px;
-                margin: 10px;
-                // max-width: 83.3%;
-                display: flex;
-                flex-wrap: wrap;
-                word-wrap: break-word;
-                // box-sizing: border-box;
-                i {
-                    margin-right: 5px;
+        .Vacancies-Info {
+            .Info-Item {
+                margin-top: 1.2rem;
+                .Jobs-Title {
+                    font-size: 1.5rem;
+                    font-weight: bold;
                 }
-                p {
-                    margin: 0;
-                    min-width: 120px;
-                }
-                span {
-                    // display: inline-block;
-                    word-wrap: break-word;
-                    max-width: 100%;
+                .Jobs-Content {
+                    font-size: 1.2rem;
+                    padding: 1rem;
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        width: 100%;
+                        li {
+                            // font-size: 1.2rem;
+                            margin: 10px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            // word-wrap: break-word;
+                            i {
+                                margin-right: 5px;
+                            }
+                            p {
+                                margin: 0;
+                                min-width: 120px;
+                            }
+                            span {
+                                // display: inline-block;
+                                word-wrap: break-word;
+                                max-width: 100%;
+                            }
+                        }
+                    }
                 }
             }
         }

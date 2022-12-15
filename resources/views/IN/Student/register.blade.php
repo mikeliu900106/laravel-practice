@@ -24,7 +24,7 @@
             <!-- 註冊資料輸入欄 -->
             <div class="Input-Section">
                 <label for="input_random">請查收Email內的驗證碼</label>
-                <input class="Account-Text" type="text" name="input_random" class="Account_text" placeholder="請輸入驗證碼">
+                <input class="Account-Text" type="text" name="input_random" placeholder="請輸入驗證碼">
                 <input type="hidden" name="random" value="{{$random}}">
                 <input type="hidden" name="user_id" value="{{$student_datas["user_id"]}}">
                 <input type="hidden" name='username' value="{{$student_datas['username']}}">
