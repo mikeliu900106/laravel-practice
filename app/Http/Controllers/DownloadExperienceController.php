@@ -76,9 +76,9 @@ class DownloadExperienceController extends Controller
             foreach($Experience_data as $value){
                 $file_name = $value["Experience_file_name"];
                 
-                $real_file_path = public_path()."/storage/Experience/".$file_name;
+               
             }
-            // echo $real_file_path;
+            echo $real_file_path;
             return Response::download($real_file_path);
         }
         else{

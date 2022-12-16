@@ -2,8 +2,11 @@ $navbar_color: #1c1c1c;
 $navbar_font_color: white;
 $navbar_font_color_hover: #1e90ff;
 $light_blue: #59d3eb;
-$phone-max-width: 576px;
-$tablet-max-width: 768px;
+$xs_max: 576px;
+$sm_max: 767px;
+$md_max: 992px;
+$lg_max: 1200px;
+$xl_max: 1400px;
 
 @mixin size($w, $h: $w) {
     width: $w;
@@ -54,7 +57,7 @@ nav {
         font-size: 25px;
         font-weight: 700;
     }
-    @media screen and (max-width: 244px) {
+    @media screen and (max-width: 250px) {
         justify-content: center !important;
         .navbar-toggler {
             width: 80%;
@@ -94,7 +97,7 @@ nav {
                 justify-content: center;
                 padding-bottom: 5px;
             }
-            @media (max-width: $tablet-max-width) {
+            @media (max-width: $sm_max) {
                 // justify-content: flex-start;
                 ul.dropdown-menu {
                     transition: 1s;
@@ -106,11 +109,11 @@ nav {
             padding-left: 0.5em;
             padding-right: 0.5em;
         }
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: $sm_max) {
             width: 100%;
             // padding-left: 30px;
         }
-        @media screen and (min-width: $phone-max-width) {
+        @media screen and (min-width: $xs_max) {
             &:hover {
                 ul.dropdown-menu {
                     display: block;
@@ -158,13 +161,13 @@ nav {
 #container {
     margin: 30px auto;
     // border: solid 10px $light_blue;
-    @media (min-width: 768px) {
+    @media (min-width: $sm_max) {
         width: 750px;
     }
-    @media (min-width: 992px) {
+    @media (min-width: $md_max) {
         width: 92%;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: $lg_max) {
         width: 1180px;
     }
     h1 {
@@ -202,7 +205,7 @@ nav {
             .author {
                 margin-right: 10px;
             }
-            @media (max-width: $phone_max_width) {
+            @media (max-width: $xl_max) {
                 flex-direction: column;
             }
         }
@@ -300,8 +303,7 @@ nav {
                 text-decoration: none;
             }
         }
-
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: $md_max) {
             thead {
                 display: none;
             }
@@ -310,7 +312,7 @@ nav {
             td {
                 text-align: right !important;
                 display: block;
-                min-height: 48px;
+                min-height: 3rem;
                 &:before {
                     content: attr(data-label);
                     position: absolute;
@@ -390,7 +392,6 @@ nav {
             min-width: 200px;
         }
     }
-    h1,
     .btn-primary {
         width: 100%;
         min-width: 565px;

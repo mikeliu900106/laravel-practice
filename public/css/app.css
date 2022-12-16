@@ -36,7 +36,7 @@ nav a {
   font-size: 25px;
   font-weight: 700;
 }
-@media screen and (max-width: 244px) {
+@media screen and (max-width: 250px) {
   nav {
     justify-content: center !important;
   }
@@ -78,7 +78,7 @@ nav a {
   justify-content: center;
   padding-bottom: 5px;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .navbar-nav li a.nav-link ul.dropdown-menu {
     transition: 1s;
   }
@@ -127,7 +127,7 @@ nav a {
 #container {
   margin: 30px auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   #container {
     width: 750px;
   }
@@ -177,7 +177,7 @@ nav a {
 .Response-Box .Response-Card .Message-Detail .author {
   margin-right: 10px;
 }
-@media (max-width: 576px) {
+@media (max-width: 1400px) {
   .Response-Box .Response-Card .Message-Detail {
     flex-direction: column;
   }
@@ -278,7 +278,7 @@ nav a {
   .CheckUser-Box table td {
     text-align: right !important;
     display: block;
-    min-height: 48px;
+    min-height: 3rem;
   }
   .CheckUser-Box table tbody:before,
   .CheckUser-Box table tr:before,
@@ -358,7 +358,6 @@ nav a {
 .Announcement-Box table td:first-child {
   min-width: 200px;
 }
-.Announcement-Box h1,
 .Announcement-Box .btn-primary {
   width: 100%;
   min-width: 565px;
@@ -696,7 +695,6 @@ nav a {
 
 .Pair-Box {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
@@ -706,18 +704,26 @@ nav a {
 }
 .Pair-Box .Pair-Fill-In {
   width: 100%;
-  margin: 10px;
+  padding: 10px;
 }
 .Pair-Box .Pair-Fill-In .Pair-Row {
   display: flex;
   justify-content: center;
   margin: 5px;
+  align-items: center;
   width: 100%;
-  font-size: 20px;
+  font-size: 1.4rem;
 }
 .Pair-Box .Pair-Fill-In .Pair-Row span {
   min-width: 220px;
   text-align: right;
+}
+.Pair-Box .Pair-Fill-In .Pair-Row select,
+.Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
+  max-width: 20rem;
+  flex: 1;
+  text-align: center;
+  height: 2.5rem;
 }
 @media (max-width: 576px) {
   .Pair-Box .Pair-Fill-In .Pair-Row {
@@ -727,6 +733,7 @@ nav a {
   }
   .Pair-Box .Pair-Fill-In .Pair-Row select,
   .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
+    max-width: none;
     width: 100%;
   }
   .Pair-Box .Pair-Fill-In .Pair-Row span {
@@ -735,60 +742,57 @@ nav a {
     text-align: left;
   }
 }
-.Pair-Box .Pair-Fill-In select,
-.Pair-Box .Pair-Fill-In input[type=date] {
-  width: 250px;
-  height: 30px;
-}
 .Pair-Box input[type=submit] {
   width: 100%;
 }
 .Pair-Box table {
-  width: 100%;
-  font-size: 20px;
+  min-width: 20rem;
+  font-size: 1.125rem;
 }
-.Pair-Box table thead tr th {
-  margin: 10px;
-  min-width: 140px;
+.Pair-Box table tr th {
+  word-break: keep-all;
 }
-.Pair-Box table thead tr td {
-  height: 40px;
+.Pair-Box table tr td {
+  vertical-align: middle;
+  background: rgba(33, 37, 41, 0.05) !important;
 }
-@media (max-width: 768px) {
-  .Pair-Box table {
-    display: flex;
-  }
-  .Pair-Box table thead {
-    width: 100px !important;
-  }
-  .Pair-Box table thead tr {
-    display: flex;
-    flex-direction: column;
-  }
-  .Pair-Box table thead tr th {
-    margin: 0;
-    width: 100px;
-  }
-  .Pair-Box table tbody {
-    width: 100%;
-  }
-  .Pair-Box table tbody tr {
-    display: flex;
-    flex-direction: column;
-  }
-  .Pair-Box table tbody td {
-    min-width: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom-color: black;
-    width: 100%;
-    height: 47px;
+.Pair-Box table tr td a,
+.Pair-Box table tr td button {
+  width: 100px !important;
+}
+.Pair-Box table form {
+  margin: 0;
+}
+@media screen and (max-width: 992px) {
+  .Pair-Box table tr {
     position: relative;
+    border-left: solid 1px rgba(0, 0, 0, 0.2);
+    border-right: solid 1px rgba(0, 0, 0, 0.2);
   }
-  .Pair-Box table tbody td a,
-  .Pair-Box table tbody td form {
-    max-width: 200px;
+  .Pair-Box table tr th {
+    display: none;
+  }
+  .Pair-Box table tr td {
+    line-height: 2rem;
+    min-height: 3rem;
+    display: block;
+    text-align: right;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  }
+  .Pair-Box table tr td:before {
+    content: attr(data-lebel);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    width: 50%;
+    text-align: left;
+    padding-left: 15px;
+  }
+  .Pair-Box table tr td:nth-child(odd) {
+    background: white !important;
+  }
+  .Pair-Box table tr td:first-child {
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
   }
 }
 

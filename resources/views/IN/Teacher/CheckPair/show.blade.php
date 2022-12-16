@@ -33,16 +33,16 @@
                     <tbody>
                         <tr class="text-center">
                             @foreach($Pairs as $pairData)
-                            <td>{{ $pairData->user_real_name }}</td>
-                            <td>{{ $pairData->company_name }}</td>
-                            <td>{{ $pairData->start_time }}</td>
-                            <td>{{ $pairData->end_time }}</td>
-                            <td>{{ $pairData->teacher_confirm }}</td>
-                            <td>{{ $pairData->teacher_name }}</td>
-                            <td>
+                            <td data-lebel="學生名稱">{{ $pairData->user_real_name }}</td>
+                            <td data-lebel="公司名稱">{{ $pairData->company_name }}</td>
+                            <td data-lebel="開始時間">{{ $pairData->start_time }}</td>
+                            <td data-lebel="結束時間">{{ $pairData->end_time }}</td>
+                            <td data-lebel="是否配對">{{ $pairData->teacher_confirm }}</td>
+                            <td data-lebel="配對人員">{{ $pairData->teacher_name }}</td>
+                            <td data-lebel="認證">
                                 <a class="w-100 btn btn-success text-decoration-none text-white" href="{{ route('CheckPair.edit',['CheckPair' =>$pairData->vacancies_id,'vacancies_id'=>$pairData->user_id ] )}}">認證</a>
                             </td>
-                            <td>
+                            <td data-lebel="刪除">
                                 <form class="w-100" action="{{ route('CheckPair.destroy',$pairData->user_id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
