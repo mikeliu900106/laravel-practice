@@ -23,55 +23,49 @@ class PairController extends Controller
             if ($request->session()->get('level') == '4') {
                 $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
-                //echo $user_id;
-                $pair = Pair::where('user_id',"$user_id")->count();
-                $Teacher_name =Teacher::select('teacher_real_name')->get();
-                $Vacancies_datas =$Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-                ->select('vacanciesbase.*', 'companybase.*')
-                ->where("vacanciesbase.teacher_watch","通過")
-                ->get();
-                $Pair_data = Pair::where('user_id',"$user_id")->get();
-                if($pair == 0){
-                    return view('IN.Student.Pair.index',
-                    [
-                        'Teacher_names' =>$Teacher_name,
-                        'Vacancies_datas' =>$Vacancies_datas,
-                    ]);
-                }else{
-                    $Pair_Vacancies_id = Pair::select('vacancies_id')->where('user_id',$user_id)->get();
-                    foreach($Pair_Vacancies_id as $value){
+                // echo $user_id;
+                $pair = Pair::where('user_id', "$user_id")->count();
+                $Teacher_name = Teacher::select('teacher_real_name')->get();
+                $Vacancies_datas = $Vacancies = Vacancies::join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
+                    ->select('vacanciesbase.*', 'companybase.*')
+                    ->where("vacanciesbase.teacher_watch", "通過")
+                    ->get();
+                $Pair_data = Pair::where('user_id', "$user_id")->get();
+                if ($pair == 0) {
+                    return view(
+                        'IN.Student.Pair.index',
+                        [
+                            'Teacher_names' => $Teacher_name,
+                            'Vacancies_datas' => $Vacancies_datas,
+                        ]
+                    );
+                } else {
+                    $Pair_Vacancies_id = Pair::select('vacancies_id')->where('user_id', $user_id)->get();
+                    foreach ($Pair_Vacancies_id as $value) {
                         $Pair_Vacancies_id = $value['vacancies_id'];
                     }
                     echo $Pair_Vacancies_id;
-                    $pair_datas  = Vacancies::leftJoin('companybase','companybase.company_id','=','vacanciesbase.company_id')
-                    ->leftJoin('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
-                    ->select('vacanciesbase.*', 'companybase.*','pairbase.*')
-                    ->where('vacanciesbase.vacancies_id',$Pair_Vacancies_id)
-                    ->where("vacanciesbase.teacher_watch","通過")
-                    ->get();
+                    $pair_datas  = Vacancies::leftJoin('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
+                        ->leftJoin('pairbase', 'pairbase.vacancies_id', '=', 'vacanciesbase.vacancies_id')
+                        ->select('vacanciesbase.*', 'companybase.*', 'pairbase.*')
+                        ->where('vacanciesbase.vacancies_id', $Pair_Vacancies_id)
+                        ->where("vacanciesbase.teacher_watch", "通過")
+                        ->get();
                     // echo $Vacancies_datas;
-                    return view('IN.Student.Pair.show',[
+                    return view('IN.Student.Pair.show', [
                         'pair_datas' => $pair_datas,
                     ]);
                 }
-
-               //之後下面要改
-
-            }
-            elseif($request->session()->get('level') == '1'){
+                //之後下面要改
+            } elseif ($request->session()->get('level') == '1') {
                 echo "請等老師認證為本人,此功能開放";
-            }
-            else{
+            } else {
                 echo "你不是學生";
                 //1. 顯示錯誤2.錯誤controller
-                
-
             }
-        }
-        else{
+        } else {
             echo "你沒登入";
         }
-       
     }
 
     /**
@@ -81,8 +75,6 @@ class PairController extends Controller
      */
     public function create(Request $request)
     {
-        
-        
     }
 
     /**
@@ -95,7 +87,7 @@ class PairController extends Controller
     {
         $user_id = session()->get('user_id');
         echo $user_id;
-        $validata = $request -> validate([
+        $validata = $request->validate([
             'choose_vacancies_id' => 'required|string',
             'start_tme' => 'required',
             'end_tme' => 'required',
@@ -107,11 +99,10 @@ class PairController extends Controller
                 'start_time'    => $validata['start_tme'],
                 'end_time'      => $validata['end_tme'],
                 'teacher_confirm' => '尚未確認',
-                'teacher_name'   =>'暫無確認',
+                'teacher_name'   => '暫無確認',
             ]
         );
         return redirect()->route("Pair.index");
-
     }
 
     /**
@@ -122,7 +113,6 @@ class PairController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -131,22 +121,23 @@ class PairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id)
+    public function edit(Request $request, $id)
     {
-        $vacancies_id =$request->vacancies_id;
-        $Teacher_name =Teacher::select('teacher_real_name')->get();
-        $Vacancies_datas =Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-        ->select('vacanciesbase.*', 'companybase.*')
-        // ->where("vacancies.teacher_watch","通過")
-        ->get();
+        $vacancies_id = $request->vacancies_id;
+        $Teacher_name = Teacher::select('teacher_real_name')->get();
+        $Vacancies_datas = Vacancies::Join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
+            ->select('vacanciesbase.*', 'companybase.*')
+            // ->where("vacancies.teacher_watch","通過")
+            ->get();
         echo $Vacancies_datas;
-       
-        return view('IN.Student.Pair.edit',
-                    [
-                        'id'=>$id,
-                        'Vacancies_datas' =>$Vacancies_datas
-                    ]
-                );
+
+        return view(
+            'IN.Student.Pair.edit',
+            [
+                'id' => $id,
+                'Vacancies_datas' => $Vacancies_datas
+            ]
+        );
     }
 
     /**
@@ -158,27 +149,26 @@ class PairController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validata = $request -> validate([
+        $validata = $request->validate([
             'choose_vacancies_id' => 'required',
             'start_tme' => 'required',
             'end_tme' => 'required',
         ]);
-        Pair::where('user_id', $id)->where('vacancies_id',$validata['choose_vacancies_id'])
-        ->update(
-        [
-            'user_id'       => $id,
-            'vacancies_id'  => $validata['choose_vacancies_id'],
-            'start_time'    => $validata['start_tme'],
-            'end_time'      => $validata['end_tme'],
-            'teacher_confirm' => '尚未確認',
-            'teacher_name'   =>'暫無確認',
-            
-        ]);
-        $Pair_data = Pair::where('user_id',$id)->get();
-    
-        return redirect()->route("Pair.index");
+        Pair::where('user_id', $id)->where('vacancies_id', $validata['choose_vacancies_id'])
+            ->update(
+                [
+                    'user_id'       => $id,
+                    'vacancies_id'  => $validata['choose_vacancies_id'],
+                    'start_time'    => $validata['start_tme'],
+                    'end_time'      => $validata['end_tme'],
+                    'teacher_confirm' => '尚未確認',
+                    'teacher_name'   => '暫無確認',
 
-        
+                ]
+            );
+        $Pair_data = Pair::where('user_id', $id)->get();
+
+        return redirect()->route("Pair.index");
     }
 
     /**
@@ -189,9 +179,9 @@ class PairController extends Controller
      */
     public function destroy($id)
     {
-        $pair_datas = Pair::where('user_id', '=',$id)->get();
+        $pair_datas = Pair::where('user_id', '=', $id)->get();
         echo $pair_datas;
-        foreach($pair_datas as $pair_data){
+        foreach ($pair_datas as $pair_data) {
             $delete_time = $pair_data["delete_time"];
             $user_id = $pair_data["user_id"];
             $vacancies_id = $pair_data["vacancies_id"];
@@ -201,18 +191,17 @@ class PairController extends Controller
             $teacher_name = $pair_data["teacher_name"];
         }
         echo $pair_datas;
-            HistoryPair::create([
-                'delete_time'     => Date("Ymd"),
-                'user_id'         => $id,
-                'vacancies_id'    => $vacancies_id,
-                'start_time'      => $start_time,
-                'end_time'        => $end_time,
-                'teacher_confirm' => $is_confirm,
-                'teacher_name'    => $teacher_name,
-            ]);
+        HistoryPair::create([
+            'delete_time'     => Date("Ymd"),
+            'user_id'         => $id,
+            'vacancies_id'    => $vacancies_id,
+            'start_time'      => $start_time,
+            'end_time'        => $end_time,
+            'teacher_confirm' => $is_confirm,
+            'teacher_name'    => $teacher_name,
+        ]);
 
-        Pair::where('user_id',$id) ->delete();
+        Pair::where('user_id', $id)->delete();
         return redirect()->route("Pair.index");
     }
-
 }

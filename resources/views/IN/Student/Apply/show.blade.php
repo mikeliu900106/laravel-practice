@@ -35,11 +35,11 @@
                     <div class="Vacancies-Info col-md-10 ">
                         <div class="Jobs-Company Info-Item">
                             <div class="Jobs-Title">{{$Vacancie->company_name}}</div> <!-- 公司名稱 -->
-                            <div class="Jobs-Content text-muted">{{$Vacancie->vacancies_title}}</div> <!-- 公司分類 # -->
+                            <div class="text-muted">{{$Vacancie->company_title}}</div> <!-- 公司分類 # -->
                         </div>
                         <div class="Jobs-Description Info-Item">
                             <div class="Jobs-Title">工作內容：</div>
-                            <div class="Jobs-Content">{{$Vacancie->company_content}}</div>
+                            <div class="Jobs-Content" style="white-space: pre-wrap;">{{$Vacancie->company_content}}</div>
                         </div>
                         <div class="Jobs-Info Info-Item">
                             <div class="Jobs-Title">公司資訊：</div>
