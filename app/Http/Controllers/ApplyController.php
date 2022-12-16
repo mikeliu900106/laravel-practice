@@ -26,7 +26,7 @@ class ApplyController extends Controller
             if ($request->session()->get('level') == '4' ||$request->session()->get('level') == '1') {
                 $user_id = session()->get('user_id');
                 //$Vacancies = Vacancies::get();
-                echo $user_id;
+                // echo $user_id;
                 if ($request->has('search')) {
                     $search = $request->search;
                     $Vacancies = Vacancies::join('company','company.company_id','vacancies.company_id')
@@ -41,7 +41,7 @@ class ApplyController extends Controller
                     ->orWhere('vacancies_address', 'LIKE', "%{$search}%")
                     ->where('teacher_watch','通過')
                     ->paginate(10);
-                    echo $Vacancies;
+                    // echo $Vacancies;
                     return view('IN.student.Apply.index',[
                         'Vacancies'=> $Vacancies,
                         'user_id'  => $user_id,
@@ -51,7 +51,7 @@ class ApplyController extends Controller
                     ->select('vacanciesbase.*', 'companybase.*')
                     ->where('teacher_watch','通過')
                     ->paginate(10);
-                    echo $Vacancies;
+                    // echo $Vacancies;
                 }
 
                 return view('IN.student.Apply.index',[
@@ -112,7 +112,7 @@ class ApplyController extends Controller
                     'Vacancies'=> $Vacancies,
                     'user_id'  => $user_id,
                 ]);
-        echo $Vacancies;
+        // echo $Vacancies;
     }
 
     /**
@@ -135,9 +135,9 @@ class ApplyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo  $id;
+        // echo  $id;
         $company_email  = $request->company_email;
-        echo $company_email;
+        // echo $company_email;
         $user_id = session()->get('user_id');
         $isUseResume = Resume::where("user_id",$user_id)->count();
         $isUseScore = Score::where("user_id",$user_id)->count();
@@ -200,7 +200,7 @@ class ApplyController extends Controller
                         'apply_number' => $apply_number,
                     ]
                 );
-                echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
+                // echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
                 return redirect()-> route('Apply.index');
             }
         }

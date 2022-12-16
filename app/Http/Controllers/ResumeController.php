@@ -38,7 +38,7 @@ class ResumeController extends Controller
     public function create(Request $request)
     {
         $user_id = $request -> user_id;
-        echo  $user_id;
+        // echo  $user_id;
         return view('IN.Student.Resume.update',
             [
                 "user_id" => $user_id,

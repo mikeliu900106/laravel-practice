@@ -23,8 +23,8 @@ class FileController extends Controller
                 $user_id = session()->get('user_id');
                 $isUpload = Resume::where('user_id',$user_id)->count();
                 $upload = Resume::where('user_id',$user_id)->get();
-                echo $isUpload;
-                echo $upload;
+                // echo $isUpload;
+                // echo $upload;
                     return view('IN.Student.File.index'
                 );
 
@@ -88,7 +88,7 @@ class FileController extends Controller
                     $delete_name = $dlete_data->file_name;
                     $real_delete_data = $file_floder.$delete_name ;
                     //上一行特別重要delete規律
-                    echo  $real_delete_data ;
+                    // echo  $real_delete_data ;
                     Storage::delete($delete_name);
                     Resume::where("user_id",$user_id)->delete();
                 }
@@ -105,7 +105,7 @@ class FileController extends Controller
                         $file_name = getResumeName();
                         $file->storeAs($file_floder,$file_name) ;
                         $file_path  =public_path()."\upload\\".$file_name;
-                        echo $file_path;
+                        // echo $file_path;
                         $Resume = [
                             'user_id'    => $user_id,
                             'file_path'  => $file_path,
@@ -116,7 +116,7 @@ class FileController extends Controller
                         $file_name = getResumeName();
                         $file->storeAs($file_floder,$file_name) ;
                         $file_path  =public_path()."\upload\\".$file_name;
-                        echo $file_path;
+                        // echo $file_path;
                         $Resume = [
                             'user_id'    => $user_id,
                             'file_path'  => $file_path,
@@ -130,7 +130,7 @@ class FileController extends Controller
                     $file_name = getResumeName();
                     $file->storeAs('public\upload\\',$file_name) ;
                     $file_path  =public_path()."\upload\\".$file_name;
-                    echo $file_path;
+                    // echo $file_path;
                     $Resume = [
                         'user_id'    => $user_id,
                         'file_path'  => $file_path,
@@ -156,7 +156,7 @@ class FileController extends Controller
                 //echo $file_name;
                 $file->storeAs('public\upload',$file_name) ;
                 $file_path  =public_path()."\upload\\".$file_name;
-                echo $file_path;
+                // echo $file_path;
                 $Resume = [
                     'user_id'    => $user_id,
                     'file_path'  => $file_path,
@@ -168,7 +168,7 @@ class FileController extends Controller
              return  redirect()->route("File.index");
         }
         else{
-            echo("你沒上傳檔案"); 
+            echo "你沒上傳檔案"; 
         }
         
     }

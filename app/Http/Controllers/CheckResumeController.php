@@ -99,10 +99,10 @@ class CheckResumeController extends Controller
         $Resume_datas = Resume::where('user_id',$id)->get();
         foreach($Resume_datas as $Resume_data ){
             $resume_name = $Resume_data["resume_file_name"];
-            echo $resume_name;
+            // echo $resume_name;
         }
         $real_path = public_path()."\storage\upload\\".$resume_name;
-        echo $real_path;
+        // echo $real_path;
         return response()->file($real_path);
     }
 

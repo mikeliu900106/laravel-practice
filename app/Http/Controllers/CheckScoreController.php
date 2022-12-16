@@ -56,10 +56,10 @@ class CheckScoreController extends Controller
         $Resume_datas = score::where('user_id',$id)->get();
         foreach($Resume_datas as $Resume_data ){
             $score_name = $Resume_data["score_file_name"];
-            echo $score_name;
+            // echo $score_name;
         }
         $real_path = public_path()."\storage\upload\\".$score_name;
-        echo $real_path;
+        // echo $real_path;
         return response()->file($real_path);
     }
 

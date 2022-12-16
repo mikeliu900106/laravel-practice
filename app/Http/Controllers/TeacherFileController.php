@@ -144,7 +144,7 @@ class TeacherFileController extends Controller
      */
     public function destroy($id)
     {
-        echo$id;
+        // echo$id;
         function get_delete_path($delete_datas , $databaseColume){
             foreach ($delete_datas as $dlete_data) {
                 $delete_name = $dlete_data[$databaseColume];

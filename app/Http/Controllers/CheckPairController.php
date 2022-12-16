@@ -24,14 +24,14 @@ class CheckPairController extends Controller
                 if(Pair::where('user_id',$user_id)->count() >= 0){
                     $teacher_id = session()->get("user_id");
 
-                    echo $user_id;
+                    // echo $user_id;
                     $pair_datas = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
                     ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
                     ->join('userbase','userbase.user_id','=','pairbase.user_id')
                     ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
                     ->where('pairbase.user_id',$user_id)
                     ->get();
-                    echo $pair_datas;
+                    // echo $pair_datas;
                     $student_name = Student::where('user_id',$user_id)->select("user_real_name")->get();
                     return view('IN.Teacher.CheckPair.show',[
                             'Pairs' => $pair_datas,
@@ -114,7 +114,7 @@ class CheckPairController extends Controller
         ]);
         $vacancies_datas = Vacancies::where("vacancies_id",$id)->get();
 
-        // Vacancies::where("vacancies_id",$id)->delete();
+        Vacancies::where("vacancies_id",$id)->delete();
     
 
         foreach($vacancies_datas as $vacancies_data){
@@ -138,9 +138,9 @@ class CheckPairController extends Controller
             $vacancies_match           =  $vacancies_data["vacancies_match"]           ;
             $apply_number              =  $vacancies_data["apply_number"]              ;            
         }
-        echo $vacancies_Skill ;
-        echo $company_money;
-        echo$apply_number ;
+        // echo $vacancies_Skill ;
+        // echo $company_money;
+        // echo$apply_number ;
         
         HistoryVacancies::create(
             [
@@ -190,10 +190,10 @@ class CheckPairController extends Controller
     public function destroy(Request $request,$id)
     {
         $vacancies_id = $request->vacancies_id;
-       echo $vacancies_id;
-       echo $id;
+    //    echo $vacancies_id;
+    //    echo $id;
         $pair_datas = Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->get();
-        echo $pair_datas ;
+        // echo $pair_datas ;
         foreach($pair_datas as $pair_data){
             $start_time = $pair_data["start_time"];
             $end_time = $pair_data["end_time"];

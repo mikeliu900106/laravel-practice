@@ -52,7 +52,7 @@ class ExperienceController extends Controller
     public function create(Request $request)
     {
         $user_id = session()->get('user_id');
-        echo $user_id;
+        // echo $user_id;
         return view('IN.Student.Experience.update', ["user_id" => $user_id ]);
     }
 
@@ -82,7 +82,7 @@ class ExperienceController extends Controller
         function delete_file($id = "",$file_floder = 'public\Experience\\'){
                 $delete_datas = Experience::where("user_id",$id)->get();
                 $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
-                echo $delete_name;
+                // echo $delete_name;
                 $real_file_path = 'public\Experience\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Experience::where("user_id",$id)->delete();
@@ -93,7 +93,7 @@ class ExperienceController extends Controller
             $files = $request->file('files');
             $file_name =  getExperienceName();
             $file_path = "public\Experience\\";
-            echo$file_path;
+            // echo$file_path;
             $extension = $files->getClientOriginalExtension();
             $file_name = $file_name .".".$extension;
             $path = $files->storeAs($file_path,$file_name) ;
@@ -161,7 +161,7 @@ class ExperienceController extends Controller
         function delete_file($id = "",$file_floder = 'public\Experience\\'){
                 $delete_datas = Experience::where("user_id",$id)->get();
                 $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
-                echo $delete_name;
+                // echo $delete_name;
                 $real_file_path = 'public\Experience\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Experience::where("user_id",$id)->delete();
@@ -172,7 +172,7 @@ class ExperienceController extends Controller
             $files = $request->file('files');
             $file_name =  getExperienceName();
             $file_path = "public\Experience\\";
-            echo$file_path;
+            // echo$file_path;
             $extension = $files->getClientOriginalExtension();
             $file_name = $file_name .".".$extension;
             $path = $files->storeAs($file_path,$file_name) ;
@@ -204,9 +204,9 @@ class ExperienceController extends Controller
         }
         function delete_file($id = "",$file_floder = 'public\Experience\\'){
                 $delete_datas = Experience::where("user_id",$id)->get();
-                echo $delete_datas;
+                // echo $delete_datas;
                 $delete_name = get_delete_path($delete_datas,"Experience_file_name" );
-                echo $delete_name;
+                // echo $delete_name;
                 $real_file_path = 'public\Experience\\' . $delete_name;
                 Storage::delete($real_file_path);
                 Experience::where("user_id",$id)->delete();

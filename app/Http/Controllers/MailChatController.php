@@ -59,21 +59,21 @@ class MailChatController extends Controller
             foreach($resume_value as $key => $value){
                 if($key === 0){
                     $first_file_name = $value["file_name"];
-                    echo$first_file_name;
+                    // echo$first_file_name;
                 }
                 elseif($key === 1){
                     $twice_file_name = $value["file_name"];
-                    echo $twice_file_name;
+                    // echo $twice_file_name;
                 }
             }
             if(!empty($twice_file_name)){
                 $first_path = public_path()."\storage\upload\\".$first_file_name;
                 $twice_path = public_path()."\storage\upload\\".$twice_file_name;
-                echo $first_path;
-                echo$twice_path;
+                // echo $first_path;
+                // echo$twice_path;
                 $data['first_path'] =$first_path;
                 $data['twice_path'] =$twice_path;
-                echo $resume_value;
+                // echo $resume_value;
                 Mail::send('Mail.sendMail',$data, function ($message) use ($data) {
                     $message->from('mikeliu20010106@gmail.com', $data['name']);    
                     $message->to('mikeliu20010106@gmail.com')->subject('工作應徵');
@@ -81,7 +81,7 @@ class MailChatController extends Controller
                     $message->attach($data['twice_path']);
 
                 });
-                echo "寄送成功";
+                // echo "寄送成功";
             }else{
                 $first_path = public_path()."\storage\upload\\".$first_file_name;
                 $data['first_path'] =$first_path;
@@ -90,7 +90,7 @@ class MailChatController extends Controller
                     $message->to('mikeliu20010106@gmail.com')->subject('工作應徵');
                     $message->attach($data['first_path']);
                 });
-                echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
+                // echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
             }
             // } 之後改版
             // foreach($resume_value as $key =>$value){

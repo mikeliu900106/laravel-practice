@@ -70,7 +70,7 @@ class CompanyController extends Controller
         $Company_id = get_company_id();
         $company_datas['company_id'] =$Company_id;
         $Company_username_isUse = Company::where('company_username', $company_datas['company_username'])->count();
-        echo $Company_username_isUse;
+        // echo $Company_username_isUse;
         if($Company_username_isUse == 0){
             $random = codestr();
             //echo $random;
@@ -138,10 +138,10 @@ class CompanyController extends Controller
     public function destroy($id,Request $request)
     {
         $value = $request->all();
-        echo $value["random"];
-        echo $value["input_random"];
+        // echo $value["random"];
+        // echo $value["input_random"];
         if($value["random"] === $value["input_random"]){
-            echo '登入成功';
+            // echo '登入成功';
             $Company_insert = Company::create(
                 [
                     'company_id'            =>  $value["company_id"],

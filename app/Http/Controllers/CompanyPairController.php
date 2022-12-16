@@ -27,13 +27,13 @@ class CompanyPairController extends Controller
     public function index(Request $request)
     {
         $user_id = session()->get('user_id');
-        echo $user_id;
+        // echo $user_id;
         $pair_datas =$Vacancies = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
                     ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
                     ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pairbase.*')
                     ->where('companybase.company_id',$user_id)
                     ->get();
-                    echo  $pair_datas;
+                    // echo  $pair_datas;
         return view("IN.Company.CompanyPair.index",
         [
             'pair_datas' => $pair_datas,
@@ -96,7 +96,7 @@ class CompanyPairController extends Controller
         ]);
         $vacancies_datas = Vacancies::where("vacancies_id",$id)->get();
 
-        // Vacancies::where("vacancies_id",$id)->delete();
+        Vacancies::where("vacancies_id",$id)->delete();
     
 
         foreach($vacancies_datas as $vacancies_data){
@@ -120,9 +120,9 @@ class CompanyPairController extends Controller
             $vacancies_match           =  $vacancies_data["vacancies_match"]           ;
             $apply_number              =  $vacancies_data["apply_number"]              ;            
         }
-        echo $vacancies_Skill ;
-        echo $company_money;
-        echo$apply_number ;
+        // echo $vacancies_Skill ;
+        // echo $company_money;
+        // echo$apply_number ;
         
         HistoryVacancies::create(
             [

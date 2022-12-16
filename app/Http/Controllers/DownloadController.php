@@ -53,7 +53,7 @@ class DownloadController extends Controller
             $resume_path = $value -> file_path;
             $resume_file_name = $value -> file_name;       
             $zip->addFile(storage_path($resume_path), $resume_path);
-            echo $resume_path;
+            // echo $resume_path;
             //echo $resume_file_name;
         }
         $zip->close();
@@ -68,7 +68,7 @@ class DownloadController extends Controller
      */
     public function store(Request $request)
     {
-        echo "sb";
+        // echo "sb";
         // $id = $request->user_id;
         // if(Experience::where('user_id',$id)->count() != 0){
         //     $Experience_data = Experience::where('user_id',$id)->get();
@@ -143,7 +143,7 @@ class DownloadController extends Controller
      */
     public function update($id)
     {
-        echo "sv";
+        // echo "sv";
         // if(Experience::where('user_id',$id)->count() != 0){
         //     $Experience_data = Experience::where('user_id',$id)->get();
         //     foreach($Experience_data as $value){

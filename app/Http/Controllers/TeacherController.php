@@ -132,8 +132,8 @@ class TeacherController extends Controller
     public function destroy(Request $request, $id)
     {
         $value = $request->all();
-        echo $value["random"];
-        echo $value["input_random"];
+        // echo $value["random"];
+        // echo $value["input_random"];
         if ($value["random"] === $value["input_random"]) {
             $Teacher_insert = Teacher::create([
                 'teacher_id'        => $value["teacher_id"],

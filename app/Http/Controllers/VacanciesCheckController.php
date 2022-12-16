@@ -80,7 +80,7 @@ class VacanciesCheckController extends Controller
     public function show(Request $request, $id)
     {
         $user_id = session()->get('user_id');
-        echo  $user_id;
+        // echo  $user_id;
         $teacherData = Teacher::select('teacher_real_name')->where("teacher_id", $user_id)->get();
         $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
         //echo$VacanciesData;
@@ -113,7 +113,7 @@ class VacanciesCheckController extends Controller
     public function edit($id, Request $request)
     {
         $user_id = session()->get('user_id');
-        echo  $user_id;
+        // echo  $user_id;
         $teacherData = Teacher::select('teacher_real_name')->where("teacher_id", $user_id)->get();
         $VacanciesData = Vacancies::where('vacancies_id', $id)->get();
         foreach ($teacherData as $value) {

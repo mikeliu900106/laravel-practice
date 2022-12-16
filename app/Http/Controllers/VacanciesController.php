@@ -17,7 +17,7 @@ class VacanciesController extends Controller
         if ($request->session()->has('user_id')) {
             if ($request->session()->get('level') == '3') {
                 $user_id = session()->get('user_id');
-                echo $user_id;
+                // echo $user_id;
                 //$Vacancies = Vacancies::where('teacher_watch','通過')->get();正式版本使用
                 //echo $Vacancies;
                 $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);//之後要改
@@ -61,11 +61,11 @@ class VacanciesController extends Controller
         $user_id = session()->get('user_id');
         $type = $request ->input('sql_type');
 
-        echo$type;
+        // echo$type;
         function get_Vacancies_id(){
             $today = date("Ynj");
             $nums = Vacancies::count();
-            echo $nums;
+            // echo $nums;
             $id = "V" . (($today * 100000) + ($nums + 1));
             return $id;
         }
@@ -178,7 +178,7 @@ class VacanciesController extends Controller
                 ]
             );
             $user_id = session()->get('user_id');
-            echo $user_id;
+            // echo $user_id;
             $Vacancies = Vacancies::get()->where('company_id' ,'=' ,$user_id);//之後要改
             return view('IN.company.Vacancies.show',[
                 'user_id'  => $user_id,

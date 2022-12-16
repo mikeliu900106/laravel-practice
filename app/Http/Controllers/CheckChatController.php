@@ -15,7 +15,7 @@ class CheckChatController extends Controller
     {
         $user_id = $request ->user_id;
         $Chats = Chat::where('chat_id',$user_id)->get();
-        echo $Chats;
+        // echo $Chats;
         $is_use_chat = Chat::where('chat_id',$user_id)->count();
         if($is_use_chat ==0){
             echo "此學生沒有言論";

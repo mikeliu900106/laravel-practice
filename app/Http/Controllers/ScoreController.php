@@ -39,7 +39,7 @@ class ScoreController extends Controller
     public function create(Request $request)
     {
         $user_id = $request -> user_id;
-        echo  $user_id;
+        // echo  $user_id;
         return view('IN.Student.Score.update',
             [
                 "user_id" => $user_id,

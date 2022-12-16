@@ -58,7 +58,7 @@ class StudentController extends Controller
         {
             $today = date("Ynj");
             $nums = Student::count();
-            echo $nums;
+            // echo $nums;
             $id = "U" . (($today * 10000) + ($nums + 1));
             return $id;
         }
@@ -70,9 +70,9 @@ class StudentController extends Controller
             'password' => 'required|string',
             'email' => 'required|email',
         ]);
-        echo  $student_datas['username'];
-        echo  $student_datas['password'];
-        echo  $student_datas['email'];
+        // echo  $student_datas['username'];
+        // echo  $student_datas['password'];
+        // echo  $student_datas['email'];
         $random = codestr();
         $Student_username_isUse = Student::where('user_name',  $student_datas['username'])->count();
         if ($Student_username_isUse == 0) {
@@ -80,7 +80,7 @@ class StudentController extends Controller
             $student_datas["random"] = $random;
             $student_datas["user_id"] = $user_id;
             foreach ($student_datas as $value) {
-                echo $value;
+                // echo $value;
             }
 
             // echo $student_datas;
@@ -148,11 +148,11 @@ class StudentController extends Controller
     public function destroy(Request $request, $id)
     {
         $value = $request->all();
-        echo $value["random"];
-        echo $value["input_random"];
-        echo $value["user_id"];
+        // echo $value["random"];
+        // echo $value["input_random"];
+        // echo $value["user_id"];
         if ($value["random"] === $value["input_random"]) {
-            echo '登入成功';
+            // echo '登入成功';
             $Student_insert = Student::create(
                 [
                     'user_id'       =>  $value["user_id"],

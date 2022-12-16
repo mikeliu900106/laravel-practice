@@ -42,7 +42,7 @@ class PairController extends Controller
                     foreach($Pair_Vacancies_id as $value){
                         $Pair_Vacancies_id = $value['vacancies_id'];
                     }
-                    echo $Pair_Vacancies_id;
+                    // echo $Pair_Vacancies_id;
                     $pair_datas  = Vacancies::leftJoin('companybase','companybase.company_id','=','vacanciesbase.company_id')
                     ->leftJoin('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
                     ->select('vacanciesbase.*', 'companybase.*','pairbase.*')
@@ -94,7 +94,7 @@ class PairController extends Controller
     public function store(Request $request)
     {
         $user_id = session()->get('user_id');
-        echo $user_id;
+        // echo $user_id;
         $validata = $request -> validate([
             'choose_vacancies_id' => 'required|string',
             'start_tme' => 'required',
@@ -139,7 +139,7 @@ class PairController extends Controller
         ->select('vacanciesbase.*', 'companybase.*')
         // ->where("vacancies.teacher_watch","通過")
         ->get();
-        echo $Vacancies_datas;
+        // echo $Vacancies_datas;
        
         return view('IN.Student.Pair.edit',
                     [
@@ -190,7 +190,7 @@ class PairController extends Controller
     public function destroy($id)
     {
         $pair_datas = Pair::where('user_id', '=',$id)->get();
-        echo $pair_datas;
+        // echo $pair_datas;
         foreach($pair_datas as $pair_data){
             $delete_time = $pair_data["delete_time"];
             $user_id = $pair_data["user_id"];
@@ -200,7 +200,7 @@ class PairController extends Controller
             $is_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        echo $pair_datas;
+        // echo $pair_datas;
             HistoryPair::create([
                 'delete_time'     => Date("Ymd"),
                 'user_id'         => $id,

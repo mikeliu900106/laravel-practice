@@ -53,10 +53,10 @@ class DownloadExperienceController extends Controller
         // echo  $Experience_datas;
         foreach($Experience_datas as $Experience_data ){
             $Experience_name = $Experience_data['Experience_file_name'];
-        echo $Experience_name;
+        // echo $Experience_name;
         }
         $real_path = public_path()."\storage\Experience\\".$Experience_name;
-        echo $real_path;
+        // echo $real_path;
         return response()->file($real_path);
     }
 
@@ -68,17 +68,17 @@ class DownloadExperienceController extends Controller
      */
     public function edit($id)
     {
-        echo "sb";
+        // echo "sb";
 
         if(Experience::where('user_id',$id)->count() != 0){
             $Experience_data = Experience::where('user_id',$id)->get();
-            echo $Experience_data;
+            // echo $Experience_data;
             foreach($Experience_data as $value){
                 $file_name = $value["Experience_file_name"];
                 
                 $real_file_path = public_path()."/storage/Experience/".$file_name;
             }
-            echo $real_file_path;
+            // echo $real_file_path;
             return Response::download($real_file_path);
         }
         else{
