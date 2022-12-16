@@ -78,7 +78,7 @@ class DownloadExperienceController extends Controller
                 
                
             }
-            echo $real_file_path;
+            // echo $real_file_path;
             return Response::download($real_file_path);
         }
         else{
