@@ -69,6 +69,7 @@ class PhpExcelController extends Controller
                     $skill_count = [];
                     $skill_count_data = getskill($skill_count,$skill,$date);
                     $pair_count_data = getpair($date);
+                    $skill_count_data= json_encode($skill_count_data); 
                     //1.取user配對情況
                     //2.取user履歷
                     //3.取usert成績單    
@@ -86,11 +87,14 @@ class PhpExcelController extends Controller
                     $skill_count_data = getskill($skill_count,$skill,$date = 0);
                     $pair_count_data = getpair($date = 0);
                     // echo $userDatas;
+                    // $skill_count_data = json_decode($json,true);
+                    $skill_count_data= json_encode($skill_count_data); 
+                    // echo $skill_count_data;
                     return view("IN.Teacher.PhpExcel.index",
                         [
                             "skill_count"=>$skill_count_data,
                             "pair_count_data"=>$pair_count_data,
-                            'data'          => $date,
+                            'date'          => $date,
                         ]
                     );
                 }
