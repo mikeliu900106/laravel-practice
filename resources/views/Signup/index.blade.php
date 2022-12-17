@@ -14,11 +14,11 @@
     @section('content')
     <form action="{{route('Teacher.store')}}" method="post">
         @csrf
-        <div class="Account-Box">
+        <div class="Account-Box Register-Select-Box">
             <div class="Title">
                 <h1>註冊</h1>
             </div>
-            <div class="Register-Select">
+            <div class="Register-Select flex-grow-1 ">
                 <a href="{{ route('Student.index')}}" class="Select-Box">
                     <img src="/img/STU.png" alt="">
                     <p>我是學生</p>
@@ -31,6 +31,8 @@
                     <img src="/img/TCH.png" alt="">
                     <p>我是教師</p>
                 </a>
+            </div>
+            <div class="Submit-Section">
             </div>
 
             <!-- 回登入 回首頁 -->

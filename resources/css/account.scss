@@ -175,7 +175,11 @@ $tablet-max-width: 768px;
     min-width: 30px;
 }
 
-// register_select.php
+.Register-Select-Box {
+    @media screen and (max-width: 484px) {
+        margin-top: 20px;
+    }
+}
 .Register-Select {
     display: flex;
     align-items: center;
@@ -184,20 +188,26 @@ $tablet-max-width: 768px;
     padding: 15px;
     .Select-Box {
         background-color: #f6f6f6;
-        height: 10em;
-        width: 10em;
+        // width: 100px;
+        // height: 100px;
+        width: 170px;
+        height: 170px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 15px;
+        margin: 16px;
         box-sizing: border-box;
         border: solid 3px #888888;
         &:hover {
-            width: 11em;
-            height: 11em;
-            border-color: $light_blue;
+            width: 190px;
+            height: 190px;
             margin: 6px;
+            border-color: $light_blue;
             cursor: pointer;
+            // @media (max-width: 300px) {
+            //     width: 8em;
+            //     height: 8em;
+            // }
         }
     }
     a {
@@ -205,13 +215,14 @@ $tablet-max-width: 768px;
         text-decoration: none;
         img {
             margin-top: 10px;
-            width: 100px;
-            height: 100px;
+            width: 50%;
+            height: 50%;
         }
         p {
-            margin-top: 0.7em;
+            margin-top: 10%;
             margin-bottom: 0;
-            font-size: 30px;
+            font-size: calc(1.8rem);
+            word-break: keep-all;
             color: black;
         }
     }

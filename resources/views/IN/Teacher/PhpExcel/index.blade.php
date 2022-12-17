@@ -18,7 +18,7 @@
             <h1 class="text-center mb-3">資料統計</h1>
             <form action="{{route("PhpExcel.index")}}" method="get">
                 <div class="d-flex mb-3 flex-wrap">
-                    <div class="col-sm-10 col" style="min-width: 5rem;">
+                    <div class="col-sm-10 col px-1" style="min-width: 5rem;">
                         <select class="form-select" name="choose_date" id="choose_date">
                             <option value="0">今年</option>
                             <option value="1">去年</option>
@@ -42,7 +42,6 @@
                 <div class="mt-2 text-center">
                     <span>學生配對成功人數:{{$pair_count_data}}</span>
                 </div>
-
             </form>
         </div>
     </div>
