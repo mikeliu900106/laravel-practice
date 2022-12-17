@@ -397,3 +397,22 @@ nav {
         min-width: 565px;
     }
 }
+
+.Statistics-Box {
+    border: solid 5px #1e90ff;
+    padding: 10px;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    select {
+        font-size: 1.1rem;
+    }
+    .chart {
+        height: 40rem;
+        width: 100%;
+    }
+    .col-sm-2 {
+        @media screen and (max-width: 210px) {
+            flex: 1;
+        }
+    }
+}

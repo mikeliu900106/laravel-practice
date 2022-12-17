@@ -363,6 +363,25 @@ nav a {
   min-width: 565px;
 }
 
+.Statistics-Box {
+  border: solid 5px #1e90ff;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+}
+.Statistics-Box select {
+  font-size: 1.1rem;
+}
+.Statistics-Box .chart {
+  height: 40rem;
+  width: 100%;
+}
+@media screen and (max-width: 210px) {
+  .Statistics-Box .col-sm-2 {
+    flex: 1;
+  }
+}
+
 .Account-Box {
   position: absolute;
   left: 50%;

@@ -63,7 +63,7 @@
                                     </li>
                                     <li><i class="bi bi-geo-alt"></i>
                                         <p>工作地點：</p>
-                                        <span>{{$Vacancie->company_place}}</span>
+                                        <span>{{$Vacancie->vacancies_county.$Vacancie->vacancies_district. $Vacancie->vacancies_address}}</span>
                                     </li>
                                 </ul>
                             </div>
