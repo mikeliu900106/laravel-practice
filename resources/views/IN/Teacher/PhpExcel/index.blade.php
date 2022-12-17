@@ -15,29 +15,29 @@
     @parent
     <div id="container">
         <div class="Statistics-Box">
-            <h1 class="text-center mb-3">廠商要求技能次數</h1>
+            <h1 class="text-center mb-3">資料統計</h1>
             <form action="{{route("PhpExcel.index")}}" method="get">
                 <div class="d-flex mb-3 flex-wrap">
                     <div class="col-sm-10 col" style="min-width: 5rem;">
                         <select class="form-select" name="choose_date" id="choose_date">
-                            <option value="9">十年前</option>
-                            <option value="8">九年前</option>
-                            <option value="7">八年前</option>
-                            <option value="6">七年前</option>
-                            <option value="5">六年前</option>
-                            <option value="4">五年前</option>
-                            <option value="3">大前年</option>
-                            <option value="2">前年</option>
+                            <option value="0">今年</option>
                             <option value="1">去年</option>
-                            <option value="0" selected>今年</option>
+                            <option value="2">前年</option>
+                            <option value="3">大前年</option>
+                            <option value="4">五年前</option>
+                            <option value="5">六年前</option>
+                            <option value="6">七年前</option>
+                            <option value="7">八年前</option>
+                            <option value="8">九年前</option>
+                            <option value="9">十年前</option>
                         </select>
                     </div>
                     <div class="col-sm-2" style="min-width: 5rem;">
-                        <input class="w-100 h-100 btn btn-primary" type="submit" value="送出">
+                        <input class="w-100 h-100 btn btn-primary" type="submit" value="送出" id="submit">
                     </div>
                 </div>
                 <div class="chart">
-                    <canvas id="myChart" class="w-100"></canvas>
+                    <canvas id="TagCountChart" class="w-100"></canvas>
                 </div>
                 <div class="mt-2 text-center">
                     <span>學生配對成功人數:{{$pair_count_data}}</span>
@@ -52,16 +52,19 @@
     @parent
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        let choose_date = document.getElementById("choose_date");
-        // conchoose_date.length
-        for (let i = 0; i < choose_date.length; i++) {
-
+        let select_choose_date = document.getElementById("choose_date")
+        let Submit_btn = document.getElementById('submit')
+        let url = location.href
+        let date = 0
+        if (url.indexOf('?') != -1) {
+            let arr = url.split('?choose_date=');
+            date = arr[1]
         }
-        console.log(choose_date[9].selected)
+        console.log(date)
+        select_choose_date[date].selected = "true"
+
         var languageList = <?php echo json_encode($skill_count) ?>;
-        // console.log(languageList);
-        var ctx = document.getElementById('myChart');
-        // console.log(ctx);
+        var ctx = document.getElementById('TagCountChart');
         const chart = new Chart(ctx, {
             type: "bar", // 圖表類型
             data: {
@@ -69,7 +72,7 @@
                 datasets: [{
                     label: "次數", // tootip 出現的名稱
                     maxBarThickness: 40,
-                    minBarLength: 0, // 起始值
+                    minBarLength: 10, // 起始值
                     data: languageList, // 資料
                     backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",
@@ -112,59 +115,20 @@
                     title: {
                         display: true,
                         text: '廠商選用Tag數',
-                        titleColor: 'red',
+                        font: {
+                            size: 24,
+                        }
                     },
-                    lengend: {
+                    legend: {
                         display: false,
-                    },
+                        // labels: {
+                        //     font: {
+                        //         size: 16
+                        //     }
+                        // }
+                    }
                 },
             },
-            // options: {
-            //     indexAxis: 'y',
-            //     responsive: true,
-            //     elements: {
-            //         bar: {
-            //             borderWidth: 2,
-            //         }
-            //     },
-            //     plugins: {
-            //         legend: {
-            //             position: 'right',
-            //             labels: {
-            //                 // This more specific font property overrides the global property
-            //                 font: {
-            //                     size: 100
-            //                 }
-            //             }
-            //         },
-            //         title: {
-            //             display: true,
-            //             text: 'Chart.js Horizontal Bar Chart'
-            //         }
-            //     },
-            //     transitions: {
-            //         show: {
-            //             animations: {
-            //                 x: {
-            //                     from: 0
-            //                 },
-            //                 y: {
-            //                     from: 0
-            //                 }
-            //             }
-            //         },
-            //         hide: {
-            //             animations: {
-            //                 x: {
-            //                     to: 0
-            //                 },
-            //                 y: {
-            //                     to: 0
-            //                 }
-            //             }
-            //         },
-            //     },
-            // }
         });
     </script>
     @endsection

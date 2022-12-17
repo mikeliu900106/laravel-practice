@@ -44,7 +44,7 @@ class PhpExcelController extends Controller
                             ->where('delete_time', '<', $top_date)
                             ->where('delete_time', '>', $last_date)
                             ->count();
-                        echo $count;
+                        // echo $count;
                         array_push($skill_count, $count);
                     }
                     return $skill_count;
@@ -60,7 +60,7 @@ class PhpExcelController extends Controller
                         ->where('delete_time', '<', $top_date)
                         ->where('delete_time', '>', $last_date)
                         ->count();
-                    echo $pair_count;
+                    // echo $pair_count;
                     return $pair_count;
                 }
                 if ($request->has('choose_date')) {
