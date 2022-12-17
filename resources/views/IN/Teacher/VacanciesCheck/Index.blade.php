@@ -78,7 +78,7 @@
                 <tbody>
                     @foreach($Vacancies as $Vacancie)
                     <tr>
-                        {{$Vacancie->vacancies_id}}
+
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_name}}</td>
                         <td>{{$Vacancie->company_money}}</td>
