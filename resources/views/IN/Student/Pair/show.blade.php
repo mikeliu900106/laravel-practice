@@ -33,7 +33,6 @@
                     </thead>
                     <tbody>
                         <tr class="text-center">
-                            {{$user_id = $pair_data->user_id}}
                             <td data-lebel="公司名稱">{{ $pair_data->company_name }}</td>
                             <td data-lebel="職缺名稱">{{ $pair_data->vacancies_name }}</td>
                             <td data-lebel="開始時間">{{ $pair_data->start_time }}</td>
