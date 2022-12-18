@@ -194,7 +194,7 @@ class ApplyController extends Controller
                     $message->attach($data['ResumePath']);
                 });
                 $apply_number = Vacancies::where("vacancies_id",$id)->select('apply_number')->get();
-                $apply_number ++;
+                $apply_number = 1 + $apply_number;
                 Vacancies::where("vacancies_id",$id)->update(
                     [
                         'apply_number' => $apply_number,
