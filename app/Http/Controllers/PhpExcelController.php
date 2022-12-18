@@ -65,7 +65,7 @@ class PhpExcelController extends Controller
                 }
                 if ($request->has('choose_date')) {
                     $date = $request->choose_date;
-                    $skill = array('React', 'Javascript', 'Vue', 'Angular', 'Mysql', 'SqlServer', 'Php', 'Laravel', 'c#', 'c++', 'java', 'python', 'kotlin');
+                    $skill = array("C#", "C++", "Java", "Python", "Kotlin", "Javascript", "React", "Vue", "Angular", "Php", "Mysql", "SqlServer", "Laravel");
                     $skill_count = [];
                     $skill_count_data = getskill($skill_count, $skill, $date);
                     $pair_count_data = getpair($date);
@@ -82,7 +82,7 @@ class PhpExcelController extends Controller
                         ]
                     );
                 } else {
-                    $skill = array('React', 'Javascript', 'Vue', 'Angular', 'Mysql', 'SqlServer', 'Php', 'Laravel', 'c#', 'c++', 'java', 'python', 'kotlin');
+                    $skill = array("C#", "C++", "Java", "Python", "Kotlin", "Javascript", "React", "Vue", "Angular", "Php", "Mysql", "SqlServer", "Laravel");
                     $skill_count = [];
                     $skill_count_data = getskill($skill_count, $skill, $date = 0);
                     $pair_count_data = getpair($date = 0);

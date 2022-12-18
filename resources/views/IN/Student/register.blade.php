@@ -12,7 +12,7 @@
     @endsection
 
     @section('content')
-    {{$random }}
+   
 
     <form method="post" action="{{route('Student.destroy',$user_id)}}">
         @method("delete")
