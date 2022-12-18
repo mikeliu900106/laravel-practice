@@ -17,7 +17,7 @@
         <div class="Account-Box">
             <div class="Title">
                 <h1>學生註冊</h1>
-            </div>            
+            </div>
             <!-- 回登入 回首頁 -->
             <a href="{{route('Signup.index')}}"><img src="/img/return.png" class="ReturnLogo"></a>
             <a href="{{url('/')}}"><img src="/img/home.png" class="HomeLogo"></a>

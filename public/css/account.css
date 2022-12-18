@@ -87,9 +87,10 @@
     min-width: none;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .Input-Section {
-    width: 90%;
+    width: 100%;
+    padding: 10px;
   }
 }
 @media (max-width: 576px) {
@@ -214,7 +215,7 @@
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .CPN-Register-Box {
     margin-top: 50px;
   }
@@ -236,10 +237,11 @@
 }
 .CPN-Register select {
   width: auto;
-  min-width: 150px !important;
+  min-width: 150px;
 }
 @media screen and (max-width: 576px) {
   .CPN-Register select {
     width: 100%;
+    min-width: none;
   }
 }
