@@ -79,6 +79,7 @@ class StudentController extends Controller
 
             $student_datas["random"] = $random;
             $student_datas["user_id"] = $user_id;
+            $student_datas["real_name"] = $student_datas['real_name'];
             foreach ($student_datas as $value) {
                 // echo $value;
             }

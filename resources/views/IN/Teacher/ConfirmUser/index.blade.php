@@ -34,7 +34,6 @@
                 <tbody>
                     <tr>
                         @foreach ($Student_datas as $Student_data)
-                        {{$user_id = $Student_data->user_id}}
                         <td data-label="學生姓名">{{$Student_data->user_real_name}}</td>
                         <td data-label="學生帳號名稱" style="text-align: left;">{{$Student_data->user_name}}</td>
                         <td data-label="學生信箱" style="text-align: left;">{{$Student_data->user_email}}</td>

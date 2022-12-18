@@ -69,6 +69,7 @@ class TeacherController extends Controller
             //echo $random;
             $teacherdatas["random"] = $random;
             $teacherdatas["teacher_id"] = $teacher_id;
+            $teacherdatas["teacher_real_name"] = $teacherdatas['teacher_real_name'];
             //echo $teacherdata["random"] = $random;
 
             //學長解釋trycatch 使用
