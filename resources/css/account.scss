@@ -118,8 +118,9 @@ $tablet-max-width: 768px;
     //     margin-right: 5px;
     //     display: inline-block;
     // }
-    @media screen and (max-width: $tablet_max_width) {
-        width: 90%;
+    @media screen and (max-width: 767px) {
+        width: 100%;
+        padding: 10px;
     }
     @media (max-width: $phone-max-width) {
         width: 100%;
@@ -227,7 +228,6 @@ $tablet-max-width: 768px;
         }
     }
 }
-//
 
 // forgetPW.php
 .verification {
@@ -247,7 +247,7 @@ $tablet-max-width: 768px;
 }
 
 .CPN-Register-Box {
-    @media screen and (max-width: $tablet-max-width) {
+    @media screen and (max-width: 767px) {
         margin-top: 50px;
     }
     @media screen and (max-width: 233px) {
@@ -267,9 +267,10 @@ $tablet-max-width: 768px;
     }
     select {
         width: auto;
-        min-width: 150px !important;
+        min-width: 150px;
         @media screen and (max-width: $phone-max-width) {
             width: 100%;
+            min-width: none;
         }
     }
 }

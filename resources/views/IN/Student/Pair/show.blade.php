@@ -16,7 +16,6 @@
     <div id="container">
         <div class="Pair-Box">
             <h1>配對職位</h1>
-            @foreach($pair_datas as $pair_data)
             <div class="table-responsive-md w-100">
                 <table class="table table-responsive-xl table-bordered">
                     <thead>
@@ -31,7 +30,8 @@
                             <th>刪除</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="Pair-Box-tbody">
+                        @foreach($pair_datas as $pair_data)
                         <tr class="text-center">
                             <td data-lebel="公司名稱">{{ $pair_data->company_name }}</td>
                             <td data-lebel="職缺名稱">{{ $pair_data->vacancies_name }}</td>
@@ -50,18 +50,16 @@
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
-                @endforeach
             </div>
         </div>
     </div>
     @endsection
 
-
     @section('footer')
     @parent
-
     @endsection
 </body>
 

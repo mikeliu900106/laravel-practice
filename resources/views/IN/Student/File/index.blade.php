@@ -20,6 +20,7 @@
             <div class="d-flex flex-wrap justify-content-center w-100">
                 <a class="btn btn-primary" href="{{route('Score.index')}}">歷年成績單</a>
                 <a class="btn btn-success" href="{{route('Resume.index')}}">履歷</a>
+                <!-- <a class="btn btn-warning text-white" href="{{route('Resume.index')}}">心得</a> -->
             </div>
         </div>
     </div>

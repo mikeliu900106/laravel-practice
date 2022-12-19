@@ -43,10 +43,14 @@
                 <div class="form-group" id="twzipcode">
                     <label class="col-12" for="twzipcode">公司地址</label>
                     <div class="w-100 d-flex flex-wrap">
-                        <select class="col-md-6 col-12 form-select" name="county" aria-describedby="form-county" required=""></select>
-                        <select class="col form-select" name="district" aria-describedby="form-district" zipcode-align="left" required=""></select>
+                        <div class="col-md-5 col-12" style="margin: 0 4px 4px 0">
+                            <select class="w-100 form-select" name="county" aria-describedby="form-county" required></select>
+                        </div>
+                        <div class="col">
+                            <select class="w-100 form-select" name="district" aria-describedby="form-district" zipcode-align="left" required></select>
+                        </div>
                     </div>
-                    <input class=" form-control" id="address" type="text" name="address" aria-describedby="form-address-input" required="" placeholder="路, 巷, 門牌, 樓層">
+                    <input class=" form-control" id="address" type="text" name="address" aria-describedby="form-address-input" placeholder="路, 巷, 門牌, 樓層" required>
                     <input class="d-none" name="zipcode">
                 </div>
                 <div class="form-group">

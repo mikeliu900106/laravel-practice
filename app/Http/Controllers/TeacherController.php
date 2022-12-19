@@ -86,7 +86,7 @@ class TeacherController extends Controller
                 ]
             );
         } else {
-           echo "帳號民稱已被使用";
+            echo "帳號民稱已被使用";
         }
     }
 

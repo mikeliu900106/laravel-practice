@@ -29,7 +29,7 @@ class PairController extends Controller
                 $Vacancies_datas = Vacancies::join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
                     ->select('vacanciesbase.*', 'companybase.*')
                     ->where("vacanciesbase.teacher_watch", "通過")
-                    ->where('vacancies_match','並無配對')
+                    ->where('vacancies_match', '並無配對')
                     ->get();
                 $Pair_data = Pair::where('user_id', "$user_id")->get();
                 if ($pair == 0) {
@@ -88,7 +88,7 @@ class PairController extends Controller
     {
         $user_id = session()->get('user_id');
         // echo $user_id;
-        $validata = $request -> validate([
+        $validata = $request->validate([
             'choose_vacancies_id' => 'required|string',
             'start_tme' => 'required',
             'end_tme' => 'required',
@@ -124,20 +124,20 @@ class PairController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $vacancies_id =$request->vacancies_id;
-        $Teacher_name =Teacher::select('teacher_real_name')->get();
-        $Vacancies_datas =Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-        ->select('vacanciesbase.*', 'companybase.*')
-        ->where("vacanciesbase.teacher_watch","通過")
-        ->get();
+        $vacancies_id = $request->vacancies_id;
+        $Teacher_name = Teacher::select('teacher_real_name')->get();
+        $Vacancies_datas = Vacancies::Join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
+            ->select('vacanciesbase.*', 'companybase.*')
+            ->where("vacanciesbase.teacher_watch", "通過")
+            ->get();
         // echo $Vacancies_datas;
-       
-        return view('IN.Student.Pair.edit',
-                    [
-                        'id'=>$vacancies_id,
-                        'Vacancies_datas' =>$Vacancies_datas
-                    ]
-                );
+        return view(
+            'IN.Student.Pair.edit',
+            [
+                'id' => $vacancies_id,
+                'Vacancies_datas' => $Vacancies_datas
+            ]
+        );
     }
 
     /**
@@ -157,10 +157,10 @@ class PairController extends Controller
         ]);
         // echo $id;
         // echo $validata['choose_vacancies_id'];
-        Pair::where('user_id', $user_id )->where('vacancies_id', $id)
+        Pair::where('user_id', $user_id)->where('vacancies_id', $id)
             ->update(
                 [
-                    'user_id'       => $user_id ,
+                    'user_id'       => $user_id,
                     'vacancies_id'  => $validata['choose_vacancies_id'],
                     'start_time'    => $validata['start_tme'],
                     'end_time'      => $validata['end_tme'],
@@ -181,9 +181,9 @@ class PairController extends Controller
      */
     public function destroy($id)
     {
-        $pair_datas = Pair::where('user_id', '=',$id)->get();
+        $pair_datas = Pair::where('user_id', '=', $id)->get();
         // echo $pair_datas;
-        foreach($pair_datas as $pair_data){
+        foreach ($pair_datas as $pair_data) {
             $delete_time = $pair_data["delete_time"];
             $user_id = $pair_data["user_id"];
             $vacancies_id = $pair_data["vacancies_id"];
@@ -192,7 +192,7 @@ class PairController extends Controller
             $is_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        if($is_confirm == "配對成功"){
+        if ($is_confirm == "配對成功") {
             HistoryPair::create([
                 'delete_time'     => Date("Ymd"),
                 'user_id'         => $id,

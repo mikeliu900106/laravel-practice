@@ -182,6 +182,9 @@ nav a {
     flex-direction: column;
   }
 }
+.Response-Box .Response-Card .Message {
+  white-space: pre-wrap;
+}
 .Response-Box .Leave-Comment {
   width: 100%;
   font-size: 24px;
@@ -471,9 +474,10 @@ nav a {
     min-width: none;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .Input-Section {
-    width: 90%;
+    width: 100%;
+    padding: 10px;
   }
 }
 @media (max-width: 576px) {
@@ -598,7 +602,7 @@ nav a {
   background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .CPN-Register-Box {
     margin-top: 50px;
   }
@@ -620,11 +624,12 @@ nav a {
 }
 .CPN-Register select {
   width: auto;
-  min-width: 150px !important;
+  min-width: 150px;
 }
 @media screen and (max-width: 576px) {
   .CPN-Register select {
     width: 100%;
+    min-width: none;
   }
 }
 
@@ -779,6 +784,7 @@ nav a {
   word-break: keep-all;
 }
 .Pair-Box table tr td {
+  word-break: keep-all;
   vertical-align: middle;
   background: rgba(33, 37, 41, 0.05) !important;
 }

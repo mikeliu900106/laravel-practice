@@ -149,6 +149,7 @@
   word-break: keep-all;
 }
 .Pair-Box table tr td {
+  word-break: keep-all;
   vertical-align: middle;
   background: rgba(33, 37, 41, 0.05) !important;
 }
