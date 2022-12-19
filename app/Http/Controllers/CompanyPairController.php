@@ -28,11 +28,17 @@ class CompanyPairController extends Controller
     {
         $user_id = session()->get('user_id');
         // echo $user_id;
-        $pair_datas =$Vacancies = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-                    ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
-                    ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pairbase.*')
-                    ->where('companybase.company_id',$user_id)
+        $pair_datas  = Pair::Join('vacanciesbase','vacanciesbase.vacancies_id','=','pairbase.vacancies_id')
+                    ->Join('userbase','userbase.user_id','=','pairbase.user_id')
+                    ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name','pairbase.*','userbase.*')
+                    ->where('vacanciesbase.company_id' ,$user_id)
                     ->get();
+        // $pair_datas =$Vacancies = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+        //             ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
+        //             ->Join('userbase','userbase.user_id','=','pairbase.user_id')
+        //             ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pairbase.*','userbase.*')
+        //             ->where('companybase.company_id',$user_id)
+        //             ->get();
                     // echo  $pair_datas;
         return view("IN.Company.CompanyPair.index",
         [

@@ -20,7 +20,7 @@
                 <table class="table table-responsive-xl table-bordered">
                     <thead>
                         <tr class="text-center">
-                            <th>使用者ID</th>
+                            <th>使用者名稱</th>
                             <th>職缺名稱</th>
                             <th>開始時間</th>
                             <th>結束時間</th>
@@ -32,7 +32,7 @@
                     </thead>
                     <tbody>
                         <tr class="text-center">
-                            <td data-lebel="使用者ID">{{ $pair_data->user_id }}</td>
+                            <td data-lebel="使用者名稱">{{ $pair_data->user_real_name }}</td>
                             <!-- <td>{{ $pair_data->company_name }}</td> -->
                             <td data-lebel="職缺名稱">{{ $pair_data->vacancies_name }}</td>
                             <td data-lebel="開始時間">{{ $pair_data->start_time }}</td>

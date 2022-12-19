@@ -26,7 +26,7 @@ class PairController extends Controller
                 // echo $user_id;
                 $pair = Pair::where('user_id', "$user_id")->count();
                 $Teacher_name = Teacher::select('teacher_real_name')->get();
-                $Vacancies_datas = $Vacancies = Vacancies::join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
+                $Vacancies_datas = Vacancies::join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
                     ->select('vacanciesbase.*', 'companybase.*')
                     ->where("vacanciesbase.teacher_watch", "通過")
                     ->where('vacancies_match','並無配對')
