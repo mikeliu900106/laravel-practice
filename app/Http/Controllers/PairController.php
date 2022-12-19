@@ -29,6 +29,7 @@ class PairController extends Controller
                 $Vacancies_datas = $Vacancies = Vacancies::join('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
                     ->select('vacanciesbase.*', 'companybase.*')
                     ->where("vacanciesbase.teacher_watch", "通過")
+                    ->where('vacancies_match','並無配對')
                     ->get();
                 $Pair_data = Pair::where('user_id', "$user_id")->get();
                 if ($pair == 0) {
@@ -45,8 +46,11 @@ class PairController extends Controller
                         $Pair_Vacancies_id = $value['vacancies_id'];
                     }
                     // echo $Pair_Vacancies_id;
-                    $pair_datas  = pair::where("user_id", $user_id)
-                        ->get();
+                    $pair_datas  = Vacancies::leftJoin('companybase', 'companybase.company_id', '=', 'vacanciesbase.company_id')
+                        ->leftJoin('pairbase', 'pairbase.vacancies_id', '=', 'vacanciesbase.vacancies_id')
+                        ->select('vacanciesbase.*', 'companybase.*', 'pairbase.*')
+                        ->where('vacanciesbase.vacancies_id', $Pair_Vacancies_id)
+                        ->where("vacanciesbase.teacher_watch", "通過");
                     // echo $Vacancies_datas;
                     return view('IN.Student.Pair.show', [
                         'pair_datas' => $pair_datas,
@@ -185,7 +189,7 @@ class PairController extends Controller
             $is_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        // echo $pair_datas;
+        if($is_confirm == "已有配對"){
             HistoryPair::create([
                 'delete_time'     => Date("Ymd"),
                 'user_id'         => $id,
@@ -195,7 +199,7 @@ class PairController extends Controller
                 'teacher_confirm' => $is_confirm,
                 'teacher_name'    => $teacher_name,
             ]);
-
+        }
         Pair::where('user_id', $id)->delete();
         return redirect()->route("Pair.index");
     }

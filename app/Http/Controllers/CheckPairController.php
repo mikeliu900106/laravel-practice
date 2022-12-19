@@ -25,8 +25,12 @@ class CheckPairController extends Controller
                     $teacher_id = session()->get("user_id");
 
                     // echo $user_id;
-                    $pair_datas =Pair::where('pairbase.user_id',$user_id)
-                    ->get();
+                    // echo $user_id;
+                    $pair_datas = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
+                    ->join('userbase','userbase.user_id','=','pairbase.user_id')
+                    ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
+                    ->where('pairbase.user_id',$user_id);
                     // echo $pair_datas;
                     $student_name = Student::where('user_id',$user_id)->select("user_real_name")->get();
                     return view('IN.Teacher.CheckPair.show',[
@@ -110,7 +114,7 @@ class CheckPairController extends Controller
         ]);
         $vacancies_datas = Vacancies::where("vacancies_id",$id)->get();
 
-        Vacancies::where("vacancies_id",$id)->delete();
+   
     
 
         foreach($vacancies_datas as $vacancies_data){
@@ -196,18 +200,20 @@ class CheckPairController extends Controller
             $teacher_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        HistoryPair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->create(
-            [
-                'delete_time' => Date("Ymd"),
-                'user_id'     => $id ,
-                'vacancies_id' => $vacancies_id,
-                'start_time'  =>  $start_time,
-                'end_time'    => $end_time,
-                'teacher_confirm' => $teacher_confirm,
-                'teacher_name'   => $teacher_name,
-            ]
+        if($is_confirm == "已有配對"){
+            HistoryPair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->create(
+                [
+                    'delete_time' => Date("Ymd"),
+                    'user_id'     => $id ,
+                    'vacancies_id' => $vacancies_id,
+                    'start_time'  =>  $start_time,
+                    'end_time'    => $end_time,
+                    'teacher_confirm' => $teacher_confirm,
+                    'teacher_name'   => $teacher_name,
+                ]
 
-        );
+            );
+        }
         Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
         return redirect()->route("CheckPair.index");
     }
