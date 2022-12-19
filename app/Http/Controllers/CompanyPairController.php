@@ -96,7 +96,7 @@ class CompanyPairController extends Controller
         ]);
         $vacancies_datas = Vacancies::where("vacancies_id",$id)->get();
 
-        Vacancies::where("vacancies_id",$id)->delete();
+        // Vacancies::where("vacancies_id",$id)->delete();
     
 
         foreach($vacancies_datas as $vacancies_data){
