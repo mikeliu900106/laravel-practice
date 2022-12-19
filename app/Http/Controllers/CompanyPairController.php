@@ -88,7 +88,7 @@ class CompanyPairController extends Controller
             $company_name = $value['company_name'];
         }
         Pair::where("vacancies_id",$id)->update([
-            'teacher_confirm' => '已有配對',
+            'teacher_confirm' => '配對成功',
             'teacher_name' => $company_name,
         ]);
         Vacancies::where("vacancies_id",$id)->update([
@@ -180,18 +180,20 @@ class CompanyPairController extends Controller
             $teacher_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        HistoryPair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->create(
-            [
-                'delete_time' => Date("Ymd"),
-                'user_id'     => $id ,
-                'vacancies_id' => $vacancies_id,
-                'start_time'  =>$start_time,
-                'end_time'    => $end_time,
-                'teacher_confirm' => $teacher_confirm,
-                'teacher_name'   => $teacher_name,
-            ]
+        if($teacher_confirm == "配對成功"){
+            HistoryPair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->create(
+                [
+                    'delete_time' => Date("Ymd"),
+                    'user_id'     => $id ,
+                    'vacancies_id' => $vacancies_id,
+                    'start_time'  =>$start_time,
+                    'end_time'    => $end_time,
+                    'teacher_confirm' => $teacher_confirm,
+                    'teacher_name'   => $teacher_name,
+                ]
 
-        );
+            );
+        }
         Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
         return redirect()->route("CompanyPair.index");
      

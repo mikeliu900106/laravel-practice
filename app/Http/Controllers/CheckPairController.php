@@ -30,7 +30,8 @@ class CheckPairController extends Controller
                     ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
                     ->join('userbase','userbase.user_id','=','pairbase.user_id')
                     ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
-                    ->where('pairbase.user_id',$user_id);
+                    ->where('pairbase.user_id',$user_id)
+                    ->get();
                     // echo $pair_datas;
                     $student_name = Student::where('user_id',$user_id)->select("user_real_name")->get();
                     return view('IN.Teacher.CheckPair.show',[
@@ -106,7 +107,7 @@ class CheckPairController extends Controller
             $Teacher_name = $value['teacher_real_name'];
         }
         Pair::where("vacancies_id",$id)->update([
-            'teacher_confirm' => '已有配對',
+            'teacher_confirm' => '配對成功',
             'teacher_name' => $Teacher_name,
         ]);
         Vacancies::where("vacancies_id",$id)->update([
@@ -200,7 +201,7 @@ class CheckPairController extends Controller
             $teacher_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        if($is_confirm == "已有配對"){
+        if($is_confirm == "配對成功"){
             HistoryPair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->create(
                 [
                     'delete_time' => Date("Ymd"),

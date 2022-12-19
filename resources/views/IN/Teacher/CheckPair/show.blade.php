@@ -22,6 +22,7 @@
                         <tr class="text-center">
                             <th>學生名稱</th>
                             <th>公司名稱</th>
+                            <th>職位名稱</th>
                             <th>開始時間</th>
                             <th>結束時間</th>
                             <th>是否配對</th>
@@ -30,11 +31,12 @@
                             <th>刪除</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="Pair-Box-tbody">
+                        @foreach($Pairs as $pairData)
                         <tr class="text-center">
-                            @foreach($Pairs as $pairData)
                             <td data-lebel="學生名稱">{{ $pairData->user_real_name }}</td>
                             <td data-lebel="公司名稱">{{ $pairData->company_name }}</td>
+                            <td data-lebel="職位名稱">{{ $pairData->vacancies_name }}</td>
                             <td data-lebel="開始時間">{{ $pairData->start_time }}</td>
                             <td data-lebel="結束時間">{{ $pairData->end_time }}</td>
                             <td data-lebel="是否配對">{{ $pairData->teacher_confirm }}</td>
