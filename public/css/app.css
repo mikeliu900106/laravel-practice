@@ -182,6 +182,9 @@ nav a {
     flex-direction: column;
   }
 }
+.Response-Box .Response-Card .Message {
+  white-space: pre-wrap;
+}
 .Response-Box .Leave-Comment {
   width: 100%;
   font-size: 24px;

@@ -59,7 +59,7 @@
             let arr = url.split('?choose_date=');
             date = arr[1]
         }
-        console.log(date)
+        // console.log(date)
         select_choose_date[date].selected = "true"
 
         var languageList = <?php echo json_encode($skill_count) ?>;
