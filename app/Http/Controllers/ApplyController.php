@@ -40,6 +40,7 @@ class ApplyController extends Controller
                     ->orWhere('vacancies_county', 'LIKE', "%{$search}%")
                     ->orWhere('vacancies_address', 'LIKE', "%{$search}%")
                     ->where('teacher_watch','通過')
+                    ->where('vacancies_match','並無配對')
                     ->paginate(10);
                     // echo $Vacancies;
                     return view('IN.student.Apply.index',[
@@ -50,6 +51,7 @@ class ApplyController extends Controller
                     $Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
                     ->select('vacanciesbase.*', 'companybase.*')
                     ->where('teacher_watch','通過')
+                    ->where('vacancies_match','並無配對')
                     ->paginate(10);
                     // echo $Vacancies;
                 }
@@ -106,6 +108,7 @@ class ApplyController extends Controller
                 ->select('vacanciesbase.*', 'companybase.*')
                 ->where('vacancies_id',$id)
                 ->where('teacher_watch','通過')
+                ->where('vacancies_match','並無配對')
                 ->get();
         $user_id = session()->get('user_id');
         return view('IN.student.Apply.show',[
@@ -203,7 +206,7 @@ class ApplyController extends Controller
                 // echo "寄送成功";//用'jumpTime'=>2,延遲跳轉業面
                 return redirect()-> route('Apply.index');
             }
-        }
+        }   
         else
         {
             echo "沒填寫過履歷";
