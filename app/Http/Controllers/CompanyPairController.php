@@ -26,25 +26,29 @@ class CompanyPairController extends Controller
      */
     public function index(Request $request)
     {
-        $user_id = session()->get('user_id');
-        // echo $user_id;
-        $pair_datas  = Pair::Join('vacanciesbase','vacanciesbase.vacancies_id','=','pairbase.vacancies_id')
-                    ->Join('userbase','userbase.user_id','=','pairbase.user_id')
-                    ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name','pairbase.*','userbase.*')
-                    ->where('vacanciesbase.company_id' ,$user_id)
-                    ->get();
-        // $pair_datas =$Vacancies = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-        //             ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
-        //             ->Join('userbase','userbase.user_id','=','pairbase.user_id')
-        //             ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name', 'companybase.company_name','companybase.company_id','pairbase.*','userbase.*')
-        //             ->where('companybase.company_id',$user_id)
-        //             ->get();
-                    // echo  $pair_datas;
-        return view("IN.Company.CompanyPair.index",
-        [
-            'pair_datas' => $pair_datas,
-        ]
-        );
+        if ($request->session()->has('user_id')) {
+            if ($request->session()->get('level') == '3') {
+                $user_id = session()->get('user_id');
+                // echo $user_id;
+                $pair_datas  = Pair::Join('vacanciesbase','vacanciesbase.vacancies_id','=','pairbase.vacancies_id')
+                            ->Join('userbase','userbase.user_id','=','pairbase.user_id')
+                            ->select('vacanciesbase.vacancies_id','vacanciesbase.vacancies_name','pairbase.*','userbase.*')
+                            ->where('vacanciesbase.company_id' ,$user_id)
+                            ->get();
+                            return view("IN.Company.CompanyPair.index",
+                            [
+                                'pair_datas' => $pair_datas,
+                            ]
+                            );
+            }else{
+                echo "你不是廠商";
+                            //1. 顯示錯誤2.錯誤controller
+            }
+
+        }else{
+             echo "你沒登入";
+        }
+    
     }
 
     /**
