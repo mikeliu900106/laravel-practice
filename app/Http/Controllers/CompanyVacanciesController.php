@@ -260,6 +260,6 @@ class CompanyVacanciesController extends Controller
             ]
         );
         $delete_Vacancies = Vacancies::where('vacancies_id', '=', $id)->delete();
-        return redirect()->route("VacanciesCheck.index");
+        return redirect()->route("CompanyVacancies.index");
     }
 }
