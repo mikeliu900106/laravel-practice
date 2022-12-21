@@ -36,7 +36,7 @@ class CompanyPairController extends Controller
                             ->where('vacanciesbase.company_id' ,$user_id)
                             ->get();
                             return view("IN.Company.CompanyPair.index",
-                            [
+                            [ 
                                 'pair_datas' => $pair_datas,
                             ]
                             );

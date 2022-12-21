@@ -156,6 +156,7 @@ class StudentController extends Controller
             // echo '登入成功';
             $Student_insert = Student::create(
                 [
+                    'user_create_time' => date("ymd"),
                     'user_id'       =>  $value["user_id"],
                     'student_id'       =>  $value["student_id"],
                     'user_name'     =>  $value["username"],

@@ -14,6 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('userBase', function (Blueprint $table) {
+            $table->date('user_create_time');
             $table->string('user_id',25)->comment("id");
             $table->string('student_id',10)->comment("學號");
             $table->string('user_name',10)->comment("帳號");

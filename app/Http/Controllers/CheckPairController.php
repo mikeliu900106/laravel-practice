@@ -201,7 +201,7 @@ class CheckPairController extends Controller
             $teacher_confirm = $pair_data["teacher_confirm"];
             $teacher_name = $pair_data["teacher_name"];
         }
-        if($is_confirm == "配對成功"){
+        if( $teacher_confirm == "配對成功"){
             HistoryPair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->create(
                 [
                     'delete_time' => Date("Ymd"),

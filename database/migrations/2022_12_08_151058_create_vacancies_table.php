@@ -14,6 +14,7 @@ class CreateVacanciesTable extends Migration
     public function up()
     {
         Schema::create('vacanciesBase', function (Blueprint $table) {
+            $table->date('vacancies_create_time');
             $table->string('company_id',25);
             $table->string('vacancies_id',30);
             $table->string('vacancies_name',30);

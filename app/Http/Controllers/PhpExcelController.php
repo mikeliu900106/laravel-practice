@@ -56,12 +56,25 @@ class PhpExcelController extends Controller
                     $top_date = $top_year . "-" . "12" . "-" . "31";
                     $last_date = $top_year . "-" . "1" . "-" . "1";
 
-                    $pair_count = HistoryPair::where('teacher_confirm', '已有配對')
+                    $pair_count = HistoryPair::where('teacher_confirm','配對成功')
                         ->where('delete_time', '<', $top_date)
                         ->where('delete_time', '>', $last_date)
                         ->count();
                     // echo $pair_count;
                     return $pair_count;
+                }
+                function getvacancies($date = 0)
+                {
+                    $this_year = date('Y');
+                    $top_year = $this_year - $date;
+                    $top_date = $top_year . "-" . "12" . "-" . "31";
+                    $last_date = $top_year . "-" . "1" . "-" . "1";
+
+                    $vacancies_count = Vacancies::where('delete_time', '<', $top_date)
+                        ->where('delete_time', '>', $last_date)
+                        ->count();
+                    // echo $pair_count;
+                    return $vacancies_count;
                 }
                 if ($request->has('choose_date')) {
                     $date = $request->choose_date;
@@ -69,6 +82,7 @@ class PhpExcelController extends Controller
                     $skill_count = [];
                     $skill_count_data = getskill($skill_count, $skill, $date);
                     $pair_count_data = getpair($date);
+                    $vacancies_count_data =  getvacancies($date);
                     // $skill_count_data= json_encode($skill_count_data); 
                     //1.取user配對情況
                     //2.取user履歷
@@ -78,6 +92,7 @@ class PhpExcelController extends Controller
                         [
                             "skill_count" => $skill_count_data,
                             "pair_count_data" => $pair_count_data,
+                            'vacancies_count_data' =>$vacancies_count_data,
                             'date'          => $date,
                         ]
                     );
@@ -86,16 +101,16 @@ class PhpExcelController extends Controller
                     $skill_count = [];
                     $skill_count_data = getskill($skill_count, $skill, $date = 0);
                     $pair_count_data = getpair($date = 0);
-                    // echo $userDatas;
-                    // $skill_count_data = json_decode($json,true);
-                    // $skill_count_data= json_encode($skill_count_data); 
-                    // echo $skill_count_data;
+                    $vacancies_count_data =  getvacancies($date = 0);
+                    echo  $pair_count_data; 
                     return view(
                         "IN.Teacher.PhpExcel.index",
                         [
                             "skill_count" => $skill_count_data,
                             "pair_count_data" => $pair_count_data,
+                            'vacancies_count_data' =>$vacancies_count_data,
                             'date'          => $date,
+
                         ]
                     );
                 }

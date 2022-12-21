@@ -84,8 +84,10 @@ class VacanciesController extends Controller
         ]);
             Vacancies::create(
                 [
+
                     'company_id'                =>  $user_id,
                     'vacancies_id'              =>  $Vacancies_id,
+                    'vacancies_create_time'     =>  date("ymd"),
                     'vacancies_name'            =>  $request_value['vacancies_name'],
                     'company_money'             =>  $request_value['company_money'],
                     'company_time'              =>  $request_value['company_time'],
