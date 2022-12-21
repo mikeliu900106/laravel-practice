@@ -70,7 +70,8 @@ class PhpExcelController extends Controller
                     $top_date = $top_year . "-" . "12" . "-" . "31";
                     $last_date = $top_year . "-" . "1" . "-" . "1";
 
-                    $vacancies_count = Vacancies::where('delete_time', '<', $top_date)
+                    $vacancies_count = Vacancies::where('teacher_watch','通過')
+                        ->where('delete_time', '<', $top_date)
                         ->where('delete_time', '>', $last_date)
                         ->count();
                     // echo $pair_count;
