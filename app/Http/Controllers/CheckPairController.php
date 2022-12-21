@@ -167,7 +167,7 @@ class CheckPairController extends Controller
                 'apply_number'              =>   $apply_number             ,             
             ]
         );
-        return redirect()->route("Checkuser.index");
+        return redirect()->route("CheckUser.index");
     }
 
     /**
@@ -216,6 +216,6 @@ class CheckPairController extends Controller
             );
         }
         Pair::where("vacancies_id",$vacancies_id)->where('user_id',$id)->delete();
-        return redirect()->route("Checkuser.index");
+        return redirect()->route("CheckUser.index");
     }
 }
