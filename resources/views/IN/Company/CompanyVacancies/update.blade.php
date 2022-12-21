@@ -45,9 +45,9 @@
                     <input class=" form-control" id="address" type="text" name="address" aria-describedby="form-address-input" required="" placeholder="路, 巷, 門牌, 樓層">
                     <input class="d-none" name="zipcode">
                 </div>
-                <div class="col-12 p-1">
-                    <label class="col-12">語言需求</label>
-                    <div class="p-2" style="border: solid 1px #ddd; border-radius: 0.25rem;">
+                <div class="form-group">
+                    <label for="" class="col-12">技能需求</label>
+                    <div class="skill-Tag">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="javascript" id="inlineCheckbox1">
                             <label class="form-check-label" for="inlineCheckbox1">Javascript</label>
