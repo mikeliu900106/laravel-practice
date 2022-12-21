@@ -53,10 +53,10 @@ class DownloadExperienceController extends Controller
         // echo  $Experience_datas;
         foreach($Experience_datas as $Experience_data ){
             $Experience_name = $Experience_data['Experience_file_name'];
-        // echo $Experience_name;
+        echo $Experience_name;
         }
         $real_path = public_path()."\storage\Experience\\".$Experience_name;
-        // echo $real_path;
+        echo $real_path;
         return response()->file($real_path);
     }
 
@@ -78,7 +78,8 @@ class DownloadExperienceController extends Controller
                 
                
             }
-            // echo $real_file_path;
+            $real_file_path = public_path()."\storage\Experience\\".$file_name;
+            echo $real_file_path;
             return Response::download($real_file_path);
         }
         else{
