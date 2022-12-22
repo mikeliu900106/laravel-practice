@@ -39,7 +39,7 @@ class PhpExcelController extends Controller
                         // echo $top_date;
                         // echo $last_date;
 
-                        $count = Vacancies::where('teacher_watch', '已有配對')
+                        $count = Vacancies::where('teacher_watch', '通過')
                             ->where('vacancies_Skill', 'LIKE', "%{$skill[$i]}%")
                             ->where('vacancies_create_time', '<', $top_date)
                             ->where('vacancies_create_time', '>', $last_date)
