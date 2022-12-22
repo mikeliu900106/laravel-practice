@@ -10,6 +10,7 @@ use App\Models\Resume;
 use App\Models\Student;
 use App\Models\Score;
 use App\Models\Pair;
+use App\Models\Login;
 
 
 class CheckUserController extends Controller
