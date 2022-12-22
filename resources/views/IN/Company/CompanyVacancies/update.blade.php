@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="Php" id="inlineCheckbox7">
-                            <label class="form-check-label" for="inlineCheckbox7">Php</label>
+                            <label class="form-check-label" for="inlineCheckbox7">PHP</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="Laravel" id="inlineCheckbox8">
@@ -82,23 +82,23 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="c#" id="inlineCheckbox9">
-                            <label class="form-check-label" for="inlineCheckbox9">c#</label>
+                            <label class="form-check-label" for="inlineCheckbox9">C#</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="c++" id="inlineCheckbox10">
-                            <label class="form-check-label" for="inlineCheckbox10">c++</label>
+                            <label class="form-check-label" for="inlineCheckbox10">C++</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="java" id="inlineCheckbox11">
-                            <label class="form-check-label" for="inlineCheckbox11">java</label>
+                            <label class="form-check-label" for="inlineCheckbox11">Java</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="python" id="inlineCheckbox12">
-                            <label class="form-check-label" for="inlineCheckbox12">python</label>
+                            <label class="form-check-label" for="inlineCheckbox12">Python</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="vacancies_Skill[]" value="kotlin" id="inlineCheckbox13">
-                            <label class="form-check-label" for="inlineCheckbox13">kotlin</label>
+                            <label class="form-check-label" for="inlineCheckbox13">Kotlin</label>
                         </div>
                     </div>
                 </div>

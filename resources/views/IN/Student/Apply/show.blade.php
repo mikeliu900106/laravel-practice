@@ -81,8 +81,8 @@
                                     <li>科系要求：
                                         <span>{{$Vacancie->company_department}}</span>
                                     </li>
-                                    <li>其他事項：
-                                        <span>{{$Vacancie->company_other}}</span> <!-- 駕照之類的 -->
+                                    <li class="flex-column">其他事項：
+                                        <span style="padding-left: 10px; white-space: pre-wrap">{{$Vacancie->company_other}}</span> <!-- 駕照之類的 -->
                                     </li>
                                 </ul>
                             </div>
