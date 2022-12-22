@@ -26,12 +26,19 @@ class CheckPairController extends Controller
 
                     // echo $user_id;
                     // echo $user_id;
-                    $pair_datas = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-                    ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
-                    ->join('userbase','userbase.user_id','=','pairbase.user_id')
-                    ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
-                    ->where('pairbase.user_id',$user_id)
+                    $pair_datas = Pair::join('userbase','userbase.user_id','=','pairbase.user_id')
+                    ->Join('vacanciesbase','vacanciesbase.vacancies_id','=','pairbase.vacancies_id')
+                    ->Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->where('userbase.user_id',$user_id)
                     ->get();
+
+                    // $pair_datas = Vacancies::Join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    // ->Join('pairbase','pairbase.vacancies_id','=','vacanciesbase.vacancies_id')
+                    // ->join('userbase','userbase.user_id','=','pairbase.user_id')
+                    // ->select('vacanciesbase.*', 'companybase.*','pairbase.*','userbase.*')
+                    // ->where('pairbase.user_id',$user_id)
+                    // ->where('userbase.user_id',$user_id)
+                    // ->get();
                     // echo $pair_datas;
                     $student_name = Student::where('user_id',$user_id)->select("user_real_name")->get();
                     return view('IN.Teacher.CheckPair.show',[

@@ -109,7 +109,7 @@ class PhpExcelController extends Controller
                         [
                             "skill_count" => $skill_count_data,
                             "pair_count_data" => $pair_count_data,
-                            'vacancies_count_data' =>$vacancies_count_data,
+                            'vacancies_count_data' => $vacancies_count_data,
                             'date'          => $date,
 
                         ]

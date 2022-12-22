@@ -103,18 +103,26 @@ class ApplyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request,$id)
-    {
-        $Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
-                ->select('vacanciesbase.*', 'companybase.*')
-                ->where('vacancies_id',$id)
-                ->where('teacher_watch','通過')
-                ->where('vacancies_match','並無配對')
-                ->get();
+    {       
         $user_id = session()->get('user_id');
-        return view('IN.student.Apply.show',[
-                    'Vacancies'=> $Vacancies,
-                    'user_id'  => $user_id,
-                ]);
+        $isUseResume = Resume::where("user_id",$user_id)->count();
+
+        if($isUseResume != 0){
+            $Vacancies = Vacancies::join('companybase','companybase.company_id','=','vacanciesbase.company_id')
+                    ->select('vacanciesbase.*', 'companybase.*')
+                    ->where('vacancies_id',$id)
+                    ->where('teacher_watch','通過')
+                    ->where('vacancies_match','並無配對')
+                    ->get();
+            $user_id = session()->get('user_id');
+            return view('IN.student.Apply.show',[
+                        'Vacancies'=> $Vacancies,
+                        'user_id'  => $user_id,
+                    ]);
+        }
+        else{
+            echo "你沒上傳履歷";
+        }
         // echo $Vacancies;
     }
 
@@ -175,6 +183,16 @@ class ApplyController extends Controller
                     $message->attach($data['ScorePath']);
 
                 });
+                $apply_number = Vacancies::where("vacancies_id",$id)->select('apply_number')->get();
+                foreach($apply_number as $value){
+                    $apply_number = $value["apply_number"] + 1;
+                }
+
+                Vacancies::where("vacancies_id",$id)->update(
+                    [
+                        'apply_number' => $apply_number,
+                    ]
+                );
                 echo "寄送成功";
             }
             else
@@ -183,21 +201,26 @@ class ApplyController extends Controller
                 foreach($ResumeData as $ResumeValue){
                     $ResumeName = $ResumeValue["resume_file_name"];
                 }
-                foreach($user_real_name as $value){
+                foreach($userData as $value){
                     $real_name = $value["user_real_name"];
+                    $user_email = $value["user_email"];
                 }
 
                 $ResumePath = public_path()."/storage/upload/".$ResumeName;
                 $data['ResumePath'] =$ResumePath;
                 $data['company_email'] =$company_email;
                 $data['real_name'] =$real_name;
+                $data["user_email"] =$user_email; 
                 Mail::send('Mail.sendMail',$data, function ($message) use ($data) {
                     $message->from('mikeliu20010106@gmail.com', $data['real_name']);    
                     $message->to($data['company_email'])->subject('工作應徵');
                     $message->attach($data['ResumePath']);
                 });
                 $apply_number = Vacancies::where("vacancies_id",$id)->select('apply_number')->get();
-                $apply_number = 1 + $apply_number;
+                foreach($apply_number as $value){
+                    $apply_number = $value["apply_number"] + 1;
+                }
+
                 Vacancies::where("vacancies_id",$id)->update(
                     [
                         'apply_number' => $apply_number,
