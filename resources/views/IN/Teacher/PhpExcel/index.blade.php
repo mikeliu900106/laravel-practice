@@ -37,11 +37,20 @@
                     </div>
                 </div>
                 <div class="chart">
-                    <canvas id="TagCountChart" class="w-100"></canvas>
+                    <div class="chart-Switch d-flex" id="chart-Switch">
+                        <div class="Switch-Btn active" id="TagCountChart_Btn">技能分布</div>
+                        <div class="Switch-Btn" id="SuccessPairChart_Btn">配對成功率</div>
+                    </div>
+                    <div class="TagCountchart">
+                        <canvas id="TagCountChart" class="w-100"></canvas>
+                    </div>
+                    <div class="SuccessPairChart">
+                        <canvas id="SuccessPairChart" class="w-100" style="display: none;"></canvas>
+                    </div>
                 </div>
-                <div class="mt-2 text-center">
-                    <span>學生配對成功人數:{{$pair_count_data}}</span>
-                </div>
+                <!-- <div class="mt-2 text-center"> -->
+                <!-- <span>學生配對成功人數:{{$pair_count_data}}</span> -->
+                <!-- </div> -->
             </form>
         </div>
     </div>
@@ -50,6 +59,7 @@
     @section('footer')
     @parent
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script>
         let select_choose_date = document.getElementById("choose_date")
         let Submit_btn = document.getElementById('submit')
@@ -62,73 +72,177 @@
         // console.log(date)
         select_choose_date[date].selected = "true"
 
-        var languageList = <?php echo json_encode($skill_count) ?>;
-        var ctx = document.getElementById('TagCountChart');
-        const chart = new Chart(ctx, {
-            type: "bar", // 圖表類型
-            data: {
-                labels: ["C#", "C++", "Java", "Python", "Kotlin", "Javascript", "React", "Vue", "Angular", "Php", "Mysql", "SqlServer", "Laravel"], //顯示區間名稱
-                datasets: [{
-                    label: "次數", // tootip 出現的名稱
-                    maxBarThickness: 40,
-                    minBarLength: 10, // 起始值
-                    data: languageList, // 資料
-                    backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(42, 180, 64, 0.2)",
-                        "rgba(155, 20, 210, 0.2)",
-                        "rgba(255, 0, 0, 0.2)",
-                        "rgba(255, 191, 255, 0.2)",
-                        "rgba(88, 44, 152, 0.2)",
-                        "rgba(40, 150, 152, 0.2)",
-                        "rgba(92, 154, 185, 0.2)",
-                    ],
-                    borderColor: [
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(42, 180, 64, 1)",
-                        "rgba(155, 20, 210, 1)",
-                        "rgba(255, 0, 0, 1)",
-                        "rgba(255, 191, 255, 1)",
-                        "rgba(88, 44, 152, 1)",
-                        "rgba(40, 150, 152, 1)",
-                        "rgba(92, 154, 185, 1)",
-                    ],
-                    borderWidth: 1 // 外框線寬度
-                }]
-            },
+        // ChartSwitch
+        let chart_Switch = document.querySelector('#chart-Switch')
+        let Switch_Btn_Array = chart_Switch.querySelectorAll('.Switch-Btn')
+        let canvas_Array = document.querySelectorAll('canvas')
+
+        Switch_Btn_Array.forEach(function(Switch_Btn) {
+            Switch_Btn.addEventListener('click', function() {
+                // Switch_Btn active切換
+                for (let i = 0; i < Switch_Btn_Array.length; i++) {
+                    Switch_Btn_Array[i].classList.remove("active")
+                }
+                this.classList.add('active')
+                // canvas切換
+                canvas_Array.forEach(function(canvas) {
+                    canvas.style.display = "none"
+                })
+                if (this.id === "TagCountChart_Btn") {
+                    TagCountChart.style.display = "block"
+                } else if (this.id === "SuccessPairChart_Btn") {
+                    SuccessPairChart.style.display = "block"
+                }
+            })
+        })
+
+        // TagCountChart
+        let languageList_label = ['C#', 'C++', "Java", "Python", "Kotlin", "Javascript", "React", "Vue", "Angular", "Php", "Mysql", "SqlServer", "Laravel"]
+        let languageList = <?php echo json_encode($skill_count) ?>;
+        // console.log(languageList)
+        let TagCountChart = document.getElementById('TagCountChart');
+        const TagCount_data = {
+            labels: languageList_label, //顯示區間名稱
+            datasets: [{
+                label: "選用數", // tootip 出現的名稱
+                data: languageList, // 資料
+                minBarLength: 10, // 起始值
+                maxBarThickness: 40,
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(255, 206, 86, 0.2)",
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(153, 102, 255, 0.2)",
+                    "rgba(255, 159, 64, 0.2)",
+                    "rgba(42, 180, 64, 0.2)",
+                    "rgba(155, 20, 210, 0.2)",
+                    "rgba(255, 0, 0, 0.2)",
+                    "rgba(255, 191, 255, 0.2)",
+                    "rgba(88, 44, 152, 0.2)",
+                    "rgba(40, 150, 152, 0.2)",
+                    "rgba(92, 154, 185, 0.2)",
+                ],
+                borderColor: [
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(54, 162, 235, 1)",
+                    "rgba(255, 206, 86, 1)",
+                    "rgba(75, 192, 192, 1)",
+                    "rgba(153, 102, 255, 1)",
+                    "rgba(255, 159, 64, 1)",
+                    "rgba(42, 180, 64, 1)",
+                    "rgba(155, 20, 210, 1)",
+                    "rgba(255, 0, 0, 1)",
+                    "rgba(255, 191, 255, 1)",
+                    "rgba(88, 44, 152, 1)",
+                    "rgba(40, 150, 152, 1)",
+                    "rgba(92, 154, 185, 1)",
+                ],
+                borderWidth: 1, // 外框線寬度
+            }]
+        };
+        const TagCount_config = {
+            type: 'bar', // 圖表類型
+            data: TagCount_data,
             options: {
+                maintainAspectRatio: false, // 保持圖表原有比例
                 indexAxis: 'y',
-                maintainAspectRatio: false,
-                beginAtZero: true,
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each horizontal bar to be 2px wide
+                elements: {
+                    bar: {
+                        borderWidth: 2,
+                    }
+                },
+                responsive: true,
                 plugins: {
+                    legend: {
+                        display: false,
+                        // position: 'right',
+                    },
                     title: {
                         display: true,
                         text: '廠商選用Tag數',
                         font: {
                             size: 24,
-                        }
+                        },
+                    },
+                },
+
+            },
+        };
+        const TagCountChart_ = new Chart(TagCountChart, TagCount_config);
+
+        // SuccessPairRateChart
+        let pair_count_data = <?php echo json_encode($pair_count_data) ?>;
+        let vacancies_count = <?php echo json_encode($vacancies_count_data) ?>;
+        let SuccessRate = pair_count_data / vacancies_count
+
+        const SuccessPairChart = document.getElementById('SuccessPairChart');
+        const SuccessPairRate_data = {
+            labels: [
+                '配對成功率%',
+                '配對失敗率%',
+            ],
+            datasets: [{
+                label: '成功率',
+                data: [SuccessRate, 1 - SuccessRate],
+                backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)',
+                    // 'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4,
+            }]
+        };
+        const SuccessPairRate_config = {
+            type: 'pie',
+            data: SuccessPairRate_data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let datasets = ctx.chart.data.datasets;
+                            if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
+                                let sum = datasets[0].data.reduce((a, b) => a + b, 0);
+                                let percentage = Math.round((value / sum) * 100) + '%';
+                                return percentage;
+                            } else {
+                                return percentage;
+                            }
+                        },
+                        color: '#fff',
                     },
                     legend: {
-                        display: false,
-                        // labels: {
-                        //     font: {
-                        //         size: 16
-                        //     }
-                        // }
+                        labels: {
+                            // render: (args) => {
+                            //     return args.percentage
+                            // },
+                            // This more specific font property overrides the global property
+                            font: {
+                                size: 24,
+                            }
+                        }
+                    },
+                    datalabels: {
+                        color: '#ffffff',
+                        formatter: function(value) {
+                            return Math.round(value * 100) + '%';
+                        },
+                        font: {
+                            weight: 'bold',
+                            size: 20,
+                        }
                     }
                 },
             },
-        });
+            plugins: [ChartDataLabels]
+        };
+        const SuccessPairChart_ = new Chart(SuccessPairChart, SuccessPairRate_config);
+
+        // console.log(vacancies_count)
     </script>
     @endsection
 </body>

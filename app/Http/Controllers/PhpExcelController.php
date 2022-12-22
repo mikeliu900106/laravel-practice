@@ -38,8 +38,7 @@ class PhpExcelController extends Controller
                         $last_date = $top_year . "-" . "1" . "-" . "1";
                         // echo $top_date;
                         // echo $last_date;
-
-                        $count = Vacancies::where('teacher_watch','通過')
+                        $count = Vacancies::where('teacher_watch', '通過')
                             ->where('vacancies_Skill', 'LIKE', "%{$skill[$i]}%")
                             ->where('vacancies_create_time', '<', $top_date)
                             ->where('vacancies_create_time', '>', $last_date)
@@ -55,8 +54,7 @@ class PhpExcelController extends Controller
                     $top_year = $this_year - $date;
                     $top_date = $top_year . "-" . "12" . "-" . "31";
                     $last_date = $top_year . "-" . "1" . "-" . "1";
-
-                    $pair_count = HistoryPair::where('teacher_confirm','配對成功')
+                    $pair_count = HistoryPair::where('teacher_confirm', '配對成功')
                         ->where('delete_time', '<', $top_date)
                         ->where('delete_time', '>', $last_date)
                         ->count();
@@ -70,7 +68,7 @@ class PhpExcelController extends Controller
                     $top_date = $top_year . "-" . "12" . "-" . "31";
                     $last_date = $top_year . "-" . "1" . "-" . "1";
 
-                    $vacancies_count = Vacancies::where('teacher_watch','通過')
+                    $vacancies_count = Vacancies::where('teacher_watch', '通過')
                         ->where('vacancies_create_time', '<', $top_date)
                         ->where('vacancies_create_time', '>', $last_date)
                         ->count();
@@ -93,7 +91,7 @@ class PhpExcelController extends Controller
                         [
                             "skill_count" => $skill_count_data,
                             "pair_count_data" => $pair_count_data,
-                            'vacancies_count_data' =>$vacancies_count_data,
+                            'vacancies_count_data' => $vacancies_count_data,
                             'date'          => $date,
                         ]
                     );
@@ -103,15 +101,14 @@ class PhpExcelController extends Controller
                     $skill_count_data = getskill($skill_count, $skill, $date = 0);
                     $pair_count_data = getpair($date = 0);
                     $vacancies_count_data =  getvacancies($date = 0);
-                    echo  $pair_count_data; 
+                    echo  $pair_count_data;
                     return view(
                         "IN.Teacher.PhpExcel.index",
                         [
                             "skill_count" => $skill_count_data,
                             "pair_count_data" => $pair_count_data,
-                            'vacancies_count_data' =>$vacancies_count_data,
+                            'vacancies_count_data' => $vacancies_count_data,
                             'date'          => $date,
-
                         ]
                     );
                 }
