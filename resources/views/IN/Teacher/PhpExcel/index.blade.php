@@ -181,8 +181,8 @@
         const SuccessPairChart = document.getElementById('SuccessPairChart');
         const SuccessPairRate_data = {
             labels: [
-                '配對成功率%',
-                '配對失敗率%',
+                '配對成功率',
+                '配對失敗率',
             ],
             datasets: [{
                 label: '成功率',
