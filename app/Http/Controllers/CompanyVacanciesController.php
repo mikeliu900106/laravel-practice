@@ -103,6 +103,7 @@ class CompanyVacanciesController extends Controller
       
         Vacancies::create(
             [
+                'vacancies_create_time'     =>date("Ymd"),
                 'company_id'                =>  $user_id,
                 'vacancies_id'              =>  $Vacancies_id,
                 'vacancies_name'            =>  $request_value['vacancies_name'],
