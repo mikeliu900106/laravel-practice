@@ -101,7 +101,7 @@ class PhpExcelController extends Controller
                     $skill_count_data = getskill($skill_count, $skill, $date = 0);
                     $pair_count_data = getpair($date = 0);
                     $vacancies_count_data =  getvacancies($date = 0);
-                    echo  $pair_count_data;
+                    // echo  $pair_count_data;
                     return view(
                         "IN.Teacher.PhpExcel.index",
                         [

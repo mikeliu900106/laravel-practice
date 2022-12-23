@@ -17,7 +17,7 @@
         <div class="Statistics-Box">
             <h1 class="text-center mb-3">資料統計</h1>
             <form action="{{route("PhpExcel.index")}}" method="get">
-                <div class="d-flex mb-3 flex-wrap">
+                <div class="Select-Date d-flex mb-3 flex-wrap">
                     <div class="col-sm-10 col px-1" style="min-width: 5rem;">
                         <select class="form-select" name="choose_date" id="choose_date">
                             <option value="0">今年</option>
@@ -44,7 +44,7 @@
                     <div class="TagCountchart">
                         <canvas id="TagCountChart" class="w-100"></canvas>
                     </div>
-                    <div class="SuccessPairChart">
+                    <div class="SuccessPairChart" style="min-width: 500px;">
                         <canvas id="SuccessPairChart" class="w-100" style="display: none;"></canvas>
                     </div>
                 </div>
@@ -79,20 +79,20 @@
 
         Switch_Btn_Array.forEach(function(Switch_Btn) {
             Switch_Btn.addEventListener('click', function() {
+                let canvas_name = this.id.replace("_Btn", "") //圖表id
+                // canvas切換
+                canvas_Array.forEach(function(canvas) {
+                    canvas.style.display = "none"
+                    if (canvas.id === canvas_name) {
+                        canvas.style.display = "block"
+                    }
+                })
                 // Switch_Btn active切換
                 for (let i = 0; i < Switch_Btn_Array.length; i++) {
                     Switch_Btn_Array[i].classList.remove("active")
                 }
+                // console.log(this)
                 this.classList.add('active')
-                // canvas切換
-                canvas_Array.forEach(function(canvas) {
-                    canvas.style.display = "none"
-                })
-                if (this.id === "TagCountChart_Btn") {
-                    TagCountChart.style.display = "block"
-                } else if (this.id === "SuccessPairChart_Btn") {
-                    SuccessPairChart.style.display = "block"
-                }
             })
         })
 
@@ -105,7 +105,7 @@
             labels: languageList_label, //顯示區間名稱
             datasets: [{
                 label: "選用數", // tootip 出現的名稱
-                data: languageList, // 資料
+                data: [12, 24, 20, 19, 9, 30, 27, 25, 23, 25, 20, 23, 24], // 資料 languageList
                 minBarLength: 10, // 起始值
                 maxBarThickness: 40,
                 backgroundColor: [
@@ -162,7 +162,7 @@
                     },
                     title: {
                         display: true,
-                        text: '廠商選用Tag數',
+                        text: '廠商選用技能數',
                         font: {
                             size: 24,
                         },
@@ -176,6 +176,7 @@
         // SuccessPairRateChart
         let pair_count_data = <?php echo json_encode($pair_count_data) ?>;
         let vacancies_count = <?php echo json_encode($vacancies_count_data) ?>;
+        let remain_vacancies = vacancies_count - pair_count_data
         let SuccessRate = pair_count_data / vacancies_count
 
         const SuccessPairChart = document.getElementById('SuccessPairChart');
@@ -185,8 +186,8 @@
                 '配對失敗率',
             ],
             datasets: [{
-                label: '成功率',
-                data: [SuccessRate, 1 - SuccessRate],
+                label: ['數量'],
+                data: [pair_count_data, remain_vacancies], // [SuccessRate, 1 - SuccessRate]
                 backgroundColor: [
                     'rgb(54, 162, 235)',
                     'rgb(255, 99, 132)',
@@ -203,16 +204,16 @@
                 maintainAspectRatio: false,
                 plugins: {
                     datalabels: {
-                        formatter: (value, ctx) => {
-                            let datasets = ctx.chart.data.datasets;
-                            if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-                                let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-                                let percentage = Math.round((value / sum) * 100) + '%';
-                                return percentage;
-                            } else {
-                                return percentage;
-                            }
-                        },
+                        // formatter: (value, ctx) => {
+                        //     let datasets = ctx.chart.data.datasets;
+                        //     if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
+                        //         let sum = datasets[0].data.reduce((a, b) => a + b, 0);
+                        //         let percentage = Math.round((value / sum)) + '%';
+                        //         return percentage;
+                        //     } else {
+                        //         return percentage;
+                        //     }
+                        // },
                         color: '#fff',
                     },
                     legend: {
@@ -222,14 +223,21 @@
                             // },
                             // This more specific font property overrides the global property
                             font: {
-                                size: 24,
+                                size: 18,
                             }
                         }
+                    },
+                    title: {
+                        display: true,
+                        text: '年度配對成功率',
+                        font: {
+                            size: 24,
+                        },
                     },
                     datalabels: {
                         color: '#ffffff',
                         formatter: function(value) {
-                            return Math.round(value * 100) + '%';
+                            return Math.round((value / vacancies_count) * 100) + '%';
                         },
                         font: {
                             weight: 'bold',
