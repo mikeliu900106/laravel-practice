@@ -32,15 +32,15 @@ class CheckUserController extends Controller
                     $search = $request->search;
                     $userDatas = Student::orWhere('user_real_name', 'LIKE', "%{$search}%")
                         ->orWhere('user_name', 'LIKE', "%{$search}%")
-                        ->where('user_level','4')
+                        ->where('user_level', '4')
                         ->paginate(10);
                     //1.取user配對情況
                     //2.取user履歷
                     //3.取usert成績單    
 
                 } else {
-                    $userDatas = Student::where('user_level','4')
-                    ->paginate(10);
+                    $userDatas = Student::where('user_level', '4')
+                        ->paginate(10);
                     // echo $userDatas;
                 }
 

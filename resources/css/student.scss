@@ -149,10 +149,10 @@ $xl_max: 1400px;
             }
             select,
             input[type="date"] {
-                max-width: 20rem;
+                max-width: 25rem;
                 flex: 1;
                 text-align: center;
-                height: 2.5rem;
+                height: 2.5rem !important;
             }
             @media (max-width: $xs_max) {
                 flex-direction: column;
@@ -162,6 +162,9 @@ $xl_max: 1400px;
                 input[type="date"] {
                     max-width: none;
                     width: 100%;
+                }
+                select {
+                    padding: 5px;
                 }
                 span {
                     min-width: 1px;

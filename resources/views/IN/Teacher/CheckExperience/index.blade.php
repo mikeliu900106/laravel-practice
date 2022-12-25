@@ -15,7 +15,7 @@
     <div id="container">
         <div class="content-Box" style="font-size: 20px;">
             @if ($is_upload === 0)
-            <form action="{{route("CheckExperience.update",$user_id)}}" method="POST">
+            <form action="{{route("CheckExperience.update",$user_id)}}" method="POST" class="text-center">
                 <div>使用者並沒提交心得</div>
                 <a href="{{route("CheckExperience.show",$user_id)}}">提醒使用者交心得</a>
             </form>
@@ -25,7 +25,7 @@
                 <a class="col btn btn-success" style="min-width: 200px; margin:5px;" href="{{route("DownloadExperience.edit",$user_id)}}">心得下載</a>
             </div>
             <form action="{{route("CheckExperience.store")}}" method="POST">
-                {{$user_id}} <br />
+                <!-- {{$user_id}} <br /> -->
                 @csrf
                 <label>心得評語:</label>
                 <div class="form-check form-check-inline">

@@ -20,7 +20,7 @@
                 <a class="col btn btn-success" style="min-width: 200px; margin:5px;" href="{{route("Download.show",$user_id)}}">履歷下載</a>
             </div>
             <form action="{{route("CheckResume.store")}}" method="POST">
-                {{$user_id}} <br>
+                <!-- {{$user_id}} <br> -->
                 @csrf
                 <label>履歷評語:</label>
                 <div class="form-check form-check-inline">

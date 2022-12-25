@@ -66,10 +66,8 @@
         let url = location.href
         let date = 0
         if (url.indexOf('?') != -1) {
-            let arr = url.split('?choose_date=');
-            date = arr[1]
+            date = url.split('?choose_date=')[1];
         }
-        // console.log(date)
         select_choose_date[date].selected = "true"
 
         // ChartSwitch
@@ -99,13 +97,13 @@
         // TagCountChart
         let languageList_label = ['C#', 'C++', "Java", "Python", "Kotlin", "Javascript", "React", "Vue", "Angular", "Php", "Mysql", "SqlServer", "Laravel"]
         let languageList = <?php echo json_encode($skill_count) ?>;
-        // console.log(languageList)
         let TagCountChart = document.getElementById('TagCountChart');
+
         const TagCount_data = {
             labels: languageList_label, //顯示區間名稱
             datasets: [{
                 label: "選用數", // tootip 出現的名稱
-                data: [12, 24, 20, 19, 9, 30, 27, 25, 23, 25, 20, 23, 24], // 資料 languageList
+                data: languageList, // 資料 [12, 24, 20, 19, 9, 30, 27, 25, 23, 25, 20, 23, 24]
                 minBarLength: 10, // 起始值
                 maxBarThickness: 40,
                 backgroundColor: [
@@ -114,14 +112,14 @@
                     "rgba(255, 206, 86, 0.2)",
                     "rgba(75, 192, 192, 0.2)",
                     "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)",
+                    "rgba(255, 223, 40, 0.3)",
+                    "rgba(54, 219, 228, 0.2)",
                     "rgba(42, 180, 64, 0.2)",
-                    "rgba(155, 20, 210, 0.2)",
                     "rgba(255, 0, 0, 0.2)",
-                    "rgba(255, 191, 255, 0.2)",
-                    "rgba(88, 44, 152, 0.2)",
+                    "rgba(36, 99, 244, 0.2)",
+                    "rgba(255, 159, 64, 0.2)",
                     "rgba(40, 150, 152, 0.2)",
-                    "rgba(92, 154, 185, 0.2)",
+                    "rgba(255, 47, 67, 0.2)",
                 ],
                 borderColor: [
                     "rgba(255, 99, 132, 1)",
@@ -129,14 +127,14 @@
                     "rgba(255, 206, 86, 1)",
                     "rgba(75, 192, 192, 1)",
                     "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)",
+                    "rgba(255, 223, 40, 1)",
+                    "rgba(54, 219, 228, 1)",
                     "rgba(42, 180, 64, 1)",
-                    "rgba(155, 20, 210, 1)",
                     "rgba(255, 0, 0, 1)",
-                    "rgba(255, 191, 255, 1)",
-                    "rgba(88, 44, 152, 1)",
+                    "rgba(36, 99, 244, 1)",
+                    "rgba(255, 159, 64, 1)",
                     "rgba(40, 150, 152, 1)",
-                    "rgba(92, 154, 185, 1)",
+                    "rgba(255, 47, 67, 1)",
                 ],
                 borderWidth: 1, // 外框線寬度
             }]
@@ -154,6 +152,11 @@
                         borderWidth: 2,
                     }
                 },
+                scale: {
+                    ticks: {
+                        precision: 0
+                    }
+                },
                 responsive: true,
                 plugins: {
                     legend: {
@@ -168,16 +171,15 @@
                         },
                     },
                 },
-
             },
         };
         const TagCountChart_ = new Chart(TagCountChart, TagCount_config);
 
         // SuccessPairRateChart
-        let pair_count_data = <?php echo json_encode($pair_count_data) ?>;
+        let pair_count = <?php echo json_encode($pair_count_data) ?>;
         let vacancies_count = <?php echo json_encode($vacancies_count_data) ?>;
-        let remain_vacancies = vacancies_count - pair_count_data
-        let SuccessRate = pair_count_data / vacancies_count
+        let remain_vacancies = vacancies_count - pair_count
+        let SuccessRate = pair_count / vacancies_count
 
         const SuccessPairChart = document.getElementById('SuccessPairChart');
         const SuccessPairRate_data = {
@@ -187,7 +189,7 @@
             ],
             datasets: [{
                 label: ['數量'],
-                data: [pair_count_data, remain_vacancies], // [SuccessRate, 1 - SuccessRate]
+                data: [pair_count, remain_vacancies], // [SuccessRate, 1 - SuccessRate]
                 backgroundColor: [
                     'rgb(54, 162, 235)',
                     'rgb(255, 99, 132)',
@@ -204,24 +206,17 @@
                 maintainAspectRatio: false,
                 plugins: {
                     datalabels: {
-                        // formatter: (value, ctx) => {
-                        //     let datasets = ctx.chart.data.datasets;
-                        //     if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-                        //         let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-                        //         let percentage = Math.round((value / sum)) + '%';
-                        //         return percentage;
-                        //     } else {
-                        //         return percentage;
-                        //     }
-                        // },
                         color: '#fff',
+                        formatter: function(value) {
+                            return Math.round((value / vacancies_count) * 100) + '%';
+                        },
+                        font: {
+                            weight: 'bold',
+                            size: 20,
+                        }
                     },
                     legend: {
                         labels: {
-                            // render: (args) => {
-                            //     return args.percentage
-                            // },
-                            // This more specific font property overrides the global property
                             font: {
                                 size: 18,
                             }
@@ -234,16 +229,6 @@
                             size: 24,
                         },
                     },
-                    datalabels: {
-                        color: '#ffffff',
-                        formatter: function(value) {
-                            return Math.round((value / vacancies_count) * 100) + '%';
-                        },
-                        font: {
-                            weight: 'bold',
-                            size: 20,
-                        }
-                    }
                 },
             },
             plugins: [ChartDataLabels]

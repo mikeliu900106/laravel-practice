@@ -836,10 +836,10 @@ nav a {
 }
 .Pair-Box .Pair-Fill-In .Pair-Row select,
 .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
-  max-width: 20rem;
+  max-width: 25rem;
   flex: 1;
   text-align: center;
-  height: 2.5rem;
+  height: 2.5rem !important;
 }
 @media (max-width: 576px) {
   .Pair-Box .Pair-Fill-In .Pair-Row {
@@ -851,6 +851,9 @@ nav a {
   .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
     max-width: none;
     width: 100%;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row select {
+    padding: 5px;
   }
   .Pair-Box .Pair-Fill-In .Pair-Row span {
     min-width: 1px;
