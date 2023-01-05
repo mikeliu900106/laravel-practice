@@ -30,7 +30,7 @@
 
 <body>
     @section('nav')
-    <nav class="navbar navbar-expand-md" id="nav">
+    <nav class="navbar navbar-expand-md navbar-light" id="nav">
         <a class="navbar-brand logo col-2 text-center" href="{{url('/')}}">PCCU</a>
         <!-- RWD -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDropdown" style="color: white">

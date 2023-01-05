@@ -1,6 +1,11 @@
-$navbar_color: #1c1c1c;
-$navbar_font_color: white;
-$navbar_font_color_hover: #1e90ff;
+$navbar_color: linear-gradient(
+    to bottom,
+    #f4f5f7,
+    #f0f5f8,
+    #eff4f7
+); //#1c1c1c #f7f1ed #a3b4c8
+$navbar_font_color: rgba(0, 0, 0, 0.55); //#000407
+$navbar_font_color_hover: #333; //1e90ff
 $light_blue: #59d3eb;
 $xs_max: 576px;
 $sm_max: 767px;
@@ -20,29 +25,50 @@ $xl_max: 1400px;
 
 * {
     //border: black solid 1px;
-    font-family: "Open Sans", "Noto Sans TC", serif;
+    font-family: "Roboto", "Noto Sans TC", sans-serif;
+    // font-family: "Open Sans", "Noto Sans TC", serif; //
 }
 html,
 body {
     @include size(100%, 100%);
     display: flex;
+    // background-color: #f2f2f2 !important;
     flex-direction: column;
     overflow: auto;
 }
-nav {
+body {
+    background-color: linear-gradient(
+        0.25turn,
+        #3f87a6,
+        #ebf8e1,
+        #f69d3c
+    ) !important;
+    // background: rgb(34, 193, 195);
+    // background: linear-gradient(
+    //     0deg,
+    //     rgba(34, 193, 195, 1) 0%,
+    //     rgba(45, 63, 253, 0.4066001400560224) 76%
+    // );
+    // background: url("/public/img/CPN.png") !important;
+}
+#nav {
     background: $navbar_color;
+}
+nav {
+    background: white;
     // height: 200px;
     align-content: stretch;
     width: 100%;
+    border-bottom: solid 1px;
     // min-width: 350px;
     .logo {
-        font-size: 50px;
+        font-size: 2.5rem;
         cursor: pointer;
         margin: 0;
         min-width: 150px;
-        color: $navbar_font_color;
+        color: $navbar_font_color !important;
         &:hover {
-            color: $navbar_font_color_hover;
+            color: $navbar_font_color_hover !important;
         }
     }
     .account {
@@ -87,9 +113,9 @@ nav {
             justify-content: center;
             height: 100%;
             padding: 0px;
-            color: $navbar_font_color;
+            color: $navbar_font_color !important;
             &:hover {
-                color: $navbar_font_color_hover;
+                color: $navbar_font_color_hover !important;
             }
             i {
                 display: flex;
@@ -124,23 +150,32 @@ nav {
 }
 
 .main {
+    // background: rgb(34, 193, 195);
+    // background: linear-gradient(
+    //     0deg,
+    //     rgba(34, 193, 195, 1) 0%,
+    //     rgba(253, 187, 45, 1) 100%
+    // );
     flex-grow: 1;
     width: 100%;
     position: relative;
     // display: flex;
-    min-height: 800px;
+    height: 100%;
     // overflow: hidden;
     // .container {
     //     position: relative;
     //     top: 100px;
     // }
+    @media (max-width: $sm_max) {
+        min-height: 800px;
+    }
 }
 
 // .footer {
-    // position: relative;
-    // flex-grow: 2;
-    // background: $navbar_color;
-    // border-top: black 1px;
+// position: relative;
+// flex-grow: 2;
+// background: $navbar_color;
+// border-top: black 1px;
 // }
 
 .swiper {
@@ -148,7 +183,8 @@ nav {
     width: 100%;
     max-height: 800px;
     max-width: 1400px;
-    margin-top: 70px;
+    margin-top: 20px;
+    padding: 0 0.8rem !important;
     .swiper-wrapper {
         .swiper-slide {
             img {
@@ -159,6 +195,11 @@ nav {
     }
 }
 
+// $xs_max: 576px;
+// $sm_max: 767px;
+// $md_max: 992px;
+// $lg_max: 1200px;
+// $xl_max: 1400px;
 #container {
     margin: 30px auto;
     // border: solid 10px $light_blue;
@@ -166,16 +207,81 @@ nav {
         padding: 10px;
     }
     @media (min-width: $sm_max) {
-        width: 750px;
+        width: 800px; //750
     }
     @media (min-width: $md_max) {
         width: 92%;
     }
     @media (min-width: $lg_max) {
-        width: 1180px;
+        width: 1140px;
+    }
+    @media (min-width: $xl_max) {
+        width: 1300px;
     }
     h1 {
         font-weight: bold;
+    }
+}
+.News-row {
+    padding: 0.8rem;
+}
+.News {
+    .News-Title {
+        background-color: rgb(42, 149, 208, 1);
+        color: white;
+        padding-left: 10px;
+        height: 2.6rem;
+        h4 {
+            font-size: 1.4rem;
+            margin: 0;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .News-Content {
+        border: solid 1px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+        min-height: 10rem;
+        background-color: white;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        table {
+            tbody {
+                tr {
+                    .news_date {
+                        color: rgb(153, 0, 0);
+                        font-weight: bold;
+                        text-align: start;
+                        font-style: italic;
+                        vertical-align: text-top;
+                    }
+                    .news_content {
+                    }
+                }
+            }
+        }
+        .New-Jobs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    a {
+        text-decoration: none;
+        &:hover {
+            color: rgba(153, 0, 0, 0.9);
+        }
+    }
+    @media (max-width: $md_max) {
+        margin-bottom: 1rem;
+    }
+}
+.Jobs {
+    .Jobs-Title {
+        background-color: rgb(51, 122, 183);
     }
 }
 
