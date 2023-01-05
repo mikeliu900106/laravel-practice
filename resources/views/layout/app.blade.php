@@ -2,6 +2,7 @@
 
 <head>
     @section('head')
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -79,9 +80,9 @@
         @section('content')
         @show
     </div>
-    </div class="footer">
-    @section('footer')
-    @show
+    <div class="footer">
+        @section('footer')
+        @show
     </div>
     <script src="{{asset("js/app.js")}}"></script>
     <script src="{{asset("js/index.js")}}"></script>

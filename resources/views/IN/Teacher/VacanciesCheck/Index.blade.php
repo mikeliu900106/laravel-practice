@@ -13,7 +13,7 @@
 <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap4.min.js"></script> --}}
 <script>
     $(document).ready(function() {
-        $('#Vacancies').DataTable({
+        let V = $('#Vacancies').DataTable({
             // "searching": false,
             // "paging": false,
             "responsive": true,
@@ -24,7 +24,6 @@
                     responsivePriority: 1,
                     createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
                         // $(td).css('width', '30%') //可寫其他設定
-
                     },
                 },
                 {
@@ -40,6 +39,13 @@
                 url: "https://cdn.datatables.net/plug-ins/1.11.3/i18n/zh_Hant.json"
             }
         });
+        window.onresize = function() {
+            V.columns.adjust()
+        }
+        let Vacancies = document.getElementById('Vacancies')
+        Vacancies.addEventListener('click', function() {
+            V.columns.adjust()
+        })
     });
 </script>
 @endsection
@@ -78,7 +84,6 @@
                 <tbody>
                     @foreach($Vacancies as $Vacancie)
                     <tr>
-
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_name}}</td>
                         <td>{{$Vacancie->company_money}}</td>

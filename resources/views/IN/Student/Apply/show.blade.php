@@ -32,16 +32,16 @@
                             <a class="nav-link" id="Jobs-other" href="#Jobs-Other">其他事項</a>
                         </nav>
                     </div>
-                    <div class="Vacancies-Info col-md-10 ">
+                    <div class="Vacancies-Info ">
                         <div class="Jobs-Company Info-Item">
                             <div class="Jobs-Title">{{$Vacancie->company_name}}</div> <!-- 公司名稱 -->
                             <div class="text-muted">{{$Vacancie->company_title}}</div> <!-- 公司分類 # -->
                         </div>
-                        <div class="Jobs-Description Info-Item">
+                        <div id="Jobs-Description" class="Jobs-Description Info-Item">
                             <div class="Jobs-Title">工作內容：</div>
                             <div class="Jobs-Content" style="white-space: pre-wrap;">{{$Vacancie->company_content}}</div>
                         </div>
-                        <div class="Jobs-Info Info-Item">
+                        <div id="Jobs-Info" class="Jobs-Info Info-Item">
                             <div class="Jobs-Title">公司資訊：</div>
                             <div class="Jobs-Content">
                                 <ul class="d-flex flex-column">
@@ -68,7 +68,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="Jobs-Terms Info-Item">
+                        <div id="Jobs-Terms" class="Jobs-Terms Info-Item">
                             <div class="Jobs-Title">要求條件：</div>
                             <div class="Jobs-Content">
                                 <ul>
@@ -81,13 +81,12 @@
                                     <li>科系要求：
                                         <span>{{$Vacancie->company_department}}</span>
                                     </li>
-                                    <li class="flex-column">其他事項：
-                                        <span style="padding-left: 10px; white-space: pre-wrap">{{$Vacancie->company_other}}</span> <!-- 駕照之類的 -->
+                                    <li class="flex-column">其他要求：無
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="Jobs-Terms Info-Item">
+                        <div id="Jobs-Benefit" class="Jobs-Benefit Info-Item">
                             <div class="Jobs-Title">公司福利：</div>
                             <div class="Jobs-Content">
                                 <ul>
@@ -97,10 +96,16 @@
                                 </ul>
                             </div>
                         </div>
-                        <input type="hidden" value="{{$Vacancie->company_email}}" name="company_email">
+                        <div id="Jobs-Other" class="Jobs-Other Info-Item">
+                            <div class="Jobs-Title">其他事項：</div>
+                            <div class="Jobs-Content">
+                                {{$Vacancie->company_other}}
+                            </div>
+                            <!-- <span style="padding-left: 10px; white-space: pre-wrap">{{$Vacancie->company_other}}</span> 駕照之類的 -->
+                        </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary">我要應徵</button>
+                    <input type="hidden" value="{{$Vacancie->company_email}}" name="company_email">
+                    <button type="submit" class="btn btn-primary">我要應徵</button>
             </form>
             @endforeach
         </div>

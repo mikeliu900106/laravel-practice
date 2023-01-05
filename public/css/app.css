@@ -106,18 +106,12 @@ nav a {
   min-height: 800px;
 }
 
-.footer {
-  position: relative;
-  flex-grow: 2;
-  background: #1c1c1c;
-  border-top: black 1px;
-}
-
 .swiper {
   height: 60vw;
   width: 100%;
   max-height: 800px;
   max-width: 1400px;
+  margin-top: 70px;
 }
 .swiper .swiper-wrapper .swiper-slide img {
   width: 100%;
@@ -126,6 +120,11 @@ nav a {
 
 #container {
   margin: 30px auto;
+}
+@media (max-width: 767px) {
+  #container {
+    padding: 10px;
+  }
 }
 @media (min-width: 767px) {
   #container {
@@ -645,6 +644,7 @@ nav a {
   margin: 16px;
   box-sizing: border-box;
   border: solid 3px #888888;
+  font-weight: bold;
 }
 .Register-Select .Select-Box:hover {
   width: 190px;
@@ -725,7 +725,6 @@ nav a {
 }
 .Apply-Info-Box .Vacancies-Content {
   position: relative;
-  display: flex;
   box-sizing: border-box;
 }
 @media (max-width: 1200px) {
@@ -772,6 +771,9 @@ nav a {
     flex-grow: 1;
   }
 }
+.Apply-Info-Box .Vacancies-Content .Vacancies-Info {
+  margin-left: 10rem;
+}
 .Apply-Info-Box .Vacancies-Content .Vacancies-Info .Info-Item {
   margin-top: 1.2rem;
 }
@@ -804,6 +806,11 @@ nav a {
 .Apply-Info-Box .Vacancies-Content .Vacancies-Info .Info-Item .Jobs-Content ul li span {
   word-wrap: break-word;
   max-width: 100%;
+}
+@media (max-width: 1200px) {
+  .Apply-Info-Box .Vacancies-Content .Vacancies-Info {
+    margin-left: 0;
+  }
 }
 .Apply-Info-Box button[type=submit] {
   width: 100%;

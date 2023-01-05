@@ -173,6 +173,7 @@
   margin: 16px;
   box-sizing: border-box;
   border: solid 3px #888888;
+  font-weight: bold;
 }
 .Register-Select .Select-Box:hover {
   width: 190px;

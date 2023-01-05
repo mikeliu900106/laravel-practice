@@ -1,4 +1,8 @@
 @charset "UTF-8";
+#Vacancies {
+  width: 100% !important;
+}
+
 .VacanciesCheck-Box,
 .Vacancies-Box,
 .Apply-Box {
@@ -11,6 +15,11 @@
 .Vacancies-Box .dataTables_scroll,
 .Apply-Box .dataTables_scroll {
   border: 1px rgba(0, 0, 0, 0.3) solid;
+}
+.VacanciesCheck-Box table,
+.Vacancies-Box table,
+.Apply-Box table {
+  width: 100%;
 }
 .VacanciesCheck-Box table thead,
 .Vacancies-Box table thead,
@@ -49,23 +58,27 @@
   width: 100%;
 }
 
-#Vacancies {
-  width: 100% !important;
-}
-
 .dataTables_wrapper .col-sm-12 {
   margin-bottom: 5px;
+}
+@media screen and (max-width: 768px) {
+  .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_paginate, .dataTables_wrapper .dataTables_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .dataTables_wrapper .dataTables_filter label {
   display: flex;
   justify-content: end;
+  align-items: center;
 }
 .dataTables_wrapper .dataTables_filter label input[type=search] {
   flex-grow: 1;
   min-width: 20px;
   max-width: 200px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .dataTables_wrapper .dataTables_filter label {
     justify-content: center;
   }
@@ -74,12 +87,12 @@
 .dtr-title {
   width: 80px;
   word-break: keep-all;
+  text-align: center;
 }
 .dtr-title::after {
   content: "：";
 }
 
 .dtr-data {
-  flex: 1;
   text-align: left;
 }
