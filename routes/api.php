@@ -6,7 +6,7 @@ use App\Models\Vacancies;
 use App\Models\Company;
 use App\Models\Resume;
 use App\Models\Student;
-
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +21,4 @@ use App\Models\Student;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::resource('Student',StudentController::class);
