@@ -23,11 +23,11 @@
                     <input type="text" name="vacancies_name" class="form-control" placeholder="請輸入職位名稱">
                 </div>
                 <div class="form-row d-flex flex-wrap">
-                    <div class="form-group col-md-7 col-12">
+                    <div class="form-group col-md-6 col-12">
                         <label for="company_money">工作待遇</label>
                         <input type="text" name="company_money" class="form-control" placeholder="請輸入工作待遇">
                     </div>
-                    <div class="form-group col-md-5 col-12">
+                    <div class="form-group col-md-6 col-12">
                         <label for="company_time">工作時間</label>
                         <input type="text" name="company_time" class="form-control" placeholder="請輸入工作時間">
                     </div>
@@ -35,14 +35,14 @@
                 <div class="form-group" id="twzipcode">
                     <label for="twzipcode">工作地址</label>
                     <div class="w-100 d-flex flex-wrap">
-                        <div class="col-md-6 col-12">
-                            <select class="col-md-6 form-select" name="county" aria-describedby="form-county" required=""></select>
+                        <div class="col-md-6 col-12 county">
+                            <select class="col-md-6 form-select" name="county" aria-describedby="form-county" required></select>
                         </div>
-                        <div class="col-md-6 col-12">
-                            <select class="col-md-6 form-select" name="district" aria-describedby="form-district" zipcode-align="left" required=""></select>
+                        <div class="col-md-6 col-12 district">
+                            <select class="col-md-6 form-select" name="district" aria-describedby="form-district" zipcode-align="left" required></select>
                         </div>
                     </div>
-                    <input class=" form-control" id="address" type="text" name="address" aria-describedby="form-address-input" required="" placeholder="路, 巷, 門牌, 樓層">
+                    <input class="form-control address" id="address" type="text" name="address" aria-describedby="form-address-input" required placeholder="路, 巷, 門牌, 樓層">
                     <input class="d-none" name="zipcode">
                 </div>
                 <div class="form-group">

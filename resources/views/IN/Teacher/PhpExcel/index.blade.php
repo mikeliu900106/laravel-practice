@@ -17,7 +17,7 @@
         <div class="Statistics-Box">
             <h1 class="text-center mb-3">資料統計</h1>
             <form action="{{route("PhpExcel.index")}}" method="get">
-                <div class="d-flex mb-3 flex-wrap">
+                <div class="Select-Date d-flex mb-3 flex-wrap">
                     <div class="col-sm-10 col px-1" style="min-width: 5rem;">
                         <select class="form-select" name="choose_date" id="choose_date">
                             <option value="0">今年</option>
@@ -44,7 +44,7 @@
                     <div class="TagCountchart">
                         <canvas id="TagCountChart" class="w-100"></canvas>
                     </div>
-                    <div class="SuccessPairChart">
+                    <div class="SuccessPairChart" style="min-width: 500px;">
                         <canvas id="SuccessPairChart" class="w-100" style="display: none;"></canvas>
                     </div>
                 </div>
@@ -66,10 +66,8 @@
         let url = location.href
         let date = 0
         if (url.indexOf('?') != -1) {
-            let arr = url.split('?choose_date=');
-            date = arr[1]
+            date = url.split('?choose_date=')[1];
         }
-        // console.log(date)
         select_choose_date[date].selected = "true"
 
         // ChartSwitch
@@ -79,33 +77,33 @@
 
         Switch_Btn_Array.forEach(function(Switch_Btn) {
             Switch_Btn.addEventListener('click', function() {
+                let canvas_name = this.id.replace("_Btn", "") //圖表id
+                // canvas切換
+                canvas_Array.forEach(function(canvas) {
+                    canvas.style.display = "none"
+                    if (canvas.id === canvas_name) {
+                        canvas.style.display = "block"
+                    }
+                })
                 // Switch_Btn active切換
                 for (let i = 0; i < Switch_Btn_Array.length; i++) {
                     Switch_Btn_Array[i].classList.remove("active")
                 }
+                // console.log(this)
                 this.classList.add('active')
-                // canvas切換
-                canvas_Array.forEach(function(canvas) {
-                    canvas.style.display = "none"
-                })
-                if (this.id === "TagCountChart_Btn") {
-                    TagCountChart.style.display = "block"
-                } else if (this.id === "SuccessPairChart_Btn") {
-                    SuccessPairChart.style.display = "block"
-                }
             })
         })
 
         // TagCountChart
         let languageList_label = ['C#', 'C++', "Java", "Python", "Kotlin", "Javascript", "React", "Vue", "Angular", "Php", "Mysql", "SqlServer", "Laravel"]
         let languageList = <?php echo json_encode($skill_count) ?>;
-        // console.log(languageList)
         let TagCountChart = document.getElementById('TagCountChart');
+
         const TagCount_data = {
             labels: languageList_label, //顯示區間名稱
             datasets: [{
                 label: "選用數", // tootip 出現的名稱
-                data: languageList, // 資料
+                data: languageList, // 資料 [12, 24, 20, 19, 9, 30, 27, 25, 23, 25, 20, 23, 24]
                 minBarLength: 10, // 起始值
                 maxBarThickness: 40,
                 backgroundColor: [
@@ -114,14 +112,14 @@
                     "rgba(255, 206, 86, 0.2)",
                     "rgba(75, 192, 192, 0.2)",
                     "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)",
+                    "rgba(255, 223, 40, 0.3)",
+                    "rgba(54, 219, 228, 0.2)",
                     "rgba(42, 180, 64, 0.2)",
-                    "rgba(155, 20, 210, 0.2)",
                     "rgba(255, 0, 0, 0.2)",
-                    "rgba(255, 191, 255, 0.2)",
-                    "rgba(88, 44, 152, 0.2)",
+                    "rgba(36, 99, 244, 0.2)",
+                    "rgba(255, 159, 64, 0.2)",
                     "rgba(40, 150, 152, 0.2)",
-                    "rgba(92, 154, 185, 0.2)",
+                    "rgba(255, 47, 67, 0.2)",
                 ],
                 borderColor: [
                     "rgba(255, 99, 132, 1)",
@@ -129,14 +127,14 @@
                     "rgba(255, 206, 86, 1)",
                     "rgba(75, 192, 192, 1)",
                     "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)",
+                    "rgba(255, 223, 40, 1)",
+                    "rgba(54, 219, 228, 1)",
                     "rgba(42, 180, 64, 1)",
-                    "rgba(155, 20, 210, 1)",
                     "rgba(255, 0, 0, 1)",
-                    "rgba(255, 191, 255, 1)",
-                    "rgba(88, 44, 152, 1)",
+                    "rgba(36, 99, 244, 1)",
+                    "rgba(255, 159, 64, 1)",
                     "rgba(40, 150, 152, 1)",
-                    "rgba(92, 154, 185, 1)",
+                    "rgba(255, 47, 67, 1)",
                 ],
                 borderWidth: 1, // 外框線寬度
             }]
@@ -154,6 +152,11 @@
                         borderWidth: 2,
                     }
                 },
+                scale: {
+                    ticks: {
+                        precision: 0
+                    }
+                },
                 responsive: true,
                 plugins: {
                     legend: {
@@ -162,21 +165,21 @@
                     },
                     title: {
                         display: true,
-                        text: '廠商選用Tag數',
+                        text: '廠商選用技能數',
                         font: {
                             size: 24,
                         },
                     },
                 },
-
             },
         };
         const TagCountChart_ = new Chart(TagCountChart, TagCount_config);
 
         // SuccessPairRateChart
-        let pair_count_data = <?php echo json_encode($pair_count_data) ?>;
+        let pair_count = <?php echo json_encode($pair_count_data) ?>;
         let vacancies_count = <?php echo json_encode($vacancies_count_data) ?>;
-        let SuccessRate = pair_count_data / vacancies_count
+        let remain_vacancies = vacancies_count - pair_count
+        let SuccessRate = pair_count / vacancies_count
 
         const SuccessPairChart = document.getElementById('SuccessPairChart');
         const SuccessPairRate_data = {
@@ -185,8 +188,8 @@
                 '配對失敗率',
             ],
             datasets: [{
-                label: '成功率',
-                data: [SuccessRate, 1 - SuccessRate],
+                label: ['數量'],
+                data: [pair_count, remain_vacancies], // [SuccessRate, 1 - SuccessRate]
                 backgroundColor: [
                     'rgb(54, 162, 235)',
                     'rgb(255, 99, 132)',
@@ -203,39 +206,29 @@
                 maintainAspectRatio: false,
                 plugins: {
                     datalabels: {
-                        formatter: (value, ctx) => {
-                            let datasets = ctx.chart.data.datasets;
-                            if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-                                let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-                                let percentage = Math.round((value / sum) * 100) + '%';
-                                return percentage;
-                            } else {
-                                return percentage;
-                            }
-                        },
                         color: '#fff',
-                    },
-                    legend: {
-                        labels: {
-                            // render: (args) => {
-                            //     return args.percentage
-                            // },
-                            // This more specific font property overrides the global property
-                            font: {
-                                size: 24,
-                            }
-                        }
-                    },
-                    datalabels: {
-                        color: '#ffffff',
                         formatter: function(value) {
-                            return Math.round(value * 100) + '%';
+                            return Math.round((value / vacancies_count) * 100) + '%';
                         },
                         font: {
                             weight: 'bold',
                             size: 20,
                         }
-                    }
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 18,
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '年度配對成功率',
+                        font: {
+                            size: 24,
+                        },
+                    },
                 },
             },
             plugins: [ChartDataLabels]

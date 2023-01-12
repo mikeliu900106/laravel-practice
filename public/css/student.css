@@ -5,7 +5,6 @@
 }
 .Apply-Info-Box .Vacancies-Content {
   position: relative;
-  display: flex;
   box-sizing: border-box;
 }
 @media (max-width: 1200px) {
@@ -52,6 +51,9 @@
     flex-grow: 1;
   }
 }
+.Apply-Info-Box .Vacancies-Content .Vacancies-Info {
+  margin-left: 10rem;
+}
 .Apply-Info-Box .Vacancies-Content .Vacancies-Info .Info-Item {
   margin-top: 1.2rem;
 }
@@ -85,6 +87,11 @@
   word-wrap: break-word;
   max-width: 100%;
 }
+@media (max-width: 1200px) {
+  .Apply-Info-Box .Vacancies-Content .Vacancies-Info {
+    margin-left: 0;
+  }
+}
 .Apply-Info-Box button[type=submit] {
   width: 100%;
 }
@@ -116,10 +123,10 @@
 }
 .Pair-Box .Pair-Fill-In .Pair-Row select,
 .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
-  max-width: 20rem;
+  max-width: 25rem;
   flex: 1;
   text-align: center;
-  height: 2.5rem;
+  height: 2.5rem !important;
 }
 @media (max-width: 576px) {
   .Pair-Box .Pair-Fill-In .Pair-Row {
@@ -131,6 +138,9 @@
   .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
     max-width: none;
     width: 100%;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row select {
+    padding: 5px;
   }
   .Pair-Box .Pair-Fill-In .Pair-Row span {
     min-width: 1px;

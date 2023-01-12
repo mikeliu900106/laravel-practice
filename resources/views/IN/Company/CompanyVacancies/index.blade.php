@@ -3,14 +3,15 @@
 @extends('layout.app')
 @section('head')
 @parent
-
+<style type="text/css"></style>
 <script>
     $(document).ready(function() {
-        $('#Vacancies').DataTable({
+        let V = $('#Vacancies').DataTable({
             // "searching": false,
             // "paging": false,
             "responsive": true,
             "scrollX": true,
+            "bautowidth": true,
             "columnDefs": [{
                     targets: [0], // 第一欄 0開始, -1倒數
                     // width: "100px",
@@ -29,13 +30,20 @@
                 },
                 {
                     targets: "_all", // 全部欄
-                    className: 'text-center' // className: 'text-left text-info'
+                    // className: 'text-center' // className: 'text-left text-info'
                 },
             ],
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.11.3/i18n/zh_Hant.json"
             }
         });
+        window.onresize = function() {
+            V.columns.adjust()
+        }
+        let Vacancies = document.getElementById('Vacancies')
+        Vacancies.addEventListener('click', function() {
+            V.columns.adjust()
+        })
     });
 </script>
 @endsection
@@ -65,14 +73,14 @@
                         <th>其他事項</th>
                         <th>工作保險</th>
                         <th>是否通過</th>
-                        <th>更新</th>
-                        <th>刪除</th>
+                        <th class="text-center">更新</th>
+                        <th class="text-center">刪除</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($Vacancies as $Vacancie)
                     <tr>
-                        {{$Vacancie->vacancies_id}}
+                        <!-- {{$Vacancie->vacancies_id}} -->
                         <td>{{$Vacancie->vacancies_name}}</td>
                         <td>{{$Vacancie->company_money }}</td>
                         <td>{{$Vacancie->company_time }}</td>
@@ -85,7 +93,7 @@
                         <td>{{$Vacancie->company_other}}</td>
                         <td>{{$Vacancie->company_safe}}</td>
                         <td>{{$Vacancie->teacher_watch}}</td>
-                        <td><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
+                        <td class="text-center"><a class="btn btn-primary" href="{{route("CompanyVacancies.edit",$Vacancie->vacancies_id)}}">更新</a></td>
                         <td>
                             <form action="{{route('CompanyVacancies.destroy',$Vacancie->vacancies_id) }}" method="post">@method('DELETE')@csrf<button class="btn btn-danger" type="submit">Delete</button></form>
                         </td>
@@ -99,7 +107,8 @@
     @endsection
     @section('footer')
     @parent
-
+    <script>
+    </script>
     @endsection
 </body>
 

@@ -1,5 +1,5 @@
 * {
-  font-family: "Open Sans", "Noto Sans TC", serif;
+  font-family: "Roboto", "Noto Sans TC", sans-serif;
 }
 
 html,
@@ -11,20 +11,29 @@ body {
   overflow: auto;
 }
 
+body {
+  background-color: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c) !important;
+}
+
+#nav {
+  background: linear-gradient(to bottom, #f4f5f7, #f0f5f8, #eff4f7);
+}
+
 nav {
-  background: #1c1c1c;
+  background: white;
   align-content: stretch;
   width: 100%;
+  border-bottom: solid 1px;
 }
 nav .logo {
-  font-size: 50px;
+  font-size: 2.5rem;
   cursor: pointer;
   margin: 0;
   min-width: 150px;
-  color: white;
+  color: rgba(0, 0, 0, 0.55) !important;
 }
 nav .logo:hover {
-  color: #1e90ff;
+  color: #333 !important;
 }
 nav .account .bi,
 nav .account .bi-person {
@@ -67,10 +76,10 @@ nav a {
   justify-content: center;
   height: 100%;
   padding: 0px;
-  color: white;
+  color: rgba(0, 0, 0, 0.55) !important;
 }
 .navbar-nav li a.nav-link:hover {
-  color: #1e90ff;
+  color: #333 !important;
 }
 .navbar-nav li a.nav-link i {
   display: flex;
@@ -103,14 +112,12 @@ nav a {
   flex-grow: 1;
   width: 100%;
   position: relative;
-  min-height: 800px;
+  height: 100%;
 }
-
-.footer {
-  position: relative;
-  flex-grow: 2;
-  background: #1c1c1c;
-  border-top: black 1px;
+@media (max-width: 767px) {
+  .main {
+    min-height: 800px;
+  }
 }
 
 .swiper {
@@ -118,6 +125,8 @@ nav a {
   width: 100%;
   max-height: 800px;
   max-width: 1400px;
+  margin-top: 20px;
+  padding: 0 0.8rem !important;
 }
 .swiper .swiper-wrapper .swiper-slide img {
   width: 100%;
@@ -127,9 +136,14 @@ nav a {
 #container {
   margin: 30px auto;
 }
+@media (max-width: 767px) {
+  #container {
+    padding: 10px;
+  }
+}
 @media (min-width: 767px) {
   #container {
-    width: 750px;
+    width: 800px;
   }
 }
 @media (min-width: 992px) {
@@ -139,11 +153,70 @@ nav a {
 }
 @media (min-width: 1200px) {
   #container {
-    width: 1180px;
+    width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  #container {
+    width: 1300px;
   }
 }
 #container h1 {
   font-weight: bold;
+}
+
+.News-row {
+  padding: 0.8rem;
+}
+
+.News .News-Title {
+  background-color: rgb(42, 149, 208);
+  color: white;
+  padding-left: 10px;
+  height: 2.6rem;
+}
+.News .News-Title h4 {
+  font-size: 1.4rem;
+  margin: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.News .News-Content {
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  min-height: 10rem;
+  background-color: white;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.News .News-Content table tbody tr .news_date {
+  color: rgb(153, 0, 0);
+  font-weight: bold;
+  text-align: start;
+  font-style: italic;
+  vertical-align: text-top;
+}
+.News .News-Content .New-Jobs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.News a {
+  text-decoration: none;
+}
+.News a:hover {
+  color: rgba(153, 0, 0, 0.9);
+}
+@media (max-width: 992px) {
+  .News {
+    margin-bottom: 1rem;
+  }
+}
+
+.Jobs .Jobs-Title {
+  background-color: rgb(51, 122, 183);
 }
 
 .Response-Box {
@@ -329,8 +402,27 @@ nav a {
 .Vacancies-Input-Box .Vacancies-Submit {
   margin: 5px;
 }
+.Vacancies-Input-Box #twzipcode .county {
+  padding-right: 5px;
+}
+.Vacancies-Input-Box #twzipcode .district {
+  padding-left: 5px;
+}
+.Vacancies-Input-Box #twzipcode .address {
+  margin-top: 5px;
+}
+@media screen and (max-width: 767px) {
+  .Vacancies-Input-Box #twzipcode .county,
+  .Vacancies-Input-Box #twzipcode .district {
+    padding: 0;
+  }
+  .Vacancies-Input-Box #twzipcode .address {
+    margin: 0;
+  }
+}
 .Vacancies-Input-Box .skill-Tag {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -346,6 +438,11 @@ nav a {
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media screen and (max-width: 1200px) {
+  .Vacancies-Input-Box .skill-Tag {
+    justify-content: start;
+  }
 }
 
 .Announcement-Box {
@@ -407,7 +504,12 @@ nav a {
     flex: 1;
   }
 }
+.Statistics-Box .Select-Date {
+  min-width: 480px;
+  padding: 0 10px;
+}
 .Statistics-Box .chart .chart-Switch {
+  min-width: 470px;
   border: solid 1px rgba(0, 0, 0, 0.1);
   margin: 0 10px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
@@ -422,7 +524,8 @@ nav a {
   font-weight: bold;
   background-color: white;
   vertical-align: middle;
-  border: 1px solid;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   transition: 0.1s ease;
@@ -445,6 +548,7 @@ nav a {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
+  background: white;
   border: solid 1px #cdd8dc;
   border-radius: 6px;
   width: 90%;
@@ -531,7 +635,7 @@ nav a {
 }
 @media screen and (max-width: 767px) {
   .Input-Section {
-    width: 100%;
+    width: 80%;
     padding: 10px;
   }
 }
@@ -615,6 +719,7 @@ nav a {
   margin: 16px;
   box-sizing: border-box;
   border: solid 3px #888888;
+  font-weight: bold;
 }
 .Register-Select .Select-Box:hover {
   width: 190px;
@@ -695,7 +800,6 @@ nav a {
 }
 .Apply-Info-Box .Vacancies-Content {
   position: relative;
-  display: flex;
   box-sizing: border-box;
 }
 @media (max-width: 1200px) {
@@ -742,6 +846,9 @@ nav a {
     flex-grow: 1;
   }
 }
+.Apply-Info-Box .Vacancies-Content .Vacancies-Info {
+  margin-left: 10rem;
+}
 .Apply-Info-Box .Vacancies-Content .Vacancies-Info .Info-Item {
   margin-top: 1.2rem;
 }
@@ -775,6 +882,11 @@ nav a {
   word-wrap: break-word;
   max-width: 100%;
 }
+@media (max-width: 1200px) {
+  .Apply-Info-Box .Vacancies-Content .Vacancies-Info {
+    margin-left: 0;
+  }
+}
 .Apply-Info-Box button[type=submit] {
   width: 100%;
 }
@@ -806,10 +918,10 @@ nav a {
 }
 .Pair-Box .Pair-Fill-In .Pair-Row select,
 .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
-  max-width: 20rem;
+  max-width: 25rem;
   flex: 1;
   text-align: center;
-  height: 2.5rem;
+  height: 2.5rem !important;
 }
 @media (max-width: 576px) {
   .Pair-Box .Pair-Fill-In .Pair-Row {
@@ -821,6 +933,9 @@ nav a {
   .Pair-Box .Pair-Fill-In .Pair-Row input[type=date] {
     max-width: none;
     width: 100%;
+  }
+  .Pair-Box .Pair-Fill-In .Pair-Row select {
+    padding: 5px;
   }
   .Pair-Box .Pair-Fill-In .Pair-Row span {
     min-width: 1px;

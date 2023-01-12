@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                     @foreach ($userDatas as $userData)
-                    {{$user_id = $userData->user_id}}
+                    <!-- {{$user_id = $userData->user_id}} -->
                     <tr class="text-center">
                         <td data-label="學生姓名">{{$userData->user_real_name}}</td>
                         <td data-label="學生帳號名稱" style="text-align: left;">{{$userData->user_name}}</td>

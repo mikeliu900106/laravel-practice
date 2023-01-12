@@ -1,6 +1,12 @@
-$phone-max-width: 576px;
-$tablet-max-width: 767px;
+$xs_max: 576px;
+$sm_max: 767px;
+$md_max: 992px;
+$lg_max: 1200px;
+$xl_max: 1400px;
 
+#Vacancies {
+    width: 100% !important;
+}
 .VacanciesCheck-Box,
 .Vacancies-Box,
 .Apply-Box {
@@ -12,9 +18,13 @@ $tablet-max-width: 767px;
         border: 1px rgba($color: #000000, $alpha: 0.3) solid;
     }
     table {
+        width: 100%;
         // border: 1px rgba($color: #000000, $alpha: 0.3) solid;
         thead {
             width: 100% !important;
+            // th{
+                // text-align: center !important;
+            // }
         }
         td {
             // display: inline-flex;
@@ -38,25 +48,54 @@ $tablet-max-width: 767px;
         ul {
             width: 100%;
         }
+        // @media (max-width: $sm_max) {
+        //     thead{
+        //         display: none;
+        //     }
+        //     tbody{
+        //         tr{
+        //             display: flex;
+        //             flex-direction: column;
+        //             flex-wrap: nowrap;
+        //             td{
+        //                 width: 100%;
+        //                 flex-grow: 1;
+        //                 display: block;
+        //                 text-align: left !important;
+        //             }
+        //             td:nth-child(5),td:nth-child(6){
+        //                 flex-wrap: nowrap;
+        //                 width: 30%;
+        //                 display: inline-block ;
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
-#Vacancies {
-    width: 100% !important;
-}
+
 .dataTables_wrapper {
     .col-sm-12 {
         margin-bottom: 5px;
+    }
+    .dataTables_length,.dataTables_paginate,.dataTables_info{
+        @media screen and (max-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
     .dataTables_filter {
         label {
             display: flex;
             justify-content: end;
+            align-items: center;
             input[type="search"] {
                 flex-grow: 1;
                 min-width: 20px;
                 max-width: 200px;
             }
-            @media screen and (max-width: $tablet-max-width) {
+            @media screen and (max-width: 768px) {
                 justify-content: center;
             }
         }
@@ -65,11 +104,12 @@ $tablet-max-width: 767px;
 .dtr-title {
     width: 80px;
     word-break: keep-all;
+    text-align: center;
     &::after {
         content: "：";
     }
 }
 .dtr-data {
-    flex: 1;
+    // flex: 1;
     text-align: left;
 }

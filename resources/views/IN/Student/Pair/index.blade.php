@@ -20,9 +20,9 @@
                 <h1>實習配對填寫</h1>
                 <div class="Pair-Fill-In">
                     <div class="Pair-Row">
-                        <span>請選擇配對的職位：</span>
+                        <span>選擇配對職位：</span>
                         <select name="choose_vacancies_id">
-                            <option disabled>請選擇配對的職位</option>
+                            <option selected disabled>請選擇配對的職位</option>
                             @foreach($Vacancies_datas as $Vacancies_data)
                             <option value="{{$Vacancies_data->vacancies_id}}">{{$Vacancies_data->company_name.":".$Vacancies_data->vacancies_name."職位"}}</option>
                             @endforeach

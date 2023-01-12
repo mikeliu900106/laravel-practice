@@ -33,7 +33,7 @@ $xl_max: 1400px;
     border-radius: 1rem;
     .Vacancies-Content {
         position: relative;
-        display: flex;
+        // display: flex;
         box-sizing: border-box;
         // flex-wrap: wrap;
         @media (max-width: $lg_max) {
@@ -80,6 +80,7 @@ $xl_max: 1400px;
             }
         }
         .Vacancies-Info {
+            margin-left: 10rem;
             .Info-Item {
                 margin-top: 1.2rem;
                 .Jobs-Title {
@@ -116,6 +117,9 @@ $xl_max: 1400px;
                     }
                 }
             }
+            @media (max-width: $lg_max) {
+                margin-left: 0;
+            }
         }
     }
     button[type="submit"] {
@@ -149,10 +153,10 @@ $xl_max: 1400px;
             }
             select,
             input[type="date"] {
-                max-width: 20rem;
+                max-width: 25rem;
                 flex: 1;
                 text-align: center;
-                height: 2.5rem;
+                height: 2.5rem !important;
             }
             @media (max-width: $xs_max) {
                 flex-direction: column;
@@ -162,6 +166,9 @@ $xl_max: 1400px;
                 input[type="date"] {
                     max-width: none;
                     width: 100%;
+                }
+                select {
+                    padding: 5px;
                 }
                 span {
                     min-width: 1px;

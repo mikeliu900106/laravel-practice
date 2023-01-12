@@ -14,7 +14,7 @@
     @section('content')
     <div id="container">
         <div class="Announcement-Box">
-            <h1>實習需知公告</h1>
+            <h1>實習須知公告</h1>
             <table class="table table-striped table-responsive-xl table-hover">
                 <thead class="thead-light">
                     <tr>

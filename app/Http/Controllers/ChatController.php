@@ -20,27 +20,23 @@ class ChatController extends Controller
                 $user_id = session()->get('user_id');
                 // echo $user_id;
                 $Chat = Chat::paginate(10);
-                $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
-                return view('IN.student.Chat.index',[
-                    'Chats'=> $Chat,
-                    'Chat_level' =>$Chat_level,
+                $Chat_level  = Chat::select('chat_level')->where('chat_id', $user_id)->get();
+                return view('IN.student.Chat.index', [
+                    'Chats' => $Chat,
+                    'Chat_level' => $Chat_level,
                     'Chat_id' => $user_id,
                 ]);
-            }
-            elseif($request->session()->get('level') == '1'){
+            } elseif ($request->session()->get('level') == '1') {
                 echo "請等老師認證";
-            }
-            else{
+            } else {
                 echo "你不是學生";
                 //1. 顯示錯誤2.錯誤controller
-                
+
 
             }
-        }
-        else{
+        } else {
             echo "你沒登入";
         }
-        
     }
 
     /**
@@ -51,8 +47,8 @@ class ChatController extends Controller
     public function create(Request $request)
     {
         $user_id = session()->get('user_id');
-        $Chat_level  = Chat::select('chat_level' )->where('chat_id',$user_id)->get();
-        return view("IN.Student.Chat.store",['Chat_level' => $Chat_level]);
+        $Chat_level  = Chat::select('chat_level')->where('chat_id', $user_id)->get();
+        return view("IN.Student.Chat.store", ['Chat_level' => $Chat_level]);
     }
 
     /**
@@ -63,7 +59,7 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request -> validate([
+        $validate = $request->validate([
             'maker' => 'required|string',
             'subject' => 'required|string',
             'content' => 'required|string',
